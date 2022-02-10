@@ -1,37 +1,132 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<!-- Powered by Wordle - https://www.powerlanguage.co.uk/wordle/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-You can use the [editor on GitHub](https://github.com/canucklegame/canuckle.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+    <title>Canuckle - A daily Canadian word game</title>
+    <meta name="description" content="Guess the hidden word in 6 tries. A new puzzle is available each day.">
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+    <!-- FB Meta Tags -->
+    <meta property="og:url" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Canuckle - A daily Canadian word game">
+    <meta property="og:description" content="Guess the hidden word in 6 tries. A new puzzle is available each day.">
+    <meta property="og:image" content="http://www.rogerscentral.com/canuckle/images/canuckle_og_1200x630.png">
 
-### Markdown
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#ff0000">
+    <link rel="manifest" href="http://www.rogerscentral.com/canuckle/images/manifest.json">
+    <link href="http://www.rogerscentral.com/canuckle/images/canuckle_logo_32x32.png" rel="icon shortcut" sizes="3232">
+    <link href="http://www.rogerscentral.com/canuckle/images/canuckle_logo_192x192.png" rel="apple-touch-icon">
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    <style>
+      /* Global Styles & Colors */
+      :root {
+        --green: #FF0000; /* #6aaa64; */
+        --darkendGreen: #FF0000; /*#538d4e; */
+        --yellow: #c9b458;
+        --darkendYellow: #b59f3b;
+        --lightGray: #d8d8d8;
+        --gray: #86888a;
+        --darkGray: #939598;
+        --white: #fff;
+        --black: #212121;
+        /* Colorblind colors */
+        --orange: #f5793a;
+        --blue: #85c0f9;
+        font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 16px;
+        --header-height: 50px;
+        --keyboard-height: 200px;
+        --game-max-width: 500px;
+      }
+      /* Light theme colors */
+      :root {
+        --color-tone-1: #1a1a1b;
+        --color-tone-2: #787c7e;
+        --color-tone-3: #878a8c;
+        --color-tone-4: #d3d6da;
+        --color-tone-5: #edeff1;
+        --color-tone-6: #f6f7f8;
+        --color-tone-7: #ffffff;
+        --opacity-50: rgba(255, 255, 255, 0.5);
+      }
+      /* Dark Theme Colors */
+      .nightmode {
+        --color-tone-1: #d7dadc;
+        --color-tone-2: #818384;
+        --color-tone-3: #565758;
+        --color-tone-4: #3a3a3c;
+        --color-tone-5: #272729;
+        --color-tone-6: #1a1a1b;
+        --color-tone-7: #121213;
+        --opacity-50: rgba(0, 0, 0, 0.5);
+      }
+      /* Constant colors and colors derived from theme */
+      :root,
+      .nightmode {
+        --color-background: var(--color-tone-7);
+      }
+      :root {
+        --color-present: var(--yellow);
+        --color-correct: var(--green);
+        --color-absent: var(--color-tone-2);
+        --tile-text-color: var(--color-tone-7);
+        --key-text-color: var(--color-tone-1);
+        --key-evaluated-text-color: var(--color-tone-7);
+        --key-bg: var(--color-tone-4);
+        --key-bg-present: var(--color-present);
+        --key-bg-correct: var(--color-correct);
+        --key-bg-absent: var(--color-absent);
+        --modal-content-bg: var(--color-tone-7);
+      }
+      .nightmode {
+        --color-present: var(--darkendYellow);
+        --color-correct: var(--darkendGreen);
+        --color-absent: var(--color-tone-4);
+        --tile-text-color: var(--color-tone-1);
+        --key-text-color: var(--color-tone-1);
+        --key-evaluated-text-color: var(--color-tone-1);
+        --key-bg: var(--color-tone-2);
+        --key-bg-present: var(--color-present);
+        --key-bg-correct: var(--color-correct);
+        --key-bg-absent: var(--color-absent);
+        --modal-content-bg: var(--color-tone-7);
+      }
+      .colorblind {
+        --color-correct: var(--orange);
+        --color-present: var(--blue);
+        --tile-text-color: var(--white);
+        --key-bg-present: var(--color-present);
+        --key-bg-correct: var(--color-correct);
+        --key-bg-absent: var(--color-absent);
+      }
+      html {
+        height: 100%;
+      }
+      body {
+        height: 100%;
+        background-color: var(--color-background);
+        margin: 0;
+        padding: 0;
+        /* Prevent scrollbar appearing on page transition */
+        overflow-y: hidden;
+      }
+    </style>
+  </head>
+  <body class="nightmode">
+    <script async="" src="./game_files/js"></script>
+    <script>
+      (function () {
+        // Defining the hash before the main bundle allows the bundle access window.hash
+        window.wordle = window.wordle || {};
+        window.wordle.hash = 'e65ce0a5';
+      })();
+    </script>
+    <script src="./game_files/main.e65ce0a5.js"></script>
+    <game-app></game-app>
+  
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/canucklegame/canuckle.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+</body></html>
