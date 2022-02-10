@@ -1632,10 +1632,10 @@
         "moose",
         "pride",
         "rocky",
-        "fundy", /* END OF CANUCKLE */
-        "allow",
-        "renew",
-        "their",
+        "fundy", 
+        "cabin", 
+        "beers", 
+        "merci", /* END OF CANUCKLE */
         "slosh",
         "purge",
         "chest",
