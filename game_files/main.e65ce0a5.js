@@ -1592,8 +1592,8 @@
         "skill",
         "elder",
         "tuque",
-        "terry", /* START OF CANUCKLE - FEB 9, 2022 */
-        "canoe",
+        "terry", 
+        "canoe", /* START OF CANUCKLE - FEB 10, 2022 */
         "maple",
         "inuit",
         "plaid",
