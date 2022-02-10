@@ -1635,8 +1635,8 @@
         "fundy", 
         "cabin",
         "beers",
+        "parka", 
         "merci", /* END OF CANUCKLE */
-        "slosh",
         "purge",
         "chest",
         "depot",
