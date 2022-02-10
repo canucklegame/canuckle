@@ -1592,7 +1592,7 @@
         "skill",
         "elder",
         "tuque",
-        "terry",
+        "terry", /* START OF CANUCKLE - FEB 9, 2022 */
         "canoe",
         "maple",
         "inuit",
@@ -1632,7 +1632,7 @@
         "moose",
         "pride",
         "rocky",
-        "fundy",
+        "fundy", /* END OF CANUCKLE */
         "allow",
         "renew",
         "their",
@@ -14434,12 +14434,12 @@
       es = "WIN",
       as = "FAIL",
       ss = [
-        "Canadian rockstar!",
+        "Canadian Rockstar!",
         "O Canada",
         "True North",
         "Awesome, eh!",
-        "True patriot love",
-        "Lucky hoser",
+        "Patriot Love",
+        "Lucky Hoser",
       ],
       ts = (function (e) {
         r(t, e);
