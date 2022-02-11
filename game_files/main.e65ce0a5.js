@@ -1351,7 +1351,7 @@
     customElements.define("game-toast", Aa),
       (window.dataLayer = window.dataLayer || []),
       Ca("js", new Date());
-    Ca("config", "G-2SSGMHY3NP", {
+    Ca("config", "G-51PE0HTHXT", {
       app_version:
         null === (Ea = window.wordle) || void 0 === Ea ? void 0 : Ea.hash,
       debug_mode: !1,
