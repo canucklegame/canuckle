@@ -1251,7 +1251,7 @@
                     ? void 0
                     : e.hash),
                 (this.shadowRoot.querySelector("#puzzle-number").textContent =
-                  "#".concat(this.gameApp.dayOffset)),
+                  "#".concat(this.gameApp.dayOffset - 235)),
                 this.shadowRoot.addEventListener(
                   "game-switch-change",
                   function (e) {
