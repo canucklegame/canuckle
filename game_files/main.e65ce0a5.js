@@ -15325,6 +15325,9 @@
     var Ts = document.createElement("template");
     Ts.innerHTML =
       '\n    <div class="graph-container">\n      <div class="guess"></div>\n      <div class="graph">\n        <div class="graph-bar">\n          <div class="num-guesses">\n        </div>\n      </div>\n      </div>\n    </div>\n';
+    var FFs = document.createElement("template");
+    FFs.innerHTML =
+      '\n  <div class="funFact"> <h1>FUN FACT</h1> </div>\n';
     var Is = document.createElement("template");
     Is.innerHTML =
       '\n  <div class="countdown">\n    <h1>Next CANUCKLE</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
@@ -15482,6 +15485,85 @@
                           }
                         );
                       });
+                }
+                var funFacts = [
+                "Canoes are fun",
+                "Maple Leaf!",
+                "Inuit",
+                "Lumberjacks wear plaid",
+                "An igloo made of snow is called a quinzhee or quinzee",
+                "", /*hoser*/
+                "Canada produces 71% of the world's maple syrup, 91% of it coming from Quebec",
+                "Canadian bacon comes from the loin of the pig instead of the side or belly.",
+                "Canadians apologize so much, Canada passed the Apology Act to ensure an apology does not lawfully imply admission of fault in court.",
+                "", /*whale*/
+                "", /*north*/
+                "", /*aboot*/
+                "", /*banff*/
+                "", /*falls*/
+                "", /*totem*/
+                "", /*queen*/
+                "", /*loons*/
+                "", /*metis*/
+                "", /*toque*/
+                "", /*canal*/
+                "", /*crude*/
+                "", /*goose*/
+                "", /*lakes*/
+                "", /*crown*/
+                "", /*spuds*/
+                "", /*roots*/
+                "", /*snowy*/
+                "", /*yukon*/
+                "", /*polar*/
+                "", /*bison*/
+                "", /*tower*/
+                "", /*bears*/
+                "", /*leafs*/
+                "", /*wheat*/
+                "", /*parks*/
+                "", /*kayak*/
+                "", /*moose*/
+                "", /*pride*/
+                "", /*rocky*/
+                "", /*fundy*/
+                "", /*cabin*/
+                "", /*beers*/
+                "", /*parka*/
+                "", /*rinks*/
+                "", /*fries*/
+                "", /*coast*/
+                "", /*eagle*/
+                "", /*phone*/
+                "", /*birch*/
+                "", /*penny*/
+                "", /*dairy*/
+                "", /*skate*/
+                "", /*farms*/
+                "", /*river*/
+                "", /*sport*/
+                "", /*geese*/
+                "", /*curds*/
+                "", /*foxes*/
+                "", /*spiel*/
+                "", /*camps*/
+                "", /*rodeo*/
+                "", /*trade*/
+                "", /*peace*/
+                "", /*mines*/
+                "", /*shore*/
+                "" /*merci*/
+                ];
+                if ((e.gameApp.gameStatus == "WIN" || e.gameApp.gameStatus == "FAIL") && funFacts.length > (e.gameApp.dayOffset - 236)) {
+                  var funFact = funFacts[e.gameApp.dayOffset - 236];  
+
+                  if (funFact != "") {
+                    this.shadowRoot.appendChild(FFs.content.cloneNode(!0));
+                  
+                    var ff = document.createElement("div");
+                    ff.innerText = funFact;
+                    this.shadowRoot.appendChild(ff);
+                  }
                 }
               },
             },
