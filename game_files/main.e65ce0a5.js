@@ -15565,6 +15565,9 @@
                     this.shadowRoot.appendChild(ff);
                   }
                 }
+                var twitter = document.createElement("div");
+                twitter.innerHTML = '<p align="center">Check out <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> on Twitter!</p>';
+                this.shadowRoot.appendChild(twitter);
               },
             },
           ]),
