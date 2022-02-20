@@ -15643,11 +15643,11 @@
                 "One of Canada's most famous nicknames is the Great White North.", /*north*/
                 "To American ears, the Canadian pronunciation of about often sounds like aboot.", /*aboot*/
                 "Banff was declared a UNESCO World Heritage Site in 1984.", /*banff*/
-                "About 28 million liters of water travel down Niagara Falls every second.", /*falls*/
+                "About 28 million litres of water travel down Niagara Falls every second.", /*falls*/
                 "The word totem comes from the Algonquian word \"odoodem\" meaning \"his kinship group\".", /*totem*/
                 "Queen Elizabeth was the first monarch to open Parliament in Canada in 1957.", /*queen*/
                 "Loons have beautiful, crimson red eyes, but this is only during mating season.", /*loons*/
-                "The MÈtis played a vital role in the success of the western fur trade.", /*metis*/
+                "The Métis played a vital role in the success of the western fur trade.", /*metis*/
                 "Toque (or tuque) is Canadian slang for a beanie, usually with a pom-pom on top.", /*toque*/
                 "", /*canal*/
                 "", /*crude*/
