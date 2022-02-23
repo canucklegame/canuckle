@@ -35,8 +35,8 @@
     <style>
       /* Global Styles & Colors */
       :root {
-        --green: #FF0000; /* #6aaa64; */
-        --darkendGreen: #FF0000; /*#538d4e; */
+        --red: #FF0000; /* #6aaa64; */
+        --darkendRed: #FF0000; /*#538d4e; */
         --yellow: #c9b458;
         --darkendYellow: #b59f3b;
         --lightGray: #d8d8d8;
@@ -82,7 +82,7 @@
       }
       :root {
         --color-present: var(--yellow);
-        --color-correct: var(--green);
+        --color-correct: var(--red);
         --color-absent: var(--color-tone-2);
         --tile-text-color: var(--color-tone-7);
         --key-text-color: var(--color-tone-1);
@@ -95,7 +95,7 @@
       }
       .nightmode {
         --color-present: var(--darkendYellow);
-        --color-correct: var(--darkendGreen);
+        --color-correct: var(--darkendRed);
         --color-absent: var(--color-tone-4);
         --tile-text-color: var(--color-tone-1);
         --key-text-color: var(--color-tone-1);
@@ -132,11 +132,11 @@
     <script>
       (function () {
         // Defining the hash before the main bundle allows the bundle access window.hash
-        window.wordle = window.wordle || {};
-        window.wordle.hash = 'e65ce0c5';
+        window.canuckle = window.canuckle || {};
+        window.canuckle.hash = 'e65ce0d5';
       })();
     </script>
-    <script src="./game_files/main.e65ce0c5.js"></script>
+    <script src="./game_files/main.e65ce0d5.js"></script>
     <game-app></game-app>
   
 
