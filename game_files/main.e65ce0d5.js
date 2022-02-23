@@ -1593,148 +1593,148 @@
         "elder",
         "frame",
         "terry", /* Game 0 */
-        "canoe", /* START OF CANUCKLE - FEB 10, 2022 */
-        "maple", /* FEB 11 */
-        "inuit", /* FEB 12 */
-        "plaid", /* FEB 13 */
-        "igloo", /* FEB 14 */
-        "hoser", /* FEB 15 */
-        "syrup", /* FEB 16 */
-        "bacon", /* FEB 17 */
-        "sorry", /* FEB 18 */
-        "whale", /* FEB 19 */
-        "north", /* FEB 20 */
-        "aboot", /* FEB 21 */
-        "banff", /* FEB 22 */
-        "falls", /* FEB 23 */
-        "totem", /* FEB 24 */
-        "queen", /* FEB 25 */
-        "loons", /* FEB 26 */
-        "metis", /* FEB 27 */
-        "toque", /* FEB 28 */
-        "canal", /* MAR 1 */
-        "crude", /* MAR 2 */
-        "goose", /* MAR 3 */
-        "lakes", /* MAR 4 */
-        "crown", /* MAR 5 */
-        "spuds", /* MAR 6 */
-        "roots", /* MAR 7 */
-        "snowy", /* MAR 8 */
-        "scoff", /* MAR 9 */
-        "polar", /* MAR 10 */
-        "bison", /* MAR 11 */
-        "tower", /* MAR 12 */
-        "bears", /* MAR 13 */
-        "leafs", /* MAR 14 */
-        "wheat", /* MAR 15 */
-        "parks", /* MAR 16 */
-        "kayak", /* MAR 17 */
-        "moose", /* MAR 18 */
-        "pride", /* MAR 19 */
-        "rocky", /* MAR 20 */
-        "fresh", /* MAR 21 */
-        "cabin", /* MAR 22 */ 
-        "beers", /* MAR 23 */ 
-        "parka", /* MAR 24 */ 
-        "rinks", /* MAR 25 */
-        "fries", /* MAR 26 */
-        "coast", /* MAR 27 */
-        "eagle", /* MAR 28 */
-        "phone", /* MAR 29 */
-        "birch", /* MAR 30 */
-        "penny", /* MAR 31 */
-        "dairy", /* APR 1 */
-        "skate", /* APR 2 */
-        "farms", /* APR 3 */
-        "river", /* APR 4 */
-        "sport", /* APR 5 */
-        "geese", /* APR 6 */
-        "curds", /* APR 7 */
-        "foxes", /* APR 8 */
-        "spiel", /* APR 9 */
-        "camps", /* APR 10 */
-        "rodeo", /* APR 11 */
-        "trade", /* APR 12 */
-        "peace", /* APR 13 */
-        "mines", /* APR 14 */
-        "shore", /* APR 15 */
-    "cedar", /* APR 16 */
-    "large", /* APR 17 */
-    "brier", /* APR 18 */
-    "tides", /* APR 19 */
-    "klick", /* APR 20 */
-    "denim", /* APR 21 */
-    "ships", /* APR 22 */
-    "poppy", /* APR 23 */
-    "court", /* APR 24 */
-    "lodge", /* APR 25 */
-    "ocean", /* APR 26 */
-    "rugby", /* APR 27 */
-    "metre", /* APR 28 */
-    "elder", /* APR 29 */
-    "space", /* APR 30 */
-    "horse", /* MAY 1 */
-    "foggy", /* MAY 2 */
-    "taxes", /* MAY 3 */
-    "train", /* MAY 4 */
-    "music", /* MAY 5 */
-    "mitts", /* MAY 6 */
-    "grain", /* MAY 7 */
-    "rouge", /* MAY 8 */
-    "tulip", /* MAY 9 */
-    "wines", /* MAY 10 */
-    "serge", /* MAY 11 */
-    "rural", /* MAY 12 */
-    "troop", /* MAY 13 */
-    "honey", /* MAY 14 */
-    "track", /* MAY 15 */
-    "sunny", /* MAY 16 */
-    "zones", /* MAY 17 */
-    "beach", /* MAY 18 */
-    "skier", /* MAY 19 */
-    "bases", /* MAY 20 */
-    "smile", /* MAY 21 */
-    "hydro", /* MAY 22 */
-    "trail", /* MAY 23 */
-    "sands", /* MAY 24 */
-    "water", /* MAY 25 */
-    "boots", /* MAY 26 */
-    "tarts", /* MAY 27 */
-    "docks", /* MAY 28 */
-    "privy", /* MAY 29 */
-    "otter", /* MAY 30 */
-    "field", /* MAY 31 */
-    "games", /* JUN 1 */
-    "sleds", /* JUN 2 */
-    "trees", /* JUN 3 */
-    "union", /* JUN 4 */
-    "prime", /* JUN 5 */
-    "chips", /* JUN 6 */
-    "perch", /* JUN 7 */
-    "banks", /* JUN 8 */
-    "pines", /* JUN 9 */
-    "gravy", /* JUN 10 */
-    "peaks", /* JUN 11 */
-    "arena", /* JUN 12 */
-    "voter", /* JUN 13 */
-    "house", /* JUN 14 */
-    "bagel", /* JUN 15 */
-    "heron", /* JUN 16 */
-    "mogul", /* JUN 17 */
-    "radio", /* JUN 18 */
-    "unity", /* JUN 19 */
-    "royal", /* JUN 20 */
-    "pitch", /* JUN 21 */
-    "upper", /* JUN 22 */
-    "trout", /* JUN 23 */
-    "scarf", /* JUN 24 */
-    "beads", /* JUN 25 */
-    "storm", /* JUN 26 */
-    "craft", /* JUN 27 */
-    "taffy", /* JUN 28 */
-    "great", /* JUN 29 */
-    "pucks", /* JUN 30 */
-    "proud"  /* JUL 1 END OF CANUCKLE */
+        "canoe", /* 1 (FEB 10, 2022 - START OF CANUCKLE) */
+        "maple", /* 2 (FEB 11) */
+        "inuit", /* 3 (FEB 12) */
+        "plaid", /* 4 (FEB 13) */
+        "igloo", /* 5 (FEB 14) */
+        "hoser", /* 6 (FEB 15) */
+        "syrup", /* 7 (FEB 16) */
+        "bacon", /* 8 (FEB 17) */
+        "sorry", /* 9 (FEB 18) */
+        "whale", /* 10 (FEB 19) */
+        "north", /* 11 (FEB 20) */
+        "aboot", /* 12 (FEB 21) */
+        "banff", /* 13 (FEB 22) */
+        "falls", /* 14 (FEB 23) */
+        "totem", /* 15 (FEB 24) */
+        "queen", /* 16 (FEB 25) */
+        "loons", /* 17 (FEB 26) */
+        "metis", /* 18 (FEB 27) */
+        "toque", /* 19 (FEB 28) */
+        "canal", /* 20 (MAR 1) */
+        "crude", /* 21 (MAR 2) */
+        "goose", /* 22 (MAR 3) */
+        "lakes", /* 23 (MAR 4) */
+        "crown", /* 24 (MAR 5) */
+        "spuds", /* 25 (MAR 6) */
+        "roots", /* 26 (MAR 7) */
+        "snowy", /* 27 (MAR 8) */
+        "yukon", /* 28 (MAR 9) */
+        "polar", /* 29 (MAR 10) */
+        "bison", /* 30 (MAR 11) */
+        "tower", /* 31 (MAR 12) */
+        "bears", /* 32 (MAR 13) */
+        "leafs", /* 33 (MAR 14) */
+        "wheat", /* 34 (MAR 15) */
+        "parks", /* 35 (MAR 16) */
+        "kayak", /* 36 (MAR 17) */
+        "moose", /* 37 (MAR 18) */
+        "pride", /* 38 (MAR 19) */
+        "rocky", /* 39 (MAR 20) */
+        "scoff", /* 40 (MAR 21) */
+        "cabin", /* 41 (MAR 22) */ 
+        "beers", /* 42 (MAR 23) */ 
+        "parka", /* 43 (MAR 24) */ 
+        "rinks", /* 44 (MAR 25) */
+        "fries", /* 45 (MAR 26) */
+        "coast", /* 46 (MAR 27) */
+        "eagle", /* 47 (MAR 28) */
+        "phone", /* 48 (MAR 29) */
+        "birch", /* 49 (MAR 30) */
+        "penny", /* 50 (MAR 31) */
+        "dairy", /* 51 (APR 1) */
+        "skate", /* 52 (APR 2) */
+        "farms", /* 53 (APR 3) */
+        "river", /* 54 (APR 4) */
+        "sport", /* 55 (APR 5) */
+        "geese", /* 56 (APR 6) */
+        "curds", /* 57 (APR 7) */
+        "foxes", /* 58 (APR 8) */
+        "spiel", /* 59 (APR 9) */
+        "camps", /* 60 (APR 10) */
+        "rodeo", /* 61 (APR 11) */
+        "trade", /* 62 (APR 12) */
+        "peace", /* 63 (APR 13) */
+        "mines", /* 64 (APR 14) */
+        "shore", /* 65 (APR 15) */
+        "cedar", /* 66 (APR 16) */
+        "large", /* 67 (APR 17) */
+        "brier", /* 68 (APR 18) */
+        "tides", /* 69 (APR 19) */
+        "klick", /* 70 (APR 20) */
+        "denim", /* 71 (APR 21) */
+        "ships", /* 72 (APR 22) */
+        "poppy", /* 73 (APR 23) */
+        "court", /* 74 (APR 24) */
+        "lodge", /* 75 (APR 25) */
+        "ocean", /* 76 (APR 26) */
+        "rugby", /* 77 (APR 27) */
+        "metre", /* 78 (APR 28) */
+        "elder", /* 79 (APR 29) */
+        "space", /* 80 (APR 30) */
+        "horse", /* 81 (MAY 1) */
+        "foggy", /* 82 (MAY 2) */
+        "taxes", /* 83 (MAY 3) */
+        "train", /* 84 (MAY 4) */
+        "music", /* 85 (MAY 5) */
+        "mitts", /* 86 (MAY 6) */
+        "grain", /* 87 (MAY 7) */
+        "rouge", /* 88 (MAY 8) */
+        "tulip", /* 89 (MAY 9) */
+        "wines", /* 90 (MAY 10) */
+        "serge", /* 91 (MAY 11) */
+        "rural", /* 92 (MAY 12) */
+        "troop", /* 93 (MAY 13) */
+        "honey", /* 94 (MAY 14) */
+        "track", /* 95 (MAY 15) */
+        "sunny", /* 96 (MAY 16) */
+        "zones", /* 97 (MAY 17) */
+        "beach", /* 98 (MAY 18) */
+        "skier", /* 99 (MAY 19) */
+        "bases", /* 100 (MAY 20) */
+        "smile", /* 101 (MAY 21) */
+        "hydro", /* 102 (MAY 22) */
+        "trail", /* 103 (MAY 23) */
+        "sands", /* 104 (MAY 24) */
+        "water", /* 105 (MAY 25) */
+        "boots", /* 106 (MAY 26) */
+        "tarts", /* 107 (MAY 27) */
+        "docks", /* 108 (MAY 28) */
+        "privy", /* 109 (MAY 29) */
+        "otter", /* 110 (MAY 30) */
+        "field", /* 111 (MAY 31) */
+        "games", /* 112 (JUN 1) */
+        "sleds", /* 113 (JUN 2) */
+        "trees", /* 114 (JUN 3) */
+        "union", /* 115 (JUN 4) */
+        "prime", /* 116 (JUN 5) */
+        "chips", /* 117 (JUN 6) */
+        "perch", /* 118 (JUN 7) */
+        "banks", /* 119 (JUN 8) */
+        "pines", /* 120 (JUN 9) */
+        "gravy", /* 121 (JUN 10) */
+        "peaks", /* 122 (JUN 11) */
+        "arena", /* 123 (JUN 12) */
+        "elect", /* 124 (JUN 13) */
+        "house", /* 125 (JUN 14) */
+        "bagel", /* 126 (JUN 15) */
+        "heron", /* 127 (JUN 16) */
+        "mogul", /* 128 (JUN 17) */
+        "radio", /* 129 (JUN 18) */
+        "unity", /* 130 (JUN 19) */
+        "royal", /* 131 (JUN 20) */
+        "pitch", /* 132 (JUN 21) */
+        "huron", /* 133 (JUN 22) */
+        "trout", /* 134 (JUN 23) */
+        "scarf", /* 135 (JUN 24) */
+        "beads", /* 136 (JUN 25) */
+        "storm", /* 137 (JUN 26) */
+        "craft", /* 138 (JUN 27) */
+        "taffy", /* 139 (JUN 28) */
+        "great", /* 140 (JUN 29) */
+        "pucks", /* 141 (JUN 30) */
+        "proud"  /* 142 (JUL 1, 2022 - END OF CANUCKLE) */
       ],
       Ta = [    /* DICTIONARY WORDS*/
         "madam",
@@ -15630,72 +15630,72 @@
                       });
                 }
                 var funFacts = [
-                "In Canada, the canoe has long been associated with the fur trade and the romantic figure of the voyageur.", /*canoe*/
-                "Is there a more Canadian word than maple?", /*maple*/
-                "Inuit live throughout most of Northern Canada in the territory of Nunavut.", /*inuit*/
-                "The official tartan for Canada as a whole is known as the Maple leaf tartan.", /*plaid*/
-                "Igloo comes from the Inkuktitu word iglu meaning house.", /*igloo*/
-                "Hoser is a slang word for a Canadian of limited intelligence.", /*hoser*/
-                "Canada produces 71% of the world's maple syrup, 91% of it coming from Quebec.", /*syrup*/
-                "Canadian bacon comes from the loin of the pig instead of the side or belly.", /*bacon*/
-                "Canadians apologize so much, Canada passed the Apology Act in 2009.", /*sorry*/
-                "There are more than 33 species of whale that live in Canada's oceans.", /*whale*/
-                "One of Canada's most famous nicknames is the Great White North.", /*north*/
-                "To American ears, the Canadian pronunciation of about often sounds like aboot.", /*aboot*/
-                "Banff was declared a UNESCO World Heritage Site in 1984.", /*banff*/
-                "About 28 million litres of water travel down Niagara Falls every second.", /*falls*/
-                "The word totem comes from the Algonquian word \"odoodem\" meaning \"his kinship group\".", /*totem*/
-                "Queen Elizabeth II has been Canada's monarch for over 70 years.", /*queen*/
-                "Loons have beautiful, crimson red eyes, but this is only during mating season.", /*loons*/
-                "The Métis invented the york boat, used by the Hudson's Bay Company to carry furs and goods.", /*metis*/
-                "Toque (or tuque) is the official name for a winter hat in Canada.", /*toque*/
-                "", /*canal*/
-                "", /*crude*/
-                "", /*goose*/
-                "", /*lakes*/
-                "", /*crown*/
-                "", /*spuds*/
-                "", /*roots*/
-                "", /*snowy*/
-                "", /*scoff*/
-                "", /*polar*/
-                "", /*bison*/
-                "", /*tower*/
-                "", /*bears*/
-                "", /*leafs*/
-                "", /*wheat*/
-                "", /*parks*/
-                "", /*kayak*/
-                "", /*moose*/
-                "", /*pride*/
-                "", /*rocky*/
-                "", /*fresh*/
-                "", /*cabin*/
-                "", /*beers*/
-                "", /*parka*/
-                "", /*rinks*/
-                "", /*fries*/
-                "", /*coast*/
-                "", /*eagle*/
-                "", /*phone*/
-                "", /*birch*/
-                "", /*penny*/
-                "", /*dairy*/
-                "", /*skate*/
-                "", /*farms*/
-                "", /*river*/
-                "", /*sport*/
-                "", /*geese*/
-                "", /*curds*/
-                "", /*foxes*/
-                "", /*spiel*/
-                "", /*camps*/
-                "", /*rodeo*/
-                "", /*trade*/
-                "", /*peace*/
-                "", /*mines*/
-                "", /*shore*/
-                "" /*merci*/
+                "In Canada, the canoe has long been associated with the fur trade and the romantic figure of the voyageur.", /*1 canoe*/
+                "Is there a more Canadian word than maple?", /*2 maple*/
+                "Inuit live throughout most of Northern Canada in the territory of Nunavut.", /*3 inuit*/
+                "The official tartan for Canada as a whole is known as the Maple leaf tartan.", /*4 plaid*/
+                "Igloo comes from the Inkuktitu word iglu meaning house.", /*5 igloo*/
+                "Hoser is a slang word for a Canadian of limited intelligence.", /*6 hoser*/
+                "Canada produces 71% of the world's maple syrup, 91% of it coming from Quebec.", /*7 syrup*/
+                "Canadian bacon comes from the loin of the pig instead of the side or belly.", /*8 bacon*/
+                "Canadians apologize so much, Canada passed the Apology Act in 2009.", /*9 sorry*/
+                "There are more than 33 species of whale that live in Canada's oceans.", /*10 whale*/
+                "One of Canada's most famous nicknames is the Great White North.", /*11 north*/
+                "To American ears, the Canadian pronunciation of about often sounds like aboot.", /*12 aboot*/
+                "Banff was declared a UNESCO World Heritage Site in 1984.", /*13 banff*/
+                "About 28 million litres of water travel down Niagara Falls every second.", /*14 falls*/
+                "The word totem comes from the Algonquian word \"odoodem\" meaning \"his kinship group\".", /*15 totem*/
+                "Queen Elizabeth II has been Canada's monarch for over 70 years.", /*16 queen*/
+                "Loons have beautiful, crimson red eyes, but this is only during mating season.", /*17 loons*/
+                "The Métis invented the york boat, used by the Hudson's Bay Company to carry furs and trade goods along waterways.", /*18 metis*/
+                "Toque (or tuque) is the official name for a winter hat in Canada!", /*19 toque*/
+                "", /*20 canal*/
+                "", /*21 crude*/
+                "", /*22 goose*/
+                "", /*23 lakes*/
+                "", /*24 crown*/
+                "", /*25 spuds*/
+                "", /*26 roots*/
+                "", /*27 snowy*/
+                "", /*28 yukon*/
+                "", /*29 polar*/
+                "", /*30 bison*/
+                "", /*31 tower*/
+                "", /*32 bears*/
+                "", /*33 leafs*/
+                "", /*34 wheat*/
+                "", /*35 parks*/
+                "", /*36 kayak*/
+                "", /*37 moose*/
+                "", /*38 pride*/
+                "", /*39 rocky*/
+                "", /*40 scoff*/
+                "", /*41 cabin*/
+                "", /*42 beers*/
+                "", /*43 parka*/
+                "", /*44 rinks*/
+                "", /*45 fries*/
+                "", /*46 coast*/
+                "", /*47 eagle*/
+                "", /*48 phone*/
+                "", /*49 birch*/
+                "", /*50 penny*/
+                "", /*51 dairy*/
+                "", /*52 skate*/
+                "", /*53 farms*/
+                "", /*54 river*/
+                "", /*55 sport*/
+                "", /*56 geese*/
+                "", /*57 curds*/
+                "", /*58 foxes*/
+                "", /*59 spiel*/
+                "", /*60 camps*/
+                "", /*61 rodeo*/
+                "", /*62 trade*/
+                "", /*63 peace*/
+                "", /*64 mines*/
+                "", /*65 shore*/
+                              
                 ];
                 if ((e.gameApp.gameStatus == "WIN" || e.gameApp.gameStatus == "FAIL") && funFacts.length > (e.gameApp.dayOffset - 236)) {
                   var funFact = funFacts[e.gameApp.dayOffset - 236];  
