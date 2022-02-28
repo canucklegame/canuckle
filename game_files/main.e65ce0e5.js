@@ -15649,24 +15649,24 @@
                 "Loons have beautiful, crimson red eyes, but this is only during mating season.", /*17 loons*/
                 "The Métis invented the york boat, used by the Hudson's Bay Company to carry furs and trade goods along waterways.", /*18 metis*/
                 "Toque (or tuque) is the official name for a winter hat in Canada!", /*19 toque*/
-                "", /*20 canal*/
-                "", /*21 crude*/
-                "", /*22 goose*/
-                "", /*23 lakes*/
-                "", /*24 crown*/
-                "", /*25 spuds*/
-                "", /*26 roots*/
-                "", /*27 snowy*/
-                "", /*28 yukon*/
-                "", /*29 polar*/
-                "", /*30 bison*/
-                "", /*31 tower*/
-                "", /*32 bears*/
-                "", /*33 leafs*/
-                "", /*34 wheat*/
-                "", /*35 parks*/
-                "", /*36 kayak*/
-                "", /*37 moose*/
+                "The 202 km of Rideau Canal with 47 locks is the oldest, continuously operated canal system in North America.", /*20 canal*/
+                "Canada has the 3rd largest oil reserves in the world and is the 4th largest oil producer and exporter.", /*21 crude*/
+                "A subspecies known as \"giant\" Canada geese are the largest geese in the world.", /*22 goose*/
+                "Canada has more lakes than the rest of the world combined! Almost 9% of Canada's total surface area is covered by freshwater.", /*23 lakes*/
+                "As of 2019, there were 47 Crown corporations in Canada, including CBC, Canada Post, VIA Rail, the Royal Canadian Mint, and the Bank of Canada.", /*24 crown*/
+                "PEI produces more potatoes for Canada than any other province and produces 2.5 billion lbs per year globally!", /*25 spuds*/
+                "Roots Canada opened its first store in 1973 selling footwear, and started using the beaver logo in 1985 with the launch of their athletic brand.", /*26 roots*/
+                "On February 10, 1999, Tahtsa Lake, British Columbia got hit with 145 cm (4'9\") of snow in ONE day!", /*27 snowy*/
+                "Yukon is home to Mount Logan, Canada's tallest mountain (5959 m) and the 2nd highest peak in North America.", /*28 yukon*/
+                "Canada is home to about 16,000 polar bears, which is approximately two-thirds of the world's total estimated population.", /*29 polar*/
+                "Bison are North America's largest land animal, with bulls weighing up to 2000 lbs and cows up to 1000 lbs.", /*30 bison*/
+                "Toronto's CN Tower held the record for the world's tallest free-standing structure for 32 years, from 1975 until 2007.", /*31 tower*/
+                "Roughly half of the world's Grizzly Bears (a Brown Bear subspecies) live in Canada, mostly in BC.", /*32 bears*/
+                "One of the NHL's founding teams, the Toronto Maple Leafs have won 13 Stanley Cups, the most recent being in 1967.", /*33 leafs*/
+                "Close to half of all Canadian wheat is grown in Saskatchewan, followed by Alberta and Manitoba.", /*34 wheat*/
+                "There’s a whopping 47 National Parks and over one thousand Provincial and Territorial parks in the Great White North!", /*35 parks*/
+                "Kayaks were originally designed for hunting and fishing. In fact, the word kayak means “hunter's boat”, and came from “qajaq”, a Greenlandic word.", /*36 kayak*/
+                "The moose is the largest species of deer in the world. The average weight of a fully grown male moose (a bull) is 1500 lbs!", /*37 moose*/
                 "", /*38 pride*/
                 "", /*39 rocky*/
                 "", /*40 scoff*/
