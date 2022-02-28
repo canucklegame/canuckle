@@ -1737,6 +1737,18 @@
         "proud"  /* 142 (JUL 1, 2022 - END OF CANUCKLE) */
       ],
       Ta = [    /* DICTIONARY WORDS*/
+        "gimli",
+        "comox",
+        "digby",
+        "edson",
+        "essex",
+        "gaspe",
+        "leduc",
+        "magog",
+        "perth",
+        "truro",
+        "sioux",
+        "rouyn",
         "madam",
         "night",
         "bland",
