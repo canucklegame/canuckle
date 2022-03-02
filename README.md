@@ -2,7 +2,7 @@
 
 🔗 http://www.canucklegame.ca
 
-Powered by code from the original [Wordle](https://www.powerlanguage.co.uk/wordle/), Canuckle is a daily Canadian word guessing game.
+Canuckle is a daily Canadian word guessing game powered by code from the original [Wordle](https://www.powerlanguage.co.uk/wordle/).
 
 ## How to Play
 
