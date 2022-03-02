@@ -2,7 +2,7 @@
 
 🔗 http://www.canucklegame.ca
 
-Powered by code from the original [Wordle](https://www.powerlanguage.co.uk/wordle/){:target="_blank" rel="noopener"}, Canuckle is a word guessing game similar to Mastermind.
+Powered by code from the original [Wordle](https://www.powerlanguage.co.uk/wordle/), Canuckle is a daily Canadian word guessing game.
 
 ## How to Play
 
@@ -21,7 +21,7 @@ A new CANUCKLE will be available each day!
 
 ## Twitter
 
-Follow us on Twitter: [@CanuckleGame](https://www.twitter.com/CanuckleGame){:target="_blank"}
+Follow us on Twitter: [@CanuckleGame](https://www.twitter.com/CanuckleGame)
 
 ## Feedback
 
