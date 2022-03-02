@@ -2,7 +2,7 @@
 
 🔗 http://www.canucklegame.ca
 
-Powered by code from the original [Wordle](https://www.powerlanguage.co.uk/wordle/){:target="_blank"}, Canuckle is a word guessing game similar to Mastermind.
+Powered by code from the original [Wordle](https://www.powerlanguage.co.uk/wordle/){:target="_blank" rel="noopener"}, Canuckle is a word guessing game similar to Mastermind.
 
 ## How to Play
 
