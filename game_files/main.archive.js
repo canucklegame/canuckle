@@ -456,10 +456,14 @@
     z.innerHTML = "\n  <slot></slot>\n";
     var j = "darkTheme",
       S = "colorBlindTheme",
+      archiveDate = "archiveDate",
       _ = (function (e) {
         r(t, e);
         var a = h(t);
         function t() {
+          if (window.localStorage.getItem(archiveDate) === null) {
+            window.localStorage.setItem(archiveDate, JSON.stringify(new Date()));
+          }
           var e;
           s(this, t),
             n(p((e = a.call(this))), "isDarkTheme", !1),
@@ -1225,7 +1229,7 @@
     }
     var Sa = document.createElement("template");
     Sa.innerHTML =
-      '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Color Blind Mode</div>\n          <div class="description">High contrast colors</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Feedback" title="info@canucklegame.ca">Email</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n    </section>\n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright">Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
+      '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Color Blind Mode</div>\n          <div class="description">High contrast colors</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n     </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Feedback" title="info@canucklegame.ca">Email</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n    </section>\n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright">Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
     var _a = (function (e) {
       r(t, e);
       var a = h(t);
@@ -1276,6 +1280,8 @@
           {
             key: "render",
             value: function () {
+              (this.shadowRoot.querySelector("#puzzle-number").textContent =
+                  "#".concat(this.gameApp.dayOffset - 235));
               var e = document.querySelector("body");
               e.classList.contains("nightmode") &&
                 this.shadowRoot
@@ -14580,7 +14586,7 @@
         .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
         .concat(
           4e3,
-          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         CANUCKLE\n        </div>\n        <div class="menu">\n          <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
+          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div style="width:170px; margin:0 auto;"> <button id="minus-archive" type="button">\< PREVIOUS</button>  <button id="plus-archive" type="button">NEXT \></button>\n</div>   <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
         );
     var Qa = document.createElement("template");
     Qa.innerHTML =
@@ -14620,14 +14626,20 @@
             n(p(e), "dayOffset", void 0),
             e.attachShadow({ mode: "open" }),
             (e.today = new Date());
+
+            // var test = {
+            //   rowIndex: 0
+            // }
+            // window.localStorage.setItem(wa, JSON.stringify(test));
           var o = za();
+
           return (
             (e.lastPlayedTs = o.lastPlayedTs),
             !e.lastPlayedTs || Na(new Date(e.lastPlayedTs), e.today) >= 1
               ? ((e.boardState = new Array(6).fill("")),
                 (e.evaluations = new Array(6).fill(null)),
-                (e.solution = Da(e.today)),
-                (e.dayOffset = Ga(e.today)),
+                (e.solution = Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
+                (e.dayOffset = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
                 (e.lastCompletedTs = o.lastCompletedTs),
                 (e.hardMode = o.hardMode),
                 (e.restoringFromLocalStorage = !1),
@@ -14643,7 +14655,7 @@
                 (e.evaluations = o.evaluations),
                 (e.rowIndex = o.rowIndex),
                 (e.solution = o.solution),
-                (e.dayOffset = Ga(e.today)),
+                (e.dayOffset = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
                 (e.letterEvaluations = Pa(e.boardState, e.evaluations)),
                 (e.gameStatus = o.gameStatus),
                 (e.lastCompletedTs = o.lastCompletedTs),
@@ -14900,6 +14912,38 @@
                     : Ba.includes(s.toLowerCase()) &&
                       e.addLetter(s.toLowerCase());
                 }),
+                (this.shadowRoot.querySelector("#minus-archive").addEventListener("click", function () {
+                    if ((Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235) <= 1) {
+                      return;
+                    }
+                    var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
+                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() - 1))));
+                    ja({
+                      rowIndex: 0,
+                      boardState: new Array(6).fill(""),
+                      evaluations: new Array(6).fill(null),
+                      solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
+                      gameStatus: Za
+                    });
+                    window.location.reload();
+                })),
+                (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
+                    if (Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) == Ga(new Date())) {
+                      return;
+                    }
+                    var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
+                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() + 1))));
+                    ja({
+                      rowIndex: 0,
+                      boardState: new Array(6).fill(""),
+                      evaluations: new Array(6).fill(null),
+                      solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
+                      gameStatus: Za
+                    });
+                    window.location.reload();
+                })),
+                (this.shadowRoot.querySelector("#canuckle-title").textContent = 
+                  "CANUCKLE ".concat(Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235)),
                   this.$game.addEventListener(
                     "game-last-tile-revealed-in-row",
                     function (a) {
@@ -15588,7 +15632,8 @@
                               n = e.isWin,
                               r = JSON.parse(window.localStorage.getItem(j)),
                               i = JSON.parse(window.localStorage.getItem(S)),
-                              l = "Canuckle ".concat(s - 235);
+                              arc = JSON.parse(window.localStorage.getItem(archiveDate)),
+                              l = "Canuckle ".concat(s - arc);
                             (l += " ".concat(n ? t : "X", "/").concat(6)),
                               o && (l += "*");
                             var d = "";
