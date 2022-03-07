@@ -14643,6 +14643,9 @@
             // }
             // window.localStorage.setItem(wa, JSON.stringify(test));
           var o = za();
+          if (window.localStorage.getItem(archiveDate) == null) {
+            window.localStorage.setItem(archiveDate, JSON.stringify(new Date()));
+          } 
           var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
           var savedData = JSON.parse(window.localStorage.getItem("archive"+JSON.stringify(currentGame)));
           if (savedData != null) {
