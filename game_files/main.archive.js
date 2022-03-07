@@ -14580,13 +14580,24 @@
           window.localStorage.setItem(Ya, JSON.stringify(e));
         })(o);
     }
+    function saveArchive(gameApp) {
+      var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
+      var saveData = {
+        rowIndex: gameApp.rowIndex,
+        boardState: gameApp.boardState,
+        evaluations: gameApp.evaluations,
+        gameStatus: gameApp.gameStatus,
+        lastPlayedTs: gameApp.lastPlayedTs
+      };
+      window.localStorage.setItem("archive"+JSON.stringify(currentGame), JSON.stringify(saveData));
+    }
     var Ka = document.createElement("template");
     Ka.innerHTML =
       "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: "
         .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
         .concat(
           4e3,
-          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div style="width:170px; margin:0 auto;"> <button id="minus-archive" type="button">\< PREVIOUS</button>  <button id="plus-archive" type="button">NEXT \></button>\n</div>   <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
+          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div style="width:225px; margin:0 auto;"> <button id="minus-archive" type="button">\< PREVIOUS</button> <button id="random-archive" type="button">RANDOM</button>  <button id="plus-archive" type="button">NEXT \></button>\n</div> <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
         );
     var Qa = document.createElement("template");
     Qa.innerHTML =
@@ -14632,10 +14643,13 @@
             // }
             // window.localStorage.setItem(wa, JSON.stringify(test));
           var o = za();
-
+          var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
+          var savedData = JSON.parse(window.localStorage.getItem("archive"+JSON.stringify(currentGame)));
+          if (savedData != null) {
+            e.lastPlayedTs = savedData.lastPlayedTs;
+          }
           return (
-            (e.lastPlayedTs = o.lastPlayedTs),
-            !e.lastPlayedTs || Na(new Date(e.lastPlayedTs), e.today) >= 1
+            savedData == null
               ? ((e.boardState = new Array(6).fill("")),
                 (e.evaluations = new Array(6).fill(null)),
                 (e.solution = Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
@@ -14651,13 +14665,13 @@
                   gameStatus: e.gameStatus,
                 }),
                 Ca("event", "level_start", { level_name: Wa(e.solution) }))
-              : ((e.boardState = o.boardState),
-                (e.evaluations = o.evaluations),
-                (e.rowIndex = o.rowIndex),
-                (e.solution = o.solution),
+              : ((e.boardState = savedData.boardState),
+                (e.evaluations = savedData.evaluations),
+                (e.rowIndex = savedData.rowIndex),
+                (e.solution = Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
                 (e.dayOffset = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
-                (e.letterEvaluations = Pa(e.boardState, e.evaluations)),
-                (e.gameStatus = o.gameStatus),
+                (e.letterEvaluations = Pa(savedData.boardState, savedData.evaluations)),
+                (e.gameStatus = savedData.gameStatus),
                 (e.lastCompletedTs = o.lastCompletedTs),
                 (e.hardMode = o.hardMode),
                 e.gameStatus !== Za && (e.canInput = !1),
@@ -14886,6 +14900,8 @@
               key: "connectedCallback",
               value: function () {
                 var e = this;
+                console.log(this.rowIndex);
+                var currentGame = Ga(new Date()) - 235;
                 this.shadowRoot.appendChild(Ka.content.cloneNode(!0)),
                   (this.$game = this.shadowRoot.querySelector("#game")),
                   (this.$board = this.shadowRoot.querySelector("#board")),
@@ -14895,7 +14911,7 @@
                   this.lastPlayedTs ||
                     setTimeout(function () {
                       return e.showHelpModal();
-                    }, 100);
+                    }, 10000);
                 for (var a = 0; a < 6; a++) {
                   var s = document.createElement("game-row");
                   s.setAttribute("letters", this.boardState[a]),
@@ -14913,33 +14929,103 @@
                       e.addLetter(s.toLowerCase());
                 }),
                 (this.shadowRoot.querySelector("#minus-archive").addEventListener("click", function () {
-                    if ((Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235) <= 1) {
+                    var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
+                    if (currentGame <= 1) {
                       return;
                     }
+                    
+                    e.lastPlayedTs = Date.now();
+                    saveArchive(e);
+                    // var archivedData = window.localStorage.getItem("archive"+JSON.stringify(currentGame-1));
+
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
                     window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() - 1))));
-                    ja({
-                      rowIndex: 0,
-                      boardState: new Array(6).fill(""),
-                      evaluations: new Array(6).fill(null),
-                      solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
-                      gameStatus: Za
-                    });
+
+                    // if (archivedData == null) {
+                    //   ja({
+                    //     rowIndex: 0,
+                    //     boardState: new Array(6).fill(""),
+                    //     evaluations: new Array(6).fill(null),
+                    //     solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
+                    //     gameStatus: Za,
+                    //     lastPlayedTs: Date.now()
+                    //   });
+                    // } else {
+                    //   ja({
+                    //     rowIndex: archivedData.rowIndex,
+                    //     boardState: archivedData.boardState,
+                    //     evaluations: archivedData.evaluations,
+                    //     solution: archivedData.solution,
+                    //     gameStatus: archivedData.gameStatus
+                    //   });
+                    // }
+                    
                     window.location.reload();
                 })),
                 (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
-                    if (Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) == Ga(new Date())) {
+                    var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
+                    if (currentGame == Ga(new Date())) {
                       return;
                     }
+
+                    e.lastPlayedTs = Date.now();
+                    saveArchive(e);
+                    // var archivedData = window.localStorage.getItem("archive"+JSON.stringify(currentGame+1));
+
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
                     window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() + 1))));
-                    ja({
-                      rowIndex: 0,
-                      boardState: new Array(6).fill(""),
-                      evaluations: new Array(6).fill(null),
-                      solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
-                      gameStatus: Za
-                    });
+                    
+                    // if (archivedData == null) {
+                    //   ja({
+                    //     rowIndex: 0,
+                    //     boardState: new Array(6).fill(""),
+                    //     evaluations: new Array(6).fill(null),
+                    //     solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
+                    //     gameStatus: Za,
+
+                    //   });
+                    // } else {
+                    //   ja({
+                    //     rowIndex: archivedData.rowIndex,
+                    //     boardState: archivedData.boardState,
+                    //     evaluations: archivedData.evaluations,
+                    //     solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
+                    //     gameStatus: archivedData.gameStatus
+                    //   });
+                    // }
+                    
+                    window.location.reload();
+                })),
+                (this.shadowRoot.querySelector("#random-archive").addEventListener("click", function () {
+                    var archiveToday = new Date();
+                    var currentGame = Ga(archiveToday) - 235;
+                    var randomGame = Math.floor(Math.random() * currentGame) + 1;
+                    var dayDiff = currentGame - randomGame;
+                    
+                    e.lastPlayedTs = Date.now();
+                    saveArchive(e);
+                    // var archivedData = window.localStorage.getItem("archive"+JSON.stringify(randomGame));
+
+                    window.localStorage.setItem(archiveDate, JSON.stringify(archiveToday.setDate(archiveToday.getDate() - dayDiff)));
+
+                    // if (archivedData == null) {
+                    //   ja({
+                    //     rowIndex: 0,
+                    //     boardState: new Array(6).fill(""),
+                    //     evaluations: new Array(6).fill(null),
+                    //     solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
+                    //     gameStatus: Za
+                    //   });
+                    // } else {
+                    //   ja({
+                    //     rowIndex: archivedData.rowIndex,
+                    //     boardState: archivedData.boardState,
+                    //     evaluations: archivedData.evaluations,
+                    //     solution: archivedData.solution,
+                    //     gameStatus: archivedData.gameStatus
+                    //   });
+                    // }
+                    
                     window.location.reload();
                 })),
                 (this.shadowRoot.querySelector("#canuckle-title").textContent = 
