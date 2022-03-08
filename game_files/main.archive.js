@@ -14977,7 +14977,7 @@
                 })),
                 (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
                     var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-                    if (currentGame == Ga(new Date()) - 235) {
+                    if (currentGame == Ga(new Date()) - 236) {
                       return;
                     }
 
@@ -15016,11 +15016,12 @@
                 })),
                 (this.shadowRoot.querySelector("#last-archive").addEventListener("click", function () {
                     var archiveToday = new Date();
+                    var archiveYesterday = new Date(archiveToday.setDate(archiveToday.getDate() - 1));
                     
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
-                    window.localStorage.setItem(archiveDate, JSON.stringify(archiveToday));
+                    window.localStorage.setItem(archiveDate, JSON.stringify(archiveYesterday));
 
                     window.location.reload();
                 })),
