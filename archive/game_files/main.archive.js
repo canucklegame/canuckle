@@ -14638,10 +14638,10 @@
       as = "FAIL",
       ss = [
         "Canadian Rockstar!",
-        "O Canada",
-        "True North",
+        "O Canada!",
+        "True North!",
         "Awesome, eh?",
-        "Patriot Love",
+        "Patriot Love!",
         "Lucky Hoser!",
       ],
       ts = (function (e) {
