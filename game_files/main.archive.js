@@ -14597,7 +14597,7 @@
         .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
         .concat(
           4e3,
-          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div style="width:225px; margin:0 auto;"> <button id="minus-archive" type="button">\< PREVIOUS</button> <button id="random-archive" type="button">RANDOM</button>  <button id="plus-archive" type="button">NEXT \></button>\n</div> <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
+          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div> <button id="first-archive" type="button">FIRST</button> <button id="minus-archive" type="button">\< PREV</button> <button id="random-archive" type="button">RANDOM</button>  <button id="plus-archive" type="button">NEXT \></button>\n <button id="last-archive" type="button">LAST</button></div> <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
         );
     var Qa = document.createElement("template");
     Qa.innerHTML =
@@ -14939,29 +14939,9 @@
                     
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
-                    // var archivedData = window.localStorage.getItem("archive"+JSON.stringify(currentGame-1));
-
+                    
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
                     window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() - 1))));
-
-                    // if (archivedData == null) {
-                    //   ja({
-                    //     rowIndex: 0,
-                    //     boardState: new Array(6).fill(""),
-                    //     evaluations: new Array(6).fill(null),
-                    //     solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
-                    //     gameStatus: Za,
-                    //     lastPlayedTs: Date.now()
-                    //   });
-                    // } else {
-                    //   ja({
-                    //     rowIndex: archivedData.rowIndex,
-                    //     boardState: archivedData.boardState,
-                    //     evaluations: archivedData.evaluations,
-                    //     solution: archivedData.solution,
-                    //     gameStatus: archivedData.gameStatus
-                    //   });
-                    // }
                     
                     window.location.reload();
                 })),
@@ -14973,29 +14953,9 @@
 
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
-                    // var archivedData = window.localStorage.getItem("archive"+JSON.stringify(currentGame+1));
-
+                    
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
                     window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() + 1))));
-                    
-                    // if (archivedData == null) {
-                    //   ja({
-                    //     rowIndex: 0,
-                    //     boardState: new Array(6).fill(""),
-                    //     evaluations: new Array(6).fill(null),
-                    //     solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
-                    //     gameStatus: Za,
-
-                    //   });
-                    // } else {
-                    //   ja({
-                    //     rowIndex: archivedData.rowIndex,
-                    //     boardState: archivedData.boardState,
-                    //     evaluations: archivedData.evaluations,
-                    //     solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
-                    //     gameStatus: archivedData.gameStatus
-                    //   });
-                    // }
                     
                     window.location.reload();
                 })),
@@ -15007,28 +14967,31 @@
                     
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
-                    // var archivedData = window.localStorage.getItem("archive"+JSON.stringify(randomGame));
-
+                    
                     window.localStorage.setItem(archiveDate, JSON.stringify(archiveToday.setDate(archiveToday.getDate() - dayDiff)));
 
-                    // if (archivedData == null) {
-                    //   ja({
-                    //     rowIndex: 0,
-                    //     boardState: new Array(6).fill(""),
-                    //     evaluations: new Array(6).fill(null),
-                    //     solution: Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))),
-                    //     gameStatus: Za
-                    //   });
-                    // } else {
-                    //   ja({
-                    //     rowIndex: archivedData.rowIndex,
-                    //     boardState: archivedData.boardState,
-                    //     evaluations: archivedData.evaluations,
-                    //     solution: archivedData.solution,
-                    //     gameStatus: archivedData.gameStatus
-                    //   });
-                    // }
+                    window.location.reload();
+                })),
+                (this.shadowRoot.querySelector("#first-archive").addEventListener("click", function () {
+                    var archiveToday = new Date();
+                    var currentGame = Ga(archiveToday) - 235;
+                    var dayDiff = currentGame - 1;
                     
+                    e.lastPlayedTs = Date.now();
+                    saveArchive(e);
+                    
+                    window.localStorage.setItem(archiveDate, JSON.stringify(archiveToday.setDate(archiveToday.getDate() - dayDiff)));
+
+                    window.location.reload();
+                })),
+                (this.shadowRoot.querySelector("#last-archive").addEventListener("click", function () {
+                    var archiveToday = new Date();
+                    
+                    e.lastPlayedTs = Date.now();
+                    saveArchive(e);
+                    
+                    window.localStorage.setItem(archiveDate, JSON.stringify(archiveToday));
+
                     window.location.reload();
                 })),
                 (this.shadowRoot.querySelector("#canuckle-title").textContent = 
@@ -15787,7 +15750,7 @@
                 "Canadians apologize so much, Canada passed the Apology Act in 2009.", /*9 sorry*/
                 "There are more than 33 species of whale that live in Canada's oceans.", /*10 whale*/
                 "One of Canada's most famous nicknames is the Great White North.", /*11 north*/
-                "This word is a humorous (though incorrect) take on the Canadian accent saying the word “about”, /*12 aboot*/
+                "This word is a humorous (though incorrect) take on the Canadian accent saying the word “about”", /*12 aboot*/
                 "Banff was declared a UNESCO World Heritage Site in 1984.", /*13 banff*/
                 "About 28 million litres of water travel down Niagara Falls every second.", /*14 falls*/
                 "The word totem comes from the Algonquian word “odoodem” meaning “his kinship group”.", /*15 totem*/
