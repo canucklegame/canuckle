@@ -1269,7 +1269,7 @@
                 (this.shadowRoot.querySelector("#language-button").addEventListener("click", function () {
                     var currentLanguage = window.localStorage.getItem("language");
                     window.localStorage.setItem("language", currentLanguage == "en" ? "fr" : "en");
-
+                    saveArchiveNoApp();
                     window.location.reload();
                 })),
                 this.shadowRoot.addEventListener(
@@ -14610,6 +14610,22 @@
       };
       window.localStorage.setItem("archive"+JSON.stringify(currentGame), JSON.stringify(saveData));
     }
+    function saveArchiveNoApp() {
+      var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
+      var gameState = window.localStorage.getItem("gameState");
+
+      if (gameState != null) {
+        var gameData = JSON.parse(gameState);
+        var saveData = {
+          rowIndex: gameData.rowIndex,
+          boardState: gameData.boardState,
+          evaluations: gameData.evaluations,
+          gameStatus: gameData.gameStatus,
+          lastPlayedTs: gameData.lastPlayedTs
+        };
+        window.localStorage.setItem("archive"+JSON.stringify(currentGame), JSON.stringify(saveData));
+      }
+    }
     var Ka = document.createElement("template");
     if (window.localStorage.getItem("language") == "en") {
       // ENGLISH
@@ -14933,7 +14949,6 @@
               key: "connectedCallback",
               value: function () {
                 var e = this;
-                console.log(this.rowIndex);
                 var currentGame = Ga(new Date()) - 235;
                 this.shadowRoot.appendChild(Ka.content.cloneNode(!0)),
                   (this.$game = this.shadowRoot.querySelector("#game")),
@@ -14941,10 +14956,10 @@
                   (this.$keyboard =
                     this.shadowRoot.querySelector("game-keyboard")),
                   this.sizeBoard(),
-                  this.lastPlayedTs ||
+                  this.lastPlayedTs || window.localStorage.getItem("hasPlayed") ||
                     setTimeout(function () {
                       return e.showHelpModal();
-                    }, 10000);
+                    }, 100);
                 for (var a = 0; a < 6; a++) {
                   var s = document.createElement("game-row");
                   s.setAttribute("letters", this.boardState[a]),
@@ -14967,6 +14982,7 @@
                       return;
                     }
                     
+                    window.localStorage.setItem("hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
@@ -14981,6 +14997,7 @@
                       return;
                     }
 
+                    window.localStorage.setItem("hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
@@ -14995,6 +15012,7 @@
                     var randomGame = Math.floor(Math.random() * currentGame) + 1;
                     var dayDiff = currentGame - randomGame;
                     
+                    window.localStorage.setItem("hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
@@ -15007,6 +15025,7 @@
                     var currentGame = Ga(archiveToday) - 235;
                     var dayDiff = currentGame - 1;
                     
+                    window.localStorage.setItem("hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
@@ -15018,6 +15037,7 @@
                     var archiveToday = new Date();
                     var archiveYesterday = new Date(archiveToday.setDate(archiveToday.getDate() - 1));
                     
+                    window.localStorage.setItem("hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
