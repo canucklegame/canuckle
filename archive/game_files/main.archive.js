@@ -1,6 +1,6 @@
 (this.canuckle = this.canuckle || {}),
   (this.canuckle.bundle = (function (e) {
-    "use strict";
+    "use strict"; 
     function a(e) {
       return (a =
         "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
