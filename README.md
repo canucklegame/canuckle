@@ -17,7 +17,7 @@ After each guess, the colour of the tiles will change to show how close your gue
 
 The answer will be a word/place/Canadianism related to Canada in some way, and a fun fact will be displayed after you play!
 
-A new CANUCKLE will be available each day!
+A new CANUCKLE will be available each day! 
 
 ## Twitter
 
