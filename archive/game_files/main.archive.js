@@ -15719,75 +15719,75 @@
                   }),
                   this.gameApp.gameStatus !== Za)
                 ) {
-                  var p = this.shadowRoot.querySelector(".footer"),
-                    m = Is.content.cloneNode(!0);
-                  p.appendChild(m),
-                    this.shadowRoot
-                      .querySelector("button#share-button")
-                      .addEventListener("click", function (a) {
-                        a.preventDefault(), a.stopPropagation();
-                        As(
-                          (function (e) {
-                            var a = e.evaluations,
-                              s = e.dayOffset,
-                              t = e.rowIndex,
-                              o = e.isHardMode,
-                              n = e.isWin,
-                              r = JSON.parse(window.localStorage.getItem(j)),
-                              i = JSON.parse(window.localStorage.getItem(S)),
-                              arc = JSON.parse(window.localStorage.getItem(archiveDate)),
-                              l = "Canuckle ".concat(s - arc);
-                            (l += " ".concat(n ? t : "X", "/").concat(6)),
-                              o && (l += "*");
-                            var d = "";
-                            return (
-                              a.forEach(function (e) {
-                                e &&
-                                  (e.forEach(function (e) {
-                                    if (e) {
-                                      var a = "";
-                                      switch (e) {
-                                        case Ma:
-                                          a = (function (e) {
-                                            return e ? "🟧" : "🟥";
-                                          })(i);
-                                          break;
-                                        case Ia:
-                                          a = (function (e) {
-                                            return e ? "🟦" : "🟨";
-                                          })(i);
-                                          break;
-                                        case Oa:
-                                          a = (function (e) {
-                                            return e ? "⬛" : "⬜";
-                                          })(r);
-                                      }
-                                      d += a;
-                                    }
-                                  }),
-                                  (d += "\n"));
-                              }),
-                              { text: "".concat(l, "\n\n").concat(d.trimEnd()) }
-                            );
-                          })({
-                            evaluations: e.gameApp.evaluations,
-                            dayOffset: e.gameApp.dayOffset,
-                            rowIndex: e.gameApp.rowIndex,
-                            isHardMode: e.gameApp.hardMode,
-                            isWin: e.gameApp.gameStatus === es,
-                          }),
-                          function () {
-                            e.gameApp.addToast(
-                              "Copied results to clipboard",
-                              2e3,
-                              !0
-                            );
-                          },
-                          function () {
-                            e.gameApp.addToast("Share failed", 2e3, !0);
-                          }
-                        );
-                      });
+                  // var p = this.shadowRoot.querySelector(".footer"),
+                  //   m = Is.content.cloneNode(!0);
+                  // p.appendChild(m),
+                  //   this.shadowRoot
+                  //     .querySelector("button#share-button")
+                  //     .addEventListener("click", function (a) {
+                  //       a.preventDefault(), a.stopPropagation();
+                  //       As(
+                  //         (function (e) {
+                  //           var a = e.evaluations,
+                  //             s = e.dayOffset,
+                  //             t = e.rowIndex,
+                  //             o = e.isHardMode,
+                  //             n = e.isWin,
+                  //             r = JSON.parse(window.localStorage.getItem(j)),
+                  //             i = JSON.parse(window.localStorage.getItem(S)),
+                  //             arc = JSON.parse(window.localStorage.getItem(archiveDate)),
+                  //             l = "Canuckle ".concat(s - arc);
+                  //           (l += " ".concat(n ? t : "X", "/").concat(6)),
+                  //             o && (l += "*");
+                  //           var d = "";
+                  //           return (
+                  //             a.forEach(function (e) {
+                  //               e &&
+                  //                 (e.forEach(function (e) {
+                  //                   if (e) {
+                  //                     var a = "";
+                  //                     switch (e) {
+                  //                       case Ma:
+                  //                         a = (function (e) {
+                  //                           return e ? "🟧" : "🟥";
+                  //                         })(i);
+                  //                         break;
+                  //                       case Ia:
+                  //                         a = (function (e) {
+                  //                           return e ? "🟦" : "🟨";
+                  //                         })(i);
+                  //                         break;
+                  //                       case Oa:
+                  //                         a = (function (e) {
+                  //                           return e ? "⬛" : "⬜";
+                  //                         })(r);
+                  //                     }
+                  //                     d += a;
+                  //                   }
+                  //                 }),
+                  //                 (d += "\n"));
+                  //             }),
+                  //             { text: "".concat(l, "\n\n").concat(d.trimEnd()) }
+                  //           );
+                  //         })({
+                  //           evaluations: e.gameApp.evaluations,
+                  //           dayOffset: e.gameApp.dayOffset,
+                  //           rowIndex: e.gameApp.rowIndex,
+                  //           isHardMode: e.gameApp.hardMode,
+                  //           isWin: e.gameApp.gameStatus === es,
+                  //         }),
+                  //         function () {
+                  //           e.gameApp.addToast(
+                  //             "Copied results to clipboard",
+                  //             2e3,
+                  //             !0
+                  //           );
+                  //         },
+                  //         function () {
+                  //           e.gameApp.addToast("Share failed", 2e3, !0);
+                  //         }
+                  //       );
+                  //     });
                 }
                 var funFacts = [
                 "In Canada, the canoe has long been associated with the fur trade and the romantic figure of the voyageur.", /*1 canoe*/
@@ -15857,20 +15857,21 @@
                 "", /*65 shore*/
                               
                 ];
+                saveArchiveNoApp();
                 if ((e.gameApp.gameStatus == "WIN" || e.gameApp.gameStatus == "FAIL") && funFacts.length > (e.gameApp.dayOffset - 236)) {
                   var funFact = funFacts[e.gameApp.dayOffset - 236];  
 
                   if (funFact != "") {
-                    this.shadowRoot.appendChild(FFs.content.cloneNode(!0));
+                    e.shadowRoot.appendChild(FFs.content.cloneNode(!0));
                   
                     var ff = document.createElement("div");
                     ff.innerText = funFact;
-                    this.shadowRoot.appendChild(ff);
+                    e.shadowRoot.appendChild(ff);
                   }
                 }
                 var twitter = document.createElement("div");
                 twitter.innerHTML = '<p align="center">Check out <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> on Twitter!</p>';
-                this.shadowRoot.appendChild(twitter);
+                e.shadowRoot.appendChild(twitter);
               },
             },
           ]),
