@@ -15010,7 +15010,7 @@
                 (this.shadowRoot.querySelector("#random-archive").addEventListener("click", function () {
                     var archiveToday = new Date();
                     var currentGame = Ga(archiveToday) - 235;
-                    var randomGame = Math.floor(Math.random() * currentGame) + 1;
+                    var randomGame = Math.floor(Math.random() * (currentGame - 1)) + 1;
                     var dayDiff = currentGame - randomGame;
                     
                     window.localStorage.setItem("hasPlayed", "1");
