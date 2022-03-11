@@ -1225,7 +1225,7 @@
     }
     var Sa = document.createElement("template");
     Sa.innerHTML =
-      '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">High Contrast Mode</div>\n          <div class="description">For improved colour vision</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Feedback" title="info@canucklegame.ca">Email</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n    </section>\n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright">Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
+      '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Color Blind Mode</div>\n          <div class="description">High contrast colors</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Feedback" title="info@canucklegame.ca">Email</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n    </section>\n  <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Canuckle Archive</div>\n        </div>\n        <div class="control">\n          <a href="http://archive.canucklegame.ca">archive.canucklegame.ca</a>\n        </div>\n      </div>\n </section>\n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright">Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
     var _a = (function (e) {
       r(t, e);
       var a = h(t);
@@ -14563,13 +14563,13 @@
         (o.gamesWon += a ? 1 : 0),
         (o.winPercentage = Math.round((o.gamesWon / o.gamesPlayed) * 100)),
         (o.averageGuesses = Math.round(
-          Object.entries(o.guesses).reduce(function (e, a) {
+          (Object.entries(o.guesses).reduce(function (e, a) {
             var s = y(a, 2),
               t = s[0],
               o = s[1];
             return t !== Ja ? (e += t * o) : e;
-          }, 0) / o.gamesWon
-        )),
+          }, 0) / Math.max(o.gamesWon, 1)) * 10
+        ) / 10),
         (function (e) {
           window.localStorage.setItem(Ya, JSON.stringify(e));
         })(o);
@@ -14621,6 +14621,13 @@
             e.attachShadow({ mode: "open" }),
             (e.today = new Date());
           var o = za();
+
+          var currentGame = Ga(e.today) - 235;
+          if (window.localStorage.getItem("reload"+JSON.stringify(currentGame)) == null) {
+            window.localStorage.setItem("reload"+JSON.stringify(currentGame), JSON.stringify(1));
+            window.location.reload();
+          }
+
           return (
             (e.lastPlayedTs = o.lastPlayedTs),
             !e.lastPlayedTs || Na(new Date(e.lastPlayedTs), e.today) >= 1
@@ -15492,7 +15499,7 @@
         winPercentage: "Win %",
         gamesPlayed: "Played",
         gamesWon: "Won",
-        averageGuesses: "Av. Guesses",
+        averageGuesses: "Average Guesses",
       },
       Os = (function (e) {
         r(t, e);
@@ -15562,6 +15569,7 @@
                     "winPercentage",
                     "currentStreak",
                     "maxStreak",
+                    "averageGuesses"
                   ].forEach(function (s) {
                     var t = Ms[s],
                       o = e.stats[s],
