@@ -1225,7 +1225,7 @@
     }
     var Sa = document.createElement("template");
     Sa.innerHTML =
-      '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Color Blind Mode</div>\n          <div class="description">High contrast colors</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Feedback" title="info@canucklegame.ca">Email</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n    </section>\n  <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Canuckle Archive</div>\n        </div>\n        <div class="control">\n          <a href="http://archive.canucklegame.ca">archive.canucklegame.ca</a>\n        </div>\n      </div>\n </section>\n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright">Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
+      '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 16px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">High Contrast Mode</div>\n          <div class="description">For improved colour vision</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Feedback" title="info@canucklegame.ca">Email</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n    </section>\n  <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Canuckle Archive</div>\n        </div>\n        <div class="control">\n          <a href="http://archive.canucklegame.ca" target="blank">archive.canucklegame.ca</a>\n        </div>\n      </div>\n </section>\n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright">Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
     var _a = (function (e) {
       r(t, e);
       var a = h(t);
@@ -1639,19 +1639,19 @@
         "rinks", /* 44 (MAR 25) */
         "fries", /* 45 (MAR 26) */
         "coast", /* 46 (MAR 27) */
-        "eagle", /* 47 (MAR 28) */
+        "order", /* 47 (MAR 28) used to be EAGLE*/
         "phone", /* 48 (MAR 29) */
         "birch", /* 49 (MAR 30) */
-        "penny", /* 50 (MAR 31) */
+        "ports", /* 50 (MAR 31) used to be PENNY*/
         "dairy", /* 51 (APR 1) */
         "skate", /* 52 (APR 2) */
         "farms", /* 53 (APR 3) */
         "river", /* 54 (APR 4) */
         "sport", /* 55 (APR 5) */
-        "geese", /* 56 (APR 6) */
+        "globe", /* 56 (APR 6) used to be GEESE*/
         "curds", /* 57 (APR 7) */
         "foxes", /* 58 (APR 8) */
-        "spiel", /* 59 (APR 9) */
+        "crops", /* 59 (APR 9) used to be SPIEL*/
         "camps", /* 60 (APR 10) */
         "rodeo", /* 61 (APR 11) */
         "trade", /* 62 (APR 12) */
@@ -1713,7 +1713,7 @@
         "perch", /* 118 (JUN 7) */
         "banks", /* 119 (JUN 8) */
         "pines", /* 120 (JUN 9) */
-        "gravy", /* 121 (JUN 10) */
+        "chief", /* 121 (JUN 10) used to be GRAVY*/
         "peaks", /* 122 (JUN 11) */
         "arena", /* 123 (JUN 12) */
         "elect", /* 124 (JUN 13) */
@@ -1722,9 +1722,9 @@
         "heron", /* 127 (JUN 16) */
         "mogul", /* 128 (JUN 17) */
         "radio", /* 129 (JUN 18) */
-        "unity", /* 130 (JUN 19) */
+        "litre", /* 130 (JUN 19) used to be UNITY*/
         "royal", /* 131 (JUN 20) */
-        "pitch", /* 132 (JUN 21) */
+        "taiga", /* 132 (JUN 21) used to be PITCH*/
         "huron", /* 133 (JUN 22) */
         "trout", /* 134 (JUN 23) */
         "scarf", /* 135 (JUN 24) */
@@ -15696,19 +15696,19 @@
                 "", /*44 rinks*/
                 "", /*45 fries*/
                 "", /*46 coast*/
-                "", /*47 eagle*/
+                "", /*47 order*/
                 "", /*48 phone*/
                 "", /*49 birch*/
-                "", /*50 penny*/
+                "", /*50 ports*/
                 "", /*51 dairy*/
                 "", /*52 skate*/
                 "", /*53 farms*/
                 "", /*54 river*/
                 "", /*55 sport*/
-                "", /*56 geese*/
+                "", /*56 globe*/
                 "", /*57 curds*/
                 "", /*58 foxes*/
-                "", /*59 spiel*/
+                "", /*59 crops*/
                 "", /*60 camps*/
                 "", /*61 rodeo*/
                 "", /*62 trade*/
