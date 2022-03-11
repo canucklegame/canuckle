@@ -15640,7 +15640,7 @@
         winPercentage: "Win %",
         gamesPlayed: "Played",
         gamesWon: "Won",
-        averageGuesses: "Avg Guesses",
+        averageGuesses: "Average Guesses",
       },
       Os = (function (e) {
         r(t, e);

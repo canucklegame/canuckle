@@ -15653,20 +15653,20 @@
                 "Canadians apologize so much, Canada passed the Apology Act in 2009.", /*9 sorry*/
                 "There are more than 33 species of whale that live in Canada's oceans.", /*10 whale*/
                 "One of Canada's most famous nicknames is the Great White North.", /*11 north*/
-                "To American ears, the Canadian pronunciation of about often sounds like aboot.", /*12 aboot*/
+                "This word is a humorous (though incorrect) take on the Canadian accent saying the word “about”", /*12 aboot*/
                 "Banff was declared a UNESCO World Heritage Site in 1984.", /*13 banff*/
                 "About 28 million litres of water travel down Niagara Falls every second.", /*14 falls*/
-                "The word totem comes from the Algonquian word \"odoodem\" meaning \"his kinship group\".", /*15 totem*/
+                "The word totem comes from the Algonquian word “odoodem” meaning \"his kinship group\".", /*15 totem*/
                 "Queen Elizabeth II has been Canada's monarch for over 70 years.", /*16 queen*/
                 "Loons have beautiful, crimson red eyes, but this is only during mating season.", /*17 loons*/
                 "The Métis invented the york boat, used by the Hudson's Bay Company to carry furs and trade goods along waterways.", /*18 metis*/
                 "Toque (or tuque) is the official name for a winter hat in Canada!", /*19 toque*/
                 "The 202 km of Rideau Canal with 47 locks is the oldest, continuously operated canal system in North America.", /*20 canal*/
                 "Canada has the 3rd largest oil reserves in the world and is the 4th largest oil producer and exporter.", /*21 crude*/
-                "A subspecies known as \"giant\" Canada geese are the largest geese in the world.", /*22 goose*/
+                "A subspecies known as “giant” Canada geese are the largest geese in the world.", /*22 goose*/
                 "Canada has more lakes than the rest of the world combined! Almost 9% of Canada's total surface area is covered by freshwater.", /*23 lakes*/
                 "As of 2019, there were 47 Crown corporations in Canada, including CBC, Canada Post, VIA Rail, the Royal Canadian Mint, and the Bank of Canada.", /*24 crown*/
-                "PEI produces more potatoes for Canada than any other province and produces 2.5 billion lbs per year globally!", /*25 spuds*/
+                "PEI produces more potatoes for Canada than any other province and produces 2.5 billion lbs per year!", /*25 spuds*/
                 "Roots Canada opened its first store in 1973 selling footwear, and started using the beaver logo in 1985 with the launch of their athletic brand.", /*26 roots*/
                 "On February 10, 1999, Tahtsa Lake, British Columbia got hit with 145 cm (4'9\") of snow in ONE day!", /*27 snowy*/
                 "Yukon is home to Mount Logan, Canada's tallest mountain (5959 m) and the 2nd highest peak in North America.", /*28 yukon*/
