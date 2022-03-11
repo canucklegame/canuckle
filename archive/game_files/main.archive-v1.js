@@ -15737,8 +15737,8 @@
                   ([
                     "gamesPlayed",
                     "winPercentage",
-                    "currentStreak",
-                    "maxStreak",
+                    /*"currentStreak",*/
+                    /*"maxStreak",*/
                     "averageGuesses",
                   ].forEach(function (s) {
                     var t = Ms[s],
