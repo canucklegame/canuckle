@@ -1619,7 +1619,7 @@
         "crown", /* 24 (MAR 5) */
         "spuds", /* 25 (MAR 6) */
         "roots", /* 26 (MAR 7) */
-        "snowy", /* 27 (MAR 8) */
+        "queen", /* 27 (MAR 8) */
         "yukon", /* 28 (MAR 9) */
         "polar", /* 29 (MAR 10) */
         "bison", /* 30 (MAR 11) */
@@ -15668,7 +15668,7 @@
                 "As of 2019, there were 47 Crown corporations in Canada, including CBC, Canada Post, VIA Rail, the Royal Canadian Mint, and the Bank of Canada.", /*24 crown*/
                 "PEI produces more potatoes for Canada than any other province and produces 2.5 billion lbs per year globally!", /*25 spuds*/
                 "Roots Canada opened its first store in 1973 selling footwear, and started using the beaver logo in 1985 with the launch of their athletic brand.", /*26 roots*/
-                "On February 10, 1999, Tahtsa Lake, British Columbia got hit with 145 cm (4'9\") of snow in ONE day!", /*27 snowy*/
+                "Queen Elizabeth II has been Canada's monarch for over 70 years.", /*27 snowy*/
                 "Yukon is home to Mount Logan, Canada's tallest mountain (5959 m) and the 2nd highest peak in North America.", /*28 yukon*/
                 "Canada is home to about 16,000 polar bears, which is approximately two-thirds of the world's total estimated population.", /*29 polar*/
                 "Bison are North America's largest land animal, with bulls weighing up to 2000 lbs and cows up to 1000 lbs.", /*30 bison*/
