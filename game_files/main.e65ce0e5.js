@@ -1686,7 +1686,7 @@
         "serge", /* 91 (MAY 11) */
         "rural", /* 92 (MAY 12) */
         "troop", /* 93 (MAY 13) */
-        "honey", /* 94 (MAY 14) */
+        "junos", /* 94 (MAY 14) used to be HONEY*/
         "track", /* 95 (MAY 15) */
         "sunny", /* 96 (MAY 16) */
         "zones", /* 97 (MAY 17) */
@@ -14590,10 +14590,10 @@
       as = "FAIL",
       ss = [
         "Canadian Rockstar!",
-        "O Canada",
-        "True North",
+        "O Canada!",
+        "True North!",
         "Awesome, eh?",
-        "Patriot Love",
+        "Patriot Love!",
         "Lucky Hoser!",
       ],
       ts = (function (e) {
