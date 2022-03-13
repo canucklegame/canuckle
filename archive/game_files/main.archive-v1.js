@@ -15858,10 +15858,10 @@
                 "There’s a whopping 47 National Parks and over one thousand Provincial and Territorial parks in the Great White North!", /*35 parks*/
                 "Kayaks were originally designed for hunting and fishing. In fact, the word kayak means “hunter's boat”, and came from “qajaq”, a Greenlandic word.", /*36 kayak*/
                 "The moose is the largest species of deer in the world. The average weight of a fully grown male moose (a bull) is 1500 lbs!", /*37 moose*/
-                "", /*38 pride*/
-                "", /*39 rocky*/
-                "", /*40 scoff*/
-                "", /*41 cabin*/
+                "Since 2016, the month of June has been declared Pride Month in Canada to celebrate the LGBTQ2+ community.", /*38 pride*/
+                "The Rocky Mountains, also known as the Rockies, are the largest mountain system in North America!", /*39 rocky*/
+                "Scoff is Newfoundland slang for a big feed, typically jigs dinner but could be any large, satisfying meal", /*40 scoff*/
+                "Cabin is another name for a cottage, and Canada has no shortage of weekend getaway spots!", /*41 cabin*/
                 "", /*42 beers*/
                 "", /*43 parka*/
                 "", /*44 rinks*/
