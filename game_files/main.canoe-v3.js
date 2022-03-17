@@ -15691,8 +15691,8 @@
                 "The Rocky Mountains, also known as the Rockies, are the largest mountain system in North America!", /*39 rocky*/
                 "Scoff is Newfoundland slang for a big feed, typically jigs dinner but could be any large, satisfying meal", /*40 scoff*/
                 "Cabin is another name for a cottage, and Canada has no shortage of weekend getaway spots!", /*41 cabin*/
-                "", /*42 beers*/
-                "", /*43 parka*/
+                "Canadians spent $9.14 billion on beer in 2013 ($324 per adult), which equates to 2.27 billion litres of beer.", /*42 beers*/
+                "The first parkas were made from whale, seal or caribou", /*43 parka*/
                 "", /*44 rinks*/
                 "", /*45 fries*/
                 "", /*46 coast*/

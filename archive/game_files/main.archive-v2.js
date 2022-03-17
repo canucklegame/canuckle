@@ -15863,7 +15863,7 @@
                 "Scoff is Newfoundland slang for a big feed, typically jigs dinner but could be any large, satisfying meal", /*40 scoff*/
                 "Cabin is another name for a cottage, and Canada has no shortage of weekend getaway spots!", /*41 cabin*/
                 "Canadians spent $9.14 billion on beer in 2013 ($324 per adult), which equates to 2.27 billion litres of beer.", /*42 beers*/
-                "", /*43 parka*/
+                "The first parkas were made from whale, seal or caribou.", /*43 parka. The Inuits of the Canadian Arctic dealt with the harsh climate by creating the very first versions of the parka. The Inuit (Eskimo) women used the intestines of seals and whales, as well as layers of caribou skin to create insulated and waterproof coats. These were then coated with fish oil to make them more water resistant. The women sewed in drawstring hoods to the parkas. These parkas (which were called amauti) had built-in baby pouches below the hood. These allowed the sharing of heat from the mother and the child. The mother can also easily move the child to the front to breastfeed the baby without having to expose him to the cold.*/
                 "", /*44 rinks*/
                 "", /*45 fries*/
                 "", /*46 coast*/
