@@ -15684,7 +15684,7 @@
                 "Roughly half of the world's Grizzly Bears (a Brown Bear subspecies) live in Canada, mostly in BC.", /*32 bears*/
                 "One of the NHL's founding teams, the Toronto Maple Leafs have won 13 Stanley Cups, the most recent being in 1967.", /*33 leafs*/
                 "Close to half of all Canadian wheat is grown in Saskatchewan, followed by Alberta and Manitoba.", /*34 wheat*/
-                "There’s a whopping 47 National Parks and over one thousand Provincial and Territorial parks in the Great White North!", /*35 parks*/
+                "There’s a whopping 48 National Parks and over one thousand Provincial and Territorial parks in the Great White North!", /*35 parks*/
                 "Kayaks were originally designed for hunting and fishing. In fact, the word kayak means “hunter's boat”, and came from “qajaq”, a Greenlandic word.", /*36 kayak*/
                 "The moose is the largest species of deer in the world. The average weight of a fully grown male moose (a bull) is 1500 lbs!", /*37 moose*/
                 "Since 2016, the month of June has been declared Pride Month in Canada to celebrate the LGBTQ2+ community.", /*38 pride*/
