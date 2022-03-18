@@ -15699,7 +15699,7 @@
                 "The Order of Canada is how our country honours people who make extraordinary contributions to the nation.", /*47 order*/
                 "In 1876, Scottish-born inventor Alexander Graham Bell patented the first practical telephone, a concept that he conceived in Brantford, Ontario.", /*48 phone*/
                 "The white birch is the most widely distributed of native birch trees, and grows in every region of Canada. The bark has long been used for making canoes and ornaments.", /*49 birch*/
-                "", /*50 ports*/
+                "Canada is home to numerous ports, but the Port of Vancouver is Canada's largest port, and is the most diversified port in North America.", /*50 ports*/
                 "", /*51 dairy*/
                 "", /*52 skate*/
                 "", /*53 farms*/
