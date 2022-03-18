@@ -15845,32 +15845,32 @@
                 "A subspecies known as “giant” Canada geese are the largest geese in the world.", /*22 goose*/
                 "Canada has more lakes than the rest of the world combined! Almost 9% of Canada's total surface area is covered by freshwater.", /*23 lakes*/
                 "As of 2019, there were 47 Crown corporations in Canada, including CBC, Canada Post, VIA Rail, the Royal Canadian Mint, and the Bank of Canada.", /*24 crown*/
-                "PEI produces more potatoes for Canada than any other province and produces 2.5 billion lbs per year globally!", /*25 spuds*/
+                "PEI produces more potatoes for Canada than any other province and produces 2.5 billion lbs (1.1 million tonnes) per year globally!", /*25 spuds*/
                 "Roots Canada opened its first store in 1973 selling footwear, and started using the beaver logo in 1985 with the launch of their athletic brand.", /*26 roots*/
                 "On February 10, 1999, Tahtsa Lake, British Columbia got hit with 145 cm (4'9\") of snow in ONE day!", /*27 snowy*/
                 "Yukon is home to Mount Logan, Canada's tallest mountain (5959 m) and the 2nd highest peak in North America.", /*28 yukon*/
                 "Canada is home to about 16,000 polar bears, which is approximately two-thirds of the world's total estimated population.", /*29 polar*/
-                "Bison are North America's largest land animal, with bulls weighing up to 2000 lbs and cows up to 1000 lbs.", /*30 bison*/
+                "Bison are North America's largest land animal, with bulls weighing up to 2000 lbs (900 kg) and cows up to 1000 lbs (450 kg).", /*30 bison*/
                 "Toronto's CN Tower held the record for the world's tallest free-standing structure for 32 years, from 1975 until 2007.", /*31 tower*/
                 "Roughly half of the world's Grizzly Bears (a Brown Bear subspecies) live in Canada, mostly in BC.", /*32 bears*/
                 "One of the NHL's founding teams, the Toronto Maple Leafs have won 13 Stanley Cups, the most recent being in 1967.", /*33 leafs*/
                 "Close to half of all Canadian wheat is grown in Saskatchewan, followed by Alberta and Manitoba.", /*34 wheat*/
                 "There’s a whopping 48 National Parks and over one thousand Provincial and Territorial parks in the Great White North!", /*35 parks*/
                 "Kayaks were originally designed for hunting and fishing. In fact, the word kayak means “hunter's boat”, and came from “qajaq” or “qayarq”, a Greenlandic Inuit word.", /*36 kayak*/
-                "The moose is the largest species of deer in the world. The average weight of a fully grown male moose (a bull) is 1500 lbs!", /*37 moose*/
+                "The moose is the largest species of deer in the world. The average weight of a fully grown male moose (a bull) is 1500 lbs (680 kg)!", /*37 moose*/
                 "Since 2016, the month of June has been declared Pride Month in Canada to celebrate the LGBTQ2+ community.", /*38 pride*/
                 "The Rocky Mountains, also known as the Rockies, are the largest mountain system in North America!", /*39 rocky*/
-                "Scoff is Newfoundland slang for a big feed, typically jigs dinner but could be any large, satisfying meal", /*40 scoff*/
+                "Scoff is Newfoundland slang for a big feed, typically jigs dinner but could be any large, satisfying meal.", /*40 scoff*/
                 "Cabin is another name for a cottage, and Canada has no shortage of weekend getaway spots!", /*41 cabin*/
-                "Canadians spent $9.14 billion on beer in 2013 ($324 per adult), which equates to 2.27 billion litres of beer.", /*42 beers*/
-                "The first parkas were made from whale, seal or caribou.", /*43 parka. The Inuits of the Canadian Arctic dealt with the harsh climate by creating the very first versions of the parka. The Inuit (Eskimo) women used the intestines of seals and whales, as well as layers of caribou skin to create insulated and waterproof coats. These were then coated with fish oil to make them more water resistant. The women sewed in drawstring hoods to the parkas. These parkas (which were called amauti) had built-in baby pouches below the hood. These allowed the sharing of heat from the mother and the child. The mother can also easily move the child to the front to breastfeed the baby without having to expose him to the cold.*/
-                "", /*44 rinks*/
-                "", /*45 fries*/
-                "", /*46 coast*/
-                "", /*47 order*/
-                "", /*48 phone*/
-                "", /*49 birch*/
-                "", /*50 ports*/
+                "Canadians spent $9.2 billion on beer in 2020 ($325 per adult), which equates to 2.3 billion litres of beer.", /*42 beers*/
+                "Originally created by the Inuit to keep warm in the Canadian Arctic, the first parkas were made from whale, seal or caribou skin and often coated with fish oil for waterproofing.", /*43 parka*/
+                "In the 2020/21 season, there were 2,860 indoor and 5,000 outdoor ice hockey rinks located in Canada according to the International Ice Hockey Federation.", /*44 rinks*/
+                "Canadians consumed over 240,000 metric tonnes of frozen fries in 2019.", /*45 fries*/
+                "Canada has the longest coastline in the world, measuring 243,042 km!", /*46 coast*/
+                "The Order of Canada is how our country honours people who make extraordinary contributions to the nation.", /*47 order*/
+                "In 1876, Scottish-born inventor Alexander Graham Bell patented the first practical telephone, a concept that he conceived in Brantford, Ontario.", /*48 phone*/
+                "The white birch is the most widely distributed of native birch trees, and grows in every region of Canada. The bark has long been used for making canoes and ornaments.", /*49 birch*/
+                "Canada is home to numerous ports, but the Port of Vancouver is Canada's largest port, and is the most diversified port in North America.", /*50 ports*/
                 "", /*51 dairy*/
                 "", /*52 skate*/
                 "", /*53 farms*/
@@ -15886,6 +15886,83 @@
                 "", /*63 peace*/
                 "", /*64 mines*/
                 "", /*65 shore*/
+                "", /*66 cedar*/
+                "", /*67 large*/
+                "", /*68 brier*/
+                "", /*69 tides*/
+                "", /*70 klick*/
+                "", /*71 denim*/
+                "", /*72 ships*/
+                "", /*73 poppy*/
+                "", /*74 court*/
+                "", /*75 lodge*/
+                "", /*76 ocean*/
+                "", /*77 rugby*/
+                "", /*78 metre*/
+                "", /*79 elder*/
+                "", /*80 space*/
+                "", /*81 horse*/
+                "", /*82 foggy*/
+                "", /*83 taxes*/
+                "", /*84 train*/
+                "", /*85 music*/
+                "", /*86 mitts*/
+                "", /*87 grain*/
+                "", /*88 rouge*/
+                "", /*89 tulip*/
+                "", /*90 wines*/
+                "", /*91 serge*/
+                "", /*92 rural*/
+                "", /*93 troop*/
+                "", /*94 junos*/
+                "", /*95 track*/
+                "", /*96 sunny*/
+                "", /*97 zones*/
+                "", /*98 beach*/
+                "", /*99 skier*/
+                "", /*100 bases*/
+                "", /*101 smile*/
+                "", /*102 hydro*/
+                "", /*103 trail*/
+                "", /*104 sands*/
+                "", /*105 water*/
+                "", /*106 boots*/
+                "", /*107 tarts*/
+                "", /*108 docks*/
+                "", /*109 privy*/
+                "", /*110 otter*/
+                "", /*111 field*/
+                "", /*112 games*/
+                "", /*113 sleds*/
+                "", /*114 trees*/
+                "", /*115 union*/
+                "", /*116 prime*/
+                "", /*117 chips*/
+                "", /*118 perch*/
+                "", /*119 banks*/
+                "", /*120 pines*/
+                "", /*121 chief*/
+                "", /*122 peaks*/
+                "", /*123 arena*/
+                "", /*124 elect*/
+                "", /*125 house*/
+                "", /*126 bagel*/
+                "", /*127 heron*/
+                "", /*128 mogul*/
+                "", /*129 radio*/
+                "", /*130 litre*/
+                "", /*131 royal*/
+                "", /*132 taiga*/
+                "", /*133 huron*/
+                "", /*134 trout*/
+                "", /*135 scarf*/
+                "", /*136 beads*/
+                "", /*137 storm*/
+                "", /*138 craft*/
+                "", /*139 taffy*/
+                "", /*140 great*/
+                "", /*141 pucks*/
+                "", /*142 proud*/
                               
                 ];
                 saveArchiveNoApp();
