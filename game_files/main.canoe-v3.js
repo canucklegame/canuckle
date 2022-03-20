@@ -1748,6 +1748,8 @@
         "perth",
         "truro",
         "sioux",
+        "haida",
+        "odawa",
         "rouyn",
         "madam",
         "night",
