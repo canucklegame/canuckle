@@ -39,8 +39,8 @@
     }
   ],
   "start_url": "http://archive.canucklegame.ca",
-  "background_color": "#6aaa64",
+  "background_color": "#ffffff",
   "display": "standalone",
-  "theme_color": "#6aaa64",
+  "theme_color": "#ff0000",
   "description": "A daily Canadian word game archive"
 }
