@@ -14603,6 +14603,10 @@
     }
     function saveArchive(gameApp) {
       var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
+      //additional check to delete partial entry before moving across levels   
+      if (gameApp.rowIndex >= 0 && gameApp.boardState[gameApp.rowIndex]) {
+      gameApp.boardState[gameApp.rowIndex] = "";
+      }
       var saveData = {
         rowIndex: gameApp.rowIndex,
         boardState: gameApp.boardState,
