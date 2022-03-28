@@ -15482,7 +15482,7 @@
     }
     var Cs = document.createElement("template");
     Cs.innerHTML =
-      '\n  <style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 36px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #guess-distribution {\n      width: 80%;\n    }\n\n    .graph-container {\n      width: 100%;\n      height: 20px;\n      display: flex;\n      align-items: center;\n      padding-bottom: 4px;\n      font-size: 14px;\n      line-height: 20px;\n    }\n\n    .graph-container .graph {\n      width: 100%;\n      height: 100%;\n      padding-left: 4px;\n    }\n\n    .graph-container .graph .graph-bar {\n      height: 100%;\n      /* Assume no wins */\n      width: 0%;\n      position: relative;\n      background-color: var(--color-absent);\n      display: flex;\n      justify-content: center;\n    }\n\n    .graph-container .graph .graph-bar.highlight {\n      background-color: var(--color-correct);\n    }\n\n    .graph-container .graph .graph-bar.align-right {\n      justify-content: flex-end;\n      padding-right: 8px;\n    }\n\n    .graph-container .graph .num-guesses {\n      font-weight: bold;\n      color: var(--tile-text-color);\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n\n    .footer {\n      display: flex;\n      width: 100%;\n    }\n\n    .countdown {\n      border-right: 1px solid var(--color-tone-1);\n      padding-right: 12px;\n      width: 50%;\n    }\n\n    .share {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding-left: 12px;\n      width: 50%;\n    }\n\n    .no-data {\n      text-align: center;\n    }\n\n    button#share-button {\n      background-color: var(--key-bg-correct);\n      color: var(--key-evaluated-text-color);\n      font-family: inherit;\n      font-weight: bold;\n      border-radius: 4px;\n      cursor: pointer;\n      border: none;\n      user-select: none;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-transform: uppercase;\n      -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n      width: 80%;\n      font-size: 20px;\n      height: 52px;\n      -webkit-filter: brightness(100%);\n    }\n    button#share-button:hover {\n      opacity: 0.9;\n    }\n    button#share-button game-icon {\n      width: 24px;\n      height: 24px;\n      padding-left: 8px;\n    }\n  </style>\n\n  <div class="container">\n    <h1>Statistics</h1>\n    <div id="statistics"></div>\n    <h1>Guess Distribution</h1>\n    <div id="guess-distribution"></div>\n    <div class="footer"></div>\n  </div>\n';
+      '<style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 24px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #guess-distribution {\n      display: flex;\n      margin-bottom:\n    }\n\n    .graph-container {\n      flex: 1;\n    }\n\n    .graph-container .statistic {\n      font-size: 24px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .graph-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n\n    .header {\n      display: flex;\n      width: 100%;\n    }\n\n    .countdown {\n      border-right: 1px solid var(--color-tone-1);\n      padding-right: 12px;\n      width: 50%;\n    }\n\n    .share {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding-left: 12px;\n      width: 50%;\n    }\n\n    .no-data {\n      text-align: center;\n    }\n\n    button#share-button {\n      background-color: var(--key-bg-correct);\n      color: var(--key-evaluated-text-color);\n      font-family: inherit;\n      font-weight: bold;\n      border-radius: 4px;\n      cursor: pointer;\n      border: none;\n      user-select: none;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-transform: uppercase;\n      -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n      width: 80%;\n      font-size: 20px;\n      height: 52px;\n      -webkit-filter: brightness(100%);\n    }\n    button#share-button:hover {\n      opacity: 0.9;\n    }\n    button#share-button game-icon {\n      width: 24px;\n      height: 24px;\n      padding-left: 8px;\n    }\n  </style>\n\n  <div class="container">\n    <div class="header"></div>\n    <h1>Statistics</h1>\n    <div id="statistics"></div>\n    <h1>Guess Distribution</h1>\n    <div id="guess-distribution"></div>\n  </div>\n';
     var Ls = document.createElement("template");
     Ls.innerHTML =
       '\n  <div class="statistic-container">\n    <div class="statistic"></div>\n    <div class="label"></div>\n  </div>\n';
@@ -15523,134 +15523,7 @@
               key: "connectedCallback",
               value: function () {
                 var e = this;
-                this.shadowRoot.appendChild(Cs.content.cloneNode(!0));
-                var a = this.shadowRoot.getElementById("statistics"),
-                  s = this.shadowRoot.getElementById("guess-distribution"),
-                  t = Math.max.apply(
-                    Math,
-                    g(Object.values(this.stats.guesses))
-                  );
-                if (
-                  Object.values(this.stats.guesses).every(function (e) {
-                    return 0 === e;
-                  })
-                ) {
-                  var o = document.createElement("div");
-                  o.classList.add("no-data"),
-                    (o.innerText = "No Data"),
-                    s.appendChild(o);
-                } else
-                  for (
-                    var n = 1;
-                    n < Object.keys(this.stats.guesses).length;
-                    n++
-                  ) {
-                    var r = n,
-                      i = this.stats.guesses[n],
-                      l = Ts.content.cloneNode(!0),
-                      d = Math.max(7, Math.round((i / t) * 100));
-                    l.querySelector(".guess").textContent = r;
-                    var u = l.querySelector(".graph-bar");
-                    if (
-                      ((u.style.width = "".concat(d, "%")),
-                      "number" == typeof i)
-                    ) {
-                      (l.querySelector(".num-guesses").textContent = i),
-                        i > 0 && u.classList.add("align-right");
-                      var c = parseInt(
-                        this.getAttribute("highlight-guess"),
-                        10
-                      );
-                      c && n === c && u.classList.add("highlight");
-                    }
-                    s.appendChild(l);
-                  }
-                if (
-                  ([
-                    "gamesPlayed",
-                    "winPercentage",
-                    "currentStreak",
-                    "maxStreak",
-                    "averageGuesses"
-                  ].forEach(function (s) {
-                    var t = Ms[s],
-                      o = e.stats[s],
-                      n = Ls.content.cloneNode(!0);
-                    (n.querySelector(".label").textContent = t),
-                      (n.querySelector(".statistic").textContent = o),
-                      a.appendChild(n);
-                  }),
-                  this.gameApp.gameStatus !== Za)
-                ) {
-                  var p = this.shadowRoot.querySelector(".footer"),
-                    m = Is.content.cloneNode(!0);
-                  p.appendChild(m),
-                    this.shadowRoot
-                      .querySelector("button#share-button")
-                      .addEventListener("click", function (a) {
-                        a.preventDefault(), a.stopPropagation();
-                        As(
-                          (function (e) {
-                            var a = e.evaluations,
-                              s = e.dayOffset,
-                              t = e.rowIndex,
-                              o = e.isHardMode,
-                              n = e.isWin,
-                              r = JSON.parse(window.localStorage.getItem(j)),
-                              i = JSON.parse(window.localStorage.getItem(S)),
-                              l = "Canuckle ".concat(s - 235);
-                            (l += " ".concat(n ? t : "X", "/").concat(6)),
-                              o && (l += "*");
-                            var d = "";
-                            return (
-                              a.forEach(function (e) {
-                                e &&
-                                  (e.forEach(function (e) {
-                                    if (e) {
-                                      var a = "";
-                                      switch (e) {
-                                        case Ma:
-                                          a = (function (e) {
-                                            return e ? "🟧" : "🟥";
-                                          })(i);
-                                          break;
-                                        case Ia:
-                                          a = (function (e) {
-                                            return e ? "🟦" : "🟨";
-                                          })(i);
-                                          break;
-                                        case Oa:
-                                          a = (function (e) {
-                                            return e ? "⬛" : "⬜";
-                                          })(r);
-                                      }
-                                      d += a;
-                                    }
-                                  }),
-                                  (d += "\n"));
-                              }),
-                              { text: "".concat(l, "\n\n").concat(d.trimEnd()) }
-                            );
-                          })({
-                            evaluations: e.gameApp.evaluations,
-                            dayOffset: e.gameApp.dayOffset,
-                            rowIndex: e.gameApp.rowIndex,
-                            isHardMode: e.gameApp.hardMode,
-                            isWin: e.gameApp.gameStatus === es,
-                          }),
-                          function () {
-                            e.gameApp.addToast(
-                              "Copied results to clipboard",
-                              2e3,
-                              !0
-                            );
-                          },
-                          function () {
-                            e.gameApp.addToast("Share failed", 2e3, !0);
-                          }
-                        );
-                      });
-                }
+
                 var funFacts = [
                 "In Canada, the canoe has long been associated with the fur trade and the romantic figure of the voyageur.", /*1 canoe*/
                 "Is there a more Canadian word than maple?", /*2 maple*/
@@ -15810,6 +15683,124 @@
                 var twitter = document.createElement("div");
                 twitter.innerHTML = '<p align="center">Check out <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> on Twitter!</p>';
                 this.shadowRoot.appendChild(twitter);
+
+                this.shadowRoot.appendChild(Cs.content.cloneNode(!0));
+
+                if (this.gameApp.gameStatus !== Za)
+                {
+                  var p = this.shadowRoot.querySelector(".header"),
+                    m = Is.content.cloneNode(!0);
+                  p.appendChild(m),
+                    this.shadowRoot
+                      .querySelector("button#share-button")
+                      .addEventListener("click", function (a) {
+                        a.preventDefault(), a.stopPropagation();
+                        As(
+                          (function (e) {
+                            var a = e.evaluations,
+                              s = e.dayOffset,
+                              t = e.rowIndex,
+                              o = e.isHardMode,
+                              n = e.isWin,
+                              r = JSON.parse(window.localStorage.getItem(j)),
+                              i = JSON.parse(window.localStorage.getItem(S)),
+                              l = "Canuckle ".concat(s - 235);
+                            (l += " ".concat(n ? t : "X", "/").concat(6)),
+                              o && (l += "*");
+                            var d = "";
+                            return (
+                              a.forEach(function (e) {
+                                e &&
+                                  (e.forEach(function (e) {
+                                    if (e) {
+                                      var a = "";
+                                      switch (e) {
+                                        case Ma:
+                                          a = (function (e) {
+                                            return e ? "🟧" : "🟥";
+                                          })(i);
+                                          break;
+                                        case Ia:
+                                          a = (function (e) {
+                                            return e ? "🟦" : "🟨";
+                                          })(i);
+                                          break;
+                                        case Oa:
+                                          a = (function (e) {
+                                            return e ? "⬛" : "⬜";
+                                          })(r);
+                                      }
+                                      d += a;
+                                    }
+                                  }),
+                                  (d += "\n"));
+                              }),
+                              { text: "".concat(l, "\n\n").concat(d.trimEnd()) }
+                            );
+                          })({
+                            evaluations: e.gameApp.evaluations,
+                            dayOffset: e.gameApp.dayOffset,
+                            rowIndex: e.gameApp.rowIndex,
+                            isHardMode: e.gameApp.hardMode,
+                            isWin: e.gameApp.gameStatus === es,
+                          }),
+                          function () {
+                            e.gameApp.addToast(
+                              "Copied results to clipboard",
+                              2e3,
+                              !0
+                            );
+                          },
+                          function () {
+                            e.gameApp.addToast("Share failed", 2e3, !0);
+                          }
+                        );
+                      });
+                }
+
+                var a = this.shadowRoot.getElementById("statistics"),
+                  s = this.shadowRoot.getElementById("guess-distribution"),
+                  t = Math.max.apply(
+                    Math,
+                    g(Object.values(this.stats.guesses))
+                  );
+                if (
+                  Object.values(this.stats.guesses).every(function (e) {
+                    return 0 === e;
+                  })
+                ) {
+                  var o = document.createElement("div");
+                  o.classList.add("no-data"),
+                    (o.innerText = "No Data"),
+                    s.appendChild(o);
+                } else
+                  for (
+                    var n = 1;
+                    n < Object.keys(this.stats.guesses).length;
+                    n++
+                  ) {
+                    var r = n,
+                      i = this.stats.guesses[n],
+                      l = Ls.content.cloneNode(!0);
+                    var guessesLabel = r == 1 ? "Ace" : r == 2 ? "Deuce" : r == 3 ? "Triple" : r == 4 ? "Quad" : r == 5 ? "Fiver" : "Hoser";
+                    l.querySelector(".label").textContent = String.fromCharCode(160) + String.fromCharCode(160) + String.fromCharCode(160) + guessesLabel + String.fromCharCode(160) + String.fromCharCode(160) + String.fromCharCode(160);  
+                    l.querySelector(".statistic").textContent = i;
+                    s.appendChild(l);
+                  }
+                [
+                    "gamesPlayed",
+                    "winPercentage",
+                    "currentStreak",
+                    "maxStreak",
+                    "averageGuesses"
+                  ].forEach(function (s) {
+                    var t = Ms[s],
+                      o = e.stats[s],
+                      n = Ls.content.cloneNode(!0);
+                    (n.querySelector(".label").textContent = t),
+                      (n.querySelector(".statistic").textContent = o),
+                      a.appendChild(n);
+                  });
               },
             },
           ]),
