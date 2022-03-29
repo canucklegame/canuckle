@@ -1638,7 +1638,7 @@
         "metis", /* 18 (FEB 27) */
         "toque", /* 19 (FEB 28) */
         "canal", /* 20 (MAR 1) */
-        "north", /* 21 (MAR 2) */
+        "crude", /* 21 (MAR 2) */
         "goose", /* 22 (MAR 3) */
         "lakes", /* 23 (MAR 4) */
         "crown", /* 24 (MAR 5) */
@@ -15847,7 +15847,7 @@
                 "The Métis invented the york boat, used by the Hudson's Bay Company to carry furs and trade goods along waterways.", /*18 metis*/
                 "Toque (or tuque) is the official name for a winter hat in Canada!", /*19 toque*/
                 "The 202 km of Rideau Canal with 47 locks is the oldest, continuously operated canal system in North America.", /*20 canal*/
-                "One of Canada's most famous nicknames is the Great White North.", /*1 canoe*/
+                "Canada has the 3rd largest oil reserves in the world and is the 4th largest oil producer and exporter.", /*21 crude*/
                 "A subspecies known as “giant” Canada geese are the largest geese in the world.", /*22 goose*/
                 "Canada has more lakes than the rest of the world combined! Almost 9% of Canada's total surface area is covered by freshwater.", /*23 lakes*/
                 "As of 2019, there were 47 Crown corporations in Canada, including CBC, Canada Post, VIA Rail, the Royal Canadian Mint, and the Bank of Canada.", /*24 crown*/
