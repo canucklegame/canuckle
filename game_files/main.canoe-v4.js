@@ -14647,7 +14647,7 @@
                   solution: e.solution,
                   gameStatus: e.gameStatus,
                 }),
-                Ca("event", "level_start", { level_name: Wa(e.solution) }))
+                Ca("event", "level_start", { level_name: e.solution }))
               : ((e.boardState = o.boardState),
                 (e.evaluations = o.evaluations),
                 (e.rowIndex = o.rowIndex),
@@ -14762,7 +14762,7 @@
                       ja({ lastCompletedTs: Date.now() }),
                       (this.gameStatus = l ? es : as),
                       Ca("event", "level_end", {
-                        level_name: Wa(this.solution),
+                        level_name: this.solution,
                         num_guesses: this.rowIndex,
                         success: l,
                       });

@@ -15697,135 +15697,7 @@
               key: "connectedCallback",
               value: function () {
                 var e = this;
-                this.shadowRoot.appendChild(Cs.content.cloneNode(!0));
-                var a = this.shadowRoot.getElementById("statistics"),
-                  s = this.shadowRoot.getElementById("guess-distribution"),
-                  t = Math.max.apply(
-                    Math,
-                    g(Object.values(this.stats.guesses))
-                  );
-                if (
-                  Object.values(this.stats.guesses).every(function (e) {
-                    return 0 === e;
-                  })
-                ) {
-                  var o = document.createElement("div");
-                  o.classList.add("no-data"),
-                    (o.innerText = "No Data"),
-                    s.appendChild(o);
-                } else
-                  for (
-                    var n = 1;
-                    n < Object.keys(this.stats.guesses).length;
-                    n++
-                  ) {
-                    var r = n,
-                      i = this.stats.guesses[n],
-                      l = Ts.content.cloneNode(!0),
-                      d = Math.max(7, Math.round((i / t) * 100));
-                    l.querySelector(".guess").textContent = r;
-                    var u = l.querySelector(".graph-bar");
-                    if (
-                      ((u.style.width = "".concat(d, "%")),
-                      "number" == typeof i)
-                    ) {
-                      (l.querySelector(".num-guesses").textContent = i),
-                        i > 0 && u.classList.add("align-right");
-                      var c = parseInt(
-                        this.getAttribute("highlight-guess"),
-                        10
-                      );
-                      c && n === c && u.classList.add("highlight");
-                    }
-                    s.appendChild(l);
-                  }
-                if (
-                  ([
-                    "gamesPlayed",
-                    "winPercentage",
-                    /*"currentStreak",*/
-                    /*"maxStreak",*/
-                    "averageGuesses",
-                  ].forEach(function (s) {
-                    var t = Ms[s],
-                      o = e.stats[s],
-                      n = Ls.content.cloneNode(!0);
-                    (n.querySelector(".label").textContent = t),
-                      (n.querySelector(".statistic").textContent = o),
-                      a.appendChild(n);
-                  }),
-                  this.gameApp.gameStatus !== Za)
-                ) {
-                  // var p = this.shadowRoot.querySelector(".footer"),
-                  //   m = Is.content.cloneNode(!0);
-                  // p.appendChild(m),
-                  //   this.shadowRoot
-                  //     .querySelector("button#share-button")
-                  //     .addEventListener("click", function (a) {
-                  //       a.preventDefault(), a.stopPropagation();
-                  //       As(
-                  //         (function (e) {
-                  //           var a = e.evaluations,
-                  //             s = e.dayOffset,
-                  //             t = e.rowIndex,
-                  //             o = e.isHardMode,
-                  //             n = e.isWin,
-                  //             r = JSON.parse(window.localStorage.getItem(j)),
-                  //             i = JSON.parse(window.localStorage.getItem(S)),
-                  //             arc = JSON.parse(window.localStorage.getItem(archiveDate)),
-                  //             l = "Canuckle ".concat(s - arc);
-                  //           (l += " ".concat(n ? t : "X", "/").concat(6)),
-                  //             o && (l += "*");
-                  //           var d = "";
-                  //           return (
-                  //             a.forEach(function (e) {
-                  //               e &&
-                  //                 (e.forEach(function (e) {
-                  //                   if (e) {
-                  //                     var a = "";
-                  //                     switch (e) {
-                  //                       case Ma:
-                  //                         a = (function (e) {
-                  //                           return e ? "🟧" : "🟥";
-                  //                         })(i);
-                  //                         break;
-                  //                       case Ia:
-                  //                         a = (function (e) {
-                  //                           return e ? "🟦" : "🟨";
-                  //                         })(i);
-                  //                         break;
-                  //                       case Oa:
-                  //                         a = (function (e) {
-                  //                           return e ? "⬛" : "⬜";
-                  //                         })(r);
-                  //                     }
-                  //                     d += a;
-                  //                   }
-                  //                 }),
-                  //                 (d += "\n"));
-                  //             }),
-                  //             { text: "".concat(l, "\n\n").concat(d.trimEnd()) }
-                  //           );
-                  //         })({
-                  //           evaluations: e.gameApp.evaluations,
-                  //           dayOffset: e.gameApp.dayOffset,
-                  //           rowIndex: e.gameApp.rowIndex,
-                  //           isHardMode: e.gameApp.hardMode,
-                  //           isWin: e.gameApp.gameStatus === es,
-                  //         }),
-                  //         function () {
-                  //           e.gameApp.addToast(
-                  //             "Copied results to clipboard",
-                  //             2e3,
-                  //             !0
-                  //           );
-                  //         },
-                  //         function () {
-                  //           e.gameApp.addToast("Share failed", 2e3, !0);
-                  //         }
-                  //       );
-                  //     });
-                }
+                
                 var funFacts = [
                 "In Canada, the canoe has long been associated with the fur trade and the romantic figure of the voyageur.", /*1 canoe*/
                 "The maple leaf is one of the most recognizable symbols of Canada and is featured on the national flag.", /*2 maple*/
@@ -15991,6 +15863,137 @@
                   twitter.innerHTML = '<p align="center">Check out <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> on Twitter!</p>';
                 }
                 e.shadowRoot.appendChild(twitter);
+
+                this.shadowRoot.appendChild(Cs.content.cloneNode(!0));
+                
+                var a = this.shadowRoot.getElementById("statistics"),
+                  s = this.shadowRoot.getElementById("guess-distribution"),
+                  t = Math.max.apply(
+                    Math,
+                    g(Object.values(this.stats.guesses))
+                  );
+                if (
+                  Object.values(this.stats.guesses).every(function (e) {
+                    return 0 === e;
+                  })
+                ) {
+                  var o = document.createElement("div");
+                  o.classList.add("no-data"),
+                    (o.innerText = "No Data"),
+                    s.appendChild(o);
+                } else
+                  for (
+                    var n = 1;
+                    n < Object.keys(this.stats.guesses).length;
+                    n++
+                  ) {
+                    var r = n,
+                      i = this.stats.guesses[n],
+                      l = Ts.content.cloneNode(!0),
+                      d = Math.max(7, Math.round((i / t) * 100));
+                    l.querySelector(".guess").textContent = r;
+                    var u = l.querySelector(".graph-bar");
+                    if (
+                      ((u.style.width = "".concat(d, "%")),
+                      "number" == typeof i)
+                    ) {
+                      (l.querySelector(".num-guesses").textContent = i),
+                        i > 0 && u.classList.add("align-right");
+                      var c = parseInt(
+                        this.getAttribute("highlight-guess"),
+                        10
+                      );
+                      c && n === c && u.classList.add("highlight");
+                    }
+                    s.appendChild(l);
+                  }
+                if (
+                  ([
+                    "gamesPlayed",
+                    "winPercentage",
+                    /*"currentStreak",*/
+                    /*"maxStreak",*/
+                    "averageGuesses",
+                  ].forEach(function (s) {
+                    var t = Ms[s],
+                      o = e.stats[s],
+                      n = Ls.content.cloneNode(!0);
+                    (n.querySelector(".label").textContent = t),
+                      (n.querySelector(".statistic").textContent = o),
+                      a.appendChild(n);
+                  }),
+                  this.gameApp.gameStatus !== Za)
+                ) {
+                  // var p = this.shadowRoot.querySelector(".footer"),
+                  //   m = Is.content.cloneNode(!0);
+                  // p.appendChild(m),
+                  //   this.shadowRoot
+                  //     .querySelector("button#share-button")
+                  //     .addEventListener("click", function (a) {
+                  //       a.preventDefault(), a.stopPropagation();
+                  //       As(
+                  //         (function (e) {
+                  //           var a = e.evaluations,
+                  //             s = e.dayOffset,
+                  //             t = e.rowIndex,
+                  //             o = e.isHardMode,
+                  //             n = e.isWin,
+                  //             r = JSON.parse(window.localStorage.getItem(j)),
+                  //             i = JSON.parse(window.localStorage.getItem(S)),
+                  //             arc = JSON.parse(window.localStorage.getItem(archiveDate)),
+                  //             l = "Canuckle ".concat(s - arc);
+                  //           (l += " ".concat(n ? t : "X", "/").concat(6)),
+                  //             o && (l += "*");
+                  //           var d = "";
+                  //           return (
+                  //             a.forEach(function (e) {
+                  //               e &&
+                  //                 (e.forEach(function (e) {
+                  //                   if (e) {
+                  //                     var a = "";
+                  //                     switch (e) {
+                  //                       case Ma:
+                  //                         a = (function (e) {
+                  //                           return e ? "🟧" : "🟥";
+                  //                         })(i);
+                  //                         break;
+                  //                       case Ia:
+                  //                         a = (function (e) {
+                  //                           return e ? "🟦" : "🟨";
+                  //                         })(i);
+                  //                         break;
+                  //                       case Oa:
+                  //                         a = (function (e) {
+                  //                           return e ? "⬛" : "⬜";
+                  //                         })(r);
+                  //                     }
+                  //                     d += a;
+                  //                   }
+                  //                 }),
+                  //                 (d += "\n"));
+                  //             }),
+                  //             { text: "".concat(l, "\n\n").concat(d.trimEnd()) }
+                  //           );
+                  //         })({
+                  //           evaluations: e.gameApp.evaluations,
+                  //           dayOffset: e.gameApp.dayOffset,
+                  //           rowIndex: e.gameApp.rowIndex,
+                  //           isHardMode: e.gameApp.hardMode,
+                  //           isWin: e.gameApp.gameStatus === es,
+                  //         }),
+                  //         function () {
+                  //           e.gameApp.addToast(
+                  //             "Copied results to clipboard",
+                  //             2e3,
+                  //             !0
+                  //           );
+                  //         },
+                  //         function () {
+                  //           e.gameApp.addToast("Share failed", 2e3, !0);
+                  //         }
+                  //       );
+                  //     });
+                }
               },
             },
           ]),
