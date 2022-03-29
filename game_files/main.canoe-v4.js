@@ -15575,14 +15575,14 @@
                 "In 1876, Scottish-born inventor Alexander Graham Bell patented the first practical telephone, a concept that he conceived in Brantford, Ontario.", /*48 phone*/
                 "The white birch is the most widely distributed of native birch trees, and grows in every region of Canada. The bark has long been used for making canoes and ornaments.", /*49 birch*/
                 "Canada is home to numerous ports, but the Port of Vancouver is Canada's largest port, and is the most diversified port in North America.", /*50 ports*/
-                "", /*51 dairy*/
-                "", /*52 skate*/
-                "", /*53 farms*/
-                "", /*54 river*/
-                "", /*55 sport*/
-                "", /*56 globe*/
-                "", /*57 curds*/
-                "", /*58 foxes*/
+                "The Dairy Farmers of Canada logo guarantees a product is made with 100% Canadian milk and milk ingredients, and is free of antibiotics.", /*51 dairy*/
+                "Skate Canada is the oldest and largest figure skating organization in the world.", /*52 skate*/
+                "In 2020, roughly 1 out of every 9 Canadian jobs was in the agriculture and agri-food sector.", /*53 farms*/
+                "Annually, Canada’s Rivers discharge 7% of the world’s renewable water supply at a flow rate per second more than four times that of Niagara Falls.", /*54 river*/
+                "Canada's official national sports are ice hockey (winter) and lacrosse (summer).", /*55 sport*/
+                "The Globe and Mail newspaper originated from two competing newspapers, “The Globe” and “The Mail and Empire”.", /*56 globe*/
+                "Poutine (fries topped with cheese curds and gravy) is popular all over Canada and as such it is considered the country's national dish.", /*57 curds*/
+                "Four species of foxes live in Canada: arctic, swift, grey, and red being the most common. The grey fox is one of only 2 members of the dog family that can climb trees.", /*58 foxes*/
                 "", /*59 crops*/
                 "", /*60 camps*/
                 "", /*61 rodeo*/
