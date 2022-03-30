@@ -14763,7 +14763,7 @@
                       (this.gameStatus = l ? es : as),
                       Ca("event", "level_end", {
                         level_name: this.solution,
-                        num_guesses: this.rowIndex,
+                        num_guesses: this.rowIndex != null ? this.rowIndex : JSON.stringify(this),
                         success: l,
                       });
                   (this.tileIndex = 0),
