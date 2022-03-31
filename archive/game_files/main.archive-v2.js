@@ -14826,6 +14826,9 @@
                     l = r.every(function (e) {
                       return "correct" === e;
                     });
+                    if (!l && this.rowIndex == 6) {
+                      this.rowIndex += 1;
+                    }
                   if (i || l)
                     Va({
                       isWin: l,
@@ -14837,9 +14840,9 @@
                       ja({ lastCompletedTs: Date.now() }),
                       (this.gameStatus = l ? es : as),
                       Ca("event", "level_end_archive", {
-                        level_name: Wa(this.solution),
-                        num_guesses: this.rowIndex,
-                        success: l,
+                        level_name_archive: this.solution,
+                        num_guesses_archive: this.rowIndex,
+                        success_archive: l,
                       });
                   (this.tileIndex = 0),
                     (this.canInput = !1),

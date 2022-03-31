@@ -14751,6 +14751,9 @@
                     l = r.every(function (e) {
                       return "correct" === e;
                     });
+                    if (!l && this.rowIndex == 6) {
+                      this.rowIndex += 1;
+                    }
                   if (i || l)
                     Va({
                       isWin: l,
