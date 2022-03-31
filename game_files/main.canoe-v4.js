@@ -14647,7 +14647,7 @@
                   solution: e.solution,
                   gameStatus: e.gameStatus,
                 }),
-                Ca("event", "level_start", { level_name: e.solution }))
+                Ca("event", "level_start", { level_name_start: e.solution }))
               : ((e.boardState = o.boardState),
                 (e.evaluations = o.evaluations),
                 (e.rowIndex = o.rowIndex),

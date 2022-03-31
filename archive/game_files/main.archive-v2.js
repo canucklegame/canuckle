@@ -14722,7 +14722,7 @@
                   solution: e.solution,
                   gameStatus: e.gameStatus,
                 }),
-                Ca("event", "level_start_archive", { level_name: Wa(e.solution) }))
+                Ca("event", "level_start_archive", { level_name_start_archive: Wa(e.solution) }))
               : ((e.boardState = savedData.boardState),
                 (e.evaluations = savedData.evaluations),
                 (e.rowIndex = savedData.rowIndex),
