@@ -14541,7 +14541,7 @@
       Ua = {
         currentStreak: 0,
         maxStreak: 0,
-        guesses: n({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 }, Ja, 0),
+        guesses: n({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }, Ja, 0),
         winPercentage: 0,
         gamesPlayed: 0,
         gamesWon: 0,
@@ -14559,7 +14559,7 @@
       a
         ? ((o.guesses[t] += 1),
           s ? (o.currentStreak += 1) : (o.currentStreak = 1))
-        : ((o.guesses[7] += 1), (o.currentStreak = 0), (o.guesses.fail += 1)),
+        : ((o.currentStreak = 0), (o.guesses.fail += 1)),
         (o.maxStreak = Math.max(o.currentStreak, o.maxStreak)),
         (o.gamesPlayed += 1),
         (o.gamesWon += a ? 1 : 0),
@@ -14569,7 +14569,7 @@
             var s = y(a, 2),
               t = s[0],
               o = s[1];
-            return t !== Ja ? (e += t * o) : e;
+            return t !== Ja ? (e += t * o) : (e += 7 * o);
           }, 0) / Math.max(o.gamesPlayed, 1)) * 10
         ) / 10),
         (function (e) {
@@ -14863,9 +14863,11 @@
               value: function () {
                 var e = this.$game.querySelector("game-modal"),
                   a = document.createElement("game-stats");
-                this.gameStatus === es &&
+                  (this.gameStatus === es &&
                   this.rowIndex <= 6 &&
-                  a.setAttribute("highlight-guess", this.rowIndex),
+                  a.setAttribute("highlight-guess", this.rowIndex)) || 
+                  (this.gameStatus === as &&
+                  a.setAttribute("highlight-guess", 7)),
                   (a.gameApp = this),
                   e.appendChild(a),
                   e.setAttribute("open", "");
@@ -15783,7 +15785,7 @@
                       i = this.stats.guesses[n],
                       l = Ts.content.cloneNode(!0),
                       d = Math.max(7, Math.round((i / t) * 100));
-                    l.querySelector(".guess").textContent = r;
+                    l.querySelector(".guess").textContent = r + "\u2003";
                     var u = l.querySelector(".graph-bar");
                     if (
                       ((u.style.width = "".concat(d, "%")),

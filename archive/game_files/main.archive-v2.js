@@ -14594,8 +14594,8 @@
             var s = y(a, 2),
               t = s[0],
               o = s[1];
-            return t !== Ja ? (e += t * o) : e;
-          }, 0) / Math.max(o.gamesWon, 1)) * 10
+            return t !== Ja ? (e += t * o) : (e += 7 * o);
+          }, 0) / Math.max(o.gamesPlayed, 1)) * 10
         ) / 10),
         (function (e) {
           window.localStorage.setItem(Ya, JSON.stringify(e));
@@ -14690,6 +14690,12 @@
             n(p(e), "dayOffset", void 0),
             e.attachShadow({ mode: "open" }),
             (e.today = new Date());
+
+          // if (window.localStorage.getItem("fail-migrate") == null) {
+          //   var guessData = Xa();
+          //   guessData.guesses[7] = guessData.guesses.fail;
+          //   window.localStorage.setItem("fail-migrate", "complete");
+          // }
 
           if (window.localStorage.getItem("canuckle-language") == null) {
             window.localStorage.setItem("canuckle-language", "en");
@@ -14938,9 +14944,11 @@
               value: function () {
                 var e = this.$game.querySelector("game-modal"),
                   a = document.createElement("game-stats");
-                this.gameStatus === es &&
+                  (this.gameStatus === es &&
                   this.rowIndex <= 6 &&
-                  a.setAttribute("highlight-guess", this.rowIndex),
+                  a.setAttribute("highlight-guess", this.rowIndex)) || 
+                  (this.gameStatus === as &&
+                  a.setAttribute("highlight-guess", 7)),
                   (a.gameApp = this),
                   e.appendChild(a),
                   e.setAttribute("open", "");
@@ -15872,6 +15880,7 @@
                     Math,
                     g(Object.values(this.stats.guesses))
                   );
+                  t += this.stats.guesses.fail;
                 if (
                   Object.values(this.stats.guesses).every(function (e) {
                     return 0 === e;
@@ -15891,7 +15900,7 @@
                       i = this.stats.guesses[n],
                       l = Ts.content.cloneNode(!0),
                       d = Math.max(7, Math.round((i / t) * 100));
-                    l.querySelector(".guess").textContent = r;
+                    l.querySelector(".guess").textContent = r + "\u2003";
                     var u = l.querySelector(".graph-bar");
                     if (
                       ((u.style.width = "".concat(d, "%")),
@@ -15907,6 +15916,26 @@
                     }
                     s.appendChild(l);
                   }
+
+                  var i = this.stats.guesses.fail,
+                      l = Ts.content.cloneNode(!0),
+                      d = Math.max(7, Math.round((i / t) * 100));
+                    l.querySelector(".guess").textContent = "❌";
+                    var u = l.querySelector(".graph-bar");
+                    if (
+                      ((u.style.width = "".concat(d, "%")),
+                      "number" == typeof i)
+                    ) {
+                      (l.querySelector(".num-guesses").textContent = i),
+                        i > 0 && u.classList.add("align-right");
+                      var c = parseInt(
+                        this.getAttribute("highlight-guess"),
+                        10
+                      );
+                      c && 7 === c && u.classList.add("highlight");
+                    }
+                    s.appendChild(l);
+
                 if (
                   ([
                     "gamesPlayed",
