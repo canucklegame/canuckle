@@ -15792,7 +15792,7 @@
                       "number" == typeof i)
                     ) {
                       (l.querySelector(".num-guesses").textContent = i),
-                    l.querySelector(".guess").style.width = "20px",
+                    l.querySelector(".guess").style.width = "25px",
                         i > 0 && u.classList.add("align-right");
                       var c = parseInt(
                         this.getAttribute("highlight-guess"),
@@ -15813,7 +15813,7 @@
                       "number" == typeof i)
                     ) {
                       (l.querySelector(".num-guesses").textContent = i),
-                    l.querySelector(".guess").style.width = "20px",
+                    l.querySelector(".guess").style.width = "25px",
                         i > 0 && u.classList.add("align-right");
                       var c = parseInt(
                         this.getAttribute("highlight-guess"),
