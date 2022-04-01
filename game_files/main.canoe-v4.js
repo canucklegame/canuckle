@@ -14541,7 +14541,7 @@
       Ua = {
         currentStreak: 0,
         maxStreak: 0,
-        guesses: n({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 }, Ja, 0),
+        guesses: n({ 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 }, Ja, 0),
         winPercentage: 0,
         gamesPlayed: 0,
         gamesWon: 0,
@@ -14559,7 +14559,7 @@
       a
         ? ((o.guesses[t] += 1),
           s ? (o.currentStreak += 1) : (o.currentStreak = 1))
-        : ((o.currentStreak = 0), (o.guesses.fail += 1)),
+        : ((o.guesses[7] += 1), (o.currentStreak = 0), (o.guesses.fail += 1)),
         (o.maxStreak = Math.max(o.currentStreak, o.maxStreak)),
         (o.gamesPlayed += 1),
         (o.gamesWon += a ? 1 : 0),
@@ -14570,7 +14570,7 @@
               t = s[0],
               o = s[1];
             return t !== Ja ? (e += t * o) : e;
-          }, 0) / Math.max(o.gamesWon, 1)) * 10
+          }, 0) / Math.max(o.gamesPlayed, 1)) * 10
         ) / 10),
         (function (e) {
           window.localStorage.setItem(Ya, JSON.stringify(e));
