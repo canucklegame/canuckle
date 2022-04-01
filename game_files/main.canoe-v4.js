@@ -15775,7 +15775,7 @@
                   o.classList.add("no-data"),
                     (o.innerText = "No Data"),
                     s.appendChild(o);
-                } else
+                } else {
                   for (
                     var n = 1;
                     n < Object.keys(this.stats.guesses).length;
@@ -15785,13 +15785,14 @@
                       i = this.stats.guesses[n],
                       l = Ts.content.cloneNode(!0),
                       d = Math.max(7, Math.round((i / t) * 100));
-                    l.querySelector(".guess").textContent = r + "\u2003";
+                    l.querySelector(".guess").textContent = r;
                     var u = l.querySelector(".graph-bar");
                     if (
                       ((u.style.width = "".concat(d, "%")),
                       "number" == typeof i)
                     ) {
                       (l.querySelector(".num-guesses").textContent = i),
+                    l.querySelector(".guess").style.width = "20px",
                         i > 0 && u.classList.add("align-right");
                       var c = parseInt(
                         this.getAttribute("highlight-guess"),
@@ -15801,6 +15802,28 @@
                     }
                     s.appendChild(l);
                   }
+
+                  var i = this.stats.guesses.fail,
+                      l = Ts.content.cloneNode(!0),
+                      d = Math.max(7, Math.round((i / t) * 100));
+                    l.querySelector(".guess").textContent = "X";
+                    var u = l.querySelector(".graph-bar");
+                    if (
+                      ((u.style.width = "".concat(d, "%")),
+                      "number" == typeof i)
+                    ) {
+                      (l.querySelector(".num-guesses").textContent = i),
+                    l.querySelector(".guess").style.width = "20px",
+                        i > 0 && u.classList.add("align-right");
+                      var c = parseInt(
+                        this.getAttribute("highlight-guess"),
+                        10
+                      );
+                      c && 7 === c && u.classList.add("highlight");
+                    }
+                    s.appendChild(l);
+                }
+
                 [
                     "gamesPlayed",
                     "winPercentage",
