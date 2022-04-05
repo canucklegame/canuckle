@@ -15683,7 +15683,7 @@
                   }
                 }
                 var twitter = document.createElement("div");
-                twitter.innerHTML = '<style>\n td\n {\n padding-top:10px; }\n </style>\n <table align="center"><tr><td><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter30.png" alt="@CanuckleGame" title="@CanuckleGame"></a></td><td>Check out <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> on Twitter!</td></tr></table>';
+                twitter.innerHTML = '<style>\n td\n {\n padding-top:10px; }\n </style>\n <table align="center"><tr><td><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter.png" width="40" height="40" alt="@CanuckleGame" title="@CanuckleGame"></a></td><td>Check out <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> on Twitter!</td></tr></table>';
                 this.shadowRoot.appendChild(twitter);
 
                 this.shadowRoot.appendChild(Cs.content.cloneNode(!0));
