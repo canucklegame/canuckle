@@ -15866,9 +15866,9 @@
                 var twitter = document.createElement("div");
 
                 if (window.localStorage.getItem("canuckle-language") == "fr") {
-                  twitter.innerHTML = '<p align="center">Découvrez <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> sur Twitter!</p>';  
+                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px; }\n </style>\n <table align="center"><tr><td><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter30.png" alt="@CanuckleGame" title="@CanuckleGame"></a></td><td>Découvrez <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> sur Twitter!</td></tr></table>';  
                 } else {
-                  twitter.innerHTML = '<p align="center">Check out <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> on Twitter!</p>';
+                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px; }\n </style>\n <table align="center"><tr><td><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter30.png" alt="@CanuckleGame" title="@CanuckleGame"></a></td><td>Check out <a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a> on Twitter!</td></tr></table>';
                 }
                 e.shadowRoot.appendChild(twitter);
 
