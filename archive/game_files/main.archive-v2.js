@@ -15896,7 +15896,7 @@
                     n < Object.keys(this.stats.guesses).length;
                     n++
                   ) {
-                    var r = n,
+                    var r = n === 1 ? "1️⃣": n === 2 ? "2️⃣" : n === 3 ? "3️⃣" : n === 4 ? "4️⃣" : n === 5 ? "5️⃣" : n === 6 ? "6️⃣" : "",
                       i = this.stats.guesses[n],
                       l = Ts.content.cloneNode(!0),
                       d = Math.max(7, Math.round((i / t) * 100));
@@ -15921,7 +15921,7 @@
                   var i = this.stats.guesses.fail,
                       l = Ts.content.cloneNode(!0),
                       d = Math.max(7, Math.round((i / t) * 100));
-                    l.querySelector(".guess").textContent = "X";
+                    l.querySelector(".guess").textContent = "❌";
                     var u = l.querySelector(".graph-bar");
                     if (
                       ((u.style.width = "".concat(d, "%")),
