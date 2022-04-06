@@ -14764,6 +14764,9 @@
                       Ca("event", "level_end", {
                         level_name: this.solution,
                         num_guesses: this.rowIndex == 6 && !l ? 7 : this.rowIndex,
+                        hard_mode: this.hardMode ? 1 : 0,
+                        high_contrast: document.querySelector("body").classList.contains("colorblind") ? 1 : 0,
+                        dark_theme: document.querySelector("body").classList.contains("nightmode") ? 1 : 0,
                         success: l,
                       });
                   (this.tileIndex = 0),

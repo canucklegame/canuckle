@@ -14845,6 +14845,10 @@
                       Ca("event", "level_end_archive", {
                         level_name_archive: this.solution,
                         num_guesses_archive: this.rowIndex == 6 && !l ? 7 : this.rowIndex,
+                        hard_mode_archive: this.hardMode ? 1 : 0,
+                        high_contrast_archive: document.querySelector("body").classList.contains("colorblind") ? 1 : 0,
+                        dark_theme_archive: document.querySelector("body").classList.contains("nightmode") ? 1 : 0,
+                        french_archive: window.localStorage.getItem("canuckle-language") == "fr" ? 1 : 0,
                         success_archive: l,
                       });
                   (this.tileIndex = 0),
