@@ -15585,18 +15585,18 @@
                 "The Globe and Mail newspaper originated from two competing newspapers, “The Globe” and “The Mail and Empire”.", /*56 globe*/
                 "Poutine (fries topped with cheese curds and gravy) is popular all over Canada and as such it is considered the country's national dish.", /*57 curds*/
                 "Four species of foxes live in Canada: arctic, swift, grey, and red being the most common. The grey fox is one of only 2 members of the dog family that can climb trees.", /*58 foxes*/
-                "", /*59 crops*/
-                "", /*60 camps*/
-                "", /*61 rodeo*/
-                "", /*62 trade*/
-                "", /*63 peace*/
-                "", /*64 mines*/
-                "", /*65 shore*/
-                "", /*66 cedar*/
-                "", /*67 large*/
-                "", /*68 brier*/
-                "", /*69 tides*/
-                "", /*70 klick*/
+                "Canada is the world’s largest grower and exporter of flax seed, canola, oats, mustard seeds, pulses (peas, beans, and lentils) and durum wheat.", /*59 crops*/
+                "Over 5.7 million Canadian adults camp each year and the camping industry contributes a total of $4.7 billion annually to Canada's economy.", /*60 camps*/
+                "The Calgary Stampede, Canada's largest rodeo, is billed as “The Greatest Outdoor Show on Earth”. It is held every July and turns 110 years old in 2022.", /*61 rodeo*/
+                "Canada’s three biggest trading partners are the United States, the European Union and China. Goods and services trade with the US totaled over $800 billion in 2021.", /*62 trade*/
+                "Canada consistently ranks in the top 10 most peaceful countries in the world according to the Global Peace Index (GPI).", /*63 peace*/
+                "In 2020, Canada produced 60 minerals and metals at almost 200 mines, and the value of Canada's mineral production reached $43.8 billion.", /*64 mines*/
+                "The shores of Canada's 52,455 islands are a big part of what makes the country's coastline the longest in the world.", /*65 shore*/
+                "Canada has the world’s largest stock of standing western redcedar trees. The western redcedar is the arboreal emblem of the province of British Columbia.", /*66 cedar*/
+                "With a landmass of 9.1 million square kilometres, Canada is the second-largest country in the world.", /*67 large*/
+                "The Brier is the annual Canadian men's curling championship that has been held since 1927. Team Gushue won the 2022 Brier, their fourth championship in six years.", /*68 brier*/
+                "The highest tides in the world can be found in Canada at the Bay of Fundy, which separates New Brunswick from Nova Scotia.", /*69 tides*/
+                "A klick is a military term used to denote a distance of one kilometre. It is commonly used in Canada when referring to distance or speed.", /*70 klick*/
                 "", /*71 denim*/
                 "", /*72 ships*/
                 "", /*73 poppy*/
