@@ -15592,7 +15592,7 @@
                 "Over 5.7 million Canadian adults camp each year and the camping industry contributes a total of $4.7 billion annually to Canada's economy.", /*60 camps*/
                 "The Calgary Stampede, Canada's largest rodeo, is billed as “The Greatest Outdoor Show on Earth”. It is held every July and turns 110 years old in 2022.", /*61 rodeo*/
                 "Canada’s three biggest trading partners are the United States, the European Union and China. Goods and services trade with the US totaled over $800 billion in 2021.", /*62 trade*/
-                "Canada consistently ranks in the top 10 most peaceful countries in the world according to the Global Peace Index (GPI).", /*63 peace*/
+                "Canada consistently ranks in the top 10 most peaceful countries in the world according to the Global Peace Index (GPI). The Peace Tower also forms the centrepiece of the Canadian parliament buildings.", /*63 peace*/
                 "In 2020, Canada produced 60 minerals and metals at almost 200 mines, and the value of Canada's mineral production reached $43.8 billion.", /*64 mines*/
                 "The shores of Canada's 52,455 islands are a big part of what makes the country's coastline the longest in the world.", /*65 shore*/
                 "Canada has the world’s largest stock of standing western redcedar trees. The western redcedar is the arboreal emblem of the province of British Columbia.", /*66 cedar*/
