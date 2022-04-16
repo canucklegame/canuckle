@@ -1225,6 +1225,8 @@
       var a = za();
       !(function (e) {
         window.localStorage.setItem(wa, JSON.stringify(e));
+        e.lastPlayedTs = Date.now();
+        saveArchive(e);
       })(va(a, e));
     }
     var Sa = document.createElement("template");
