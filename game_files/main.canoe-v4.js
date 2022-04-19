@@ -15596,20 +15596,20 @@
                 "In 2020, Canada produced 60 minerals and metals at almost 200 mines, and the value of Canada's mineral production reached $43.8 billion.", /*64 mines*/
                 "The shores of Canada's 52,455 islands are a big part of what makes the country's coastline the longest in the world.", /*65 shore*/
                 "Canada has the world’s largest stock of standing western redcedar trees. The western redcedar is the arboreal emblem of the province of British Columbia.", /*66 cedar*/
-                "With a landmass of 9.1 million square kilometres, Canada is the second-largest country in the world.", /*67 large*/
+                "With a landmass of almost 10 million square kilometres, Canada is the second-largest country in the world.", /*67 large*/
                 "The Brier is the annual Canadian men's curling championship that has been held since 1927. Team Gushue won the 2022 Brier, their fourth championship in six years.", /*68 brier*/
                 "The highest tides in the world can be found in Canada at the Bay of Fundy, which separates New Brunswick from Nova Scotia.", /*69 tides*/
                 "A klick is a military term used to denote a distance of one kilometre. It is commonly used in Canada when referring to distance or speed.", /*70 klick*/
-                "", /*71 denim*/
-                "", /*72 ships*/
-                "", /*73 poppy*/
-                "", /*74 court*/
-                "", /*75 lodge*/
-                "", /*76 ocean*/
-                "", /*77 rugby*/
-                "", /*78 metre*/
-                "", /*79 elder*/
-                "", /*80 space*/
+                "The Canadian Tuxedo is an outfit consisting of a denim jacket or shirt worn with denim jeans. The term originated in 1951 after Bing Crosby was refused entry to Vancouver hotel wearing denim on denim.", /*71 denim*/
+                "The most famous ship in Canadian history, the Bluenose, was both a fishing and racing vessel in the 1920s and 1930s. The Nova Scotia schooner achieved immortality when its image was engraved onto the Canadian dime.", /*72 ships*/
+                "From the last Friday in October to Remembrance Day, millions of Canadians wear a poppy as a visual pledge to never forget those who sacrificed for our freedom.", /*73 poppy*/
+                "The Supreme Court of Canada is the highest court in the judicial system of Canada. It comprises nine justices, whose decisions are the ultimate application of Canadian law.", /*74 court*/
+                "A beaver home is called a lodge. Beavers live in wetland habitats along lakes and rivers and are some of the best architects in the wild. Some even call them the original Canadian lumberjacks!", /*75 lodge*/
+                "With marine waters spanning its west, north, and east coasts, Canada is an ocean nation. Canadians are influenced in many ways by the Pacific, Arctic, and Atlantic Oceans. Celebrate World Oceans Day on June 8th!", /*76 ocean*/
+                "Buoyed by its inclusion in the 2016 Olympic Games, Rugby is one of the fastest growing team sports in Canada, particularly in youth and women.", /*77 rugby*/
+                "Canada officially uses the metric system of measurement, and metre is the standard spelling of the metric unit for length.", /*78 metre*/
+                "Elders are respected individuals who play key roles in Indigenous communities. They are important knowledge keepers, and they also help to ensure cultural continuity.", /*79 elder*/
+                "Canada's contributions to space exploration include one of Canada’s most celebrated and iconic technological advances: The Canadarm - a remote-controlled robotic arm used to help build and maintain the International Space Station (ISS).", /*80 space*/
                 "", /*81 horse*/
                 "", /*82 foggy*/
                 "", /*83 taxes*/
@@ -15686,7 +15686,7 @@
                   }
                 }
                 var twitter = document.createElement("div");
-                twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="center" width="50%"><table><tr><td><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" width="24" height="24" alt="@CanuckleGame" title="@CanuckleGame"></a></td><td>&nbsp;<a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a></td></tr></table></td><td align="center" width="50%"><table><tr><td><a href="http://archive.canucklegame.ca" target="_blank"><img src="https://canucklegame.github.io/canuckle/archive/images/canucklearchive_logo_32x32.png" alt="Canuckle Archive" title="Canuckle Archive" width="24" height="24"></td><td>&nbsp;<a href="http://archive.canucklegame.ca" target="_blank">Archive</a></td></tr></table></td></tr></table>';  
+                twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="center" width="50%"><table><tr><td><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" width="24" height="24" alt="@CanuckleGame" title="@CanuckleGame"></a></td><td>&nbsp;<a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a></td></tr></table></td><td align="center" width="50%"><table><tr><td><a href="http://archive.canucklegame.ca" target="_blank"><img src="https://canucklegame.github.io/canuckle/archive/images/canucklearchive_logo_32x32.png" alt="Canuckle Archive" title="Canuckle Archive" width="24" height="24"></td><td>&nbsp;<a href="http://archive.canucklegame.ca" target="_blank">Archive</a></td></tr></table></td></tr><tr><td colspan=2 align=center><a href="http://www.ko-fi.com/canuckle" alt="Buy Canuckle a coffee" target=_blank"><img src="images/coffee.png" alt="Buy Canuckle a coffee" title="Buy Canuckle a coffee"></a></td></tr></table>';  
                 this.shadowRoot.appendChild(twitter);
 
                 this.shadowRoot.appendChild(Cs.content.cloneNode(!0));
