@@ -29,7 +29,7 @@ Check us out on Facebook: [facebook.com/CanuckleGame](https://www.facebook.com/C
 
 ## Archive
 
-Play previous words on [Canuckle Archive](http://archive.canucklegame.ca)!
+Play previous words on [Canuckle Archive](http://archive.canucklegame.ca)
 
 ## Feedback
 
