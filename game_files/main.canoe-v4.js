@@ -15610,14 +15610,14 @@
                 "Canada officially uses the metric system of measurement, and metre is the standard spelling of the metric unit for length.", /*78 metre*/
                 "Elders are respected individuals who play key roles in Indigenous communities. They are important knowledge keepers, and they also help to ensure cultural continuity.", /*79 elder*/
                 "Canada's contributions to space exploration include one of Canada’s most celebrated and iconic technological advances: The Canadarm - a remote-controlled robotic arm used to help build and maintain the International Space Station (ISS).", /*80 space*/
-                "", /*81 horse*/
-                "", /*82 foggy*/
-                "", /*83 taxes*/
-                "", /*84 train*/
-                "", /*85 music*/
-                "", /*86 mitts*/
-                "", /*87 grain*/
-                "", /*88 rouge*/
+                "Canadian horses have extra-hard hooves that often don't even require horseshoes. They grow long, thick coats in winter so they don't need blankets, and can live outdoors with some shelter year-round. They descend from a shipload of horses sent to Canada in 1665 by King Louis XIV to his subjects in New France.", /*81 horse*/
+                "Newfoundland, Canada is widely considered one of the foggiest places on Earth. On average, Newfoundland experiences over 200 foggy days every year.", /*82 foggy*/
+                "Lottery & gambling winnings in Canada are treated as windfalls and are not subject to Canadian income tax. The court recently allowed a taxpayer to deduct $7,000 in expenses paid to his 11- and 13-year-old sons for chores.", /*83 taxes*/
+                "The Canadian Pacific Railway was built more than 135 years ago and stretches 5,000 kilometres across Canada.", /*84 train*/
+                "One of the most important forerunners to the modern synthesizer was the Electronic Sackbut, an invention of Canadian Hugh LeCaine.  He was learning how to make electronic music in the 1940s.", /*85 music*/
+                "Celebrated annually on November 21st, the National Red Mitten Day encourages Canadians to display their patriotism and sport’s spirit for its Olympic participants!", /*86 mitts*/
+                "95% of grain exports in Canada travel by rail. One car of grain can be worth as much as $30,000.", /*87 grain*/
+                "At 47 square km, Rouge National Urban Park is Toronto’s largest park, 13 times the size of New York’s Central Park. In pure Canadian terms, that’s 31,308 NHL size hockey rinks.", /*88 rouge*/
                 "", /*89 tulip*/
                 "", /*90 wines*/
                 "", /*91 serge*/
