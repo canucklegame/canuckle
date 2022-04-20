@@ -26,3 +26,5 @@ Follow us on Twitter: [@CanuckleGame](https://www.twitter.com/CanuckleGame)
 ## Feedback
 
 Feel free send feedback to [info@canucklegame.ca](mailto:info@canucklegame.ca?subject=Feedback)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V4C3425)
