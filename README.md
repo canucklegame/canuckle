@@ -23,6 +23,14 @@ A new CANUCKLE will be available each day!
 
 Follow us on Twitter: [@CanuckleGame](https://www.twitter.com/CanuckleGame)
 
+## Facebook
+
+Check us out on Facebook: [facebook.com/CanuckleGame](https://www.facebook.com/CanuckleGame)
+
+## Archive
+
+Play previous words on [Canuckle Archive](http://archive.canucklegame.ca)!
+
 ## Feedback
 
 Feel free send feedback to [info@canucklegame.ca](mailto:info@canucklegame.ca?subject=Feedback)
