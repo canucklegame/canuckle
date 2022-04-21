@@ -15600,7 +15600,7 @@
                 "The Brier is the annual Canadian men's curling championship that has been held since 1927. Team Gushue won the 2022 Brier, their fourth championship in six years.", /*68 brier*/
                 "The highest tides in the world can be found in Canada at the Bay of Fundy, which separates New Brunswick from Nova Scotia.", /*69 tides*/
                 "A klick is a military term used to denote a distance of one kilometre. It is commonly used in Canada when referring to distance or speed.", /*70 klick*/
-                "The Canadian Tuxedo is an outfit consisting of a denim jacket or shirt worn with denim jeans. The term originated in 1951 after Bing Crosby was refused entry to Vancouver hotel wearing denim on denim.", /*71 denim*/
+                "The Canadian Tuxedo is an outfit consisting of a denim jacket or jean shirt worn with denim jeans, or denim-on-denim. The term originated in 1951 after Bing Crosby was refused entry to a Vancouver hotel wearing double denim.", /*71 denim*/
                 "The most famous ship in Canadian history, the Bluenose, was both a fishing and racing vessel in the 1920s and 1930s. The Nova Scotia schooner achieved immortality when its image was engraved onto the Canadian dime.", /*72 ships*/
                 "From the last Friday in October to Remembrance Day, millions of Canadians wear a poppy as a visual pledge to never forget those who sacrificed for our freedom.", /*73 poppy*/
                 "The Supreme Court of Canada is the highest court in the judicial system of Canada. It comprises nine justices, whose decisions are the ultimate application of Canadian law.", /*74 court*/
@@ -15610,14 +15610,14 @@
                 "Canada officially uses the metric system of measurement, and metre is the standard spelling of the metric unit for length.", /*78 metre*/
                 "Elders are respected individuals who play key roles in Indigenous communities. They are important knowledge keepers, and they also help to ensure cultural continuity.", /*79 elder*/
                 "Canada's contributions to space exploration include one of Canada’s most celebrated and iconic technological advances: The Canadarm - a remote-controlled robotic arm used to help build and maintain the International Space Station (ISS).", /*80 space*/
-                "Canadian horses have extra-hard hooves that often don't even require horseshoes. They grow long, thick coats in winter so they don't need blankets, and can live outdoors with some shelter year-round. They descend from a shipload of horses sent to Canada in 1665 by King Louis XIV to his subjects in New France.", /*81 horse*/
-                "Newfoundland, Canada is widely considered one of the foggiest places on Earth. On average, Newfoundland experiences over 200 foggy days every year.", /*82 foggy*/
-                "Lottery & gambling winnings in Canada are treated as windfalls and are not subject to Canadian income tax. The court recently allowed a taxpayer to deduct $7,000 in expenses paid to his 11- and 13-year-old sons for chores.", /*83 taxes*/
-                "The Canadian Pacific Railway was built more than 135 years ago and stretches 5,000 kilometres across Canada.", /*84 train*/
-                "One of the most important forerunners to the modern synthesizer was the Electronic Sackbut, an invention of Canadian Hugh LeCaine.  He was learning how to make electronic music in the 1940s.", /*85 music*/
-                "Celebrated annually on November 21st, the National Red Mitten Day encourages Canadians to display their patriotism and sport’s spirit for its Olympic participants!", /*86 mitts*/
-                "95% of grain exports in Canada travel by rail. One car of grain can be worth as much as $30,000.", /*87 grain*/
-                "At 47 square km, Rouge National Urban Park is Toronto’s largest park, 13 times the size of New York’s Central Park. In pure Canadian terms, that’s 31,308 NHL size hockey rinks.", /*88 rouge*/
+                "", /*81 horse*/
+                "", /*82 foggy*/
+                "", /*83 taxes*/
+                "", /*84 train*/
+                "", /*85 music*/
+                "", /*86 mitts*/
+                "", /*87 grain*/
+                "", /*88 rouge*/
                 "", /*89 tulip*/
                 "", /*90 wines*/
                 "", /*91 serge*/
