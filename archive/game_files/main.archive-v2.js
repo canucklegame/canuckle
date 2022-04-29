@@ -15793,18 +15793,18 @@
                 "Canada officially uses the metric system of measurement, and metre is the standard spelling of the metric unit for length.", /*78 metre*/
                 "Elders are respected individuals who play key roles in Indigenous communities. They are important knowledge keepers, and they also help to ensure cultural continuity.", /*79 elder*/
                 "Canada's contributions to space exploration include one of Canada’s most celebrated and iconic technological advances: The Canadarm - a remote-controlled robotic arm used to help build and maintain the International Space Station (ISS).", /*80 space*/
-                "", /*81 horse*/
-                "", /*82 foggy*/
-                "", /*83 taxes*/
-                "", /*84 train*/
-                "", /*85 music*/
-                "", /*86 mitts*/
-                "", /*87 grain*/
-                "", /*88 rouge*/
-                "", /*89 tulip*/
-                "", /*90 wines*/
-                "", /*91 serge*/
-                "", /*92 rural*/
+                "On April 30, 2002, a bill was passed into law by the Canadian Government making the Canadian horse an official symbol of Canada. The Canadian horse is known for its great strength and endurance, resilience, intelligence and good temper.", /*81 horse*/
+                "Newfoundland, Canada is widely considered one of the foggiest places on Earth. On average, Newfoundland experiences over 200 foggy days every year.", /*82 foggy*/
+                "Lottery & gambling winnings in Canada are treated as windfalls and are not subject to Canadian income tax. Turns out taxes aren't always certain afterall!", /*83 taxes*/
+                "Canada has a large and well-developed railway system that includes transcontinental freight train services by Canadian National (CN) and Canadian Pacific (CP), and nationwide passenger train services by Via Rail.", /*84 train*/
+                "The Canadian music industry is the sixth-largest in the world, producing internationally renowned composers, musicians and ensembles. O Canada!", /*85 music*/
+                "Celebrated annually on November 21st, National Red Mitten Day encourages Canadians to display their patriotism in support of Canadian athletes! Red mittens represent the pride, generosity, and excellence of every Canadian.", /*86 mitts*/
+                "The grain sector is a key driver of Canada's economic growth, exporting 26.4 million tonnes of wheat in 2020-21 and over $25 billion in exports sales.", /*87 grain*/
+                "In the Canadian Football League (CFL), a rouge is a one-point score that is awarded for certain plays that involve the ball being kicked into the end zone. The rouge is uniquely Canadian!", /*88 rouge*/
+                "The Canadian Tulip Festival in Ottawa features 100 tulip varieties with more than one million blooms over 14,000 m². The celebration is a symbol of friendship between Canada and the Netherlands, with 20,000 bulbs being gifted by the Netherlands each year.", /*89 tulip*/
+                "Canadians drink more than 1 billion glasses of Canadian wine every year. Because of our cold climate, Canada is the largest Icewine producer in the world.", /*90 wines*/
+                "The Royal Canadian Mounted Police, or \"Mounties,\" are known for their iconic uniforms that feature the iconic scarlet tunic called a red serge.", /*91 serge*/
+                "The Prairie provinces of Alberta, Saskatchewan, and Manitoba are known for being the most rural parts of Canada. Much of the Prairies' population is descended from 19th century farmer-settlers.", /*92 rural*/
                 "", /*93 troop*/
                 "", /*94 junos*/
                 "", /*95 track*/
@@ -15865,16 +15865,16 @@
                     e.shadowRoot.appendChild(FFs.content.cloneNode(!0));
                   
                     var ff = document.createElement("div");
-                    ff.innerText = funFact;
+                    ff.innerHTML = funFact;
                     e.shadowRoot.appendChild(ff);
                   }
                 }
                 var twitter = document.createElement("div");
 
                 if (window.localStorage.getItem("canuckle-language") == "fr") {
-                  twitter.innerHTML = '<style>\n td\n {\n padding-top:5px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="center" width="50%"><table><tr><td><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" width="24" height="24" alt="@CanuckleGame" title="@CanuckleGame"></a></td><td>&nbsp;<a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a></td></tr></table></td><td align="center" width="50%"><table><tr><td><a href="http://archive.canucklegame.ca" target="_blank"><img src="https://canucklegame.github.io/canuckle/archive/images/canucklearchive_logo_32x32.png" alt="Canuckle Archive" title="Canuckle Archive" width="24" height="24"></td><td>&nbsp;<a href="http://archive.canucklegame.ca" target="_blank">Archive</a></td></tr></table></td></tr><tr><td colspan="2" align="center">Si vous avez aimé ce jeu :<a href="http://www.ko-fi.com/canuckle" alt="Achetez un café à Canuckle" target=_blank"><img src="images/coffee-f.png" alt="Achetez un café à Canuckle" title="Achetez un café à Canuckle"></a></td></tr></table>';
+                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="right"><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" height="40" alt="@CanuckleGame sur Twitter" title="@CanuckleGame sur Twitter"></a></td><td align="center"><a href="http://canucklegame.ca" target="_blank"><img src="images/canuckle2.png" alt="Canuckle" title="Canuckle" height="40" width="40"></td><td align="left"><a href="https://www.facebook.com/CanuckleGame" target="_blank"><img src="images/facebook2.png" height="40" alt="@CanuckleGame on Facebook" title="@CanuckleGame on Facebook"></a></td></tr><tr><td colspan="3" align="center">Si vous avez aimé ce jeu :<a href="http://www.ko-fi.com/canuckle" alt="Achetez un café à Canuckle"><img src="images/coffee-big-f.png" width="300" alt="Achetez un café à Canuckle" title="Achetez un café à Canuckle"></a></td></tr></table>';
                 } else {
-                  twitter.innerHTML = '<style>\n td\n {\n padding-top:5px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="center" width="50%"><table><tr><td><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" width="24" height="24" alt="@CanuckleGame" title="@CanuckleGame"></a></td><td>&nbsp;<a href="https://www.twitter.com/CanuckleGame" target="_blank">@CanuckleGame</a></td></tr></table></td><td align="center" width="50%"><table><tr><td><a href="http://archive.canucklegame.ca" target="_blank"><img src="https://canucklegame.github.io/canuckle/archive/images/canucklearchive_logo_32x32.png" alt="Canuckle Archive" title="Canuckle Archive" width="24" height="24"></td><td>&nbsp;<a href="http://archive.canucklegame.ca" target="_blank">Archive</a></td></tr></table></td></tr><tr><td colspan="2" align="center">If you enjoyed this game:<br><a href="http://www.ko-fi.com/canuckle" alt="Buy Canuckle a coffee" target=_blank"><img src="images/coffee.png" alt="Buy Canuckle a coffee" title="Buy Canuckle a coffee"></a></td></tr></table>';  
+                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="right"><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" height="40" alt="@CanuckleGame on Twitter" title="@CanuckleGame on Twitter"></a></td><td align="center"><a href="http://canucklegame.ca" target="_blank"><img src="images/canuckle2.png" alt="Canuckle" title="Canuckle" height="40" width="40"></td><td align="left"><a href="https://www.facebook.com/CanuckleGame" target="_blank"><img src="images/facebook2.png" height="40" alt="@CanuckleGame on Facebook" title="@CanuckleGame on Facebook"></a></td></tr><tr><td colspan="3" align="center">If you enjoyed this game:<br><a href="http://www.ko-fi.com/canuckle" alt="Buy Canuckle a coffee"><img src="images/coffee-big.png" width="300" alt="Buy Canuckle a coffee" title="Buy Canuckle a coffee"></a></td></tr></table>';  
                 }
                 e.shadowRoot.appendChild(twitter);
 
