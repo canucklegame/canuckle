@@ -1,0 +1,26 @@
+{
+  "short_name": "Rachel's 14th Birthday Canuckle Game",
+  "name": "Rachel's 14th Birthday Canuckle Game",
+  "icons": [
+    {
+      "src": "https://canucklegame.github.io/canuckle/rachel14/images/rachel_logo_48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "https://canucklegame.github.io/canuckle/rachel14/images/rachel_logo_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://canucklegame.github.io/canuckle/rachel14/images/rachel_logo_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "http://rachel.canucklegame.ca",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "theme_color": "#454545",
+  "description": "Rachel's 14th Birthday Canuckle Game"
+}
