@@ -1,0 +1,26 @@
+{
+  "short_name": "Mom's Mother's Day Canuckle Game",
+  "name": "Mom's Mother's Day Canuckle Game",
+  "icons": [
+    {
+      "src": "https://canucklegame.github.io/canuckle/mom/images/mom_logo_48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "https://canucklegame.github.io/canuckle/mom/images/mom_logo_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://canucklegame.github.io/canuckle/mom/images/mom_logo_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "http://mom.canucklegame.ca",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "theme_color": "#454545",
+  "description": "Mom's Mother's Day Canuckle Game"
+}
