@@ -14522,7 +14522,7 @@
     function Da(e) {
       var a,
         s = Ga(e);
-      return (a = s % La.length), La[a];
+      return (a = min(s, La.length - 1)), La[a];
     }
     function Ga(e) {
       return Na(Ha, e);
@@ -14624,7 +14624,7 @@
             (e.today = new Date());
           var o = za();
 
-          var currentGame = Ga(e.today) - 235;
+          var currentGame = min(Ga(e.today), La.length - 1) - 235;
           if (window.localStorage.getItem("reload"+JSON.stringify(currentGame)) == null) {
             window.localStorage.setItem("reload"+JSON.stringify(currentGame), JSON.stringify(1));
             window.location.reload();
