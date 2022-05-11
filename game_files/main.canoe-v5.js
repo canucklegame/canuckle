@@ -1,6 +1,6 @@
 (this.canuckle = this.canuckle || {}),
   (this.canuckle.bundle = (function (e) {
-    "use strict"; 
+    "use strict";
     function a(e) {
       return (a =
         "function" == typeof Symbol && "symbol" == typeof Symbol.iterator
@@ -454,16 +454,12 @@
     customElements.define("game-row", x);
     var z = document.createElement("template");
     z.innerHTML = "\n  <slot></slot>\n";
-    var j = "archive-darkTheme",
-      S = "archive-colorBlindTheme",
-      archiveDate = "archiveDate",
+    var j = "darkTheme",
+      S = "colorBlindTheme",
       _ = (function (e) {
         r(t, e);
         var a = h(t);
         function t() {
-          if (window.localStorage.getItem(archiveDate) === null) {
-            window.localStorage.setItem(archiveDate, JSON.stringify(new Date()));
-          }
           var e;
           s(this, t),
             n(p((e = a.call(this))), "isDarkTheme", !1),
@@ -1205,7 +1201,7 @@
           }
           return e;
         })),
-      wa = "mom-gameState",
+      wa = "gameState",
       xa = {
         boardState: null,
         evaluations: null,
@@ -1225,20 +1221,11 @@
       var a = za();
       !(function (e) {
         window.localStorage.setItem(wa, JSON.stringify(e));
-        e.lastPlayedTs = Date.now();
-        saveArchive(e);
       })(va(a, e));
     }
     var Sa = document.createElement("template");
-    if (window.localStorage.getItem("canuckle-language") == "fr") {
-      // FRENCH
-      Sa.innerHTML =
-        '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 12px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  font-size: 18px; \n }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  .languagebutton {\n      display: inline-block;\n  font-family: Clear Sans, Arial, sans-serif;\n padding: 1px 7px;\n  font-size: 15px;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  outline: none;\n  color: #fff;\n  background-color: #86888a;\n  border: none;\n  border-radius: 5px;\n  box-shadow: 0 1px #999;\n     }\n  .languagebutton:hover\n {\n background-color: #FF0000;\n }\n\n .languagebutton:active\n {\n background-color: #FF0000;\n  box-shadow: 0 1px #666;\n  transform: translateY(1px);\n }\n\n </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Mode difficile</div>\n          <div class="description">Tous les indices révélés doivent être utilisés dans les suppositions ultérieures</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Thème sombre</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Mode contraste élevé</div>\n          <div class="description">Pour une meilleure vision des couleurs</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n     </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Commentaires</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Retour d\'information" title="info@canucklegame.ca">Courriel</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n </section> <section>\n      <div class="setting"><div class="text"><div id="language-setting"></div></div><button id="language-button" class="languagebutton"></button></div>   </section>\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Site principal</div>\n        </div>\n        <div class="control">\n          <a href="http://www.canucklegame.ca" target="blank">canucklegame.ca</a>\n        </div>\n      </div>\n </section>  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright"><a href="javascript:window.location.href=window.location.href">Rafraîchir le jeu</a><br>Propulsé par l\'original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
-    } else {
-      // ENGLISH
-      Sa.innerHTML =
-        '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 12px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  font-size: 18px; \n }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  .languagebutton {\n      display: inline-block;\n  font-family: Clear Sans, Arial, sans-serif;\n padding: 1px 7px;\n  font-size: 15px;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  outline: none;\n  color: #fff;\n  background-color: #86888a;\n  border: none;\n  border-radius: 5px;\n  box-shadow: 0 1px #999;\n     }\n  .languagebutton:hover\n {\n background-color: #FF0000;\n }\n\n .languagebutton:active\n {\n background-color: #FF0000;\n  box-shadow: 0 1px #666;\n  transform: translateY(1px);\n }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">High Contrast Mode</div>\n          <div class="description">For improved colour vision</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n     </section>\n\n    \n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright"><a href="javascript:window.location.href=window.location.href">Refresh game</a><br>Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
-    }
+    Sa.innerHTML =
+      '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 12px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">High Contrast Mode</div>\n          <div class="description">For improved colour vision</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n    </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Feedback</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Feedback" title="info@canucklegame.ca">Email</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n    </section>\n  <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Archive</div>\n        </div>\n        <div class="control">\n          <a href="http://archive.canucklegame.ca" target="blank">archive.canucklegame.ca</a>\n        </div>\n      </div>\n </section>\n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright"><a href="javascript:window.location.href=window.location.href">Refresh game</a><br>Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
     var _a = (function (e) {
       r(t, e);
       var a = h(t);
@@ -1263,17 +1250,8 @@
                   null === (e = window.canuckle) || void 0 === e
                     ? void 0
                     : e.hash),
-                (this.shadowRoot.querySelector("#language-button").textContent = window.localStorage.getItem("canuckle-language") == "fr" ? "English" : "Français"),
                 (this.shadowRoot.querySelector("#puzzle-number").textContent =
                   "#".concat(this.gameApp.dayOffset - 235)),
-                (this.shadowRoot.querySelector("#language-setting").textContent =
-                  window.localStorage.getItem("canuckle-language") == "fr" ? "Langue : Français" : "Language: English"),
-                (this.shadowRoot.querySelector("#language-button").addEventListener("click", function () {
-                    var currentLanguage = window.localStorage.getItem("canuckle-language");
-                    window.localStorage.setItem("canuckle-language", currentLanguage == "fr" ? "en" : "fr");
-                    saveArchiveNoApp();
-                    window.location.reload();
-                })),
                 this.shadowRoot.addEventListener(
                   "game-switch-change",
                   function (e) {
@@ -1298,11 +1276,6 @@
           {
             key: "render",
             value: function () {
-              (this.shadowRoot.querySelector("#language-button").textContent = window.localStorage.getItem("canuckle-language") == "fr" ? "English" : "Français");
-              (this.shadowRoot.querySelector("#puzzle-number").textContent =
-                  "#".concat(this.gameApp.dayOffset - 235));
-              (this.shadowRoot.querySelector("#language-setting").textContent =
-                  window.localStorage.getItem("canuckle-language") == "fr" ? "Langue : Français" : "Language: English");
               var e = document.querySelector("body");
               e.classList.contains("nightmode") &&
                 this.shadowRoot
@@ -1619,23 +1592,150 @@
         "skill",
         "elder",
         "frame",
-        "terry", 
-        "choir", /* 1 */
-        "curls", /* 2 */
-        "smile", /* 3 */
-        "golfs", /* 4 */
-        "bowls", /* 5 */
-        "sport", /* 6 */
-        "music", /* 7 */
-        "momma", /* 8 */
-        "guide", /* 9 */
-        "plant", /* 10 */
-        "rehab", /* 11 */
-        "smart", /* 12 */
-        "cares", /* 13 */
-
-        
-        ],
+        "terry", /* Game 0 */
+        "canoe", /* 1 (FEB 10, 2022 - START OF CANUCKLE) */
+        "maple", /* 2 (FEB 11) */
+        "inuit", /* 3 (FEB 12) */
+        "plaid", /* 4 (FEB 13) */
+        "igloo", /* 5 (FEB 14) */
+        "hoser", /* 6 (FEB 15) */
+        "syrup", /* 7 (FEB 16) */
+        "bacon", /* 8 (FEB 17) */
+        "sorry", /* 9 (FEB 18) */
+        "whale", /* 10 (FEB 19) */
+        "north", /* 11 (FEB 20) */
+        "aboot", /* 12 (FEB 21) */
+        "banff", /* 13 (FEB 22) */
+        "falls", /* 14 (FEB 23) */
+        "totem", /* 15 (FEB 24) */
+        "queen", /* 16 (FEB 25) */
+        "loons", /* 17 (FEB 26) */
+        "metis", /* 18 (FEB 27) */
+        "toque", /* 19 (FEB 28) */
+        "canal", /* 20 (MAR 1) */
+        "crude", /* 21 (MAR 2) */
+        "goose", /* 22 (MAR 3) */
+        "lakes", /* 23 (MAR 4) */
+        "crown", /* 24 (MAR 5) */
+        "spuds", /* 25 (MAR 6) */
+        "roots", /* 26 (MAR 7) */
+        "snowy", /* 27 (MAR 8) */
+        "yukon", /* 28 (MAR 9) */
+        "polar", /* 29 (MAR 10) */
+        "bison", /* 30 (MAR 11) */
+        "tower", /* 31 (MAR 12) */
+        "bears", /* 32 (MAR 13) */
+        "leafs", /* 33 (MAR 14) */
+        "wheat", /* 34 (MAR 15) */
+        "parks", /* 35 (MAR 16) */
+        "kayak", /* 36 (MAR 17) */
+        "moose", /* 37 (MAR 18) */
+        "pride", /* 38 (MAR 19) */
+        "rocky", /* 39 (MAR 20) */
+        "scoff", /* 40 (MAR 21) */
+        "cabin", /* 41 (MAR 22) */ 
+        "beers", /* 42 (MAR 23) */ 
+        "parka", /* 43 (MAR 24) */ 
+        "rinks", /* 44 (MAR 25) */
+        "fries", /* 45 (MAR 26) */
+        "coast", /* 46 (MAR 27) */
+        "order", /* 47 (MAR 28) used to be EAGLE*/
+        "phone", /* 48 (MAR 29) */
+        "birch", /* 49 (MAR 30) */
+        "ports", /* 50 (MAR 31) used to be PENNY*/
+        "dairy", /* 51 (APR 1) */
+        "skate", /* 52 (APR 2) */
+        "farms", /* 53 (APR 3) */
+        "river", /* 54 (APR 4) */
+        "sport", /* 55 (APR 5) */
+        "globe", /* 56 (APR 6) used to be GEESE*/
+        "curds", /* 57 (APR 7) */
+        "foxes", /* 58 (APR 8) */
+        "crops", /* 59 (APR 9) used to be SPIEL*/
+        "camps", /* 60 (APR 10) */
+        "rodeo", /* 61 (APR 11) */
+        "trade", /* 62 (APR 12) */
+        "peace", /* 63 (APR 13) */
+        "mines", /* 64 (APR 14) */
+        "shore", /* 65 (APR 15) */
+        "cedar", /* 66 (APR 16) */
+        "large", /* 67 (APR 17) */
+        "brier", /* 68 (APR 18) */
+        "tides", /* 69 (APR 19) */
+        "klick", /* 70 (APR 20) */
+        "denim", /* 71 (APR 21) */
+        "ships", /* 72 (APR 22) */
+        "poppy", /* 73 (APR 23) */
+        "court", /* 74 (APR 24) */
+        "lodge", /* 75 (APR 25) */
+        "ocean", /* 76 (APR 26) */
+        "rugby", /* 77 (APR 27) */
+        "metre", /* 78 (APR 28) */
+        "elder", /* 79 (APR 29) */
+        "space", /* 80 (APR 30) */
+        "horse", /* 81 (MAY 1) */
+        "foggy", /* 82 (MAY 2) */
+        "taxes", /* 83 (MAY 3) */
+        "train", /* 84 (MAY 4) */
+        "music", /* 85 (MAY 5) */
+        "mitts", /* 86 (MAY 6) */
+        "grain", /* 87 (MAY 7) */
+        "rouge", /* 88 (MAY 8) */
+        "tulip", /* 89 (MAY 9) */
+        "wines", /* 90 (MAY 10) */
+        "serge", /* 91 (MAY 11) */
+        "rural", /* 92 (MAY 12) */
+        "troop", /* 93 (MAY 13) */
+        "junos", /* 94 (MAY 14) used to be HONEY*/
+        "track", /* 95 (MAY 15) */
+        "sunny", /* 96 (MAY 16) */
+        "zones", /* 97 (MAY 17) */
+        "beach", /* 98 (MAY 18) */
+        "skier", /* 99 (MAY 19) */
+        "guard", /* 100 (MAY 20) used to be BASES*/
+        "expos", /* 101 (MAY 21) used to be SMILE*/
+        "hydro", /* 102 (MAY 22) */
+        "trail", /* 103 (MAY 23) */
+        "ducks", /* 104 (MAY 24) used to be SANDS*/
+        "water", /* 105 (MAY 25) */
+        "boots", /* 106 (MAY 26) */
+        "tarts", /* 107 (MAY 27) */
+        "apple", /* 108 (MAY 28) used to be DOCKS*/
+        "hoops", /* 109 (MAY 29) used to be PRIVY*/
+        "otter", /* 110 (MAY 30) */
+        "field", /* 111 (MAY 31) */
+        "games", /* 112 (JUN 1) */
+        "sleds", /* 113 (JUN 2) */
+        "trees", /* 114 (JUN 3) */
+        "steel", /* 115 (JUN 4) used to be UNION*/
+        "prime", /* 116 (JUN 5) */
+        "chips", /* 117 (JUN 6) */
+        "pager", /* 118 (JUN 7) used to be PERCH*/
+        "donut", /* 119 (JUN 8) used to be BANKS*/
+        "pines", /* 120 (JUN 9) */
+        "chief", /* 121 (JUN 10) used to be GRAVY*/
+        "peaks", /* 122 (JUN 11) */
+        "arena", /* 123 (JUN 12) */
+        "elect", /* 124 (JUN 13) */
+        "house", /* 125 (JUN 14) */
+        "bagel", /* 126 (JUN 15) */
+        "force", /* 127 (JUN 16) used to be HERON*/
+        "rower", /* 128 (JUN 17) used to be MOGUL*/
+        "radio", /* 129 (JUN 18) */
+        "litre", /* 130 (JUN 19) used to be UNITY*/
+        "royal", /* 131 (JUN 20) */
+        "stick", /* 132 (JUN 21) used to be PITCH, then TAIGA*/
+        "huron", /* 133 (JUN 22) */
+        "trout", /* 134 (JUN 23) */
+        "flood", /* 135 (JUN 24) used to be SCARF*/
+        "dinos", /* 136 (JUN 25) used to be BEADS*/
+        "storm", /* 137 (JUN 26) */
+        "lager", /* 138 (JUN 27) used to be CRAFT*/
+        "taffy", /* 139 (JUN 28) */
+        "great", /* 140 (JUN 29) */
+        "pucks", /* 141 (JUN 30) */
+        "proud"  /* 142 (JUL 1, 2022 - END OF CANUCKLE) */
+      ],
       Ta = [    /* DICTIONARY WORDS*/
         "gimli",
         "comox",
@@ -14436,7 +14536,7 @@
       }
       return a;
     }
-    var Ya = "archive-statistics",
+    var Ya = "statistics",
       Ja = "fail",
       Ua = {
         currentStreak: 0,
@@ -14476,57 +14576,14 @@
           window.localStorage.setItem(Ya, JSON.stringify(e));
         })(o);
     }
-    function saveArchive(gameApp) {
-      var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-      //additional check to delete partial entry before moving across levels   
-      if (gameApp.rowIndex >= 0 && gameApp.boardState[gameApp.rowIndex]) {
-      gameApp.boardState[gameApp.rowIndex] = "";
-      }
-      var saveData = {
-        rowIndex: gameApp.rowIndex,
-        boardState: gameApp.boardState,
-        evaluations: gameApp.evaluations,
-        gameStatus: gameApp.gameStatus,
-        lastPlayedTs: gameApp.lastPlayedTs
-      };
-      window.localStorage.setItem("mom"+JSON.stringify(currentGame), JSON.stringify(saveData));
-    }
-    function saveArchiveNoApp() {
-      var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-      var gameState = window.localStorage.getItem("mom-gameState");
-      
-      if (gameState != null) {
-        var gameData = JSON.parse(gameState);
-        var saveData = {
-          rowIndex: gameData.rowIndex,
-          boardState: gameData.boardState,
-          evaluations: gameData.evaluations,
-          gameStatus: gameData.gameStatus,
-          lastPlayedTs: gameData.lastPlayedTs
-        };
-        window.localStorage.setItem("mom"+JSON.stringify(currentGame), JSON.stringify(saveData));
-      }
-    }
     var Ka = document.createElement("template");
-    if (window.localStorage.getItem("canuckle-language") == "fr") {
-      // FRENCH
-      Ka.innerHTML =
-        "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: "
-          .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
-          .concat(
-            4e3,
-            ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--red);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 26px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  .archivebutton {\n      display: inline-block;\n  font-family: Clear Sans, Arial, sans-serif;\n padding: 1px 5px;\n  font-size: 13px;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  outline: none;\n  color: #fff;\n  background-color: #86888a;\n  border: none;\n  border-radius: 5px;\n  box-shadow: 0 1px #999;\n     }\n  .archivebutton:hover\n {\n background-color: #FF0000;\n }\n\n .archivebutton:active\n {\n background-color: #FF0000;\n  box-shadow: 0 1px #666;\n  transform: translateY(1px);\n }\n\n @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div style="width=100%;text-align:center"> <button id="minus-archive" type="button" class="archivebutton">\<</button>   <button id="plus-archive" type="button" class="archivebutton">\></button>\n <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
-          );
-    } else {
-      // ENGLISH
-      Ka.innerHTML =
-        "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: "
-          .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
-          .concat(
-            4e3,
-            ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--red);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 26px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  .archivebutton {\n      display: inline-block;\n  font-family: Clear Sans, Arial, sans-serif;\n padding: 1px 5px;\n  font-size: 13px;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  outline: none;\n  color: #fff;\n  background-color: #86888a;\n  border: none;\n  border-radius: 5px;\n  box-shadow: 0 1px #999;\n     }\n  .archivebutton:hover\n {\n background-color: #FF0000;\n }\n\n .archivebutton:active\n {\n background-color: #FF0000;\n  box-shadow: 0 1px #666;\n  transform: translateY(1px);\n }\n\n @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div style="width=100%;text-align:center">  <button id="minus-archive" type="button" class="archivebutton">\< PREV&nbsp;</button> <button id="plus-archive" type="button" class="archivebutton">&nbsp;NEXT \></button>\n </div> <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
-          );
-    }
+    Ka.innerHTML =
+      "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: "
+        .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
+        .concat(
+          4e3,
+          ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--color-tone-1);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 36px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div class="title">\n         CANUCKLE\n        </div>\n        <div class="menu">\n          <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n        <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
+        );
     var Qa = document.createElement("template");
     Qa.innerHTML =
       '\n<button id="reveal">reveal</button>\n<button id="shake">shake</button>\n<button id="bounce">bounce</button>\n<button id="toast">toast</button>\n<button id="modal">modal</button>\n';
@@ -14534,12 +14591,12 @@
       es = "WIN",
       as = "FAIL",
       ss = [
-        "Magnificent Mom! 🤩",
-        "Radical Rogers! 🤙",
-        "Super Sheila! 🦸‍♀️",
-        "Woohoo! 🙌",
-        "Awesome! 👍",
-        "Lucky! 🍀",
+        "Canadian Rockstar!",
+        "O Canada!",
+        "True North!",
+        "Awesome, eh?",
+        "Patriot Love!",
+        "Lucky Hoser!",
       ],
       ts = (function (e) {
         r(t, e);
@@ -14565,34 +14622,21 @@
             n(p(e), "dayOffset", void 0),
             e.attachShadow({ mode: "open" }),
             (e.today = new Date());
-
-          // if (window.localStorage.getItem("fail-migrate") == null) {
-          //   var guessData = Xa();
-          //   guessData.guesses[7] = guessData.guesses.fail;
-          //   window.localStorage.setItem("fail-migrate", "complete");
-          // }
-
-          if (window.localStorage.getItem("canuckle-language") == null) {
-            window.localStorage.setItem("canuckle-language", "en");
-          }
           var o = za();
-          if (window.localStorage.getItem(archiveDate) == null) {
-            var todayGame = Ga(new Date()) - 235;
-            window.localStorage.setItem(archiveDate, JSON.stringify(new Date(e.today.setDate(e.today.getDate() - todayGame + 1))));
-          } 
-          var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-          var savedData = JSON.parse(window.localStorage.getItem("mom"+JSON.stringify(currentGame)));
-          
-          if (savedData != null) {
-            e.lastPlayedTs = savedData.lastPlayedTs;
-            ja(savedData);
+
+          var currentGame = Ga(e.today) - 235;
+          if (window.localStorage.getItem("reload"+JSON.stringify(currentGame)) == null) {
+            window.localStorage.setItem("reload"+JSON.stringify(currentGame), JSON.stringify(1));
+            window.location.reload();
           }
+
           return (
-            savedData == null
+            (e.lastPlayedTs = o.lastPlayedTs),
+            !e.lastPlayedTs || Na(new Date(e.lastPlayedTs), e.today) >= 1
               ? ((e.boardState = new Array(6).fill("")),
                 (e.evaluations = new Array(6).fill(null)),
-                (e.solution = Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
-                (e.dayOffset = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
+                (e.solution = Da(e.today)),
+                (e.dayOffset = Ga(e.today)),
                 (e.lastCompletedTs = o.lastCompletedTs),
                 (e.hardMode = o.hardMode),
                 (e.restoringFromLocalStorage = !1),
@@ -14603,14 +14647,14 @@
                   solution: e.solution,
                   gameStatus: e.gameStatus,
                 }),
-                Ca("event", "level_start_archive", { level_name_start_archive: Wa(e.solution) }))
-              : ((e.boardState = savedData.boardState),
-                (e.evaluations = savedData.evaluations),
-                (e.rowIndex = savedData.rowIndex),
-                (e.solution = Da(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
-                (e.dayOffset = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate))))),
-                (e.letterEvaluations = Pa(savedData.boardState, savedData.evaluations)),
-                (e.gameStatus = savedData.gameStatus),
+                Ca("event", "level_start", { level_name_start: e.solution }))
+              : ((e.boardState = o.boardState),
+                (e.evaluations = o.evaluations),
+                (e.rowIndex = o.rowIndex),
+                (e.solution = o.solution),
+                (e.dayOffset = Ga(e.today)),
+                (e.letterEvaluations = Pa(e.boardState, e.evaluations)),
+                (e.gameStatus = o.gameStatus),
                 (e.lastCompletedTs = o.lastCompletedTs),
                 (e.hardMode = o.hardMode),
                 e.gameStatus !== Za && (e.canInput = !1),
@@ -14717,14 +14761,13 @@
                     }),
                       ja({ lastCompletedTs: Date.now() }),
                       (this.gameStatus = l ? es : as),
-                      Ca("event", "level_end_archive", {
-                        level_name_archive: this.solution,
-                        num_guesses_archive: this.rowIndex == 6 && !l ? 7 : this.rowIndex,
-                        hard_mode_archive: this.hardMode ? 1 : 0,
-                        high_contrast_archive: document.querySelector("body").classList.contains("colorblind") ? 1 : 0,
-                        dark_theme_archive: document.querySelector("body").classList.contains("nightmode") ? 1 : 0,
-                        french_archive: window.localStorage.getItem("canuckle-language") == "fr" ? 1 : 0,
-                        success_archive: l,
+                      Ca("event", "level_end", {
+                        level_name: this.solution,
+                        num_guesses: this.rowIndex == 6 && !l ? 7 : this.rowIndex,
+                        hard_mode: this.hardMode ? 1 : 0,
+                        high_contrast: document.querySelector("body").classList.contains("colorblind") ? 1 : 0,
+                        dark_theme: document.querySelector("body").classList.contains("nightmode") ? 1 : 0,
+                        success: l,
                       });
                   (this.tileIndex = 0),
                     (this.canInput = !1),
@@ -14845,14 +14888,13 @@
               key: "connectedCallback",
               value: function () {
                 var e = this;
-                var currentGame = Ga(new Date()) - 235;
                 this.shadowRoot.appendChild(Ka.content.cloneNode(!0)),
                   (this.$game = this.shadowRoot.querySelector("#game")),
                   (this.$board = this.shadowRoot.querySelector("#board")),
                   (this.$keyboard =
                     this.shadowRoot.querySelector("game-keyboard")),
                   this.sizeBoard(),
-                  this.lastPlayedTs || window.localStorage.getItem("mom-hasPlayed") ||
+                  this.lastPlayedTs ||
                     setTimeout(function () {
                       return e.showHelpModal();
                     }, 100);
@@ -14872,41 +14914,6 @@
                     : Ba.includes(s.toLowerCase()) &&
                       e.addLetter(s.toLowerCase());
                 }),
-                (this.shadowRoot.querySelector("#minus-archive").addEventListener("click", function () {
-                    var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-                    if (currentGame <= 1) {
-                      return;
-                    }
-                    
-                    window.localStorage.setItem("mom-hasPlayed", "1");
-                    e.lastPlayedTs = Date.now();
-                    saveArchive(e);
-                    
-                    var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
-                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() - 1))));
-                    
-                    window.location.reload();
-                })),
-                (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
-                    var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-                    if (currentGame == 13) {
-                      return;
-                    }
-
-                    window.localStorage.setItem("mom-hasPlayed", "1");
-                    e.lastPlayedTs = Date.now();
-                    saveArchive(e);
-                    
-                    var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
-                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() + 1))));
-                    
-                    window.location.reload();
-                })),
-                
-               
-                
-                (this.shadowRoot.querySelector("#canuckle-title").textContent = 
-                  "MOM #".concat(Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235)),
                   this.$game.addEventListener(
                     "game-last-tile-revealed-in-row",
                     function (a) {
@@ -14953,11 +14960,8 @@
                   this.shadowRoot
                     .getElementById("settings-button")
                     .addEventListener("click", function (a) {
-                      var s = e.$game.querySelector("game-page");
-                      var t = document.createTextNode("Settings");
-                      if (window.localStorage.getItem("canuckle-language") == "fr") {
-                        t = document.createTextNode("Paramètres");
-                      }
+                      var s = e.$game.querySelector("game-page"),
+                        t = document.createTextNode("Settings");
                       s.appendChild(t);
                       var o = document.createElement("game-settings");
                       o.setAttribute("slot", "content"),
@@ -14968,11 +14972,8 @@
                   this.shadowRoot
                     .getElementById("help-button")
                     .addEventListener("click", function (a) {
-                      var s = e.$game.querySelector("game-page");
-                      var t = document.createTextNode("How to play");
-                      if (window.localStorage.getItem("canuckle-language") == "fr") {
-                        t = document.createTextNode("Comment Jouer");
-                      }
+                      var s = e.$game.querySelector("game-page"),
+                        t = document.createTextNode("How to play");
                       s.appendChild(t);
                       var o = document.createElement("game-help");
                       o.setAttribute("page", ""),
@@ -15077,7 +15078,7 @@
     customElements.define("game-modal", ns);
     var rs = document.createElement("template");
     rs.innerHTML =
-      "\n  <style>\n  :host {\n    height: var(--keyboard-height);\n  }\n  #keyboard {\n    margin: 0 8px;\n    user-select: none;\n  }\n  \n  .row {\n    display: flex;\n    width: 100%;\n    margin: 0 auto 8px;\n    /* https://stackoverflow.com/questions/46167604/ios-html-disable-double-tap-to-zoom */\n    touch-action: manipulation;\n  }\n  \n  button {\n   font-size: 16px;\n font-family: inherit;\n    font-weight: bold;\n    border: 0;\n    padding: 0;\n    margin: 0 6px 0 0;\n    height: 58px;\n    border-radius: 4px;\n    cursor: pointer;\n    user-select: none;\n    background-color: var(--key-bg);\n    color: var(--key-text-color);\n    flex: 1;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-transform: uppercase;\n    -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n  }\n\n  button:focus {\n    outline: none;\n  }\n\n  button.fade {\n    transition: background-color 0.1s ease, color 0.1s ease;\n  }\n  \n  button:last-of-type {\n    margin: 0;\n  }\n  \n  .half {\n    flex: 0.5;\n  }\n  \n  .one {\n    flex: 1;\n  }\n\n  .one-and-a-half {\n    flex: 1.5;\n    font-size: 12px;\n  }\n  \n  .two {\n    flex: 2;\n  }\n\n  button[data-state='correct'] {\n    background-color: var(--key-bg-correct);\n    color: var(--key-evaluated-text-color);\n  }\n\n  button[data-state='present'] {\n    background-color: var(--key-bg-present);\n    color: var(--key-evaluated-text-color);\n  }\n\n  button[data-state='absent'] {\n    background-color: var(--key-bg-absent);\n    color: var(--key-evaluated-text-color);\n  }\n\n  </style>\n  <div id=\"keyboard\"></div>\n";
+      "\n  <style>\n  :host {\n    height: var(--keyboard-height);\n  }\n  #keyboard {\n    margin: 0 8px;\n    user-select: none;\n  }\n  \n  .row {\n    display: flex;\n    width: 100%;\n    margin: 0 auto 8px;\n    /* https://stackoverflow.com/questions/46167604/ios-html-disable-double-tap-to-zoom */\n    touch-action: manipulation;\n  }\n  \n  button {\n  font-size: 16px;\n  font-family: inherit;\n    font-weight: bold;\n    border: 0;\n    padding: 0;\n    margin: 0 6px 0 0;\n    height: 58px;\n    border-radius: 4px;\n    cursor: pointer;\n    user-select: none;\n    background-color: var(--key-bg);\n    color: var(--key-text-color);\n    flex: 1;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-transform: uppercase;\n    -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n  }\n\n  button:focus {\n    outline: none;\n  }\n\n  button.fade {\n    transition: background-color 0.1s ease, color 0.1s ease;\n  }\n  \n  button:last-of-type {\n    margin: 0;\n  }\n  \n  .half {\n    flex: 0.5;\n  }\n  \n  .one {\n    flex: 1;\n  }\n\n  .one-and-a-half {\n    flex: 1.5;\n    font-size: 12px;\n  }\n  \n  .two {\n    flex: 2;\n  }\n\n  button[data-state='correct'] {\n    background-color: var(--key-bg-correct);\n    color: var(--key-evaluated-text-color);\n  }\n\n  button[data-state='present'] {\n    background-color: var(--key-bg-present);\n    color: var(--key-evaluated-text-color);\n  }\n\n  button[data-state='absent'] {\n    background-color: var(--key-bg-absent);\n    color: var(--key-evaluated-text-color);\n  }\n\n  </style>\n  <div id=\"keyboard\"></div>\n";
     var is = document.createElement("template");
     is.innerHTML = "\n  <button>key</button>\n";
     var ls = document.createElement("template");
@@ -15485,14 +15486,8 @@
       var t;
     }
     var Cs = document.createElement("template");
-    var isFrench = window.localStorage.getItem("canuckle-language") == "fr";
-    if (isFrench) {
-      Cs.innerHTML =
-        '\n  <style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 32px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #guess-distribution {\n      width: 80%;\n    }\n\n    .graph-container {\n      width: 100%;\n      height: 20px;\n      display: flex;\n      align-items: center;\n      padding-bottom: 4px;\n      font-size: 14px;\n      line-height: 20px;\n    }\n\n    .graph-container .graph {\n      width: 100%;\n      height: 100%;\n      padding-left: 4px;\n    }\n\n    .graph-container .graph .graph-bar {\n      height: 100%;\n      /* Assume no wins */\n      width: 0%;\n      position: relative;\n      background-color: var(--color-absent);\n      display: flex;\n      justify-content: center;\n    }\n\n    .graph-container .graph .graph-bar.highlight {\n      background-color: var(--color-correct);\n    }\n\n    .graph-container .graph .graph-bar.align-right {\n      justify-content: flex-end;\n      padding-right: 8px;\n    }\n\n    .graph-container .graph .num-guesses {\n      font-weight: bold;\n      color: var(--tile-text-color);\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n\n    .footer {\n      display: flex;\n      width: 100%;\n    }\n\n    .countdown {\n      border-right: 1px solid var(--color-tone-1);\n      padding-right: 12px;\n      width: 50%;\n    }\n\n    .share {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding-left: 12px;\n      width: 50%;\n    }\n\n    .no-data {\n      text-align: center;\n    }\n\n    button#share-button {\n      background-color: var(--key-bg-correct);\n      color: var(--key-evaluated-text-color);\n      font-family: inherit;\n      font-weight: bold;\n      border-radius: 4px;\n      cursor: pointer;\n      border: none;\n      user-select: none;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-transform: uppercase;\n      -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n      width: 80%;\n      font-size: 20px;\n      height: 52px;\n      -webkit-filter: brightness(100%);\n    }\n    button#share-button:hover {\n      opacity: 0.9;\n    }\n    button#share-button game-icon {\n      width: 24px;\n      height: 24px;\n      padding-left: 8px;\n    }\n  </style>\n\n  <div class="container">\n    <h1>Statistiques</h1>\n    <div id="statistics"></div>\n    <h1>Performances</h1>\n    <div id="guess-distribution"></div>\n    <div class="footer"></div>\n  </div>\n';  
-    } else {
-      Cs.innerHTML =
-        '\n  <style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 32px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #guess-distribution {\n      width: 80%;\n    }\n\n    .graph-container {\n      width: 100%;\n      height: 20px;\n      display: flex;\n      align-items: center;\n      padding-bottom: 4px;\n      font-size: 14px;\n      line-height: 20px;\n    }\n\n    .graph-container .graph {\n      width: 100%;\n      height: 100%;\n      padding-left: 4px;\n    }\n\n    .graph-container .graph .graph-bar {\n      height: 100%;\n      /* Assume no wins */\n      width: 0%;\n      position: relative;\n      background-color: var(--color-absent);\n      display: flex;\n      justify-content: center;\n    }\n\n    .graph-container .graph .graph-bar.highlight {\n      background-color: var(--color-correct);\n    }\n\n    .graph-container .graph .graph-bar.align-right {\n      justify-content: flex-end;\n      padding-right: 8px;\n    }\n\n    .graph-container .graph .num-guesses {\n      font-weight: bold;\n      color: var(--tile-text-color);\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n\n    .footer {\n      display: flex;\n      width: 100%;\n    }\n\n    .countdown {\n      border-right: 1px solid var(--color-tone-1);\n      padding-right: 12px;\n      width: 50%;\n    }\n\n    .share {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding-left: 12px;\n      width: 50%;\n    }\n\n    .no-data {\n      text-align: center;\n    }\n\n    button#share-button {\n      background-color: var(--key-bg-correct);\n      color: var(--key-evaluated-text-color);\n      font-family: inherit;\n      font-weight: bold;\n      border-radius: 4px;\n      cursor: pointer;\n      border: none;\n      user-select: none;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-transform: uppercase;\n      -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n      width: 80%;\n      font-size: 20px;\n      height: 52px;\n      -webkit-filter: brightness(100%);\n    }\n    button#share-button:hover {\n      opacity: 0.9;\n    }\n    button#share-button game-icon {\n      width: 24px;\n      height: 24px;\n      padding-left: 8px;\n    }\n  </style>\n\n  <div class="container">\n    <h1>Statistics</h1>\n    <div id="statistics"></div>\n    <h1>Guess Distribution</h1>\n    <div id="guess-distribution"></div>\n    <div class="footer"></div>\n  </div>\n';
-    }
+    Cs.innerHTML =
+      '<style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 24px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n   #guess-distribution {\n      width: 80%;\n    }\n\n    .graph-container {\n      width: 100%;\n      height: 20px;\n      display: flex;\n      align-items: center;\n      padding-bottom: 4px;\n      font-size: 14px;\n      line-height: 20px;\n    }\n\n    .graph-container .graph {\n      width: 100%;\n      height: 100%;\n      padding-left: 4px;\n    }\n\n    .graph-container .graph .graph-bar {\n      height: 100%;\n      /* Assume no wins */\n      width: 0%;\n      position: relative;\n      background-color: var(--color-absent);\n      display: flex;\n      justify-content: center;\n    }\n\n    .graph-container .graph .graph-bar.highlight {\n      background-color: var(--color-correct);\n    }\n\n    .graph-container .graph .graph-bar.align-right {\n      justify-content: flex-end;\n      padding-right: 8px;\n    }\n\n    .graph-container .graph .num-guesses {\n      font-weight: bold;\n      color: var(--tile-text-color);\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n\n    .header {\n      display: flex;\n      width: 100%;\n    }\n\n    .countdown {\n      border-right: 1px solid var(--color-tone-1);\n      padding-right: 12px;\n      width: 50%;\n    }\n\n    .share {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding-left: 12px;\n      width: 50%;\n    }\n\n    .no-data {\n      text-align: center;\n    }\n\n    button#share-button {\n      background-color: var(--key-bg-correct);\n      color: var(--key-evaluated-text-color);\n      font-family: inherit;\n      font-weight: bold;\n      border-radius: 4px;\n      cursor: pointer;\n      border: none;\n      user-select: none;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-transform: uppercase;\n      -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n      width: 80%;\n      font-size: 20px;\n      height: 52px;\n      -webkit-filter: brightness(100%);\n    }\n    button#share-button:hover {\n      opacity: 0.9;\n    }\n    button#share-button game-icon {\n      width: 24px;\n      height: 24px;\n      padding-left: 8px;\n    }\n  </style>\n\n  <div class="container">\n    <div class="header"></div>\n    <h1>Statistics</h1>\n    <div id="statistics"></div>\n    <h1>Guess Distribution</h1>\n    <div id="guess-distribution"></div>\n  </div>\n ';
     var Ls = document.createElement("template");
     Ls.innerHTML =
       '\n  <div class="statistic-container">\n    <div class="statistic"></div>\n    <div class="label"></div>\n  </div>\n';
@@ -15500,16 +15495,11 @@
     Ts.innerHTML =
       '\n    <div class="graph-container">\n      <div class="guess"></div>\n      <div class="graph">\n        <div class="graph-bar">\n          <div class="num-guesses">\n        </div>\n      </div>\n      </div>\n    </div>\n';
     var FFs = document.createElement("template");
-    if (isFrench) {
-      FFs.innerHTML =
-        '\n  <div class="funFact"> <h1>FAIT AMUSANT</h1> </div>\n';
-    } else {
-      FFs.innerHTML =
-        '\n  <div class="funFact"> <h1>FUN FACT</h1> </div>\n';
-    }
+    FFs.innerHTML =
+      '\n  <div class="funFact"> <h1>FUN FACT</h1> </div>\n';
     var Is = document.createElement("template");
     Is.innerHTML =
-      '\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
+      '\n  <div class="countdown">\n    <h1>Next CANUCKLE</h1>\n    <div id="timer">\n      <div class="statistic-container">\n        <div class="statistic timer">\n          <countdown-timer></countdown-timer>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
     var Ms = {
         currentStreak: "Current Streak",
         maxStreak: "Max Streak",
@@ -15517,18 +15507,8 @@
         gamesPlayed: "Played",
         gamesWon: "Won",
         averageGuesses: "Average Guesses",
-      };
-    if (isFrench) {
-      Ms = {
-        currentStreak: "Série actuelle",
-        maxStreak: "Meilleure série",
-        winPercentage: "Victoires (%)",
-        gamesPlayed: "Parties jouées",
-        gamesWon: "Gagné",
-        averageGuesses: "Suppositions moyennes",
-      };
-    }
-    var Os = (function (e) {
+      },
+      Os = (function (e) {
         r(t, e);
         var a = h(t);
         function t() {
@@ -15548,55 +15528,247 @@
               key: "connectedCallback",
               value: function () {
                 var e = this;
-                
-                var funFacts = [
-                "<p align=center>Mom has been singing as a soprano in the church choir for years and hits all the descant high notes! 🎼</p>", /*1 choir*/
-                "<p align=center>During winter months, you can probably find Mom at a curling rink! She's also the most decorated curler in the family! 🥌</p>", /*2 curls*/
-                "<p align=center>Mom has the best smile! 😊<br>It lights up the room when she walks in! </p>", /*3 smile*/
-                "<p align=center>Mom loves to golf! 🏌️‍♀️⛳<br>She currently holds the family record with 3 holes-in-one!</p>", /*4 golfs*/
-                "<p align=center>In only a few short years, Mom has taken up the sport of lawn bowling and is now one of the top senior short mat players in Canada! 🎳</p>", /*5 bowls*/
-                "<p align=center>For as long as we've known Mom, she's been active and is always up for playing any sport! 🏸🏌️‍♀️🎾🥌🏓⚾👟</p>", /*6 sport*/
-                "<p align=center>Mom's love of sport is only by rivaled by her love of music! 🎵<br>You can usually find Mom singing...especially around a campfire! </p>", /*7 music*/
-                "<p align=center>She's our favourite Mom/Mommy/Momma! 👩</p>", /*8 momma*/                
-                "<p align=center>Mom was in her element as a Guide Leader! 🍀 Her love of nature, camping and the outdoors has been passed on to her kids & grandkids.</p>", /*9 guide*/
-                "<p align=center>Mom loves to garden! 🌱 She loves spending time in her garden at home, and will happily help weed anyone else's garden too!</p>", /*10 guide*/
-                "<p align=center>Mom spent 45 years as a physio, helping thousands of people rehab and get back to good health! 🏥</p>", /*11 rehab*/
-                "<p align=center>Mom is a smart cookie! 🧠 She's clever and sharp, and has clearly passed on these traits to her children! 😆</p>", /*12 smart*/
-                "<p align=center>Mom is kind & caring. She cares so much about family & friends and is such a loving person! 🥰<br><br>Happy Mother's Day Mom!<br>We love you so much! ❤️</p>", /*13 cares*/
-                
 
-                                
+                var funFacts = [
+                "In Canada, the canoe has long been associated with the fur trade and the romantic figure of the voyageur.", /*1 canoe*/
+                "Is there a more Canadian word than maple?", /*2 maple*/
+                "Inuit live throughout most of Northern Canada in the territory of Nunavut.", /*3 inuit*/
+                "The official tartan for Canada as a whole is known as the Maple leaf tartan.", /*4 plaid*/
+                "Igloo comes from the Inkuktitu word iglu meaning house.", /*5 igloo*/
+                "Hoser is a slang word for a Canadian of limited intelligence.", /*6 hoser*/
+                "Canada produces 71% of the world's maple syrup, 91% of it coming from Quebec.", /*7 syrup*/
+                "Canadian bacon comes from the loin of the pig instead of the side or belly.", /*8 bacon*/
+                "Canadians apologize so much, Canada passed the Apology Act in 2009.", /*9 sorry*/
+                "There are more than 33 species of whale that live in Canada's oceans.", /*10 whale*/
+                "One of Canada's most famous nicknames is the Great White North.", /*11 north*/
+                "This word is a humorous (though incorrect) take on the Canadian accent saying the word “about”.", /*12 aboot*/
+                "Banff was declared a UNESCO World Heritage Site in 1984.", /*13 banff*/
+                "About 28 million litres of water travel down Niagara Falls every second.", /*14 falls*/
+                "The word totem comes from the Algonquian word “odoodem” meaning \"his kinship group\".", /*15 totem*/
+                "Queen Elizabeth II has been Canada's monarch for over 70 years.", /*16 queen*/
+                "Loons have beautiful, crimson red eyes, but this is only during mating season.", /*17 loons*/
+                "The Métis invented the york boat, used by the Hudson's Bay Company to carry furs and trade goods along waterways.", /*18 metis*/
+                "Toque (or tuque) is the official name for a winter hat in Canada!", /*19 toque*/
+                "The 202 km of Rideau Canal with 47 locks is the oldest, continuously operated canal system in North America.", /*20 canal*/
+                "Canada has the 3rd largest oil reserves in the world and is the 4th largest oil producer and exporter.", /*21 crude*/
+                "A subspecies known as “giant” Canada geese are the largest geese in the world.", /*22 goose*/
+                "Canada has more lakes than the rest of the world combined! Almost 9% of Canada's total surface area is covered by freshwater.", /*23 lakes*/
+                "As of 2019, there were 47 Crown corporations in Canada, including CBC, Canada Post, VIA Rail, the Royal Canadian Mint, and the Bank of Canada.", /*24 crown*/
+                "PEI produces more potatoes for Canada than any other province and produces 2.5 billion lbs per year!", /*25 spuds*/
+                "Roots Canada opened its first store in 1973 selling footwear, and started using the beaver logo in 1985 with the launch of their athletic brand.", /*26 roots*/
+                "On February 10, 1999, Tahtsa Lake, British Columbia got hit with 145 cm (4'9\") of snow in ONE day!", /*27 snowy*/
+                "Yukon is home to Mount Logan, Canada's tallest mountain (5959 m) and the 2nd highest peak in North America.", /*28 yukon*/
+                "Canada is home to about 16,000 polar bears, which is approximately two-thirds of the world's total estimated population.", /*29 polar*/
+                "Bison are North America's largest land animal, with bulls weighing up to 2000 lbs and cows up to 1000 lbs.", /*30 bison*/
+                "Toronto's CN Tower held the record for the world's tallest free-standing structure for 32 years, from 1975 until 2007.", /*31 tower*/
+                "Roughly half of the world's Grizzly Bears (a Brown Bear subspecies) live in Canada, mostly in BC.", /*32 bears*/
+                "One of the NHL's founding teams, the Toronto Maple Leafs have won 13 Stanley Cups, the most recent being in 1967.", /*33 leafs*/
+                "Close to half of all Canadian wheat is grown in Saskatchewan, followed by Alberta and Manitoba.", /*34 wheat*/
+                "There’s a whopping 48 National Parks and over one thousand Provincial and Territorial parks in the Great White North!", /*35 parks*/
+                "Kayaks were originally designed for hunting and fishing. In fact, the word kayak means “hunter's boat”, and came from “qajaq” or “qayarq”, a Greenlandic Inuit word.", /*36 kayak*/
+                "The moose is the largest species of deer in the world. The average weight of a fully grown male moose (a bull) is 1500 lbs!", /*37 moose*/
+                "Since 2016, the month of June has been declared Pride Month in Canada to celebrate the LGBTQ2+ community.", /*38 pride*/
+                "The Rocky Mountains, also known as the Rockies, are the largest mountain system in North America!", /*39 rocky*/
+                "Scoff is Newfoundland slang for a big feed, typically Jiggs dinner but could be any large, satisfying meal.", /*40 scoff*/
+                "Cabin is another name for a cottage, and Canada has no shortage of weekend getaway spots!", /*41 cabin*/
+                "Canadians spent $9.2 billion on beer in 2020 ($325 per adult), which equates to 2.3 billion litres of beer.", /*42 beers*/
+                "Originally created by the Inuit to keep warm in the Canadian Arctic, the first parkas were made from whale, seal or caribou skin and often coated with fish oil for waterproofing.", /*43 parka*/
+                "In the 2020/21 season, there were 2,860 indoor and 5,000 outdoor ice hockey rinks located in Canada according to the International Ice Hockey Federation.", /*44 rinks*/
+                "Canadians consumed over 240,000 metric tonnes of frozen fries in 2019.", /*45 fries*/
+                "Canada has the longest coastline in the world, measuring 243,042 km!", /*46 coast*/
+                "The Order of Canada is how our country honours people who make extraordinary contributions to the nation.", /*47 order*/
+                "In 1876, Scottish-born inventor Alexander Graham Bell patented the first practical telephone, a concept that he conceived in Brantford, Ontario.", /*48 phone*/
+                "The white birch is the most widely distributed of native birch trees, and grows in every region of Canada. The bark has long been used for making canoes and ornaments.", /*49 birch*/
+                "Canada is home to numerous ports, but the Port of Vancouver is Canada's largest port, and is the most diversified port in North America.", /*50 ports*/
+                "The Dairy Farmers of Canada logo guarantees a product is made with 100% Canadian milk and milk ingredients, and is free of antibiotics.", /*51 dairy*/
+                "Skate Canada is the oldest and largest figure skating organization in the world.", /*52 skate*/
+                "In 2020, roughly 1 out of every 9 Canadian jobs was in the agriculture and agri-food sector.", /*53 farms*/
+                "Annually, Canada’s Rivers discharge 7% of the world’s renewable water supply at a flow rate per second more than four times that of Niagara Falls.", /*54 river*/
+                "Canada's official national sports are ice hockey (winter) and lacrosse (summer).", /*55 sport*/
+                "The Globe and Mail newspaper originated from two competing newspapers, “The Globe” and “The Mail and Empire”.", /*56 globe*/
+                "Poutine (fries topped with cheese curds and gravy) is popular all over Canada and as such it is considered the country's national dish.", /*57 curds*/
+                "Four species of foxes live in Canada: arctic, swift, grey, and red being the most common. The grey fox is one of only 2 members of the dog family that can climb trees.", /*58 foxes*/
+                "Canada is the world’s largest grower and exporter of flax seed, canola, oats, mustard seeds, pulses (peas, beans, and lentils) and durum wheat.", /*59 crops*/
+                "Over 5.7 million Canadian adults camp each year and the camping industry contributes a total of $4.7 billion annually to Canada's economy.", /*60 camps*/
+                "The Calgary Stampede, Canada's largest rodeo, is billed as “The Greatest Outdoor Show on Earth”. It is held every July and turns 110 years old in 2022.", /*61 rodeo*/
+                "Canada’s three biggest trading partners are the United States, the European Union and China. Goods and services trade with the US totaled over $800 billion in 2021.", /*62 trade*/
+                "Canada consistently ranks in the top 10 most peaceful countries in the world according to the Global Peace Index (GPI). The Peace Tower also forms the centrepiece of the Canadian parliament buildings.", /*63 peace*/
+                "In 2020, Canada produced 60 minerals and metals at almost 200 mines, and the value of Canada's mineral production reached $43.8 billion.", /*64 mines*/
+                "The shores of Canada's 52,455 islands are a big part of what makes the country's coastline the longest in the world.", /*65 shore*/
+                "Canada has the world’s largest stock of standing western redcedar trees. The western redcedar is the arboreal emblem of the province of British Columbia.", /*66 cedar*/
+                "With a landmass of almost 10 million square kilometres, Canada is the second-largest country in the world.", /*67 large*/
+                "The Brier is the annual Canadian men's curling championship that has been held since 1927. Team Gushue won the 2022 Brier, their fourth championship in six years.", /*68 brier*/
+                "The highest tides in the world can be found in Canada at the Bay of Fundy, which separates New Brunswick from Nova Scotia.", /*69 tides*/
+                "A klick is a military term used to denote a distance of one kilometre. It is commonly used in Canada when referring to distance or speed.", /*70 klick*/
+                "The Canadian Tuxedo is an outfit consisting of a denim jacket or jean shirt worn with denim jeans, or denim-on-denim. The term originated in 1951 after Bing Crosby was refused entry to a Vancouver hotel wearing double denim.", /*71 denim*/
+                "The most famous ship in Canadian history, the Bluenose, was both a fishing and racing vessel in the 1920s and 1930s. The Nova Scotia schooner achieved immortality when its image was engraved onto the Canadian dime.", /*72 ships*/
+                "From the last Friday in October to Remembrance Day, millions of Canadians wear a poppy as a visual pledge to never forget those who sacrificed for our freedom.", /*73 poppy*/
+                "The Supreme Court of Canada is the highest court in the judicial system of Canada. It comprises nine justices, whose decisions are the ultimate application of Canadian law.", /*74 court*/
+                "A beaver home is called a lodge. Beavers live in wetland habitats along lakes and rivers and are some of the best architects in the wild. Some even call them the original Canadian lumberjacks!", /*75 lodge*/
+                "With marine waters spanning its west, north, and east coasts, Canada is an ocean nation. Canadians are influenced in many ways by the Pacific, Arctic, and Atlantic Oceans. Celebrate World Oceans Day on June 8th!", /*76 ocean*/
+                "Buoyed by its inclusion in the 2016 Olympic Games, Rugby is one of the fastest growing team sports in Canada, particularly in youth and women.", /*77 rugby*/
+                "Canada officially uses the metric system of measurement, and metre is the standard spelling of the metric unit for length.<br><br><div align=center><strong>TODAY ONLY:</strong> <a href=\"https://wafflegame.net\">Waffle - Canuckle Edition</a>! 🧇🍁</div>", /*78 metre*/
+                "Elders are respected individuals who play key roles in Indigenous communities. They are important knowledge keepers, and they also help to ensure cultural continuity.<br><br><div align=center><strong>TODAY ONLY:</strong> <a href=\"https://wafflegame.net\">Waffle - Canuckle Edition</a>! 🧇🍁</div>", /*79 elder*/
+                "Canada's contributions to space exploration include one of Canada’s most celebrated and iconic technological advances: The Canadarm - a remote-controlled robotic arm used to help build and maintain the International Space Station (ISS).", /*80 space*/
+                "On April 30, 2002, a bill was passed into law by the Canadian Government making the Canadian horse an official symbol of Canada. The Canadian horse is known for its great strength and endurance, resilience, intelligence and good temper.", /*81 horse*/
+                "Newfoundland, Canada is widely considered one of the foggiest places on Earth. On average, Newfoundland experiences over 200 foggy days every year.", /*82 foggy*/
+                "Lottery & gambling winnings in Canada are treated as windfalls and are not subject to Canadian income tax. Turns out taxes aren't always certain after all!", /*83 taxes*/
+                "Canada has a large and well-developed railway system that includes transcontinental freight train services by Canadian National (CN) and Canadian Pacific (CP), and nationwide passenger train services by Via Rail.", /*84 train*/
+                "The Canadian music industry is the sixth-largest in the world, producing internationally renowned composers, musicians and ensembles. O Canada!", /*85 music*/
+                "Celebrated annually on November 21st, National Red Mitten Day encourages Canadians to display their patriotism in support of Canadian athletes! Red mittens represent the pride, generosity, and excellence of every Canadian.", /*86 mitts*/
+                "The grain sector is a key driver of Canada's economic growth, exporting 26.4 million tonnes of wheat in 2020-21 and over $25 billion in exports sales.", /*87 grain*/
+                "In the Canadian Football League (CFL), a rouge is a one-point score that is awarded for certain plays that involve the ball being kicked into the end zone. The rouge is uniquely Canadian!", /*88 rouge*/
+                "The Canadian Tulip Festival in Ottawa features 100 tulip varieties with more than one million blooms over 14,000 m². The celebration is a symbol of friendship between Canada and the Netherlands, with 20,000 bulbs being gifted by the Netherlands each year.", /*89 tulip*/
+                "Canadians drink more than 1 billion glasses of Canadian wine every year. Because of our cold climate, Canada is the largest Icewine producer in the world.", /*90 wines*/
+                "The Royal Canadian Mounted Police, or “Mounties,” are known for their iconic uniforms that feature the iconic scarlet tunic called a red serge.", /*91 serge*/
+                "The Prairie provinces of Alberta, Saskatchewan, and Manitoba are known for being the most rural parts of Canada. Much of the Prairies' population is descended from 19th century farmer-settlers. The percentage of Canadians living in rural areas has gone from 87% in 1851 to 17.8% in 2021.", /*92 rural*/
+                "The Canadian Armed Forces has personnel deployed across Canada and around the world. Since 1947, Canadian troops have completed 72 international missions.", /*93 troop*/
+                "The Juno Awards celebrate the best in Canadian music! Anne Murray has won the most Junos with 25 wins (52 nominations), followed by Bryan Adams (21 wins, 63 nominations) and Celine Dion (20 wins, 75 nominations).", /*94 junos*/
+                "Canada's best summer Olympic sport is athletics, which includes running, hurdles, long jump, high jump, decathlon and other track & field events. Canada has earned 66 medals in athletics since 1900, including 16 gold, 17 silver and 33 bronze.", /*95 track*/
+                "Canada’s North is particularly well-known as being the fabled “land of the midnight sun.” Due to its proximity to the Arctic Circle, northern days can entail up to 24 straight hours of sunlight in the summer. Calgary is the sunniest of Canada's large cities, enjoying an average of 2,400 hours of bright sun each year, spread over 333 days.", /*96 sunny*/
+                "There are six time zones in Canada covering four and a half hours. From west to east these time zones are: Pacific, Mountain, Central, Eastern, Atlantic and Newfoundland.", /*97 zones*/
+                "Canada is home to the two longest freshwater beaches in the world: Wasaga Beach (14 km) on the Georgian Bay in Ontario and Sauble Beach (11 km) on the Bruce Peninsula, along the eastern shore of Lake Huron.", /*98 beach*/
+                "Approximately 275 Canadian ski areas see more than 19 million visits per season. Canadian skiers and snowboarders (an estimated number of 2.5 million) are on the slopes and trails an average of 7.5 days per year.", /*99 skier*/
+                "", /*100 guard*/
+                "", /*101 expos*/
+                "", /*102 hydro*/
+                "", /*103 trail*/
+                "", /*104 ducks*/
+                "", /*105 water*/
+                "", /*106 boots*/
+                "", /*107 tarts*/
+                "", /*108 apple*/
+                "", /*109 hoops*/
+                "", /*110 otter*/
+                "", /*111 field*/
+                "", /*112 games*/
+                "", /*113 sleds*/
+                "", /*114 trees*/
+                "", /*115 steel*/
+                "", /*116 prime*/
+                "", /*117 chips*/
+                "", /*118 pager*/
+                "", /*119 donut*/
+                "", /*120 pines*/
+                "", /*121 chief*/
+                "", /*122 peaks*/
+                "", /*123 arena*/
+                "", /*124 elect*/
+                "", /*125 house*/
+                "", /*126 bagel*/
+                "", /*127 force*/
+                "", /*128 rower*/
+                "", /*129 radio*/
+                "", /*130 litre*/
+                "", /*131 royal*/
+                "", /*132 stick*/
+                "", /*133 huron*/
+                "", /*134 trout*/
+                "", /*135 flood*/
+                "", /*136 dinos*/
+                "", /*137 storm*/
+                "", /*138 lager*/
+                "", /*139 taffy*/
+                "", /*140 great*/
+                "", /*141 pucks*/
+                "", /*142 proud*/
+
                 ];
-                saveArchiveNoApp();
                 if ((e.gameApp.gameStatus == "WIN" || e.gameApp.gameStatus == "FAIL") && funFacts.length > (e.gameApp.dayOffset - 236)) {
                   var funFact = funFacts[e.gameApp.dayOffset - 236];  
 
                   if (funFact != "") {
-                    e.shadowRoot.appendChild(FFs.content.cloneNode(!0));
+                    this.shadowRoot.appendChild(FFs.content.cloneNode(!0));
                   
                     var ff = document.createElement("div");
                     ff.innerHTML = funFact;
-                    e.shadowRoot.appendChild(ff);
+                    this.shadowRoot.appendChild(ff);
                   }
                 }
                 var twitter = document.createElement("div");
-
-                if (window.localStorage.getItem("canuckle-language") == "fr") {
-                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="right"><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" height="40" alt="@CanuckleGame sur Twitter" title="@CanuckleGame sur Twitter"></a></td><td align="center"><a href="http://canucklegame.ca" target="_blank"><img src="images/canuckle2.png" alt="Canuckle" title="Canuckle" height="40" width="40"></td><td align="left"><a href="https://www.facebook.com/CanuckleGame" target="_blank"><img src="images/facebook2.png" height="40" alt="@CanuckleGame on Facebook" title="@CanuckleGame on Facebook"></a></td></tr><tr><td colspan="3" align="center">Si vous avez aimé ce jeu :<a href="http://www.ko-fi.com/canuckle" alt="Achetez un café à Canuckle"><img src="images/coffee-big-f.png" width="300" alt="Achetez un café à Canuckle" title="Achetez un café à Canuckle"></a></td></tr></table>';
-                } else {
-                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="right"><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" height="40" alt="@CanuckleGame on Twitter" title="@CanuckleGame on Twitter"></a></td><td align="center"><a href="http://canucklegame.ca" target="_blank"><img src="images/canuckle2.png" alt="Canuckle" title="Canuckle" height="40" width="40"></td><td align="left"><a href="https://www.facebook.com/CanuckleGame" target="_blank"><img src="images/facebook2.png" height="40" alt="@CanuckleGame on Facebook" title="@CanuckleGame on Facebook"></a></td></tr><tr><td colspan="3" align="center">If you enjoyed this game:<br><a href="http://www.ko-fi.com/canuckle" alt="Buy Canuckle a coffee"><img src="images/coffee-big.png" width="300" alt="Buy Canuckle a coffee" title="Buy Canuckle a coffee"></a></td></tr></table>';  
-                }
-                e.shadowRoot.appendChild(twitter);
+                twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="right"><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" height="40" alt="@CanuckleGame on Twitter" title="@CanuckleGame on Twitter"></a></td><td align="center"><a href="http://archive.canucklegame.ca" target="_blank"><img src="images/archive2.png" alt="Canuckle Archive" title="Canuckle Archive" height="40" width="40"></td><td align="left"><a href="https://www.facebook.com/CanuckleGame" target="_blank"><img src="images/facebook2.png" height="40" alt="@CanuckleGame on Facebook" title="@CanuckleGame on Facebook"></a></td></tr><tr><td colspan="3" align="center">If you enjoyed this game:<br><a href="http://www.ko-fi.com/canuckle" alt="Buy Canuckle a coffee"><img src="images/coffee-big.png" width="300" alt="Buy Canuckle a coffee" title="Buy Canuckle a coffee"></a></td></tr></table>';  
+                this.shadowRoot.appendChild(twitter);
 
                 this.shadowRoot.appendChild(Cs.content.cloneNode(!0));
-                
+
+                if (this.gameApp.gameStatus !== Za)
+                {
+                  var p = this.shadowRoot.querySelector(".header"),
+                    m = Is.content.cloneNode(!0);
+                  p.appendChild(m),
+                    this.shadowRoot
+                      .querySelector("button#share-button")
+                      .addEventListener("click", function (a) {
+                        a.preventDefault(), a.stopPropagation();
+                        As(
+                          (function (e) {
+                            var a = e.evaluations,
+                              s = e.dayOffset,
+                              t = e.rowIndex,
+                              o = e.isHardMode,
+                              n = e.isWin,
+                              r = JSON.parse(window.localStorage.getItem(j)),
+                              i = JSON.parse(window.localStorage.getItem(S)),
+                              l = "Canuckle ".concat(s - 235);
+                            (l += " ".concat(n ? t : "X", "/").concat(6)),
+                              o && (l += "*");
+                            var d = "";
+                            return (
+                              a.forEach(function (e) {
+                                e &&
+                                  (e.forEach(function (e) {
+                                    if (e) {
+                                      var a = "";
+                                      switch (e) {
+                                        case Ma:
+                                          a = (function (e) {
+                                            return e ? "🟧" : "🟥";
+                                          })(i);
+                                          break;
+                                        case Ia:
+                                          a = (function (e) {
+                                            return e ? "🟦" : "🟨";
+                                          })(i);
+                                          break;
+                                        case Oa:
+                                          a = (function (e) {
+                                            return e ? "⬛" : "⬜";
+                                          })(r);
+                                      }
+                                      d += a;
+                                    }
+                                  }),
+                                  (d += "\n"));
+                              }),
+                              { text: "".concat(l, "\n\n").concat(d.trimEnd()) }
+                            );
+                          })({
+                            evaluations: e.gameApp.evaluations,
+                            dayOffset: e.gameApp.dayOffset,
+                            rowIndex: e.gameApp.rowIndex,
+                            isHardMode: e.gameApp.hardMode,
+                            isWin: e.gameApp.gameStatus === es,
+                          }),
+                          function () {
+                            e.gameApp.addToast(
+                              "Copied results to clipboard",
+                              2e3,
+                              !0
+                            );
+                          },
+                          function () {
+                            e.gameApp.addToast("Share failed", 2e3, !0);
+                          }
+                        );
+                      });
+                }
+
                 var a = this.shadowRoot.getElementById("statistics"),
                   s = this.shadowRoot.getElementById("guess-distribution"),
                   t = Math.max.apply(
                     Math,
                     g(Object.values(this.stats.guesses))
                   );
-                  t += this.stats.guesses.fail;
                 if (
                   Object.values(this.stats.guesses).every(function (e) {
                     return 0 === e;
@@ -15654,13 +15826,13 @@
                     }
                     s.appendChild(l);
                 }
-                if (
-                  ([
+
+                [
                     "gamesPlayed",
                     "winPercentage",
-                    /*"currentStreak",*/
-                    /*"maxStreak",*/
-                    "averageGuesses",
+                    "currentStreak",
+                    "maxStreak",
+                    "averageGuesses"
                   ].forEach(function (s) {
                     var t = Ms[s],
                       o = e.stats[s],
@@ -15668,79 +15840,7 @@
                     (n.querySelector(".label").textContent = t),
                       (n.querySelector(".statistic").textContent = o),
                       a.appendChild(n);
-                  }),
-                  this.gameApp.gameStatus !== Za)
-                ) {
-                  // var p = this.shadowRoot.querySelector(".footer"),
-                  //   m = Is.content.cloneNode(!0);
-                  // p.appendChild(m),
-                  //   this.shadowRoot
-                  //     .querySelector("button#share-button")
-                  //     .addEventListener("click", function (a) {
-                  //       a.preventDefault(), a.stopPropagation();
-                  //       As(
-                  //         (function (e) {
-                  //           var a = e.evaluations,
-                  //             s = e.dayOffset,
-                  //             t = e.rowIndex,
-                  //             o = e.isHardMode,
-                  //             n = e.isWin,
-                  //             r = JSON.parse(window.localStorage.getItem(j)),
-                  //             i = JSON.parse(window.localStorage.getItem(S)),
-                  //             arc = JSON.parse(window.localStorage.getItem(archiveDate)),
-                  //             l = "Canuckle ".concat(s - arc);
-                  //           (l += " ".concat(n ? t : "X", "/").concat(6)),
-                  //             o && (l += "*");
-                  //           var d = "";
-                  //           return (
-                  //             a.forEach(function (e) {
-                  //               e &&
-                  //                 (e.forEach(function (e) {
-                  //                   if (e) {
-                  //                     var a = "";
-                  //                     switch (e) {
-                  //                       case Ma:
-                  //                         a = (function (e) {
-                  //                           return e ? "🟧" : "🟥";
-                  //                         })(i);
-                  //                         break;
-                  //                       case Ia:
-                  //                         a = (function (e) {
-                  //                           return e ? "🟦" : "🟨";
-                  //                         })(i);
-                  //                         break;
-                  //                       case Oa:
-                  //                         a = (function (e) {
-                  //                           return e ? "⬛" : "⬜";
-                  //                         })(r);
-                  //                     }
-                  //                     d += a;
-                  //                   }
-                  //                 }),
-                  //                 (d += "\n"));
-                  //             }),
-                  //             { text: "".concat(l, "\n\n").concat(d.trimEnd()) }
-                  //           );
-                  //         })({
-                  //           evaluations: e.gameApp.evaluations,
-                  //           dayOffset: e.gameApp.dayOffset,
-                  //           rowIndex: e.gameApp.rowIndex,
-                  //           isHardMode: e.gameApp.hardMode,
-                  //           isWin: e.gameApp.gameStatus === es,
-                  //         }),
-                  //         function () {
-                  //           e.gameApp.addToast(
-                  //             "Copied results to clipboard",
-                  //             2e3,
-                  //             !0
-                  //           );
-                  //         },
-                  //         function () {
-                  //           e.gameApp.addToast("Share failed", 2e3, !0);
-                  //         }
-                  //       );
-                  //     });
-                }
+                  });
               },
             },
           ]),
@@ -15803,13 +15903,8 @@
     })(c(HTMLElement));
     customElements.define("game-switch", Ps);
     var $s = document.createElement("template");
-    if (window.localStorage.getItem("canuckle-language") == "fr") {
-      $s.innerHTML =
-        '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .s {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  . {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Devinez le <strong>CANUCKLE</strong> en 6 essais.</p>\n   <p>Utilisez les boutons de navigation pour lire différents mots dans l\'archive.</p>\n   <p>Chaque supposition doit être un mot valide de 5 lettres. Appuyez sur le bouton Entrée pour soumettre.</p>\n      <p>Après chaque supposition, la couleur des tuiles changera pour montrer à quel point votre supposition était proche du mot.</p>\n <p>La réponse sera un mot/lieu/canadianisme lié au Canada d\'une manière ou d\'une autre, et un fait amusant sera affiché après avoir joué!</p>\n     <div class="s">\n        <p><strong>Exemples</strong></p>\n        <div class="">\n          <div class="row">\n            <game-tile letter="i" evaluation="correct" reveal></game-tile>\n            <game-tile letter="g"></game-tile>\n            <game-tile letter="l"></game-tile>\n            <game-tile letter="o"></game-tile>\n            <game-tile letter="o"></game-tile>\n          </div>\n          <p>La lettre <strong>I</strong> est dans le mot et au bon endroit.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="c"></game-tile>\n            <game-tile letter="a" evaluation="present" reveal></game-tile>\n            <game-tile letter="n"></game-tile>\n            <game-tile letter="o"></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>La lettre <strong>A</strong> est dans le mot mais au mauvais endroit.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="m"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="l" evaluation="absent" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>La lettre <strong>L</strong> n\'est dans le mot à aucun endroit.</p>\n        </div>\n      </div>\n <p>Propulsé par le code du <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">WORDLE</a> original</p>    </div>\n  </section>\n'; 
-    } else {
-      $s.innerHTML =
-        '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .s {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  . {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>MOM\'S MOTHER\'S DAY CANUCKLE</strong> in 6 tries.</p>\n   <p>Use the navigation buttons to play all 13 words.</p>\n   <p>Each guess must be a valid 5 letter word. Hit the enter button to submit.</p>\n      <p>After each guess, the colour of the tiles will change to show how close your guess was to the word.</p>\n <p>The answer will be a word/characteristic/thing related to Mom in some way, and a fun fact will be displayed after you play!</p>\n  <p align="center"><img src="images/mom.jpg" width="200"></p>     <div class="s">\n        <p><strong>Examples</strong></p>\n        <div class="">\n          <div class="row">\n            <game-tile letter="h" evaluation="correct" reveal></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="y"></game-tile>\n          </div>\n          <p>The letter <strong>H</strong> is in the word and in the right spot.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="m"></game-tile>\n            <game-tile letter="o" evaluation="present" reveal></game-tile>\n            <game-tile letter="t"></game-tile>\n            <game-tile letter="h"></game-tile>\n            <game-tile letter="e"></game-tile>\n <game-tile letter="r"></game-tile>\n <game-tile letter="s"></game-tile>\n           </div>\n          <p>The letter <strong>O</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="D"></game-tile>\n            <game-tile letter="a"></game-tile>\n           <game-tile letter="Y" evaluation="absent" reveal></game-tile>\n                      </div>\n          <p>The letter <strong>Y</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n     </div>\n</section>\n'; 
-    }
+    $s.innerHTML =
+      '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .s {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  . {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>CANUCKLE</strong> in 6 tries.</p>\n   <p>Each guess must be a valid 5 letter word. Hit the enter button to submit.</p>\n      <p>After each guess, the colour of the tiles will change to show how close your guess was to the word.</p>\n <p>The answer will be a word/place/Canadianism related to Canada in some way, and a fun fact will be displayed after you play!</p>\n     <div class="s">\n        <p><strong>Examples</strong></p>\n        <div class="">\n          <div class="row">\n            <game-tile letter="i" evaluation="correct" reveal></game-tile>\n            <game-tile letter="g"></game-tile>\n            <game-tile letter="l"></game-tile>\n            <game-tile letter="o"></game-tile>\n            <game-tile letter="o"></game-tile>\n          </div>\n          <p>The letter <strong>I</strong> is in the word and in the right spot.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="c"></game-tile>\n            <game-tile letter="a" evaluation="present" reveal></game-tile>\n            <game-tile letter="n"></game-tile>\n            <game-tile letter="o"></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>The letter <strong>A</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="m"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="l" evaluation="absent" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>The letter <strong>L</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n      <p><strong>A new CANUCKLE will be available each day!<strong></p>\n <p>Powered by code from the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">WORDLE</a></p>    </div>\n  </section>\n';
     var Hs = (function (e) {
       r(t, e);
       var a = h(t);
