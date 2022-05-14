@@ -15671,7 +15671,7 @@
                 "", /*139 taffy*/
                 "", /*140 great*/
                 "", /*141 pucks*/
-                "", /*142 proud*/
+                "" /*142 proud*/
 
                 ];
                 if ((e.gameApp.gameStatus == "WIN" || e.gameApp.gameStatus == "FAIL") && funFacts.length > (e.gameApp.dayOffset - 236)) {
