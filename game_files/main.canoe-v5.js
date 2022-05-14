@@ -14522,7 +14522,8 @@
     function Da(e) {
       var a,
         s = Ga(e);
-      return (a = min(s, La.length - 1)), La[a];
+      return (a = s % La.length), La[a];
+      //return (a = min(s, La.length - 1)), La[a];
     }
     function Ga(e) {
       return Na(Ha, e);
@@ -14624,7 +14625,8 @@
             (e.today = new Date());
           var o = za();
 
-          var currentGame = min(Ga(e.today), La.length - 1) - 235;
+          var currentGame = Ga(e.today) - 235;
+          //var currentGame = min(Ga(e.today), La.length - 1) - 235;
           if (window.localStorage.getItem("reload"+JSON.stringify(currentGame)) == null) {
             window.localStorage.setItem("reload"+JSON.stringify(currentGame), JSON.stringify(1));
             window.location.reload();
@@ -15671,7 +15673,7 @@
                 "", /*139 taffy*/
                 "", /*140 great*/
                 "", /*141 pucks*/
-                "", /*142 proud*/
+                "" /*142 proud*/
 
                 ];
                 if ((e.gameApp.gameStatus == "WIN" || e.gameApp.gameStatus == "FAIL") && funFacts.length > (e.gameApp.dayOffset - 236)) {
