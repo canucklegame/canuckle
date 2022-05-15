@@ -15804,34 +15804,34 @@
                 "The Canadian Tulip Festival in Ottawa features 100 tulip varieties with more than one million blooms over 14,000 m². The celebration is a symbol of friendship between Canada and the Netherlands, with 20,000 bulbs being gifted by the Netherlands each year.", /*89 tulip*/
                 "Canadians drink more than 1 billion glasses of Canadian wine every year. Because of our cold climate, Canada is the largest Icewine producer in the world.", /*90 wines*/
                 "The Royal Canadian Mounted Police, or \"Mounties,\" are known for their iconic uniforms that feature the iconic scarlet tunic called a red serge.", /*91 serge*/
-                "The Prairie provinces of Alberta, Saskatchewan, and Manitoba are known for being the most rural parts of Canada. Much of the Prairies' population is descended from 19th century farmer-settlers.", /*92 rural*/
-                "", /*93 troop*/
-                "", /*94 junos*/
-                "", /*95 track*/
-                "", /*96 sunny*/
-                "", /*97 zones*/
-                "", /*98 beach*/
-                "", /*99 skier*/
-                "", /*100 bases*/
-                "", /*101 smile*/
+                "The Prairie provinces of Alberta, Saskatchewan, and Manitoba are known for being the most rural parts of Canada. Much of the Prairies' population is descended from 19th century farmer-settlers. The percentage of Canadians living in rural areas has gone from 87% in 1851 to 17.8% in 2021.", /*92 rural*/
+                "The Canadian Armed Forces has personnel deployed across Canada and around the world. Since 1947, Canadian troops have completed 72 international missions.", /*93 troop*/
+                "The Juno Awards celebrate the best in Canadian music! Anne Murray has won the most Junos with 25 wins (52 nominations), followed by Bryan Adams (21 wins, 63 nominations) and Celine Dion (20 wins, 75 nominations).", /*94 junos*/
+                "Canada's best summer Olympic sport is athletics, which includes running, hurdles, long jump, high jump, decathlon and other track & field events. Canada has earned 66 medals in athletics since 1900, including 16 gold, 17 silver and 33 bronze.", /*95 track*/
+                "Canada’s North is particularly well-known as being the fabled “land of the midnight sun.” Due to its proximity to the Arctic Circle, northern days can entail up to 24 straight hours of sunlight in the summer. Calgary is the sunniest of Canada's large cities, enjoying an average of 2,400 hours of bright sun each year, spread over 333 days.", /*96 sunny*/
+                "There are six time zones in Canada covering four and a half hours. From west to east these time zones are: Pacific, Mountain, Central, Eastern, Atlantic and Newfoundland.", /*97 zones*/
+                "Canada is home to the two longest freshwater beaches in the world: Wasaga Beach (14 km) on the Georgian Bay in Ontario and Sauble Beach (11 km) on the Bruce Peninsula, along the eastern shore of Lake Huron.", /*98 beach*/
+                "Approximately 275 Canadian ski areas see more than 19 million visits per season. Canadian skiers and snowboarders (an estimated number of 2.5 million) are on the slopes and trails an average of 7.5 days per year.", /*99 skier*/
+                "", /*100 guard*/
+                "", /*101 expos*/
                 "", /*102 hydro*/
                 "", /*103 trail*/
-                "", /*104 sands*/
+                "", /*104 ducks*/
                 "", /*105 water*/
                 "", /*106 boots*/
                 "", /*107 tarts*/
-                "", /*108 docks*/
-                "", /*109 privy*/
+                "", /*108 apple*/
+                "", /*109 hoops*/
                 "", /*110 otter*/
                 "", /*111 field*/
                 "", /*112 games*/
                 "", /*113 sleds*/
                 "", /*114 trees*/
-                "", /*115 union*/
+                "", /*115 steel*/
                 "", /*116 prime*/
                 "", /*117 chips*/
-                "", /*118 perch*/
-                "", /*119 banks*/
+                "", /*118 pager*/
+                "", /*119 donut*/
                 "", /*120 pines*/
                 "", /*121 chief*/
                 "", /*122 peaks*/
@@ -15839,18 +15839,18 @@
                 "", /*124 elect*/
                 "", /*125 house*/
                 "", /*126 bagel*/
-                "", /*127 heron*/
-                "", /*128 mogul*/
+                "", /*127 force*/
+                "", /*128 rower*/
                 "", /*129 radio*/
                 "", /*130 litre*/
                 "", /*131 royal*/
-                "", /*132 taiga*/
+                "", /*132 stick*/
                 "", /*133 huron*/
                 "", /*134 trout*/
-                "", /*135 scarf*/
-                "", /*136 beads*/
+                "", /*135 flood*/
+                "", /*136 dinos*/
                 "", /*137 storm*/
-                "", /*138 craft*/
+                "", /*138 lager*/
                 "", /*139 taffy*/
                 "", /*140 great*/
                 "", /*141 pucks*/
