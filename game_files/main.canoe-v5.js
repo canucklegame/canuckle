@@ -15629,16 +15629,16 @@
                 "There are six time zones in Canada covering four and a half hours. From west to east these time zones are: Pacific, Mountain, Central, Eastern, Atlantic and Newfoundland.", /*97 zones*/
                 "Canada is home to the two longest freshwater beaches in the world: Wasaga Beach (14 km) on the Georgian Bay in Ontario and Sauble Beach (11 km) on the Bruce Peninsula, along the eastern shore of Lake Huron.", /*98 beach*/
                 "Approximately 275 Canadian ski areas see more than 19 million visits per season. Canadian skiers and snowboarders (an estimated number of 2.5 million) are on the slopes and trails an average of 7.5 days per year.", /*99 skier*/
-                "", /*100 guard*/
-                "", /*101 expos*/
-                "", /*102 hydro*/
-                "", /*103 trail*/
-                "", /*104 ducks*/
-                "", /*105 water*/
+                "The Ceremonial Guard is an ad hoc military unit in the Canadian Armed Forces that performs the Changing the Guard ceremony on Parliament Hill.", /*100 guard*/
+                "The Montreal Expos, named after the Expo 67 World's Fair, were the first Major League Baseball franchise located outside the USA, competing from 1969 until 2004.", /*101 expos*/
+                "Waterpower is Canada's most abundant source of clean and renewable electricity, providing more than 60% of Canada's total electricity today. Canada is the fourth largest generator of hydroelectricity in the world.", /*102 hydro*/
+                "Crossing Canada on the Trans Canada Trail on foot would take over two years, spanning a whopping 24,134 km!", /*103 trail*/
+                "With roughly 22 different species of duck found in Canada, the most common is the Mallard. Saskatchewan is renowned for having some of the most abundant and productive waterfowl habitat in North America.", /*104 ducks*/
+                "With around 80,423 cubic meters per capita5, Canada has about 9% of the world's total renewable fresh water supply6. When glacier, underground and lake water is included, Canada actually has 20% of the world's fresh water supply", /*105 water*/
                 "", /*106 boots*/
-                "", /*107 tarts*/
-                "", /*108 apple*/
-                "", /*109 hoops*/
+                "The earliest published recipe for a butter tart is from Barrie, Ontario dating back to 1900 in the Women's Auxiliary of the Royal Victoria Hospital Cookbook.", /*107 tarts*/
+                "The McIntosh is the national apple of Canada. John McIntosh discovered the original McIntosh sapling on his Dundela farm in Upper Canada in 1811.", /*108 apple*/
+                "Invented by Canadian James Naismith in 1891, while he was teaching at the YMCA in Springfield, Massachusetts, basketball is now one of the most popular sports in the world. Both the Canadian Men's and Women's national teams won the Pan American games in 2015.", /*109 hoops*/
                 "", /*110 otter*/
                 "", /*111 field*/
                 "", /*112 games*/
