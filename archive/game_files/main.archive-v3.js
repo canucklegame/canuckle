@@ -1751,10 +1751,10 @@
         "radio", /* 129 (JUN 18) */
         "litre", /* 130 (JUN 19) used to be UNITY*/
         "royal", /* 131 (JUN 20) */
-        "stick", /* 132 (JUN 21) used to be PITCH, then TAIGA*/
+        "beads", /* 132 (JUN 21) used to be PITCH, then TAIGA, then STICK*/
         "huron", /* 133 (JUN 22) */
         "trout", /* 134 (JUN 23) */
-        "flood", /* 135 (JUN 24) used to be SCARF*/
+        "stick", /* 135 (JUN 24) used to be SCARF, then FLOOD*/
         "dinos", /* 136 (JUN 25) used to be BEADS*/
         "storm", /* 137 (JUN 26) */
         "lager", /* 138 (JUN 27) used to be CRAFT*/
@@ -15809,19 +15809,19 @@
                 "The Juno Awards celebrate the best in Canadian music! Anne Murray has won the most Junos with 25 wins (52 nominations), followed by Bryan Adams (21 wins, 63 nominations) and Celine Dion (20 wins, 75 nominations).", /*94 junos*/
                 "Canada's best summer Olympic sport is athletics, which includes running, hurdles, long jump, high jump, decathlon and other track & field events. Canada has earned 66 medals in athletics since 1900, including 16 gold, 17 silver and 33 bronze.", /*95 track*/
                 "Canada’s North is particularly well-known as being the fabled “land of the midnight sun.” Due to its proximity to the Arctic Circle, northern days can entail up to 24 straight hours of sunlight in the summer. Calgary is the sunniest of Canada's large cities, enjoying an average of 2,400 hours of bright sun each year, spread over 333 days.", /*96 sunny*/
-                "There are six time zones in Canada covering four and a half hours. From west to east these time zones are: Pacific, Mountain, Central, Eastern, Atlantic and Newfoundland.", /*97 zones*/
+                "There are six time zones in Canada covering four and a half hours. From west to east these time zones are: Pacific, Mountain, Central, Eastern, Atlantic and Newfoundland. Canada's Sir Sandford Fleming developed the modern system of standard time and time zones, still in use today.", /*97 zones*/
                 "Canada is home to the two longest freshwater beaches in the world: Wasaga Beach (14 km) on the Georgian Bay in Ontario and Sauble Beach (11 km) on the Bruce Peninsula, along the eastern shore of Lake Huron.", /*98 beach*/
                 "Approximately 275 Canadian ski areas see more than 19 million visits per season. Canadian skiers and snowboarders (an estimated number of 2.5 million) are on the slopes and trails an average of 7.5 days per year.", /*99 skier*/
-                "", /*100 guard*/
-                "", /*101 expos*/
-                "", /*102 hydro*/
-                "", /*103 trail*/
-                "", /*104 ducks*/
-                "", /*105 water*/
-                "", /*106 boots*/
-                "", /*107 tarts*/
-                "", /*108 apple*/
-                "", /*109 hoops*/
+                "The Ceremonial Guard is an ad hoc military unit in the Canadian Armed Forces that performs the Changing the Guard ceremony on Parliament Hill and posts sentries at Rideau Hall. We stand on guard for thee!", /*100 guard*/
+                "The Montreal Expos, named after the Expo 67 World's Fair, were the first Major League Baseball franchise located outside the USA, competing from 1969 until 2004. The last World's Fair held in Canada was Expo 86 in Vancouver.", /*101 expos*/
+                "Waterpower is Canada's most abundant source of clean and renewable electricity, providing more than 60% of Canada's total electricity today. Canada is the fourth largest generator of hydroelectricity in the world.", /*102 hydro*/
+                "The <a href=\"https://tctrail.ca/\">Trans Canada Trail</a> is Canada’s national trail and is the longest network of multi-use recreational trails in the world. Crossing Canada on the Trans Canada Trail by foot would take over two years, spanning a whopping 24,134 km!", /*103 trail*/
+                "With roughly 22 different species of duck found in Canada, the most common is the Mallard. Saskatchewan is renowned for having some of the most abundant and productive waterfowl habitat in North America. Check out <a href=\"https://www.ducks.ca/\">Ducks Unlimited Canada</a> and how they are working to conserve, restore and manage Canadian wetlands.", /*104 ducks*/
+                "With around 80,423 cubic metres per capita, Canada has about 9% of the world's total renewable fresh water supply. When glacier, underground and lake water is included, Canada actually has 20% of the world's fresh water supply.", /*105 water*/
+                "Rain boots, winter boots, cowboy boots, ski/snowboard/snowmobile boots - there is no shortage of boots for Canadians to wear! DYK: The brown leather riding boots worn by the RCMP need to be shined for a minimum of 25 hours before they have the appropriate sheen to them!", /*106 boots*/
+                "A butter tart is a delicious pastry tart, which generally consists of butter, sugar, syrup, and egg, filled into a flaky pastry. The earliest published recipe for a butter tart is from Barrie, Ontario dating back to 1900 in the Women's Auxiliary of the Royal Victoria Hospital Cookbook.", /*107 tarts*/
+                "The McIntosh (nicknamed the “Mac”) is the national apple of Canada. John McIntosh discovered the original McIntosh sapling on his Dundela farm in Upper Canada in 1811. Many years later, Apple Inc. named the Macintosh computer line after the fruit.", /*108 apple*/
+                "Invented by Canadian James Naismith in 1891 while he was teaching at the YMCA in Springfield, Massachusetts, basketball is now one of the most popular sports in the world. The first game used a soccer ball and peach baskets as hoops, which gave the sport its name. Basketball was born!", /*109 hoops*/
                 "", /*110 otter*/
                 "", /*111 field*/
                 "", /*112 games*/
@@ -15844,10 +15844,10 @@
                 "", /*129 radio*/
                 "", /*130 litre*/
                 "", /*131 royal*/
-                "", /*132 stick*/
+                "", /*132 beads*/
                 "", /*133 huron*/
                 "", /*134 trout*/
-                "", /*135 flood*/
+                "", /*135 stick*/
                 "", /*136 dinos*/
                 "", /*137 storm*/
                 "", /*138 lager*/
