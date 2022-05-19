@@ -14622,7 +14622,7 @@
             (e.today = new Date());
           var o = za();
           
-          var currentGame = Math.min(Ga(e.today), La.length - 1) - 235;
+          var currentGame = Ga(e.today) - 235;
           if (window.localStorage.getItem("reload"+JSON.stringify(currentGame)) == null) {
             window.localStorage.setItem("reload"+JSON.stringify(currentGame), JSON.stringify(1));
             window.location.reload();
@@ -14630,7 +14630,7 @@
 
           return (
             (e.lastPlayedTs = o.lastPlayedTs),
-            !e.lastPlayedTs || Na(new Date(e.lastPlayedTs), e.today) >= 1
+            !e.lastPlayedTs || (Na(new Date(e.lastPlayedTs), e.today) >= 1 && Na(Ha, e.today) <= La.length - 1)
               ? ((e.boardState = new Array(6).fill("")),
                 (e.evaluations = new Array(6).fill(null)),
                 (e.solution = Da(e.today)),
