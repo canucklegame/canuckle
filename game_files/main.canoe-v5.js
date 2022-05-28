@@ -1702,21 +1702,21 @@
         "tarts", /* 107 (MAY 27) */
         "apple", /* 108 (MAY 28) used to be DOCKS*/
         "hoops", /* 109 (MAY 29) used to be PRIVY*/
-        "otter", /* 110 (MAY 30) */
-        "field", /* 111 (MAY 31) */
+        "taiga", /* 110 (MAY 30) used to be OTTER*/
+        "steel", /* 111 (MAY 31) used to be FIELD*/
         "games", /* 112 (JUN 1) */
-        "sleds", /* 113 (JUN 2) */
+        "elect", /* 113 (JUN 2) used to be ELECT*/
         "trees", /* 114 (JUN 3) */
-        "steel", /* 115 (JUN 4) used to be UNION*/
+        "field", /* 115 (JUN 4) used to be UNION, then STEEL*/
         "prime", /* 116 (JUN 5) */
         "chips", /* 117 (JUN 6) */
         "pager", /* 118 (JUN 7) used to be PERCH*/
         "donut", /* 119 (JUN 8) used to be BANKS*/
-        "pines", /* 120 (JUN 9) */
+        "screw", /* 120 (JUN 9) used to be PINES*/
         "chief", /* 121 (JUN 10) used to be GRAVY*/
         "peaks", /* 122 (JUN 11) */
         "arena", /* 123 (JUN 12) */
-        "elect", /* 124 (JUN 13) */
+        "sleds", /* 124 (JUN 13) used to be ELECT*/
         "house", /* 125 (JUN 14) */
         "bagel", /* 126 (JUN 15) */
         "force", /* 127 (JUN 16) used to be HERON*/
@@ -1725,8 +1725,8 @@
         "litre", /* 130 (JUN 19) used to be UNITY*/
         "royal", /* 131 (JUN 20) */
         "beads", /* 132 (JUN 21) used to be PITCH, then TAIGA, then STICK*/
-        "huron", /* 133 (JUN 22) */
-        "trout", /* 134 (JUN 23) */
+        "clock", /* 133 (JUN 22) used to be HURON*/
+        "pizza", /* 134 (JUN 23) used to be PIZZA*/
         "stick", /* 135 (JUN 24) used to be SCARF, then FLOOD*/
         "dinos", /* 136 (JUN 25) used to be BEADS*/
         "storm", /* 137 (JUN 26) */
@@ -15637,21 +15637,21 @@
                 "A butter tart is a delicious pastry tart, which generally consists of butter, sugar, syrup, and egg, filled into a flaky pastry. The earliest published recipe for a butter tart is from Barrie, Ontario dating back to 1900 in the Women's Auxiliary of the Royal Victoria Hospital Cookbook.", /*107 tarts*/
                 "The McIntosh (nicknamed the “Mac”) is the national apple of Canada. John McIntosh discovered the original McIntosh sapling on his Dundela farm in Upper Canada in 1811. Many years later, Apple Inc. named the Macintosh computer line after the fruit.", /*108 apple*/
                 "Invented by Canadian James Naismith in 1891 while he was teaching at the YMCA in Springfield, Massachusetts, basketball is now one of the most popular sports in the world. The first game used a soccer ball and peach baskets as hoops, which gave the sport its name. Basketball was born!", /*109 hoops*/
-                "", /*110 otter*/
-                "", /*111 field*/
-                "", /*112 games*/
-                "", /*113 sleds*/
-                "", /*114 trees*/
-                "", /*115 steel*/
+                "The taiga or boreal forest has been called the world's largest land biome. In North America the taiga occupies much of Canada and Alaska. At 1.3 billion acres, the Canadian Boreal Forest is one of the largest intact forest and wetland ecosystems remaining on earth.", /*110 taiga*/
+                "Steel plays an extremely important role in the Canadian economy as a whole: in 2019, the Canadian steel industry contributed $4.2 billion to Canada's GDP. According to the Canadian Steel Producers Association, the Canadian steel industry employs, directly and indirectly, more than 120,000 Canadians.", /*111 steel*/
+                "The Canada Games is a multi-sport event held every two years, alternating between the Canada Winter Games and the Canada Summer Games. They represent the highest level of national competition for Canadian athletes. The <a href=\"https://niagara2022games.ca/\">Niagara 2022 Canada Summer Games</a> will take place Aug 6-21, 2022!", /*112 games*/
+                "Canada is a representative democracy. During an election, all Canadian citizens who are at least 18 years old on election day can vote in their electoral district.", /*113 elect*/
+                "One of the most widely-known facts about Canada is that we’ve got an abundance of trees, but did you know that Canada actually boasts 30 per cent of the world’s boreal forest and 10 per cent of the world’s total forest cover?", /*114 trees*/
+                "", /*115 field*/
                 "", /*116 prime*/
                 "", /*117 chips*/
                 "", /*118 pager*/
                 "", /*119 donut*/
-                "", /*120 pines*/
+                "", /*120 screw*/
                 "", /*121 chief*/
                 "", /*122 peaks*/
                 "", /*123 arena*/
-                "", /*124 elect*/
+                "", /*124 sleds*/
                 "", /*125 house*/
                 "", /*126 bagel*/
                 "", /*127 force*/
@@ -15660,8 +15660,8 @@
                 "", /*130 litre*/
                 "", /*131 royal*/
                 "", /*132 beads*/
-                "", /*133 huron*/
-                "", /*134 trout*/
+                "", /*133 clock*/
+                "", /*134 pizza*/
                 "", /*135 stick*/
                 "", /*136 dinos*/
                 "", /*137 storm*/
