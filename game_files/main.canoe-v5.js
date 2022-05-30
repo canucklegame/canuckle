@@ -1749,6 +1749,7 @@
         "truro",
         "sioux",
         "haida",
+        "huron",
         "odawa",
         "rouyn",
         "madam",
