@@ -15828,10 +15828,10 @@
                 "The Canada Games is a multi-sport event held every two years, alternating between the Canada Winter Games and the Canada Summer Games. They represent the highest level of national competition for Canadian athletes. The <a href=\"https://niagara2022games.ca/\">Niagara 2022 Canada Summer Games</a> will take place Aug 6-21, 2022!", /*112 games*/
                 "Canada is a representative democracy. During an election, all Canadian citizens who are at least 18 years old on election day can vote in their electoral district.", /*113 elect*/
                 "One of the most widely-known facts about Canada is that we’ve got an abundance of trees, but did you know that Canada actually boasts 30 per cent of the world’s boreal forest and 10 per cent of the world’s total forest cover?", /*114 trees*/
-                "", /*115 field*/
-                "", /*116 prime*/
-                "", /*117 chips*/
-                "", /*118 pager*/
+                "There are so many different types of fields in Canada: sports fields, wheat fields, oil fields, and ice fields to name a few. The Canadian Prairies are known for their open skies and vast fields of grain, but Canada is also home to the world's largest non-polar ice field in the St. Elias Mountains located in Kluane National Park and Reserve, Yukon Territory.", /*115 field*/
+                "The Prime Minister (PM) is the head of the federal government in Canada. It is the most powerful position in Canadian politics. While the Queen may be Canada's head of state, and the Governor General the Queen's representative, it's the Prime Minister who is known as the nation's head of government.", /*116 prime*/
+                "Canadians love their potato chips! In 2020, the Canadian potato chips market had total revenues of almost $2 billion. Canada is also home to some truly Canadian original flavours - both Ketchup and All Dressed chips are almost exclusively available in Canada!", /*117 chips*/
+                "The telephone pager was invented in 1949 by Canadian Alfred J. Gross, a Toronto-based wireless communications pioneer. The devices Alfred invented also led to cordless and cellular telephone technology.", /*118 pager*/
                 "", /*119 donut*/
                 "", /*120 screw*/
                 "", /*121 chief*/
