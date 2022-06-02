@@ -15652,7 +15652,7 @@
                 "", /*121 chief*/
                 "", /*122 peaks*/
                 "", /*123 arena*/
-                "", /*124 sleds*/
+                "“Toboggan” is from the Mi'kmaq word “tobakun,” which means sled. In fact, the Inuit made the first toboggans out of whale bone and used it to transport people and belongings across the snowy tundra.", /*124 sleds*/
                 "", /*125 house*/
                 "", /*126 bagel*/
                 "", /*127 force*/
@@ -15660,7 +15660,7 @@
                 "", /*129 radio*/
                 "", /*130 litre*/
                 "", /*131 royal*/
-                "", /*132 beads*/
+                "Beading has a very long artistic and cultural history among the Indigenous people in Canada. At least 8,000 years before Europeans came to Canada, First Nations people were using beads in elaborate designs and for trade.", /*132 beads*/
                 "", /*133 clock*/
                 "", /*134 pizza*/
                 "", /*135 stick*/
