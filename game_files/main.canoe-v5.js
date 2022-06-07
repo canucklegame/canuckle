@@ -15647,12 +15647,12 @@
                 "The Prime Minister (PM) is the head of the federal government in Canada. It is the most powerful position in Canadian politics. While the Queen may be Canada's head of state, and the Governor General the Queen's representative, it's the Prime Minister who is known as the nation's head of government.", /*116 prime*/
                 "Canadians love their potato chips! In 2020, the Canadian potato chips market had total revenues of almost $2 billion. Canada is also home to some truly Canadian original flavours - both Ketchup and All Dressed chips are almost exclusively available in Canada!", /*117 chips*/
                 "The telephone pager was invented in 1949 by Canadian Alfred J. Gross, a Toronto-based wireless communications pioneer. The devices Alfred invented also led to cordless and cellular telephone technology.", /*118 pager*/
-                "", /*119 donut*/
-                "", /*120 screw*/
-                "", /*121 chief*/
-                "", /*122 peaks*/
-                "", /*123 arena*/
-                "“Toboggan” is from the Mi'kmaq word “tobakun,” which means sled. In fact, the Inuit made the first toboggans out of whale bone and used it to transport people and belongings across the snowy tundra.", /*124 sleds*/
+                "Canada has the most donut shops and consumes the most donuts per capita of any other country in the world - around 1 billion annually! The donut-eating capital of Canada is Lloydminster, Alberta/Saskatchewan. National Donut Day was last Friday, June 3rd - we hope you celebrated with your favourite donut!", /*119 donut*/
+                "In 1907, Canadian Peter L. Robertson invented a square socket-head screw. He produced his screws in his Milton, Ontario, factory starting in 1908. At that time, it was a revolutionary change in the fastener industry. Robertson screws and screwdrivers carry his name to this day.", /*120 screw*/
+                "In many Indigenous cultures in Canada, chiefs are the leaders of bands, clans and/or First Nations. Chiefs act as cultural and spiritual leaders and also serve as links between their people and the municipal, provincial and federal governments. RoseAnne Archibald is the current National Chief of the Assembly of First Nations (AFN) in Canada.", /*121 chief*/
+                "Canada’s Yukon Territory is home to 8 of Canada’s tallest mountains, with Mount Logan topping them all at 5956m high. BC’s Snow Dome peak is a unique “three-ocean peak”, where if you poured a cup of water at the summit, the water could flow into the Pacific Ocean to the west, the Arctic Ocean to the north, or the Atlantic Ocean to the east.", /*122 peaks*/
+                "The largest indoor arena in Canada is the Montreal Canadiens’ Bell Centre with a capacity of 21,700. The largest open air stadium is Edmonton’s Commonwealth Stadium, home to CFL’s Edmonton Elks, able to hold 56,302.", /*123 arena*/
+                "“Toboggan” is from the Mi'kmaq word “tobakun,” which means sled. In fact, the Inuit made the first toboggans out of whale bone and used it to transport people and belongings across the snowy tundra. Guy Martin holds the world record for fastest speed on a gravity powered snow sled at over 134 km/h in 2014!", /*124 sleds*/
                 "", /*125 house*/
                 "", /*126 bagel*/
                 "", /*127 force*/
