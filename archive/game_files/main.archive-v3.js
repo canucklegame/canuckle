@@ -15838,14 +15838,14 @@
                 "Canada’s Yukon Territory is home to 8 of Canada’s tallest mountains, with Mount Logan topping them all at 5956m high. BC’s Snow Dome peak is a unique “three-ocean peak”, where if you poured a cup of water at the summit, the water could flow into the Pacific Ocean to the west, the Arctic Ocean to the north, or the Atlantic Ocean to the east.", /*122 peaks*/
                 "The largest indoor arena in Canada is the Montreal Canadiens’ Bell Centre with a capacity of 21,700. The largest open air stadium is Edmonton’s Commonwealth Stadium, home to CFL’s Edmonton Elks, able to hold 56,302.", /*123 arena*/
                 "“Toboggan” is from the Mi'kmaq word “tobakun,” which means sled. In fact, the Inuit made the first toboggans out of whale bone and used it to transport people and belongings across the snowy tundra. Guy Martin holds the world record for fastest speed on a gravity powered snow sled at over 134 km/h in 2014!", /*124 sleds*/
-                "", /*125 house*/
-                "", /*126 bagel*/
-                "", /*127 force*/
-                "", /*128 rower*/
-                "", /*129 radio*/
-                "", /*130 litre*/
-                "", /*131 royal*/
-                "Beading has a very long artistic and cultural history among the Indigenous people in Canada. At least 8,000 years before Europeans came to Canada, First Nations people were using beads in elaborate designs and for trade.", /*132 beads*/
+                "The House of Commons of Canada is a democratically elected body whose members are known as members of Parliament (MPs). It is the lower house of the Parliament of Canada (the Senate is the upper house) and provides a link between Canadians and their Parliament. Many laws in Canada first begin as bills in the House of Commons.", /*125 house*/
+                "The Montréal bagel is one of Canada's most iconic and coveted snacks. It is a distinctive variety of handmade bagel that traditionally has a prounounced sweet taste and a chewy and dense texture, and is always baked in a wood-fired oven. The bagel first arrived in Montréal with the wave of Jewish immigrants from Eastern Europe in the early 1900s.", /*126 bagel*/
+                "The Canadian Armed Forces is the unified military of Canada, including sea, land, and air elements referred to as the Royal Canadian Navy, Canadian Army, and Royal Canadian Air Force. June 5th was Canadian Armed Forces Day - a day to honour and recognize members of the Canadian Armed Forces who display unwavering courage, sacrifice, and selflessness every day they wear the uniform.", /*127 force*/
+                "A total of 43 Olympic medals (including 10 gold medals) have been won by Canadian rowers, making rowing Canada's third-most successful summer Olympic sport (behind athletics and swimming).", /*128 rower*/
+                "Canadian inventor Reginald A. Fessenden is best known for his pioneering work developing radio technology, including the foundations of amplitude modulation (AM) radio. On 23 December 1900, he was the first person to send audio (wireless telephony) by means of electromagnetic waves, successfully transmitting speech by radio over a distance of about a 1.6 kilometres.", /*129 radio*/
+                "Canada officially uses the metric system of measurement, and litre is the standard spelling of the metric unit for liquid volume. Canadians purchase gasoline in litres, and also buy milk (in bags of course!) by the litre.", /*130 litre*/
+                "Canada is one of the oldest continuing monarchies in the world. The title “Royal” is a sign of honour and distinction, and the granting of this distinction is a prerogative of the Sovereign. In Canada, we have the Royal Navy, the Royal Canadian Air Force, the Royal Canadian Mounted Police, the Royal Canadian Legion, the Royal College of Phyisicians and Surgeons of Canada, and the Royal Architectural Institute of Canada. In Canada's legislative process, a bill can only become law once it has received royal assent.", /*131 royal*/
+                "Beading has a very long artistic and cultural history among the Indigenous people in Canada. At least 8,000 years before Europeans came to Canada, First Nations people were using beads in elaborate designs and for trade. Today, you can find beautiful First Nations beadwork at powwows, First Nations arts stores and museums across Canada", /*132 beads*/
                 "", /*133 clock*/
                 "", /*134 pizza*/
                 "", /*135 stick*/
