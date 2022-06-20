@@ -456,7 +456,7 @@
     z.innerHTML = "\n  <slot></slot>\n";
     var j = "archive-darkTheme",
       S = "archive-colorBlindTheme",
-      archiveDate = "archiveDate",
+      archiveDate = "DadDate",
       _ = (function (e) {
         r(t, e);
         var a = h(t);
