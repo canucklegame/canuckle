@@ -14553,7 +14553,7 @@
       return (a = s % La.length), La[a];
     }
     function Ga(e) {
-      return Na(Ha, e);
+      return Math.min(Na(Ha, e), La.length - 1);
     }
     var Ba = "abcdefghijklmnopqrstuvwxyz",
       Fa = [].concat(g(Ba.split("").slice(13)), g(Ba.split("").slice(0, 13)));
@@ -15002,6 +15002,7 @@
                 }),
                 (this.shadowRoot.querySelector("#minus-archive").addEventListener("click", function () {
                     var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
+                    
                     if (currentGame <= 1) {
                       return;
                     }
@@ -15011,22 +15012,24 @@
                     saveArchive(e);
                     
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
+
+                    console.log(currentArchiveDate);
+                    
                     window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() - 1))));
                     
                     window.location.reload();
                 })),
                 (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
                     var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-                    if (currentGame == Ga(new Date()) - 236) {
-                      return;
-                    }
+                    var originalDate = Ha;
+                    var lastDate = originalDate.setDate(Ha.getDate() + La.length - 1);
 
                     window.localStorage.setItem("archive-hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
-                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() + 1))));
+                    window.localStorage.setItem(archiveDate, JSON.stringify(lastDate < currentArchiveDate ? lastDate : new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() + 1))));
                     
                     window.location.reload();
                 })),
@@ -15045,27 +15048,28 @@
                     window.location.reload();
                 })),
                 (this.shadowRoot.querySelector("#first-archive").addEventListener("click", function () {
-                    var archiveToday = new Date();
-                    var currentGame = Ga(archiveToday) - 235;
-                    var dayDiff = currentGame - 1;
-                    
                     window.localStorage.setItem("archive-hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
-                    window.localStorage.setItem(archiveDate, JSON.stringify(archiveToday.setDate(archiveToday.getDate() - dayDiff)));
+                    var originalDate = Ha;
+                    window.localStorage.setItem(archiveDate, JSON.stringify(originalDate.setDate(Ha.getDate() + 236)));
 
                     window.location.reload();
                 })),
                 (this.shadowRoot.querySelector("#last-archive").addEventListener("click", function () {
                     var archiveToday = new Date();
                     var archiveYesterday = new Date(archiveToday.setDate(archiveToday.getDate() - 1));
-                    
+                    var originalDate = Ha;
+                    var lastDate = originalDate.setDate(Ha.getDate() + La.length - 1);
+
                     window.localStorage.setItem("archive-hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
-                    
-                    window.localStorage.setItem(archiveDate, JSON.stringify(archiveYesterday));
+
+                    console.log(JSON.stringify(lastDate));
+                    console.log(JSON.stringify(lastDate < archiveYesterday ? lastDate : archiveYesterday));
+                    window.localStorage.setItem(archiveDate, JSON.stringify(lastDate < archiveYesterday ? lastDate : archiveYesterday));
 
                     window.location.reload();
                 })),
