@@ -14881,7 +14881,7 @@
                 })),
                 (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
                     var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-                    if (currentGame == 13) {
+                    if (currentGame == 5) {
                       return;
                     }
 
