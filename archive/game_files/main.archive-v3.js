@@ -14661,7 +14661,14 @@
     var Za = "IN_PROGRESS",
       es = "WIN",
       as = "FAIL",
-      ss = [
+      ss = (window.localStorage.getItem("canuckle-language") == "fr") ? [
+       "Rock star canadienne!",
+       "Ô Canada!",
+       "Fantastique!",
+       "Génial, eh?",
+       "Glorieux!",
+       "Chanceux!",
+      ] : [
         "Canadian Rockstar!",
         "O Canada!",
         "True North!",
@@ -14669,15 +14676,6 @@
         "Patriot Love!",
         "Lucky Hoser!",
       ],
-
-//      ss = [
-//        "Rock star canadienne!",
-//        "Ô Canada!",
-//        "Fantastique!",
-//        "Génial, eh?",
-//        "Glorieux!",
-//        "Chanceux!",
-//      ],
 
      ts = (function (e) {
         r(t, e);
