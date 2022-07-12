@@ -1608,9 +1608,7 @@
         "baton", /* 2 */
         "trail", /* 3 */
         "shoes", /* 4 */
-        "surge", /* 5 */
-              
-              
+        "surge" /* 5 */
         ],
       Ta = [    /* DICTIONARY WORDS*/
         "gimli",
@@ -14541,8 +14539,10 @@
           
           var o = za();
           if (window.localStorage.getItem(archiveDate) == null) {
-            var todayGame = Ga(new Date()) - 235;
-            window.localStorage.setItem(archiveDate, JSON.stringify(new Date(e.today.setDate(e.today.getDate() - todayGame + 1))));
+            var firstDate = new Date(Ha);
+            firstDate.setDate(firstDate.getDate() + 236);
+
+            window.localStorage.setItem(archiveDate, JSON.stringify(firstDate));
           } 
           var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
           var savedData = JSON.parse(window.localStorage.getItem("dan"+JSON.stringify(currentGame)));
@@ -14846,22 +14846,27 @@
                     saveArchive(e);
                     
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
-                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() - 1))));
+                    var yesterdayDate = new Date(currentArchiveDate);
+                    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+                    
+                    window.localStorage.setItem(archiveDate, JSON.stringify(yesterdayDate));
                     
                     window.location.reload();
                 })),
                 (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
                     var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-                    if (currentGame == 5) {
-                      return;
-                    }
+                    var lastDate = new Date(Ha);
+                    lastDate.setDate(lastDate.getDate() + La.length - 1);
 
                     window.localStorage.setItem("dan-hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
-                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() + 1))));
+                    var tomorrowDate = new Date(currentArchiveDate);
+                    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+                    
+                    window.localStorage.setItem(archiveDate, JSON.stringify(lastDate <= currentArchiveDate ? lastDate : tomorrowDate));
                     
                     window.location.reload();
                 })),

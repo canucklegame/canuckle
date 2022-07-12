@@ -14718,10 +14718,10 @@
             var archiveToday = new Date();
             var archiveYesterday = new Date(archiveToday);
             archiveYesterday.setDate(archiveYesterday.getDate() - 1);
-            var lastDate = new Date(Ha)
-            lastDate.setDate(lastDate.getDate() + La.length - 1);
+            var firstDate = new Date(Ha);
+            firstDate.setDate(firstDate.getDate() + 236);
 
-            window.localStorage.setItem(archiveDate, JSON.stringify(lastDate < archiveYesterday ? lastDate : archiveYesterday));
+            window.localStorage.setItem(archiveDate, JSON.stringify(firstDate));
           } 
           var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
           var savedData = JSON.parse(window.localStorage.getItem("archive"+JSON.stringify(currentGame)));
@@ -15036,7 +15036,8 @@
                 })),
                 (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
                     var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-                    var lastDate = new Date().setDate(Ha.getDate() + La.length - 1);
+                    var lastDate = new Date(Ha);
+                    lastDate.setDate(lastDate.getDate() + La.length - 1);
 
                     window.localStorage.setItem("archive-hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
@@ -15079,7 +15080,7 @@
                 (this.shadowRoot.querySelector("#last-archive").addEventListener("click", function () {
                     var archiveToday = new Date();
                     var archiveYesterday = new Date(archiveToday.setDate(archiveToday.getDate() - 1));
-                    var lastDate = new Date(Ha)
+                    var lastDate = new Date(Ha);
                     lastDate.setDate(lastDate.getDate() + La.length - 1);
 
                     window.localStorage.setItem("archive-hasPlayed", "1");
