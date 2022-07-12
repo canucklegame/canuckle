@@ -454,9 +454,9 @@
     customElements.define("game-row", x);
     var z = document.createElement("template");
     z.innerHTML = "\n  <slot></slot>\n";
-    var j = "archive-darkTheme",
-      S = "archive-colorBlindTheme",
-      archiveDate = "DadDate",
+    var j = "Dan-darkTheme",
+      S = "Dan-colorBlindTheme",
+      archiveDate = "DanDate",
       _ = (function (e) {
         r(t, e);
         var a = h(t);
