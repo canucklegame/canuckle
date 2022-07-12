@@ -14669,7 +14669,17 @@
         "Patriot Love!",
         "Lucky Hoser!",
       ],
-      ts = (function (e) {
+
+//      ss = [
+//        "Rock star canadienne!",
+//        "Ô Canada!",
+//        "Fantastique!",
+//        "Génial, eh?",
+//        "Glorieux!",
+//        "Chanceux!",
+//      ],
+
+     ts = (function (e) {
         r(t, e);
         var a = h(t);
         function t() {
@@ -15344,9 +15354,15 @@
                               a.appendChild(t),
                               a.classList.add("one-and-a-half");
                           }
+                           if (isFrench) {
+                          "↵" == e &&
+                           ((a.textContent = "entrée"),
+                             a.classList.add("one-and-a-half"));
+                            } else {
                           "↵" == e &&
                             ((a.textContent = "enter"),
                             a.classList.add("one-and-a-half"));
+                            }                            
                         } else (a = ls.content.cloneNode(!0).firstElementChild).classList.add(1 === e.length ? "half" : "one");
                         s.appendChild(a);
                       }),
@@ -15676,8 +15692,13 @@
         '\n  <div class="funFact"> <h1>FUN FACT</h1> </div>\n';
     }
     var Is = document.createElement("template");
+    if (isFrench) {
+    Is.innerHTML =
+      '\n  <div class="share">\n    <button id="share-button">\n      Partager <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
+    } else {
     Is.innerHTML =
       '\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
+    }
     var Ms = {
         currentStreak: "Current Streak",
         maxStreak: "Max Streak",
