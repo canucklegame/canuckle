@@ -454,9 +454,9 @@
     customElements.define("game-row", x);
     var z = document.createElement("template");
     z.innerHTML = "\n  <slot></slot>\n";
-    var j = "archive-darkTheme",
-      S = "archive-colorBlindTheme",
-      archiveDate = "DadDate",
+    var j = "Dan-darkTheme",
+      S = "Dan-colorBlindTheme",
+      archiveDate = "DanDate",
       _ = (function (e) {
         r(t, e);
         var a = h(t);
@@ -1205,7 +1205,7 @@
           }
           return e;
         })),
-      wa = "dad-gameState",
+      wa = "chelsea-gameState",
       xa = {
         boardState: null,
         evaluations: null,
@@ -1230,15 +1230,9 @@
       })(va(a, e));
     }
     var Sa = document.createElement("template");
-    if (window.localStorage.getItem("canuckle-language") == "fr") {
-      // FRENCH
-      Sa.innerHTML =
-        '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 12px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  font-size: 18px; \n }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  .languagebutton {\n      display: inline-block;\n  font-family: Clear Sans, Arial, sans-serif;\n padding: 1px 7px;\n  font-size: 15px;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  outline: none;\n  color: #fff;\n  background-color: #86888a;\n  border: none;\n  border-radius: 5px;\n  box-shadow: 0 1px #999;\n     }\n  .languagebutton:hover\n {\n background-color: #FF0000;\n }\n\n .languagebutton:active\n {\n background-color: #FF0000;\n  box-shadow: 0 1px #666;\n  transform: translateY(1px);\n }\n\n </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Mode difficile</div>\n          <div class="description">Tous les indices révélés doivent être utilisés dans les suppositions ultérieures</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Thème sombre</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Mode contraste élevé</div>\n          <div class="description">Pour une meilleure vision des couleurs</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n     </section>\n\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Commentaires</div>\n        </div>\n        <div class="control">\n          <a href="mailto:info@canucklegame.ca?subject=Retour d\'information" title="info@canucklegame.ca">Courriel</a>\n          |\n          <a href="https://twitter.com/CanuckleGame" target="blank" title="@CanuckleGame">Twitter</a>\n        </div>\n      </div>\n </section> <section>\n      <div class="setting"><div class="text"><div id="language-setting"></div></div><button id="language-button" class="languagebutton"></button></div>   </section>\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Site principal</div>\n        </div>\n        <div class="control">\n          <a href="http://www.canucklegame.ca" target="blank">canucklegame.ca</a>\n        </div>\n      </div>\n </section>  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright"><a href="javascript:window.location.href=window.location.href">Rafraîchir le jeu</a><br>Propulsé par l\'original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
-    } else {
-      // ENGLISH
-      Sa.innerHTML =
+          Sa.innerHTML =
         '\n  <style>\n  .setting {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    border-bottom: 1px solid var(--color-tone-4);\n    padding: 12px 0;\n  }\n\n  a, a:visited {\n    color: var(--color-tone-2);\n  }\n\n  .title {\n    font-size: 18px;\n  }\n  .text {\n    padding-right: 8px;\n  font-size: 18px; \n }\n  .description {\n    font-size: 12px;\n    color: var(--color-tone-2);\n  }\n\n  #footnote {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    padding: 16px;\n    color: var(--color-tone-2);\n    font-size: 12px;\n    text-align: right;\n    display: flex;\n    justify-content: space-between;\n    align-items: flex-end;\n  }\n\n  #privacy-policy,\n  #copyright {\n    text-align: left;\n  }\n\n  @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {\n    .setting {\n      padding: 16px;\n    }\n  }\n\n  .languagebutton {\n      display: inline-block;\n  font-family: Clear Sans, Arial, sans-serif;\n padding: 1px 7px;\n  font-size: 15px;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  outline: none;\n  color: #fff;\n  background-color: #86888a;\n  border: none;\n  border-radius: 5px;\n  box-shadow: 0 1px #999;\n     }\n  .languagebutton:hover\n {\n background-color: #FF0000;\n }\n\n .languagebutton:active\n {\n background-color: #FF0000;\n  box-shadow: 0 1px #666;\n  transform: translateY(1px);\n }\n\n  </style>\n  <div class="sections">\n    <section>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Hard Mode</div>\n          <div class="description">Any revealed hints must be used in subsequent guesses</div>\n        </div>\n        <div class="control">\n          <game-switch id="hard-mode" name="hard-mode"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">Dark Theme</div>\n        </div>\n        <div class="control">\n          <game-switch id="dark-theme" name="dark-theme"></game-switch>\n        </div>\n      </div>\n      <div class="setting">\n        <div class="text">\n          <div class="title">High Contrast Mode</div>\n          <div class="description">For improved colour vision</div>\n        </div>\n        <div class="control">\n          <game-switch id="color-blind-theme" name="color-blind-theme"></game-switch>\n        </div>\n      </div>\n     </section>\n\n    \n  </div>\n  <div id="footnote">\n    <div>\n      <div id="copyright"><a href="javascript:window.location.href=window.location.href">Refresh game</a><br>Powered by the original <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">Wordle</a></div>\n    </div>\n    <div>\n      <div id="puzzle-number"></div>\n      <div id="hash"></div>\n    </div>\n  </div>\n';
-    }
+    
     var _a = (function (e) {
       r(t, e);
       var a = h(t);
@@ -1263,17 +1257,9 @@
                   null === (e = window.canuckle) || void 0 === e
                     ? void 0
                     : e.hash),
-                (this.shadowRoot.querySelector("#language-button").textContent = window.localStorage.getItem("canuckle-language") == "fr" ? "English" : "Français"),
                 (this.shadowRoot.querySelector("#puzzle-number").textContent =
                   "#".concat(this.gameApp.dayOffset - 235)),
-                (this.shadowRoot.querySelector("#language-setting").textContent =
-                  window.localStorage.getItem("canuckle-language") == "fr" ? "Langue : Français" : "Language: English"),
-                (this.shadowRoot.querySelector("#language-button").addEventListener("click", function () {
-                    var currentLanguage = window.localStorage.getItem("canuckle-language");
-                    window.localStorage.setItem("canuckle-language", currentLanguage == "fr" ? "en" : "fr");
-                    saveArchiveNoApp();
-                    window.location.reload();
-                })),
+                
                 this.shadowRoot.addEventListener(
                   "game-switch-change",
                   function (e) {
@@ -1298,11 +1284,9 @@
           {
             key: "render",
             value: function () {
-              (this.shadowRoot.querySelector("#language-button").textContent = window.localStorage.getItem("canuckle-language") == "fr" ? "English" : "Français");
+              
               (this.shadowRoot.querySelector("#puzzle-number").textContent =
                   "#".concat(this.gameApp.dayOffset - 235));
-              (this.shadowRoot.querySelector("#language-setting").textContent =
-                  window.localStorage.getItem("canuckle-language") == "fr" ? "Langue : Français" : "Language: English");
               var e = document.querySelector("body");
               e.classList.contains("nightmode") &&
                 this.shadowRoot
@@ -1620,22 +1604,17 @@
         "elder",
         "frame",
         "terry", 
-        "coach", /* 1 */
-        "force", /* 2 */
-        "billy", /* 3 */
-        "cards", /* 4 */
-        "march", /* 5 */
-        "bowls", /* 6 */
-        "major", /* 7 */
-        "nimiq", /* 8 */
-        "daddy", /* 9 */
-        "curls", /* 10 */
-        "smart", /* 11 */
-        "games", /* 12 */
-        "funny", /* 13 */
-
-       
-              
+        "chels", /* 1 */
+        "smart", /* 2 */
+        "games", /* 3 */
+        "silly", /* 4 */
+        "clips", /* 5 */
+        "books", /* 6 */
+        "specs", /* 7 */
+        "blond", /* 8 */
+        "candy", /* 9 */
+        "funny", /* 10 */
+        "pasta"  /* 11 */
         ],
       Ta = [    /* DICTIONARY WORDS*/
         "gimli",
@@ -14437,7 +14416,7 @@
       }
       return a;
     }
-    var Ya = "dad-statistics",
+    var Ya = "chelsea-statistics",
       Ja = "fail",
       Ua = {
         currentStreak: 0,
@@ -14490,11 +14469,11 @@
         gameStatus: gameApp.gameStatus,
         lastPlayedTs: gameApp.lastPlayedTs
       };
-      window.localStorage.setItem("dad"+JSON.stringify(currentGame), JSON.stringify(saveData));
+      window.localStorage.setItem("chelsea"+JSON.stringify(currentGame), JSON.stringify(saveData));
     }
     function saveArchiveNoApp() {
       var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-      var gameState = window.localStorage.getItem("dad-gameState");
+      var gameState = window.localStorage.getItem("chelsea-gameState");
       
       if (gameState != null) {
         var gameData = JSON.parse(gameState);
@@ -14505,21 +14484,11 @@
           gameStatus: gameData.gameStatus,
           lastPlayedTs: gameData.lastPlayedTs
         };
-        window.localStorage.setItem("dad"+JSON.stringify(currentGame), JSON.stringify(saveData));
+        window.localStorage.setItem("chelsea"+JSON.stringify(currentGame), JSON.stringify(saveData));
       }
     }
     var Ka = document.createElement("template");
-    if (window.localStorage.getItem("canuckle-language") == "fr") {
-      // FRENCH
-      Ka.innerHTML =
-        "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: "
-          .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
-          .concat(
-            4e3,
-            ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--red);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 26px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  .archivebutton {\n      display: inline-block;\n  font-family: Clear Sans, Arial, sans-serif;\n padding: 1px 5px;\n  font-size: 13px;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  outline: none;\n  color: #fff;\n  background-color: #86888a;\n  border: none;\n  border-radius: 5px;\n  box-shadow: 0 1px #999;\n     }\n  .archivebutton:hover\n {\n background-color: #FF0000;\n }\n\n .archivebutton:active\n {\n background-color: #FF0000;\n  box-shadow: 0 1px #666;\n  transform: translateY(1px);\n }\n\n @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div style="width=100%;text-align:center"> <button id="minus-archive" type="button" class="archivebutton">\<</button>   <button id="plus-archive" type="button" class="archivebutton">\></button>\n <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
-          );
-    } else {
-      // ENGLISH
+    
       Ka.innerHTML =
         "\n  <style>\n  .toaster {\n    position: absolute;\n    top: 10%;\n    left: 50%;\n    transform: translate(-50%, 0);\n    pointer-events: none;\n    width: fit-content;\n  }\n  #game-toaster {\n    z-index: "
           .concat(1e3, ";\n  }\n  #system-toaster {\n    z-index: ")
@@ -14527,7 +14496,7 @@
             4e3,
             ';\n  }\n\n  #game {\n    width: 100%;\n    max-width: var(--game-max-width);\n    margin: 0 auto;\n    height: 100%;\n    display: flex;\n    flex-direction: column;\n  }\n  header {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    height: var(--header-height);\n    color: var(--red);\n    border-bottom: 1px solid var(--color-tone-4);\n  }\n  header .title {\n    font-weight: 700;\n    font-size: 26px;\n    letter-spacing: 0.2rem;\n    text-transform: uppercase;\n    text-align: center;\n    position: absolute;\n    left: 0;\n    right: 0;\n    pointer-events: none;\n  }\n\n  .archivebutton {\n      display: inline-block;\n  font-family: Clear Sans, Arial, sans-serif;\n padding: 1px 5px;\n  font-size: 13px;\n  cursor: pointer;\n  text-align: center;\n  text-decoration: none;\n  outline: none;\n  color: #fff;\n  background-color: #86888a;\n  border: none;\n  border-radius: 5px;\n  box-shadow: 0 1px #999;\n     }\n  .archivebutton:hover\n {\n background-color: #FF0000;\n }\n\n .archivebutton:active\n {\n background-color: #FF0000;\n  box-shadow: 0 1px #666;\n  transform: translateY(1px);\n }\n\n @media (max-width: 360px) {\n    header .title {\n      font-size: 22px;\n      letter-spacing: 0.1rem;\n    }\n  }\n\n  #board-container {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-grow: 1;\n    overflow: hidden;\n  }\n  #board {\n    display: grid;\n    grid-template-rows: repeat(6, 1fr);\n    grid-gap: 5px;\n    padding:10px;\n    box-sizing: border-box;\n  }\n  button.icon {\n    background: none;\n    border: none;\n    cursor: pointer;\n    padding: 0 4px;\n  }\n\n  #debug-tools {\n    position: absolute;\n    bottom: 0;\n  }\n\n  </style>\n  <game-theme-manager>\n    <div id="game">\n      <header>\n        <div class="menu">\n          <button id="help-button" class="icon" aria-label="help">\n            <game-icon icon="help"></game-icon>\n          </button>\n        </div>\n        <div id="canuckle-title" class="title"></div>\n        <div class="menu">\n             <button id="statistics-button" class="icon" aria-label="statistics">\n            <game-icon icon="statistics"></game-icon>\n          </button>\n          <button id="settings-button" class="icon" aria-label="settings">\n            <game-icon icon="settings"></game-icon>\n          </button>\n        </div>\n      </header>\n     <div style="width=100%;text-align:center">  <button id="minus-archive" type="button" class="archivebutton">\< PREV&nbsp;</button> <button id="plus-archive" type="button" class="archivebutton">&nbsp;NEXT \></button>\n </div> <div id="board-container">\n          <div id="board"></div>\n        </div>\n        <game-keyboard></game-keyboard>\n        <game-modal></game-modal>\n        <game-page></game-page>\n        <div class="toaster" id="game-toaster"></div>\n        <div class="toaster" id="system-toaster"></div>\n    </div>\n  </game-theme-manager>\n  <div id="debug-tools"></div>\n'
           );
-    }
+    
     var Qa = document.createElement("template");
     Qa.innerHTML =
       '\n<button id="reveal">reveal</button>\n<button id="shake">shake</button>\n<button id="bounce">bounce</button>\n<button id="toast">toast</button>\n<button id="modal">modal</button>\n';
@@ -14535,9 +14504,9 @@
       es = "WIN",
       as = "FAIL",
       ss = [
-        "Dynamic Dad! 🤩",
+        "Cool Chelsea! 🤘🎸😊",
         "Radical Rogers! 🤙",
-        "Beaming Bill! 😁",
+        "Nailed it! 🔨",
         "Woohoo! 🙌",
         "Awesome! 👍",
         "Lucky! 🍀",
@@ -14573,16 +14542,16 @@
           //   window.localStorage.setItem("fail-migrate", "complete");
           // }
 
-          if (window.localStorage.getItem("canuckle-language") == null) {
-            window.localStorage.setItem("canuckle-language", "en");
-          }
+          
           var o = za();
           if (window.localStorage.getItem(archiveDate) == null) {
-            var todayGame = Ga(new Date()) - 235;
-            window.localStorage.setItem(archiveDate, JSON.stringify(new Date(e.today.setDate(e.today.getDate() - todayGame + 1))));
+            var firstDate = new Date(Ha);
+            firstDate.setDate(firstDate.getDate() + 236);
+
+            window.localStorage.setItem(archiveDate, JSON.stringify(firstDate));
           } 
           var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-          var savedData = JSON.parse(window.localStorage.getItem("dad"+JSON.stringify(currentGame)));
+          var savedData = JSON.parse(window.localStorage.getItem("chelsea"+JSON.stringify(currentGame)));
           
           if (savedData != null) {
             e.lastPlayedTs = savedData.lastPlayedTs;
@@ -14724,7 +14693,6 @@
                         hard_mode_archive: this.hardMode ? 1 : 0,
                         high_contrast_archive: document.querySelector("body").classList.contains("colorblind") ? 1 : 0,
                         dark_theme_archive: document.querySelector("body").classList.contains("nightmode") ? 1 : 0,
-                        french_archive: window.localStorage.getItem("canuckle-language") == "fr" ? 1 : 0,
                         success_archive: l,
                       });
                   (this.tileIndex = 0),
@@ -14853,7 +14821,7 @@
                   (this.$keyboard =
                     this.shadowRoot.querySelector("game-keyboard")),
                   this.sizeBoard(),
-                  this.lastPlayedTs || window.localStorage.getItem("dad-hasPlayed") ||
+                  this.lastPlayedTs || window.localStorage.getItem("chelsea-hasPlayed") ||
                     setTimeout(function () {
                       return e.showHelpModal();
                     }, 100);
@@ -14879,27 +14847,32 @@
                       return;
                     }
                     
-                    window.localStorage.setItem("dad-hasPlayed", "1");
+                    window.localStorage.setItem("chelsea-hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
-                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() - 1))));
+                    var yesterdayDate = new Date(currentArchiveDate);
+                    yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+                    
+                    window.localStorage.setItem(archiveDate, JSON.stringify(yesterdayDate));
                     
                     window.location.reload();
                 })),
                 (this.shadowRoot.querySelector("#plus-archive").addEventListener("click", function () {
                     var currentGame = Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235;
-                    if (currentGame == 13) {
-                      return;
-                    }
+                    var lastDate = new Date(Ha);
+                    lastDate.setDate(lastDate.getDate() + La.length - 1);
 
-                    window.localStorage.setItem("dad-hasPlayed", "1");
+                    window.localStorage.setItem("chelsea-hasPlayed", "1");
                     e.lastPlayedTs = Date.now();
                     saveArchive(e);
                     
                     var currentArchiveDate = new Date(JSON.parse(window.localStorage.getItem(archiveDate)));
-                    window.localStorage.setItem(archiveDate, JSON.stringify(new Date(currentArchiveDate.setDate(currentArchiveDate.getDate() + 1))));
+                    var tomorrowDate = new Date(currentArchiveDate);
+                    tomorrowDate.setDate(tomorrowDate.getDate() + 1);
+                    
+                    window.localStorage.setItem(archiveDate, JSON.stringify(lastDate <= currentArchiveDate ? lastDate : tomorrowDate));
                     
                     window.location.reload();
                 })),
@@ -14907,7 +14880,7 @@
                
                 
                 (this.shadowRoot.querySelector("#canuckle-title").textContent = 
-                  "DAD #".concat(Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235)),
+                  "CHELSEA #".concat(Ga(new Date(JSON.parse(window.localStorage.getItem(archiveDate)))) - 235)),
                   this.$game.addEventListener(
                     "game-last-tile-revealed-in-row",
                     function (a) {
@@ -14956,9 +14929,7 @@
                     .addEventListener("click", function (a) {
                       var s = e.$game.querySelector("game-page");
                       var t = document.createTextNode("Settings");
-                      if (window.localStorage.getItem("canuckle-language") == "fr") {
-                        t = document.createTextNode("Paramètres");
-                      }
+                      
                       s.appendChild(t);
                       var o = document.createElement("game-settings");
                       o.setAttribute("slot", "content"),
@@ -14971,9 +14942,7 @@
                     .addEventListener("click", function (a) {
                       var s = e.$game.querySelector("game-page");
                       var t = document.createTextNode("How to play");
-                      if (window.localStorage.getItem("canuckle-language") == "fr") {
-                        t = document.createTextNode("Comment Jouer");
-                      }
+                      
                       s.appendChild(t);
                       var o = document.createElement("game-help");
                       o.setAttribute("page", ""),
@@ -15486,14 +15455,11 @@
       var t;
     }
     var Cs = document.createElement("template");
-    var isFrench = window.localStorage.getItem("canuckle-language") == "fr";
-    if (isFrench) {
-      Cs.innerHTML =
-        '\n  <style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 32px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #guess-distribution {\n      width: 80%;\n    }\n\n    .graph-container {\n      width: 100%;\n      height: 20px;\n      display: flex;\n      align-items: center;\n      padding-bottom: 4px;\n      font-size: 14px;\n      line-height: 20px;\n    }\n\n    .graph-container .graph {\n      width: 100%;\n      height: 100%;\n      padding-left: 4px;\n    }\n\n    .graph-container .graph .graph-bar {\n      height: 100%;\n      /* Assume no wins */\n      width: 0%;\n      position: relative;\n      background-color: var(--color-absent);\n      display: flex;\n      justify-content: center;\n    }\n\n    .graph-container .graph .graph-bar.highlight {\n      background-color: var(--color-correct);\n    }\n\n    .graph-container .graph .graph-bar.align-right {\n      justify-content: flex-end;\n      padding-right: 8px;\n    }\n\n    .graph-container .graph .num-guesses {\n      font-weight: bold;\n      color: var(--tile-text-color);\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n\n    .footer {\n      display: flex;\n      width: 100%;\n    }\n\n    .countdown {\n      border-right: 1px solid var(--color-tone-1);\n      padding-right: 12px;\n      width: 50%;\n    }\n\n    .share {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding-left: 12px;\n      width: 50%;\n    }\n\n    .no-data {\n      text-align: center;\n    }\n\n    button#share-button {\n      background-color: var(--key-bg-correct);\n      color: var(--key-evaluated-text-color);\n      font-family: inherit;\n      font-weight: bold;\n      border-radius: 4px;\n      cursor: pointer;\n      border: none;\n      user-select: none;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-transform: uppercase;\n      -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n      width: 80%;\n      font-size: 20px;\n      height: 52px;\n      -webkit-filter: brightness(100%);\n    }\n    button#share-button:hover {\n      opacity: 0.9;\n    }\n    button#share-button game-icon {\n      width: 24px;\n      height: 24px;\n      padding-left: 8px;\n    }\n  </style>\n\n  <div class="container">\n    <h1>Statistiques</h1>\n    <div id="statistics"></div>\n    <h1>Performances</h1>\n    <div id="guess-distribution"></div>\n    <div class="footer"></div>\n  </div>\n';  
-    } else {
+    
+    
       Cs.innerHTML =
         '\n  <style>\n    .container {\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      padding: 16px 0; \n    }\n    h1 {\n      font-weight: 700;\n      font-size: 16px;\n      letter-spacing: 0.5px;\n      text-transform: uppercase;\n      text-align: center;\n      margin-bottom: 10px;\n    }\n  \n    #statistics {\n      display: flex;\n      margin-bottom: \n    }\n\n    .statistic-container {\n      flex: 1;\n    }\n\n    .statistic-container .statistic {\n      font-size: 32px;\n      font-weight: 400;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      letter-spacing: 0.05em;\n      font-variant-numeric: proportional-nums;\n    }\n\n    .statistic.timer {\n      font-variant-numeric: initial;\n    }\n\n    .statistic-container .label {\n      font-size: 12px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n    }\n\n    #guess-distribution {\n      width: 80%;\n    }\n\n    .graph-container {\n      width: 100%;\n      height: 20px;\n      display: flex;\n      align-items: center;\n      padding-bottom: 4px;\n      font-size: 14px;\n      line-height: 20px;\n    }\n\n    .graph-container .graph {\n      width: 100%;\n      height: 100%;\n      padding-left: 4px;\n    }\n\n    .graph-container .graph .graph-bar {\n      height: 100%;\n      /* Assume no wins */\n      width: 0%;\n      position: relative;\n      background-color: var(--color-absent);\n      display: flex;\n      justify-content: center;\n    }\n\n    .graph-container .graph .graph-bar.highlight {\n      background-color: var(--color-correct);\n    }\n\n    .graph-container .graph .graph-bar.align-right {\n      justify-content: flex-end;\n      padding-right: 8px;\n    }\n\n    .graph-container .graph .num-guesses {\n      font-weight: bold;\n      color: var(--tile-text-color);\n    }\n\n    #statistics,\n    #guess-distribution {\n      padding-bottom: 10px;\n    }\n\n    .footer {\n      display: flex;\n      width: 100%;\n    }\n\n    .countdown {\n      border-right: 1px solid var(--color-tone-1);\n      padding-right: 12px;\n      width: 50%;\n    }\n\n    .share {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding-left: 12px;\n      width: 50%;\n    }\n\n    .no-data {\n      text-align: center;\n    }\n\n    button#share-button {\n      background-color: var(--key-bg-correct);\n      color: var(--key-evaluated-text-color);\n      font-family: inherit;\n      font-weight: bold;\n      border-radius: 4px;\n      cursor: pointer;\n      border: none;\n      user-select: none;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      text-transform: uppercase;\n      -webkit-tap-highlight-color: rgba(0,0,0,0.3);\n      width: 80%;\n      font-size: 20px;\n      height: 52px;\n      -webkit-filter: brightness(100%);\n    }\n    button#share-button:hover {\n      opacity: 0.9;\n    }\n    button#share-button game-icon {\n      width: 24px;\n      height: 24px;\n      padding-left: 8px;\n    }\n  </style>\n\n  <div class="container">\n    <h1>Statistics</h1>\n    <div id="statistics"></div>\n    <h1>Guess Distribution</h1>\n    <div id="guess-distribution"></div>\n    <div class="footer"></div>\n  </div>\n';
-    }
+    
     var Ls = document.createElement("template");
     Ls.innerHTML =
       '\n  <div class="statistic-container">\n    <div class="statistic"></div>\n    <div class="label"></div>\n  </div>\n';
@@ -15501,13 +15467,10 @@
     Ts.innerHTML =
       '\n    <div class="graph-container">\n      <div class="guess"></div>\n      <div class="graph">\n        <div class="graph-bar">\n          <div class="num-guesses">\n        </div>\n      </div>\n      </div>\n    </div>\n';
     var FFs = document.createElement("template");
-    if (isFrench) {
-      FFs.innerHTML =
-        '\n  <div class="funFact"> <h1>FAIT AMUSANT</h1> </div>\n';
-    } else {
-      FFs.innerHTML =
+    
+    FFs.innerHTML =
         '\n  <div class="funFact"> <h1>FUN FACT</h1> </div>\n';
-    }
+    
     var Is = document.createElement("template");
     Is.innerHTML =
       '\n  <div class="share">\n    <button id="share-button">\n      Share <game-icon icon="share"></game-icon>\n    </button>\n  </div>\n';
@@ -15519,16 +15482,7 @@
         gamesWon: "Won",
         averageGuesses: "Average Guesses",
       };
-    if (isFrench) {
-      Ms = {
-        currentStreak: "Série actuelle",
-        maxStreak: "Meilleure série",
-        winPercentage: "Victoires (%)",
-        gamesPlayed: "Parties jouées",
-        gamesWon: "Gagné",
-        averageGuesses: "Suppositions moyennes",
-      };
-    }
+    
     var Os = (function (e) {
         r(t, e);
         var a = h(t);
@@ -15551,22 +15505,18 @@
                 var e = this;
                 
                 var funFacts = [
-                "<p align=center>Dad has been a coach for all of his kids (and wife!) in almost every sport they've played! ⚾🥌⚽🎳🏌️‍♂️</p>", /*1 coach*/
-                "<p align=center>Dad served in the Canadian Armed Forces for 32 years as a member of the Royal Canadian Air Force! ✈️</p>", /*2 force*/
-                "<p align=center>Billy is one of Dad's nicknames, especially when hanging out with his buddies! 😀</p>", /*3 billy*/
-                "<p align=center>Dad is always up for a game of cards! Bridge, euchre, spades, hearts...you name it, Dad is in!<br>He's also been known to do some amazing card tricks! ♣️♠️♥️♦️</p>", /*4 cards*/
-                "<p align=center>Dad was born on March 19th, 1953, but also spent a lot of time marching while at RMC! 🚶‍♂️</p>", /*5 march*/
-                "<p align=center>In only a few short years, Dad took up the sport of lawn bowling and is now one of the top senior short mat players in Canada! 🎳</p>", /*6 bowls*/
-                "<p align=center>Dad retired as a Major in the Air Force.<br>Major W G Rogers is our Major Dad! 🎖️</p>", /*7 major*/
-                "<p align=center>Even though Mom's name is on the satellite, we all know it was Dad who did the research and came up with the name Nimiq! 🛰️</p>", /*8 nimiq*/                
-                "<p align=center>He's our favourite Dad/Daddy/Daddio! 👨</p>", /*9 daddy*/                
-                "<p align=center>During winter months, you can probably find Dad at a curling rink either playing or coaching! 🥌</p>", /*10 curls*/
-                "<p align=center>Dad is a smart! 🧠 He's clever and sharp, and just the right level of nerdy! 🤓</p>", /*11 smart*/
-                "<p align=center>Dad is the ultimate Games Night host! The creator of the challenging basement game, and creative cottage games (ie. Survivor) & scavenger hunts! 🎲🃏🎱</p>", /*12 games*/
-                "<p align=center>Dad has a great sense of humour! He's both funny & corny and you can always count on him for a Dad joke! 😆<br><br>Happy Father's Day, Dad!<br>We love you so much! ❤️</p>", /* funny*/
-        
-
-                                
+                "<p align=center>Chelsea's nickname! 😊<br>Family and friends often call her 'Chels'.</p>", /*1 chels*/
+                "<p align=center>Chelsea is a smart cookie! 🧠🍪<br>She's very clever and always very curious! 🧐 She loves being organized and is a big fan of lists! 📝</p>", /*2 smart*/
+                "<p align=center>Chelsea is always up for playing games! 🎲🎮🃏<br>Board games, card games, video games...you name it, she's IN!</p>", /*3 games*/
+                "<p align=center>Chelsea is a goofball! 🤪<br>She loves being silly and just laughing with her friends.</p>", /*4 silly*/
+                "<p align=center>'Just some little clips.' 📎<br>One of Chelsea's funniest quotes!</p>", /*5 clips*/
+                "<p align=center>Chelsea loves to read! 📚<br>Her favourite book series is Masterminds by Gordon Korman.</p>", /*6 books*/
+                "<p align=center>Chelsea has been wearing specs since she was 4 years old! 🤓<br>We love all of Chelsea's glasses...from her first pinkies and red ones, to her purple ones and current blue ones!</p>", /*7 specs*/
+                "<p align=center>Chelsea was our first blond baby! 👱‍♀️<br></p>", /*8 blond*/
+                "<p align=center>Chelsea can't get enough candy! 🍬<br>She has a huge sweet tooth and loves a good treat bowl!</p>", /*9 candy*/
+                "<p align=center>Chelsea has a great sense of humour! 😂<br>She's funny and loves making people laugh. 😆</p>", /*10 funny*/
+                "<p align=center>Pasta is Chelsea's favourite meal! 🍝<br>She would eat pasta for dinner every day if she could! Tortellini and spaghetti are two of her fave meals.<br><br>Happy 11th Birthday Chelsea!<br>We love you so much! ❤️</p>" /*11 pasta*/
+                                                
                 ];
                 saveArchiveNoApp();
                 if ((e.gameApp.gameStatus == "WIN" || e.gameApp.gameStatus == "FAIL") && funFacts.length > (e.gameApp.dayOffset - 236)) {
@@ -15582,11 +15532,9 @@
                 }
                 var twitter = document.createElement("div");
 
-                if (window.localStorage.getItem("canuckle-language") == "fr") {
-                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="right"><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" height="40" alt="@CanuckleGame sur Twitter" title="@CanuckleGame sur Twitter"></a></td><td align="center"><a href="http://canucklegame.ca" target="_blank"><img src="images/canuckle2.png" alt="Canuckle" title="Canuckle" height="40" width="40"></td><td align="left"><a href="https://www.facebook.com/CanuckleGame" target="_blank"><img src="images/facebook2.png" height="40" alt="@CanuckleGame on Facebook" title="@CanuckleGame on Facebook"></a></td></tr><tr><td colspan="3" align="center">Si vous avez aimé ce jeu :<a href="http://www.ko-fi.com/canuckle" alt="Achetez un café à Canuckle"><img src="images/coffee-big-f.png" width="300" alt="Achetez un café à Canuckle" title="Achetez un café à Canuckle"></a></td></tr></table>';
-                } else {
-                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="right"><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" height="40" alt="@CanuckleGame on Twitter" title="@CanuckleGame on Twitter"></a></td><td align="center"><a href="http://canucklegame.ca" target="_blank"><img src="images/canuckle2.png" alt="Canuckle" title="Canuckle" height="40" width="40"></td><td align="left"><a href="https://www.facebook.com/CanuckleGame" target="_blank"><img src="images/facebook2.png" height="40" alt="@CanuckleGame on Facebook" title="@CanuckleGame on Facebook"></a></td></tr><tr><td colspan="3" align="center">If you enjoyed this game:<br><a href="http://www.ko-fi.com/canuckle" alt="Buy Canuckle a coffee"><img src="images/coffee-big.png" width="300" alt="Buy Canuckle a coffee" title="Buy Canuckle a coffee"></a></td></tr></table>';  
-                }
+                
+                  twitter.innerHTML = '<style>\n td\n {\n padding-top:10px;\n  }\n </style>\n <table align="center" width="60%" border=0 padding=0><tr><td align="right"><a href="https://www.twitter.com/CanuckleGame" target="_blank"><img src="images/twitter2.png" height="40" alt="@CanuckleGame on Twitter" title="@CanuckleGame on Twitter"></a></td><td align="center"><a href="http://archive.canucklegame.ca" target="_blank"><img src="images/archive2.png" alt="Canuckle Archive" title="Canuckle Archive" height="40" width="40"></td><td align="left"><a href="https://www.facebook.com/CanuckleGame" target="_blank"><img src="images/facebook2.png" height="40" alt="@CanuckleGame on Facebook" title="@CanuckleGame on Facebook"></a></td></tr><tr><td colspan="3" align="center">If you enjoyed this game:<br><a href="http://www.ko-fi.com/canuckle" alt="Buy Canuckle a coffee"><img src="images/coffee-big.png" width="300" alt="Buy Canuckle a coffee" title="Buy Canuckle a coffee"></a></td></tr></table>';  
+                
                 e.shadowRoot.appendChild(twitter);
 
                 this.shadowRoot.appendChild(Cs.content.cloneNode(!0));
@@ -15804,13 +15752,10 @@
     })(c(HTMLElement));
     customElements.define("game-switch", Ps);
     var $s = document.createElement("template");
-    if (window.localStorage.getItem("canuckle-language") == "fr") {
+    
       $s.innerHTML =
-        '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .s {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  . {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Devinez le <strong>CANUCKLE</strong> en 6 essais.</p>\n   <p>Utilisez les boutons de navigation pour lire différents mots dans l\'archive.</p>\n   <p>Chaque supposition doit être un mot valide de 5 lettres. Appuyez sur le bouton Entrée pour soumettre.</p>\n      <p>Après chaque supposition, la couleur des tuiles changera pour montrer à quel point votre supposition était proche du mot.</p>\n <p>La réponse sera un mot/lieu/canadianisme lié au Canada d\'une manière ou d\'une autre, et un fait amusant sera affiché après avoir joué!</p>\n     <div class="s">\n        <p><strong>Exemples</strong></p>\n        <div class="">\n          <div class="row">\n            <game-tile letter="i" evaluation="correct" reveal></game-tile>\n            <game-tile letter="g"></game-tile>\n            <game-tile letter="l"></game-tile>\n            <game-tile letter="o"></game-tile>\n            <game-tile letter="o"></game-tile>\n          </div>\n          <p>La lettre <strong>I</strong> est dans le mot et au bon endroit.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="c"></game-tile>\n            <game-tile letter="a" evaluation="present" reveal></game-tile>\n            <game-tile letter="n"></game-tile>\n            <game-tile letter="o"></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>La lettre <strong>A</strong> est dans le mot mais au mauvais endroit.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="m"></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="l" evaluation="absent" reveal></game-tile>\n            <game-tile letter="e"></game-tile>\n          </div>\n          <p>La lettre <strong>L</strong> n\'est dans le mot à aucun endroit.</p>\n        </div>\n      </div>\n <p>Propulsé par le code du <a href="https://www.powerlanguage.co.uk/wordle/" target="_blank">WORDLE</a> original</p>    </div>\n  </section>\n'; 
-    } else {
-      $s.innerHTML =
-        '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .s {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  . {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>DAD\'S FATHER\'S DAY CANUCKLE</strong> in 6 tries.</p>\n   <p>Use the navigation buttons to play all 13 words.</p>\n   <p>Each guess must be a valid 5 letter word. Hit the enter button to submit.</p>\n      <p>After each guess, the colour of the tiles will change to show how close your guess was to the word.</p>\n <p>The answer will be a word/characteristic/thing related to Dad in some way, and a fun fact will be displayed after you play!</p>\n  <p align="center"><img src="images/dad.jpg" width="200"></p>     <div class="s">\n        <p><strong>Examples</strong></p>\n        <div class="">\n          <div class="row">\n            <game-tile letter="h" evaluation="correct" reveal></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="y"></game-tile>\n          </div>\n          <p>The letter <strong>H</strong> is in the word and in the right spot.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="f"></game-tile>\n            <game-tile letter="a" evaluation="present" reveal></game-tile>\n            <game-tile letter="t"></game-tile>\n            <game-tile letter="h"></game-tile>\n            <game-tile letter="e"></game-tile>\n <game-tile letter="r"></game-tile>\n <game-tile letter="s"></game-tile>\n           </div>\n          <p>The letter <strong>A</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="D"></game-tile>\n            <game-tile letter="a"></game-tile>\n           <game-tile letter="Y" evaluation="absent" reveal></game-tile>\n                      </div>\n          <p>The letter <strong>Y</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n     </div>\n</section>\n'; 
-    }
+        '\n  <style>\n  .instructions {\n    font-size: 14px;\n    color: var(--color-tone-1)\n  }\n\n  .s {\n    border-bottom: 1px solid var(--color-tone-4);\n    border-top: 1px solid var(--color-tone-4);\n  }\n\n  . {\n    margin-top: 24px;\n    margin-bottom: 24px;\n  }\n\n  game-tile {\n    width: 40px;\n    height: 40px;\n  }\n\n  :host([page]) section {\n    padding: 16px;\n    padding-top: 0px;\n  }\n\n  </style>\n  <section>\n    <div class="instructions">\n      <p>Guess the <strong>CHELSEA\'S 11th BIRTHDAY CANUCKLE</strong> in 6 tries.</p>\n   <p>Use the navigation buttons to play all 11 words.</p>\n   <p>Each guess must be a valid 5 letter word. Hit the enter button to submit.</p>\n      <p>After each guess, the colour of the tiles will change to show how close your guess was to the word.</p>\n <p>The answer will be a word/characteristic/thing related to Chelsea in some way, and a fun fact will be displayed after you play!</p>\n  <p align="center"><img src="images/chelsea.jpg" width="200"></p>     <div class="s">\n        <p><strong>Examples</strong></p>\n        <div class="">\n          <div class="row">\n            <game-tile letter="h" evaluation="correct" reveal></game-tile>\n            <game-tile letter="a"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="p"></game-tile>\n            <game-tile letter="y"></game-tile>\n          </div>\n          <p>The letter <strong>H</strong> is in the word and in the right spot.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="b"></game-tile>\n            <game-tile letter="i" evaluation="present" reveal></game-tile>\n            <game-tile letter="r"></game-tile>\n            <game-tile letter="t"></game-tile>\n            <game-tile letter="h"></game-tile>\n <game-tile letter="d"></game-tile>\n <game-tile letter="a"></game-tile>\n <game-tile letter="y"></game-tile>\n          </div>\n          <p>The letter <strong>I</strong> is in the word but in the wrong spot.</p>\n        </div>\n        <div class="">\n          <div class="row">\n            <game-tile letter="c"></game-tile>\n            <game-tile letter="h"></game-tile>\n           <game-tile letter="e"></game-tile>\n            <game-tile letter="l"  evaluation="absent" reveal></game-tile>\n             <game-tile letter="s"></game-tile>\n          <game-tile letter="e"></game-tile>\n <game-tile letter="a"></game-tile>\n          </div>\n          <p>The letter <strong>L</strong> is not in the word in any spot.</p>\n        </div>\n      </div>\n     </div>\n</section>\n'; 
+    
     var Hs = (function (e) {
       r(t, e);
       var a = h(t);

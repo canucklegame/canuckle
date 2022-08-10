@@ -1,0 +1,26 @@
+{
+  "short_name": "Chelsea's 11th Birthday Canuckle Game",
+  "name": "Chelsea's 11th Birthday Canuckle Game",
+  "icons": [
+    {
+      "src": "https://canucklegame.github.io/canuckle/chelsea11/images/chelsea_logo_48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "https://canucklegame.github.io/canuckle/chelsea11/images/chelsea_logo_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://canucklegame.github.io/canuckle/chelsea11/images/chelsea_logo_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "http://chelsea.canucklegame.ca",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "theme_color": "#454545",
+  "description": "Chelsea's 11th Birthday Canuckle Game"
+}
