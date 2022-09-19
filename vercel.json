@@ -1,5 +1,7 @@
 { 
 	"redirects": [ 
-		{ "source": "/ads.txt", "destination": "https://portal.cdn.yollamedia.com/storage/at/52e2e9927c7d5272c0c2f7aac85b6a54.txt" , "permanent": true }
+		{ 	"source": "/ads.txt", 
+			"destination": "https://portal.cdn.yollamedia.com/storage/at/52e2e9927c7d5272c0c2f7aac85b6a54.txt" , 
+			"statuscode": 301 }
 	]
 }
