@@ -1,1 +1,22 @@
+appnexus.com, 11156, DIRECT
+rubiconproject.com, 19700, DIRECT, 0bfd66d529a55807
+rubiconproject.com, 19702, DIRECT, 0bfd66d529a55807
+indexexchange.com, 188357, DIRECT
+indexexchange.com, 188400, DIRECT
+sovrn.com, 264487, DIRECT, fafdf38b16bf6b2b
+lijit.com, 264487, DIRECT, fafdf38b16bf6b2b
+lijit.com, 264487-eb, RESELLER, fafdf38b16bf6b2b
+triplelift.com, 5899, DIRECT, 6c33edb13117fd86
+triplelift.com, 12127, DIRECT, 6c33edb13117fd86
+triplelift.com, 12127-EB, DIRECT, 6c33edb13117fd86
+33across.com, 0010b00002Ed7U2AAJ, DIRECT, bbea06d9c4d2853c
+openx.com, 540717765, DIRECT, 6a698e2ec38604c6
+openx.com, 540746462, RESELLER, 6a698e2ec38604c6
+contextweb.com, 561978, DIRECT, 89ff185a4c4e857c
+conversantmedia.com, 100075, DIRECT, 03113cd04947736d
+pubmatic.com, 161813, DIRECT, 5d62403b186f2ace
+pubmatic.com, 161815, DIRECT, 5d62403b186f2ace
+yollamedia.com, d61ad4da6228c370244eab0687759714, DIRECT
+google.com, pub-8537480720627264, DIRECT, f08c47fec0942fa0
+google.com, pub-8537480720627264, RESELLER, f08c47fec0942fa0
 google.com, pub-3034395471708676, DIRECT, f08c47fec0942fa0
