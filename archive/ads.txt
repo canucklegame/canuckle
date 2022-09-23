@@ -17,6 +17,5 @@ conversantmedia.com, 100075, DIRECT, 03113cd04947736d
 pubmatic.com, 161813, DIRECT, 5d62403b186f2ace
 pubmatic.com, 161815, DIRECT, 5d62403b186f2ace
 yollamedia.com, d61ad4da6228c370244eab0687759714, DIRECT
-google.com, pub-8537480720627264, DIRECT, f08c47fec0942fa0
 google.com, pub-8537480720627264, RESELLER, f08c47fec0942fa0
 google.com, pub-3034395471708676, DIRECT, f08c47fec0942fa0
