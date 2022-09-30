@@ -1,35 +1,48 @@
 {
-    "name": "canuckle",
-    "short_name": "canuckle",
-    "start_url": ".",
+    "name": "Canuckle",
+    "short_name": "Canuckle",
+    "start_url": "https://canucklegame.ca",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#ffffff",
+    "theme_color": "#ff0000",
+    "description": "A daily Canadian word game",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
-        {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-maskable-192.png",
-            "sizes": "192x192",
-            "type": "image/png",
-            "purpose": "maskable"
-        },
-        {
-            "src": "icons/Icon-maskable-512.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "maskable"
-        }
+       {
+      "src": "https://canucklegame.ca/images/canuckle_logo_48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "https://canucklegame.ca/images/canuckle_logo_72x72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "https://canucklegame.ca/images/canuckle_logo_96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "https://canucklegame.ca/images/canuckle_logo_144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "https://canucklegame.ca/images/canuckle_logo_168x168.png",
+      "type": "image/png",
+      "sizes": "168x168"
+    },
+    {
+      "src": "https://canucklegame.ca/images/canuckle_logo_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://canucklegame.ca/images/canuckle_logo_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
     ]
 }

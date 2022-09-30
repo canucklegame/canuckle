@@ -14,23 +14,59 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="/">
+  <base href="/test/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!--added from original-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  <!--added from original-->
 
+  <title>Canuckle - A daily Canadian word game</title>
+  <meta name="description" content="Guess the hidden word in 6 tries. A new puzzle is available each day.">
+
+  <!-- FB Meta Tags -->
+  <meta property="og:url" content="https://canucklegame.ca">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Canuckle - A daily Canadian word game">
+  <meta property="og:description" content="Guess the hidden word in 6 tries. A new puzzle is available each day.">
+  <meta property="og:image" content="https://canucklegame.ca/images/canuckle_og_1200x630.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://canucklegame.ca/images/canuckle_og_1200x630.png" />
+  <meta name="theme-color" content="#ff0000" />
+  
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="canuckle">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <meta name="apple-mobile-web-app-title" content="Canuckle">
+  <meta name="HandheldFriendly" content="true">
+  <link href="https://canucklegame.ca/images/canuckle_logo_192x192.png" rel="apple-touch-icon" />
+
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="https://canucklegame.ca/images/canuckle_logo_32x32.png"/>
 
-  <title>canuckle</title>
   <link rel="manifest" href="manifest.json">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-51PE0HTHXT"></script>
+
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51PE0HTHXT');
+
+
+if (/canucklegame.github.io/.test(window.location) === true) {
+   window.location = 'https://canucklegame.ca'
+}
+  
+  </script>
 
   <script src="https://unpkg.com/canvaskit-wasm@0.35.0/bin/canvaskit.js"></script>
   <link rel="preload" href="https://unpkg.com/canvaskit-wasm@0.35.0/bin/canvaskit.wasm" as="fetch" crossOrigin="anonymous">
@@ -39,6 +75,7 @@
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = '1805037362';
   </script>
+
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
   <style>
