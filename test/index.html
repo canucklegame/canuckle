@@ -14,7 +14,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-  <base href="/test/">
+  <base href="/">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -32,27 +32,101 @@
   <title>canuckle</title>
   <link rel="manifest" href="manifest.json">
 
+  <script src="https://unpkg.com/canvaskit-wasm@0.35.0/bin/canvaskit.js"></script>
+  <link rel="preload" href="https://unpkg.com/canvaskit-wasm@0.35.0/bin/canvaskit.wasm" as="fetch" crossOrigin="anonymous">
+
   <script>
     // The value below is injected by flutter build, do not touch.
     var serviceWorkerVersion = '1805037362';
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+  <style>
+  div.bg {
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    background: #ddd;
+  }
+  div.game {
+    z-index: 3;
+    height: calc(100vh - 50px);
+    width: 100vw;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+  }
+  div.adbox {
+    z-index: 5;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    position: absolute;
+    width: calc(50vw - 280px); 
+  }
+  /*div.mobileadbox {
+    z-index: 5;
+    height: 50px;
+    width: 100vw;
+    margin: 0 auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+  }*/
+  div.adbox:first-child {
+    left: 0;
+  }
+  div.adbox:nth-child(2) {
+    right: 0;
+  }
+
+  @media screen and (min-width: 800px) {
+    div.mobileadbox {
+      display: none;
+    }
+    div.game {
+      height: 100vh;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    div.adbox {
+      display: none;
+    }
+  }
+</style>
 </head>
 <body>
-  <script>
-    window.addEventListener('load', function(ev) {
-      // Download main.dart.js
-      _flutter.loader.loadEntrypoint({
-        serviceWorker: {
-          serviceWorkerVersion: serviceWorkerVersion,
-        }
-      }).then(function(engineInitializer) {
-        return engineInitializer.initializeEngine();
-      }).then(function(appRunner) {
-        return appRunner.runApp();
-      });
-    });
-  </script>
+  <div class="bg">
+    <!-- <div class="mobileadbox">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250,300x600,336x280">
+      </div>
+    </div> -->
+    <div class="adbox">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250,300x600,336x280">
+      </div>
+    </div>
+    <div class="adbox">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250,300x600,336x280">
+      </div>
+    </div>
+    <div class="game">
+      <script>
+        window.addEventListener('load', function(ev) {
+          // Download main.dart.js
+          _flutter.loader.loadEntrypoint({
+            serviceWorker: {
+              serviceWorkerVersion: serviceWorkerVersion,
+            }
+          }).then(function(engineInitializer) {
+            return engineInitializer.initializeEngine();
+          }).then(function(appRunner) {
+            return appRunner.runApp();
+          });
+        });
+      </script>
+    </div>
+  </div>
 </body>
 </html>
