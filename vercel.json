@@ -1,7 +1,0 @@
-{ 
-	"redirects": [ 
-		{ 	"source": "/archive/archive.html", 
-			"destination": "https://www.canucklegame.ca/" , 
-			"permanent": true }
-	]
-}
