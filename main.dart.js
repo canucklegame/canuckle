@@ -35306,7 +35306,7 @@ for(p=0;p<5;++p)if(q.a7(0,p)){o=q.h(0,p)
 if(o==null)o=B.n3
 if(o===B.e2)l+=$.bA?"\ud83d\udfe7":"\ud83d\udfe5"
 else if(o===B.n4)l+=$.bA?"\ud83d\udfe6":"\ud83d\udfe8"
-else l+=$.bA?"\u2b1b":"\u2b1c\ufe0f"}l+="\n\nwww.canucklegame.ca"}return l},
+else l+=$.bA?"\u2b1b":"\u2b1c\ufe0f"}}return l+"\n\nwww.canucklegame.ca"},
 R(a){var s=null
 return new A.wm(A.Ve(!0,s,!0,!0,s,s,!1),!0,new A.QC(this),new A.mO(new A.QD(this),s),s)},
 a_s(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d=this,c=A.a([],t.s),b=A.A(t.S,t.N),a=d.d.a.toUpperCase()
