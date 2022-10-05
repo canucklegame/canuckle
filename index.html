@@ -73,7 +73,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '2862883585';
+    var serviceWorkerVersion = '1290737480';
   </script>
 
   <!-- This script adds the flutter initialization JS code -->
@@ -93,7 +93,34 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     margin: 0 auto;
     display: block;
   }
-  div.adbox {
+  div.adbox_1 {
+    z-index: 5;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    position: absolute;
+    width: calc(50vw - 300px); 
+  }
+  div.adbox_2 {
+    z-index: 5;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    position: absolute;
+    width: calc(50vw - 300px); 
+  }
+  div.adbox_3 {
+    z-index: 5;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    position: absolute;
+    width: calc(50vw - 300px); 
+  }
+  div.adbox_4 {
     z-index: 5;
     align-items: center;
     display: flex;
@@ -112,23 +139,71 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     justify-content: center;
     max-width: 800px;
   }*/
-  div.adbox:first-child {
+  div.adbox_1:first-child {
     left: 0;
   }
-  div.adbox:nth-child(2) {
+  div.adbox_1:nth-child(2) {
+    right: 0;
+  }
+  div.adbox_2:nth-child(3) {
+    left: 0;
+  }
+  div.adbox_2:nth-child(4) {
+    right: 0;
+  }
+  div.adbox_3:nth-child(5) {
+    left: 0;
+  }
+  div.adbox_3:nth-child(6) {
+    right: 0;
+  }
+  div.adbox_4:nth-child(7) {
+    left: 0;
+  }
+  div.adbox_4:nth-child(8) {
     right: 0;
   }
 
-  @media screen and (min-width: 800px) {
+  /*@media screen and (min-width: 920px) {
     div.mobileadbox {
       display: none;
     }
     div.game {
       height: 100vh;
     }
+  }*/
+  @media screen and (max-width: 920px), screen and (max-height: 600px), {
+    div.adbox_1 {
+      display: none;
+    }
   }
-  @media screen and (max-width: 800px) {
-    div.adbox {
+  @media screen and (min-width: 1200px) {
+    div.adbox_1 {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1200px), screen and (max-height: 250px), {
+    div.adbox_2 {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1272px) and (min-height: 280px) {
+    div.adbox_2 {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1272px), screen and (max-height: 280px), {
+    div.adbox_3 {
+      display: none;
+    }
+  }
+  @media screen and (min-width: 1272px) and (min-height: 600px) {
+    div.adbox_3 {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1272px), screen and (max-height: 600px), {
+    div.adbox_4 {
       display: none;
     }
   }
@@ -137,15 +212,39 @@ if (/canucklegame.github.io/.test(window.location) === true) {
 <body>
   <div class="bg">
     <!-- <div class="mobileadbox">
-      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="300x250,300x600,336x280">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50">
       </div>
     </div> -->
-    <div class="adbox">
-      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250,300x600,336x280">
+    <div class="adbox_1">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600">
       </div>
     </div>
-    <div class="adbox">
-      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250,300x600,336x280">
+    <div class="adbox_1">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600">
+      </div>
+    </div>
+    <div class="adbox_2">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250">
+      </div>
+    </div>
+    <div class="adbox_2">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250">
+      </div>
+    </div>
+    <div class="adbox_3">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280">
+      </div>
+    </div>
+    <div class="adbox_3">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280">
+      </div>
+    </div>
+    <div class="adbox_4">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600">
+      </div>
+    </div>
+    <div class="adbox_4">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600">
       </div>
     </div>
     <div class="game">
