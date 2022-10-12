@@ -1,7 +1,7 @@
 {
     "name": "Canuckle",
     "short_name": "Canuckle",
-    "start_url": "https://canucklegame.ca",
+    "start_url": "https://www.canucklegame.ca",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ff0000",
@@ -10,37 +10,37 @@
     "prefer_related_applications": false,
     "icons": [
        {
-      "src": "https://canucklegame.ca/images/canuckle_logo_48x48.png",
+      "src": "https://www.canucklegame.ca/images/canuckle_logo_48x48.png",
       "type": "image/png",
       "sizes": "48x48"
     },
     {
-      "src": "https://canucklegame.ca/images/canuckle_logo_72x72.png",
+      "src": "https://www.canucklegame.ca/images/canuckle_logo_72x72.png",
       "type": "image/png",
       "sizes": "72x72"
     },
     {
-      "src": "https://canucklegame.ca/images/canuckle_logo_96x96.png",
+      "src": "https://www.canucklegame.ca/images/canuckle_logo_96x96.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "https://canucklegame.ca/images/canuckle_logo_144x144.png",
+      "src": "https://www.canucklegame.ca/images/canuckle_logo_144x144.png",
       "type": "image/png",
       "sizes": "144x144"
     },
     {
-      "src": "https://canucklegame.ca/images/canuckle_logo_168x168.png",
+      "src": "https://www.canucklegame.ca/images/canuckle_logo_168x168.png",
       "type": "image/png",
       "sizes": "168x168"
     },
     {
-      "src": "https://canucklegame.ca/images/canuckle_logo_192x192.png",
+      "src": "https://www.canucklegame.ca/images/canuckle_logo_192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "https://canucklegame.ca/images/canuckle_logo_512x512.png",
+      "src": "https://www.canucklegame.ca/images/canuckle_logo_512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
