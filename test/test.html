@@ -137,7 +137,17 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     width: calc(50vw - 300px); 
   }
   div.mobileadbox {
-    z-index: 5;
+    z-index: 100;
+    height: 50px;
+    width: 100vw;
+    margin: 0 auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    max-width: 920px;
+  }
+  div.desktopadbox {
+    z-index: 100;
     height: 50px;
     width: 100vw;
     margin: 0 auto;
@@ -173,6 +183,9 @@ if (/canucklegame.github.io/.test(window.location) === true) {
 
   @media screen and (min-width: 920px) {
     div.mobileadbox {
+      display: none;
+    }
+    div.desktopadbox {
       display: none;
     }
     div.game {
@@ -221,6 +234,10 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   <div class="bg">
     <div class="mobileadbox">
       <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50">
+      </div>
+    </div>
+    <div class="desktopadbox">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50">
       </div>
     </div>
     <div class="adbox_1">
