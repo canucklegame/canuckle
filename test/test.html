@@ -140,14 +140,6 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     position: absolute;
     max-width: 920px;
   }
-  div.desktopadbox {
-    z-index: 99999;
-    height: 50px;
-    width: 100vw;
-    display: block;
-    position: absolute;
-    max-width: 920px;
-  }
   div.adbox_1:first-child {
     left: 0;
   }
@@ -175,9 +167,6 @@ if (/canucklegame.github.io/.test(window.location) === true) {
 
   @media screen and (min-width: 920px) {
     div.mobileadbox {
-      display: none;
-    }
-    div.desktopadbox {
       display: none;
     }
   }
@@ -219,13 +208,11 @@ if (/canucklegame.github.io/.test(window.location) === true) {
 </style>
 </head>
 <body>
-  <div class="desktopadbox">
-    <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50">
-    </div>
-  </div>
   <div class="bg">
     <div class="mobileadbox">
       <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50">
+      </div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50">
       </div>
     </div>
     <div class="adbox_1">
