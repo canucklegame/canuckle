@@ -73,7 +73,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '3896311049';
+    var serviceWorkerVersion = '191655889';
   </script>
 
   <!-- This script adds the flutter initialization JS code -->
@@ -91,11 +91,9 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   }
   div.game {
     z-index: 3;
-    height: calc(100vh - 55px);
+    height: 100vh;
     width: 100vw;
     max-width: 600px;
-    margin-top: 55px;
-    margin: 0 auto;
     display: block;
   }
   div.adbox_1 {
@@ -134,16 +132,14 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     position: absolute;
     width: calc(50vw - 300px); 
   }
-  /*div.mobileadbox {
-    z-index: 5;
+  div.mobileadbox {
+    z-index: 99999;
     height: 50px;
     width: 100vw;
-    margin: 0 auto;
     display: block;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
     max-width: 920px;
-  }*/
+  }
   div.adbox_1:first-child {
     left: 0;
   }
@@ -170,12 +166,8 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   }
 
   @media screen and (min-width: 920px) {
-    /*div.mobileadbox {
+    div.mobileadbox {
       display: none;
-    }*/
-    div.game {
-      margin-top: 0;
-      height: 100vh;
     }
   }
   @media screen and (max-width: 920px), screen and (max-height: 600px), {
@@ -217,10 +209,12 @@ if (/canucklegame.github.io/.test(window.location) === true) {
 </head>
 <body>
   <div class="bg">
-    <!--<div class="mobileadbox">
+    <div class="mobileadbox">
       <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50">
       </div>
-    </div>-->
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50">
+      </div>
+    </div>
     <div class="adbox_1">
       <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600">
       </div>
