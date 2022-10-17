@@ -2,6 +2,12 @@
 	"redirects": [ 
 		{ 	"source": "/archive", 
 			"destination": "https://www.canucklegame.ca/?archive=true" , 
-			"permanent": true }
+			"permanent": true },
+		{ 	"source": "/archive/archive.html", 
+			"destination": "https://www.canucklegame.ca/?archive=true" , 
+			"permanent": true },
+		{ 	"source": "/archive/index.html", 
+			"destination": "https://www.canucklegame.ca/?archive=true" , 
+			"permanent": true }			
 	]
 }
