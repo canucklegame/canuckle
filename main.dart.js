@@ -38868,20 +38868,31 @@ else if(s.gjT().gu7()==="Enter")this.a.m4("ENTER")
 else if(B.c.v(r,s.gjT().gu7()))this.a.m4(s.gjT().gu7().toUpperCase())}},
 $S:78}
 A.Tx.prototype={
-$2(a,b){var s,r,q,p,o,n,m,l,k,j,i,h=null,g=b.b,f=this.a,e=f.d.a,d=(g-80)/e.length
-d=Math.max(1,Math.min(d,(b.d-Math.min(d*2,300)-0-90)/6))
-s=$.A?B.f:B.d
-r=A.J(h,h,B.h,h,h,h,h,10,h,h,h,h,h)
-q=f.z
-p=A.m(q).j("ad<1>")
-o=f.as
-n=A.m(o).j("ad<1>")
-m=f.a.r
-l=A.m(m).j("ad<1>")
-k=f.ax
-j=f.ch
-i=f.ay
-return A.J(h,A.bl(A.bb(A.a([r,A.lC(0,e,!1,d,3,new A.ad(q,p),new A.ad(o,n),new A.ad(m,l),B.cF),A.lC(1,e,!1,d,3,new A.ad(q,p),new A.ad(o,n),new A.ad(m,l),B.cF),A.lC(2,e,!1,d,3,new A.ad(q,p),new A.ad(o,n),new A.ad(m,l),B.cF),A.lC(3,e,!1,d,3,new A.ad(q,p),new A.ad(o,n),new A.ad(m,l),B.cF),A.lC(4,e,!1,d,3,new A.ad(q,p),new A.ad(o,n),new A.ad(m,l),B.cF),A.lC(5,e,!1,d,3,new A.ad(q,p),new A.ad(o,n),new A.ad(m,l),B.cF),A.J(h,h,B.h,h,h,h,h,10,h,h,h,h,h),new A.I(B.DB,new A.wt(f.Q,new A.ad(k,A.m(k).j("ad<1>")),new A.ad(j,A.m(j).j("ad<1>")),new A.ad(i,A.m(i).j("ad<1>")),new A.ad(m,l),Math.min(50,g*0.08),2.5,h),h),B.Lv],t.p),B.l,B.S,B.k),h,h),B.h,s,h,h,h,h,h,h,h,h,h)},
+$2(a0,a1){var s,r,q,p,o,n,m,l,k,j,i,h,g=null,f=a1.b,e=a1.d,d=f/e>0.8,c=this.a,b=f-80,a=c.d
+if(d){s=a.a.length
+r=Math.min(b/s,(e*0.7-80)/s)}else r=b/a.a.length
+r=Math.max(1,Math.min(r,(e-Math.min(r*2,300)-0-90)/6))
+e=$.A?B.f:B.d
+b=A.J(g,g,B.h,g,g,g,g,10,g,g,g,g,g)
+a=a.a
+s=c.z
+q=A.m(s).j("ad<1>")
+p=c.as
+o=A.m(p).j("ad<1>")
+n=c.a.r
+m=A.m(n).j("ad<1>")
+l=A.lC(0,a,!1,r,3,new A.ad(s,q),new A.ad(p,o),new A.ad(n,m),B.cF)
+k=A.lC(1,a,!1,r,3,new A.ad(s,q),new A.ad(p,o),new A.ad(n,m),B.cF)
+j=A.lC(2,a,!1,r,3,new A.ad(s,q),new A.ad(p,o),new A.ad(n,m),B.cF)
+i=A.lC(3,a,!1,r,3,new A.ad(s,q),new A.ad(p,o),new A.ad(n,m),B.cF)
+h=A.lC(4,a,!1,r,3,new A.ad(s,q),new A.ad(p,o),new A.ad(n,m),B.cF)
+o=A.lC(5,a,!1,r,3,new A.ad(s,q),new A.ad(p,o),new A.ad(n,m),B.cF)
+p=A.J(g,g,B.h,g,g,g,g,10,g,g,g,g,g)
+q=c.ax
+s=c.ch
+a=c.ay
+f=d?r*0.5:f*0.08
+return A.J(g,A.bl(A.bb(A.a([b,l,k,j,i,h,o,p,new A.I(B.DB,new A.wt(c.Q,new A.ad(q,A.m(q).j("ad<1>")),new A.ad(s,A.m(s).j("ad<1>")),new A.ad(a,A.m(a).j("ad<1>")),new A.ad(n,m),Math.min(50,f),2.5,g),g),B.Lv],t.p),B.l,B.S,B.k),g,g),B.h,e,g,g,g,g,g,g,g,g,g)},
 $S:74}
 A.Ty.prototype={
 $1(a){return a===this.a.a},
