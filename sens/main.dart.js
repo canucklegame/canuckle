@@ -38697,7 +38697,7 @@ n=A.cx(!0,A.S5(A.bN(i,new A.bA(B.ml,A.kg(A.a([new A.bA(B.CB,A.oi("assets/kofi.sv
 m=A.dS(i,i,A.dT(i,i,B.F,i,i,i,i,i,h,i,i,i,i,i,B.Y,i,i,!0,i,i,i,i,i,i,i,i),"All proceeds from today will go to the\n")
 l=A.IV(i)
 l.b_=new A.a6b()
-l=A.dV(A.amh(A.dS(A.a([m,A.dS(i,l,B.Mh,"Ottawa Senators Community Foundation Charity")],t.VO),i,i,i),B.de),i,i)
+l=A.dV(A.amh(A.dS(A.a([m,A.dS(i,l,B.Mh,"Ottawa Senators Community Foundation")],t.VO),i,i,i),B.de),i,i)
 if(p)p=A.bN(i,i,B.m,A.ax(0,158,158,158),i,i,i,0.5,i,i,i,i,i)
 else{p=j.cA
 p=A.cx(!0,A.S5(new A.bA(B.Cv,A.bN(i,new A.bA(B.ml,A.kg(A.a([B.OI,new A.bA(B.CA,A.oi("assets/share.svg",B.i,30,30),i)],q),B.aT,B.H),i),B.m,i,i,new A.dg(B.c0,i,i,B.dr,i,i,B.V),i,i,i,i,i,i,325),i),!1,p===3,new A.a6c(),new A.a6d(j),new A.a6e(j,new A.a6f(a1),a1),!1),!1,i,!0,!1,i,i,i,i,"Share result",i,i,i,i,i,i,i,i,i,i,i)}return A.dV(A.fr(A.hw(A.a([b,A.bN(i,A.hw(A.a([r,A.fr(A.amg(A.aml(A.hw(A.a([f,new A.bA(B.dB,o,i),n,new A.bA(B.dB,l,i),p],q),B.ai,B.ax,B.H),B.bl),a0),a-52,i)],q),B.ai,B.ax,B.H),B.m,i,i,new A.dg(B.i,i,s,B.lc,i,i,B.V),i,a,i,i,i,i,d)],q),B.ai,B.ax,B.H),a+c,d),i,i)},
