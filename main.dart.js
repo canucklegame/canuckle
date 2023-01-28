@@ -9457,7 +9457,7 @@ a90:function a90(a){this.a=a},
 a8t:function a8t(a){this.a=a},
 a91:function a91(a){this.a=a},
 a8r:function a8r(a){this.a=a},
-a8s:function a8s(){},
+a8s:function a8s(a){this.a=a},
 a8R:function a8R(a){this.a=a},
 a8u:function a8u(a,b){this.a=a
 this.b=b},
@@ -44751,15 +44751,18 @@ $S:0}
 A.a91.prototype={
 $0(){var s=this.a
 s.J(new A.a8r(s))
-A.c7().ac(0,new A.a8s(),t.P)},
+A.c7().ac(0,new A.a8s(s),t.P)},
 $S:1}
 A.a8r.prototype={
 $0(){this.a.d=-1},
 $S:0}
 A.a8s.prototype={
-$1(a){a.C(0,"archiveGame")
+$1(a){var s
+a.C(0,"archiveGame")
 a.bK("String","gameType","canuckle")
-window.location.reload()},
+s=this.a
+s.a.r.B(0,"DISMISS")
+s.a.w.B(0,"CHANGED")},
 $S:7}
 A.a8R.prototype={
 $1(a){var s=this.a
