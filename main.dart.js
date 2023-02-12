@@ -43415,7 +43415,7 @@ r=i===6&&r?7:i
 i=$.fn?1:0
 e=$.aT?1:0
 d=$.B?1:0
-l.ls("level_end",A.aD(["level_name",b.a,"num_guesses",r,"hard_mode",i,"high_contrast",e,"dark_theme",d,"success",s,"version","Version 1.3.5","ad_code",f],t.N,t.z))},
+l.ls("level_end",A.aD(["level_name",b.a,"num_guesses",r,"hard_mode",i,"high_contrast",e,"dark_theme",d,"success",s,"version","Version 1.3.6","ad_code",f],t.N,t.z))},
 $S:7}
 A.a_1.prototype={
 $0(){var s=this.a
@@ -45134,7 +45134,7 @@ e=A.Z(a0,new A.F(B.Ew,A.X("FEEDBACK",a0,A.T(a0,a0,A.jp(),a0,a0,a0,a0,a0,a1,a0,a0
 d=$.B?B.f:B.e
 c=A.bu("assets/email.svg",$.aT?B.z:B.x,20,24)
 d=A.Z(!0,new A.F(B.Em,A.ix(a0,A.L(a0,new A.F(B.ol,A.aJ(A.a([c,new A.F(B.Ef,A.X("Email",a0,A.T(a0,a0,$.B?B.e:B.f,a0,a0,a0,a0,a0,a1,a0,a0,a0,a0,a0,a0,a0,a0,!0,a0,a0,a0,a0,a0,a0,a0,a0),a0,a0),a0)],q),B.l,B.n,B.k),a0),B.h,a0,a0,new A.an(d,a0,a0,B.bZ,a0,a0,B.o),a0,a0,a0,a0,a0,a0,a0),B.ab,!1,a0,a0,a0,a0,a0,a0,a0,a0,new A.aeA(a3),a0,a0,a0),a0),!1,a0,!0,!1,a0,a0,a0,a0,"Email Canuckle",!0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0)
-c="Version 1.3.5"+$.aAe+"\n\xa9 2023 Canuckle Games"
+c="Version 1.3.6"+$.aAe+"\n\xa9 2023 Canuckle Games"
 c=A.Z(a0,new A.F(B.hS,A.X(c,a0,A.T(a0,a0,$.B?B.e:B.f,a0,a0,a0,a0,a0,a1,a0,a0,a0,a0,a0,a0,a0,a0,!0,a0,a0,a0,a0,a0,a0,a0,a0),a0,a0),a0),!1,a0,!0,!1,a0,a0,!0,a0,c,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0)
 b=A.X("POWERED BY",a0,A.T(a0,a0,$.B?B.e:B.f,a0,a0,a0,a0,a0,a1,a0,a0,14,a0,a0,B.v,a0,a0,!0,a0,a0,a0,a0,a0,a0,a0,a0),a0,a0)
 return A.bo(A.bI(A.aY(A.a([p,A.L(a0,A.aY(A.a([i,A.bI(A.q3(A.aY(A.a([o,g,n,f,l,e,d,c,B.MF,A.Z(!0,new A.et(!0,A.bM(A.aY(A.a([new A.F(B.ED,b,a0),new A.F(B.Eq,A.bu($.B?"assets/cira-darkmode.svg":"assets/cira-logo.svg",a0,30,a0),a0)],q),B.l,B.n,B.k),!1,!1,new A.aeB(),new A.aeC(),new A.aeD(a,a4,a5),!1),a0),!1,a0,!1,!1,a0,a0,a0,a0,"Sponsor, CIRA",a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0,a0)],q),B.aN,B.n,B.k),a0,B.aq),j-52,a0)],q),B.l,B.n,B.k),B.h,a0,a0,new A.an(m,a0,h,B.c_,a0,a0,B.o),a0,j,a0,a0,a0,a0,a2)],q),B.l,B.n,B.k),j+r,s),a0,a0)},
@@ -45606,7 +45606,7 @@ r.cq(A.uG(a,b,s,!1,A.a([],t.OL),null))},
 h6(){if(this.c!=null)this.J(new A.ak9())},
 LU(a){A.c7().ac(0,new A.ajF(this,a),t.P)},
 PY(){var s=this.a.w,r=this.CW,q=r.f,p=r.c,o=this.dy,n=$.aT?1:0,m=$.B?1:0
-s.ls("trivia_level_end",A.aD(["level_index",r.a,"guess_time",q,"chosen_index",p,"correct_index",o,"high_contrast",n,"dark_theme",m,"success",r.b,"version","Version 1.3.5"],t.N,t.z))},
+s.ls("trivia_level_end",A.aD(["level_index",r.a,"guess_time",q,"chosen_index",p,"correct_index",o,"high_contrast",n,"dark_theme",m,"success",r.b,"version","Version 1.3.6"],t.N,t.z))},
 Rt(a){var s,r,q,p,o="triviaStats",n="triviaStreak",m="triviaMaxStreak",l="Int",k=a.a,j=J.as(k),i=A.bn(j.i(k,o))
 if(i==null)i=""
 s=new A.Bz(0,0,0,0,0,0,0)
