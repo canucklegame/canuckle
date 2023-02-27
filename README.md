@@ -1,6 +1,6 @@
 # Canuckle
 
-🔗 http://www.canucklegame.ca
+🔗 https://www.canucklegame.ca
 
 Canuckle is a daily Canadian word guessing game inspired by the original [Wordle](https://www.nytimes.com/games/wordle/index.html).
 
@@ -19,20 +19,12 @@ The answer will be a word/place/Canadianism related to Canada in some way, and a
 
 A new CANUCKLE will be available each day!
 
-## Twitter
+## Social Media
 
-Follow us on Twitter: [@CanuckleGame](https://www.twitter.com/CanuckleGame)
+Follow us @CanuckleGame on [Twitter](https://www.twitter.com/CanuckleGame) | [Facebook](https://www.facebook.com/CanuckleGame) | [Instagram](https://www.instagram.com/canucklegame) | [Mastodon](https://mstdn.ca/@CanuckleGame) | [Linktree](https://linktr.ee/canucklegame)
 
-## Facebook
+## Contact
 
-Check us out on Facebook: [facebook.com/CanuckleGame](https://www.facebook.com/CanuckleGame)
-
-## Archive
-
-Play previous words on [Canuckle Archive](http://archive.canucklegame.ca)
-
-## Feedback
-
-Feel free send feedback to [info@canucklegame.ca](mailto:info@canucklegame.ca?subject=Feedback)
+Email us at [info@canucklegame.ca](mailto:info@canucklegame.ca?subject=Feedback)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V4C3425)
