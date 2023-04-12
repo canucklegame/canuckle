@@ -70,11 +70,11 @@ if (/canucklegame.github.io/.test(window.location) === true) {
 
   <script>
     // The value below is injected by flutter build, do not touch.
-    var serviceWorkerVersion = '3294689965';
+    var serviceWorkerVersion = '3809701196';
   </script>
 
   <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js?v=3294689965" defer></script>
+  <script src="flutter.js?v=3809701196" defer></script>
 
   <!-- Yolla Media script -->
   <script type="text/javascript" src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
@@ -154,8 +154,9 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     div.adbox_1 {
       z-index: 5;
       align-items: center;
+      padding-top: 90px;
       display: flex;
-      height: 100vh;
+      height: calc(100vh - 90px);
       justify-content: center;
       position: absolute;
       width: calc(50vw - 300px);
@@ -184,12 +185,22 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     div.adbox_4 {
       z-index: 5;
       align-items: center;
+      padding-top: 90px;
       display: flex;
-      height: 100vh;
+      height: calc(100vh - 90px);
       justify-content: center;
       position: absolute;
       width: calc(50vw - 300px);
       overflow: hidden; 
+    }
+    div.adbox_5 {
+      z-index: 99999;
+      height: 90px;
+      width: 100vw;
+      display: block;
+      position: absolute;
+      overflow: hidden;
+      margin-top: 4px; 
     }
     div.mobileadbox {
       z-index: 99999;
@@ -197,7 +208,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       width: 100vw;
       display: block;
       position: absolute;
-      max-width: 920px;
+      max-width: 728px;
       overflow: hidden;
       margin-top: 4px; 
     }
@@ -231,12 +242,17 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       50%  {transform: translate(0%, 0%)}
       100% {transform: translate(0%, 10%)}
     }
-    @media screen and (min-width: 920px) {
+    @media screen and (min-width: 728px) {
       div.mobileadbox {
         display: none;
       }
     }
-    @media screen and (max-width: 920px), screen and (max-height: 600px), {
+    @media screen and (max-width: 728px) {
+      div.adbox_5 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 920px), screen and (max-height: 690px), {
       div.adbox_1 {
         display: none;
       }
@@ -261,12 +277,12 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (min-width: 1272px) and (min-height: 600px) {
+    @media screen and (min-width: 1272px) and (min-height: 690px) {
       div.adbox_3 {
         display: none;
       }
     }
-    @media screen and (max-width: 1272px), screen and (max-height: 600px), {
+    @media screen and (max-width: 1272px), screen and (max-height: 690px), {
       div.adbox_4 {
         display: none;
       }
@@ -311,6 +327,10 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     </div>
     <div class="adbox_4">
       <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600">
+      </div>
+    </div>
+    <div class="adbox_5">
+      <div class="ympb_target" data-type="desktop-leaderboard-template" data-subtype="728x90, 970x90">
       </div>
     </div>
     <div class="game">
