@@ -163,58 +163,58 @@
          //
          // One placed to customize - The id value of the table tag.
          
-         var TableIDvalue = "indextable2";
+         var TableIDvalue2 = "indextable2";
          
          //
          //////////////////////////////////////
-         var TableLastSortedColumn = -1;
+         var TableLastSortedColumn2 = -1;
          function SortTable2() {
-         var sortColumn = parseInt(arguments[0]);
-         var type = arguments.length > 1 ? arguments[1] : 'T';
-         var dateformat = arguments.length > 2 ? arguments[2] : '';
-         var table = document.getElementById(TableIDvalue);
-         var tbody = table.getElementsByTagName("tbody")[0];
-         var rows = tbody.getElementsByTagName("tr");
-         var arrayOfRows = new Array();
-         type = type.toUpperCase();
-         dateformat = dateformat.toLowerCase();
-         for(var i=0, len=rows.length; i<len; i++) {
-           arrayOfRows[i] = new Object;
-           arrayOfRows[i].oldIndex = i;
-           var celltext = rows[i].getElementsByTagName("td")[sortColumn].innerHTML.replace(/<[^>]*>/g,"");
-           if( type=='D' ) { arrayOfRows[i].value = GetDateSortingKey(dateformat,celltext); }
+         var sortColumn2 = parseInt(arguments[0]);
+         var type2 = arguments.length > 1 ? arguments[1] : 'T';
+         var dateformat2 = arguments.length > 2 ? arguments[2] : '';
+         var table2 = document.getElementById(TableIDvalue2);
+         var tbody2 = table2.getElementsByTagName("tbody")[0];
+         var rows2 = tbody2.getElementsByTagName("tr");
+         var arrayOfRows2 = new Array();
+         type2 = type2.toUpperCase();
+         dateformat2 = dateformat2.toLowerCase();
+         for(var i2=0, len2=rows2.length; i2<len2; i2++) {
+           arrayOfRows2[i2] = new Object;
+           arrayOfRows2[i2].oldIndex = i2;
+           var celltext2 = rows2[i2].getElementsByTagName("td")[sortColumn2].innerHTML.replace(/<[^>]*>/g,"");
+           if( type2=='D' ) { arrayOfRows2[i2].value = GetDateSortingKey(dateformat2,celltext2); }
            else {
-             var re = type=="N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
-             arrayOfRows[i].value = celltext.replace(re,"").substr(0,25).toLowerCase();
+             var re2 = type2=="N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
+             arrayOfRows2[i2].value = celltext2.replace(re2,"").substr(0,25).toLowerCase();
              }
            }
-         if (sortColumn == TableLastSortedColumn) { arrayOfRows.reverse(); }
+         if (sortColumn2 == TableLastSortedColumn2) { arrayOfRows2.reverse(); }
          else {
-           TableLastSortedColumn = sortColumn;
-           switch(type) {
-             case "N" : arrayOfRows.sort(CompareRowOfNumbers); break;
-             case "D" : arrayOfRows.sort(CompareRowOfNumbers); break;
-             default  : arrayOfRows.sort(CompareRowOfText);
+           TableLastSortedColumn2 = sortColumn2;
+           switch(type2) {
+             case "N" : arrayOfRows2.sort(CompareRowOfNumbers2); break;
+             case "D" : arrayOfRows2.sort(CompareRowOfNumbers2); break;
+             default  : arrayOfRows2.sort(CompareRowOfText2);
              }
            }
-         var newTableBody = document.createElement("tbody");
-         for(var i=0, len=arrayOfRows.length; i<len; i++) {
-           newTableBody.appendChild(rows[arrayOfRows[i].oldIndex].cloneNode(true));
+         var newTableBody2 = document.createElement("tbody");
+         for(var i2=0, len2=arrayOfRows2.length; i2<len2; i2++) {
+           newTableBody2.appendChild(rows2[arrayOfRows2[i2].oldIndex].cloneNode(true));
            }
-         table.replaceChild(newTableBody,tbody);
+         table2.replaceChild(newTableBody2,tbody2);
          } // function SortTable()
          
-         function CompareRowOfText(a,b) {
-         var aval = a.value;
-         var bval = b.value;
-         return( aval == bval ? 0 : (aval > bval ? 1 : -1) );
+         function CompareRowOfText2(a2,b2) {
+         var aval2 = a2.value;
+         var bval2 = b2.value;
+         return( aval2 == bval2 ? 0 : (aval2 > bval2 ? 1 : -1) );
          } // function CompareRowOfText()
          
-         function CompareRowOfNumbers(a,b) {
-         var aval = /\d/.test(a.value) ? parseFloat(a.value) : 0;
-         var bval = /\d/.test(b.value) ? parseFloat(b.value) : 0;
-         return( aval == bval ? 0 : (aval > bval ? 1 : -1) );
-         } // function CompareRowOfNumbers()
+         function CompareRowOfNumbers2(a2,b2) {
+         var aval2 = /\d/.test(a2.value) ? parseFloat(a2.value) : 0;
+         var bval2 = /\d/.test(b2.value) ? parseFloat(b2.value) : 0;
+         return( aval2 == bval2 ? 0 : (aval2 > bval2 ? 1 : -1) );
+         } // function CompareRowOfNumbers2()
          
          
       </script>
