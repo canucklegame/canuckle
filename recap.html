@@ -139,6 +139,87 @@
          return "" + String(y) + "" + String(m) + "" + String(d) + "";
          } // function GetDateSortingKey()
       </script>
+      <script type="text/javascript">
+         /* 
+            Willmaster Table Sort
+            Version 1.1
+            August 17, 2016
+            Updated GetDateSortingKey() to correctly sort two-digit months and days numbers with leading 0.
+            Version 1.0, July 3, 2011
+         
+            Will Bontrager
+            https://www.willmaster.com/
+            Copyright 2011,2016 Will Bontrager Software, LLC
+         
+            This software is provided "AS IS," without 
+            any warranty of any kind, without even any 
+            implied warranty such as merchantability 
+            or fitness for a particular purpose.
+            Will Bontrager Software, LLC grants 
+            you a royalty free license to use or 
+            modify this software provided this 
+            notice appears on all copies. 
+         */
+         //
+         // One placed to customize - The id value of the table tag.
+         
+         var TableIDvalue = "indextable2";
+         
+         //
+         //////////////////////////////////////
+         var TableLastSortedColumn = -1;
+         function SortTable2() {
+         var sortColumn = parseInt(arguments[0]);
+         var type = arguments.length > 1 ? arguments[1] : 'T';
+         var dateformat = arguments.length > 2 ? arguments[2] : '';
+         var table = document.getElementById(TableIDvalue);
+         var tbody = table.getElementsByTagName("tbody")[0];
+         var rows = tbody.getElementsByTagName("tr");
+         var arrayOfRows = new Array();
+         type = type.toUpperCase();
+         dateformat = dateformat.toLowerCase();
+         for(var i=0, len=rows.length; i<len; i++) {
+           arrayOfRows[i] = new Object;
+           arrayOfRows[i].oldIndex = i;
+           var celltext = rows[i].getElementsByTagName("td")[sortColumn].innerHTML.replace(/<[^>]*>/g,"");
+           if( type=='D' ) { arrayOfRows[i].value = GetDateSortingKey(dateformat,celltext); }
+           else {
+             var re = type=="N" ? /[^\.\-\+\d]/g : /[^a-zA-Z0-9]/g;
+             arrayOfRows[i].value = celltext.replace(re,"").substr(0,25).toLowerCase();
+             }
+           }
+         if (sortColumn == TableLastSortedColumn) { arrayOfRows.reverse(); }
+         else {
+           TableLastSortedColumn = sortColumn;
+           switch(type) {
+             case "N" : arrayOfRows.sort(CompareRowOfNumbers); break;
+             case "D" : arrayOfRows.sort(CompareRowOfNumbers); break;
+             default  : arrayOfRows.sort(CompareRowOfText);
+             }
+           }
+         var newTableBody = document.createElement("tbody");
+         for(var i=0, len=arrayOfRows.length; i<len; i++) {
+           newTableBody.appendChild(rows[arrayOfRows[i].oldIndex].cloneNode(true));
+           }
+         table.replaceChild(newTableBody,tbody);
+         } // function SortTable()
+         
+         function CompareRowOfText(a,b) {
+         var aval = a.value;
+         var bval = b.value;
+         return( aval == bval ? 0 : (aval > bval ? 1 : -1) );
+         } // function CompareRowOfText()
+         
+         function CompareRowOfNumbers(a,b) {
+         var aval = /\d/.test(a.value) ? parseFloat(a.value) : 0;
+         var bval = /\d/.test(b.value) ? parseFloat(b.value) : 0;
+         return( aval == bval ? 0 : (aval > bval ? 1 : -1) );
+         } // function CompareRowOfNumbers()
+         
+         
+      </script>
+      
+
       <!-- FB Meta Tags -->
       <meta property="og:url" content="http://recap.canucklegame.ca">
       <meta property="og:type" content="website">
@@ -209,7 +290,7 @@
 
       </style>
    </head>
-   <body onload="javascript:SortTable(0,'N');javascript:SortTable(0,'N');">
+   <body onload="javascript:SortTable(0,'N');javascript:SortTable(0,'N');javascript:SortTable2(1,'T');">
       <table align=center width=100% border=0>
          <tr>
             <td>
@@ -218,7 +299,7 @@
                      <td align="center"><img src="images/recap.png" width=500 title="Canuckle Recap - A daily Canadian word game recap" alt="Canuckle Recap - A daily Canadian word game recap"></td>
                   </tr>
                   <tr>
-                     <td>We are proud of what we have been able to create, and looking back at all the words makes us proud to be Canadian! We hope you've enjoyed playing this game as much as we've had creating it.<br><br>You can support Canada's daily word game by <a href="https://ko-fi.com/canuckle" target="_blank">buying the Canuckle creators a coffee</a>! ☕️🍁👍<br><br>Here's a recap of all the Canuckle words all the way back puzzle #1:<br><br><em>(Click on column headers to toggle the sort)</em></td>
+                     <td>We are proud of what we have been able to create, and looking back at all the words makes us proud to be Canadian! We hope you've enjoyed playing this game as much as we've had creating it.<br><br>You can support Canada's daily word game by <a href="https://ko-fi.com/canuckle" target="_blank">buying the Canuckle creators a coffee</a>! ☕️🍁👍<br><br>Here's a recap of all the Canuckle words all the way back puzzle #1:<br><br><em>(Click on column headers to toggle the sort, or <a href="#justwords">view just the words</a>)</em></td>
                   </tr>
                </table>
                <br>
@@ -2888,6 +2969,24 @@
             </td>
          </tr>
       </table>
+
+        <br>
+
+               <table width="125" align="center" id="indextable2" border="1" cellpadding="10" cellspacing="1" style="border-collapse:collapse;">
+                  <thead id="justwords">
+                     <tr>
+                        <th bgcolor="#d5d5d5" width="35%"><a href="javascript:SortTable2(0,'N');">#</a></th>
+                        <th bgcolor="#d5d5d5" width="65%"><a href="javascript:SortTable2(1,'T');">WORD</a></th>                        
+                     </tr>
+                  </thead>
+                  <tbody>
+                  <tr><td align="center" valign="top">1</td><td align="center" valign="top">CANOE</td></tr>
+                  <tr><td align="center" valign="top">2</td><td align="center" valign="top">MAPLE</td></tr>
+                  <tr><td align="center" valign="top">3</td><td align="center" valign="top">INUIT</td></tr>
+                  </tbody>
+               </table>             
+
+
       <br><br><br><br>
       <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
       <script>
