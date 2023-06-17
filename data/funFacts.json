@@ -1655,9 +1655,11 @@
             " and share your game results!"
         ],
         [
-            "This week is National Blood Donor Week and today is World Blood Donor Day! Half of all Canadians will either need blood or know someone who will need blood at some point in their lives. Yet only four percent of Canadians donate. ", 
+            "This week is National Blood Donor Week and today is World Blood Donor Day! One in two people in Canada are eligible to donate blood, but only one in 81 actually do. ", 
             "Canadian Blood Services", 
-            " is responsible for the safety of the national blood supply system (excluding in Quebec) and Canada has one of the safest blood systems in the world! If you'd like to be a blood donor, visit ", 
+            " is responsible for the safety of the national blood supply system (along with ",
+            "Héma-Québec",
+            " in Québec) and Canada has one of the safest blood systems in the world! If you'd like to be a blood donor, visit ", 
             "blood.ca", 
             ", or call 1 888 2DONATE (1-888-236-6283) to join Canada’s Lifeline and book an appointment today. #ItsInYouToGive\n\nCheck out ", 
             "Practice Mode", 
