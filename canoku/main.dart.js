@@ -43176,10 +43176,10 @@ c=$.ae?B.c_:B.cD
 b=A.a([new A.dh(4,B.bn,A.aj(B.d.aU(178.5),158,158,158),B.k,18)],t.sq)
 a=g.w2().length===0?0:A.alY(g,260).b+10
 a1=A.bz("Canadian Rockstar!",A.aI(b2,b2,$.cn?B.y:B.z,b2,b2,b2,b2,b2,b2,b2,b2,20,b2,b2,B.A,b2,b2,!0,b2,b2,b2,b2,b2,b2,b2,b2),b2)
-a3=A.a([A.c_("assets/syrup.svg",b2,20,20),A.c_("assets/canoe.svg",b2,20,20),A.c_("assets/beaver.svg",b2,20,20),A.c_("assets/moose.svg",b2,20,20)],a2)
+a3=A.a([A.c_("assets/syrup.svg",b2,20,20),A.c_("assets/beaver.svg",b2,20,20),A.c_("assets/canoe.svg",b2,20,20),A.c_("assets/flag.svg",b2,20,20)],a2)
+if(A.a2($.aK)>4)a3.push(A.c_("assets/moose.svg",b2,20,20))
 if(A.a2($.aK)>4)a3.push(A.c_("assets/hockey.svg",b2,20,20))
-if(A.a2($.aK)>4)a3.push(A.c_("assets/lacrosse.svg",b2,20,20))
-if(A.a2($.aK)>6)a3.push(A.c_("assets/flag.svg",b2,20,20))
+if(A.a2($.aK)>6)a3.push(A.c_("assets/lacrosse.svg",b2,20,20))
 if(A.a2($.aK)>6)a3.push(A.c_("assets/snowflake.svg",b2,20,20))
 if(A.a2($.aK)>6)a3.push(A.c_("assets/polar_bear.svg",b2,20,20))
 a3=A.bG(a3,B.n,B.ay,B.l)
