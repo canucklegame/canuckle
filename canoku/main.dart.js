@@ -79744,7 +79744,7 @@ s($,"aLc","dA",()=>A.fe(A.aqw(A.a([1],t.t)).buffer,0,null).getInt8(0)===1?B.a0:B
 s($,"aOU","SG",()=>new A.Um(A.w(t.N,A.a6("kU"))))
 r($,"aOe","ake",()=>B.EV)
 s($,"aP8","ay6",()=>new A.a4g())
-s($,"aLs","aw_",()=>A.azR(2023,10,2,0,0,0,0))
+s($,"aLs","aw_",()=>A.azR(2023,10,16,0,0,0,0))
 s($,"aLr","avZ",()=>A.fo(null,"www.canucklegame.ca","canoku/data/boardsVersion.txt",null,null,"https"))
 r($,"aLO","aw5",()=>A.aAL())
 s($,"aOc","axx",()=>A.aCM(null))
