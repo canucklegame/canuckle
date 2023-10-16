@@ -1,0 +1,48 @@
+{
+    "name": "Canoku",
+    "short_name": "Canoku",
+    "start_url": "http://canoku.canucklegame.ca",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ff0000",
+    "description": "A daily Canadian Sudoku game",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+       {
+      "src": "https://www.canucklegame.ca/canoku/images/canoku_logo_48x48.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "https://www.canucklegame.ca/canoku/images/canoku_logo_72x72.png",
+      "type": "image/png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "https://www.canucklegame.ca/canoku/images/canoku_logo_96x96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "https://www.canucklegame.ca/canoku/images/canoku_logo_144x144.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "https://www.canucklegame.ca/canoku/images/canoku_logo_168x168.png",
+      "type": "image/png",
+      "sizes": "168x168"
+    },
+    {
+      "src": "https://www.canucklegame.ca/canoku/images/canoku_logo_192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "https://www.canucklegame.ca/canoku/images/canoku_logo_512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+    ]
+}
