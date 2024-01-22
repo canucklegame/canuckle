@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/brain-health/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!--added from original-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  <!--added from original-->
+  <meta http-equiv="Content-language" content="en">
+  <meta name="googlebot" value="notranslate">
+
+  <title>Canoku - A daily Canadian sudoku game</title>
+  <meta name="description" content="Solve sudoku puzzles with Canadian emojis. 15 new puzzles are available each day.">
+  <meta name="keywords" content="sudoku, Canada, Canadian, online sudoku, Canadian sudoku, emoji sudoku, sudoku free, sudoku puzzles, sudoku game, web sudoku, picture sudoku, sudoku puzzles">
+  <meta name="author" content="Canuckle Games"/>
+  <meta name="copyright" content="Canuckle Games"/>
+
+  <!-- FB Meta Tags -->
+  <meta property="og:url" content="http://canoku.canucklegame.ca">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Canoku - A daily Canadian Sudoku game">
+  <meta property="og:description" content="Solve sudoku puzzles with Canadian emojis. 15 new puzzles are available each day.">
+  <meta property="og:image" content="https://www.canucklegame.ca/canoku/images/canoku_og_1200x630.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.canucklegame.ca/canoku/images/canoku_og_1200x630.png" />
+  <meta name="theme-color" content="#ff0000" />
+  
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Canoku">
+  <meta name="HandheldFriendly" content="true">
+  <link href="https://www.canucklegame.ca/canoku/images/canoku_logo_192x192.png" rel="apple-touch-icon" />
+
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://www.canucklegame.ca/canoku/images/canoku_logo_32x32.png"/>
+
+  <link rel="manifest" href="https://www.canucklegame.ca/canoku/images/manifest.json">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-51PE0HTHXT"></script>
+
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-51PE0HTHXT');
+
+
+if (/canucklegame.github.io/.test(window.location) === true) {
+   window.location = 'https://www.canucklegame.ca'
+}
+  
+  </script>
+
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = '1646017937';
+  </script>
+
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js?v=1646017937" defer></script>
+
+  <!-- Yolla Media script -->
+  <script type="text/javascript" src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
+
+  <style>
+    div.loadingscreen {
+      width: 80%;
+      height: 80px;
+      padding-top: 33vh;
+      margin: 0 auto;
+    }
+    div.canuckle {
+      width: 100%;
+      height: 50%;
+      margin: 0 auto;
+      transform: translate(18%, 0%);
+    }
+    div.canuckleletterbg {
+      width: 10%;
+      aspect-ratio: 1/1;
+      background: #f00;
+      border-radius: 10%;
+      display: inline-block;
+      text-align: center;
+      color: #fff;
+    }
+    div.canuckleletter {
+      width: 80%;
+      aspect-ratio: 1/1;
+      margin-top: 10%;
+      display: inline-block;
+      font-size: min(6.25vmin, 32.0px);
+      font-family: sans-serif;
+      color: #fff;
+    }
+    div.loading {
+      width: 100%;
+      height: 50%;
+      margin: 0 auto;
+      transform: translate(19.5%, 30%);
+    }
+    div.loadingletterbg {
+      width: 8%;
+      aspect-ratio: 1/1;
+      background: #000;
+      border-radius: 10%;
+      transform: translate(0%, 10%);
+      display: inline-block;
+      text-align: center;
+      animation-name: jump-animation;
+      animation-duration: 0.5s;
+      animation-iteration-count: 30;
+    }
+    div.loadingletter {
+      width: 80%;
+      aspect-ratio: 1/1;
+      margin-top: 20%;
+      display: inline-block;
+      font-size: min(4vmin, 22.0px);
+      font-family: sans-serif;
+      color: #fff;
+    }
+    div.bg {
+      z-index: 1;
+      height: 100vh;
+      width: 100vw;
+      background: #ddd;
+    }
+    div.game {
+      z-index: 3;
+      height: 100vh;
+      width: 100vw;
+      max-width: 600px;
+      display: block;
+      margin: 0 auto; 
+    }
+    div.adbox_1 {
+      z-index: 99999;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_2 {
+      z-index: 99999;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_3 {
+      z-index: 99999;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_4 {
+      z-index: 99999;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_5 {
+      z-index: 99999;
+      height: 90px;
+      align-items: center;
+      width: 100vw;
+      display: block;
+      max-width: 970px;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      margin: auto;
+      position: relative;
+    }
+    div.mobileadbox {
+      z-index: 99999;
+      height: 50px;
+      width: 100vw;
+      display: block;
+      position: absolute;
+      max-width: 728px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    div.adbox_1:first-child {
+      left: 0;
+    }
+    div.adbox_1:nth-child(2) {
+      right: 0;
+    }
+    div.adbox_2:nth-child(3) {
+      left: 0;
+    }
+    div.adbox_2:nth-child(4) {
+      right: 0;
+    }
+    div.adbox_3:nth-child(5) {
+      left: 0;
+    }
+    div.adbox_3:nth-child(6) {
+      right: 0;
+    }
+    div.adbox_4:nth-child(7) {
+      left: 0;
+    }
+    div.adbox_4:nth-child(8) {
+      right: 0;
+    }
+
+    @keyframes jump-animation {
+      0%   {transform: translate(0%, 10%)}
+      50%  {transform: translate(0%, 0%)}
+      100% {transform: translate(0%, 10%)}
+    }
+    @media screen and (min-width: 728px) {
+      div.mobileadbox {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 728px) {
+      div.adbox_5 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 920px), screen and (max-height: 690px), {
+      div.adbox_1 {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      div.adbox_1 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 1200px), screen and (max-height: 250px), {
+      div.adbox_2 {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1272px) and (min-height: 280px) {
+      div.adbox_2 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 1272px), screen and (max-height: 280px), {
+      div.adbox_3 {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1272px) and (min-height: 690px) {
+      div.adbox_3 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 1272px), screen and (max-height: 690px), {
+      div.adbox_4 {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="mobileadbox">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50">
+      </div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50">
+      </div>
+    </div>
+    <div class="adbox_1">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600">
+      </div>
+    </div>
+    <div class="adbox_1">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600">
+      </div>
+    </div>
+    <div class="adbox_2">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250">
+      </div>
+    </div>
+    <div class="adbox_2">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250">
+      </div>
+    </div>
+    <div class="adbox_3">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280">
+      </div>
+    </div>
+    <div class="adbox_3">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280">
+      </div>
+    </div>
+    <div class="adbox_4">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600">
+      </div>
+    </div>
+    <div class="adbox_4">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600">
+      </div>
+    </div>
+    <div class="adbox_5">
+      <div class="ympb_target" data-type="desktop-leaderboard-template" data-subtype="728x90, 970x90">
+      </div>
+    </div>
+    <div class="game">
+      <div class="loadingscreen" title="Canoku Loading Screen">
+        <div class="canuckle">
+          <div class="canuckleletterbg">
+            <div class="canuckleletter">
+              C
+            </div>
+          </div>
+          <div class="canuckleletterbg">
+            <div class="canuckleletter">
+              A
+            </div>
+          </div>
+          <div class="canuckleletterbg">
+            <div class="canuckleletter">
+              N
+            </div>
+          </div>
+          <div class="canuckleletterbg">
+            <div class="canuckleletter">
+              O
+            </div>
+          </div>
+          <div class="canuckleletterbg">
+            <div class="canuckleletter">
+              K
+            </div>
+          </div>
+          <div class="canuckleletterbg">
+            <div class="canuckleletter">
+              U
+            </div>
+          </div>
+        </div>
+        <div class="loading">
+          <div class="loadingletterbg" style="animation-delay: 0s">
+            <div class="loadingletter">
+              L
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.1s">
+            <div class="loadingletter">
+              O
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.2s">
+            <div class="loadingletter">
+              A
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.3s">
+            <div class="loadingletter">
+              D
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.4s">
+            <div class="loadingletter">
+              I
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.5s">
+            <div class="loadingletter">
+              N
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.6s">
+            <div class="loadingletter">
+              G
+            </div>
+          </div>
+        </div>
+        <div style="margin: 0 auto; margin-top: 20px; height: 100px; width: 100px;">
+          <img src="assets/assets/leaf.svg" alt="Canoku Loading Screen" width="100" height="100">
+        </div>
+      </div>
+      <script>
+        window.addEventListener('load', function(ev) {
+          // Download main.dart.js
+          _flutter.loader.loadEntrypoint({
+            serviceWorker: {
+              serviceWorkerVersion: serviceWorkerVersion,
+            }
+          }).then(function(engineInitializer) {
+            return engineInitializer.initializeEngine();
+          }).then(function(appRunner) {
+            return appRunner.runApp();
+          });
+        });
+      </script>
+    </div>
+  </div>
+  <!--<script type="text/javascript"> 
+    var adboxes = document.getElementsByClassName("adbox");
+    console.log(adboxes);
+    if (document.location.href.indexOf("code=123") > 0) {
+      console.log('found code');
+      for(var i = 0; i < adboxes.length; i++) {
+        var element = adboxes[i];
+        console.log(element);
+        element.style.display = "none";
+      }
+    }
+  </script>-->
+</body>
+</html>
