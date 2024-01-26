@@ -35156,7 +35156,7 @@ m=$.lc?1:0
 j=$.iT?1:0
 i=$.n3?1:0
 h=$.jO?1:0
-c.mt("brainoku_level_start",A.aO(["mode",p.c,"date",p.a,"dark_theme",o,"highlights_sections",m,"coloured_bgs",j,"show_mistakes",i,"show_animations",h,"version","Version 1.0.0"],t.N,t.z))}g.d=A.amC(g.p1,a)
+c.mt("brainoku_level_start",A.aO(["brain_mode",p.c,"brain_date",p.a,"brain_dark_theme",o,"brain_highlights_sections",m,"brain_coloured_bgs",j,"brain_show_mistakes",i,"brain_show_animations",h,"brain_version","Version 1.0.0"],t.N,t.z))}g.d=A.amC(g.p1,a)
 e=A.dz(d.i(e,"viewedBrainokuHowTo"))
 if(e!==!0)g.e.r=!0
 g.xy()
@@ -35707,7 +35707,7 @@ l=$.lc?1:0
 k=$.iT?1:0
 j=$.n3?1:0
 i=$.jO?1:0
-o.mt("canoku_level_end",A.aO(["mode",s.c,"date",s.a,"time",n,"dark_theme",m,"highlights_sections",l,"coloured_bgs",k,"show_mistakes",j,"show_animations",i,"version","Version 1.0.0"],t.N,t.z))}else if(h.fM(a)?$.jO:s)h.Bo(a)
+o.mt("brainoku_level_end",A.aO(["brain_mode",s.c,"brain_date",s.a,"brain_time",n,"brain_dark_theme",m,"brain_highlights_sections",l,"brain_coloured_bgs",k,"brain_show_mistakes",j,"brain_show_animations",i,"brain_version","Version 1.0.0"],t.N,t.z))}else if(h.fM(a)?$.jO:s)h.Bo(a)
 h.e.bm(0).ah(0,new A.abs(h),t.P)},
 B5(a){return this.B6(a,!1)},
 fM(a){var s,r,q=t.t,p=A.a([1,2,3,4,5,6,7,8,9],q),o=$.aB
@@ -35895,7 +35895,7 @@ n=$.lc?1:0
 m=$.iT?1:0
 l=$.n3?1:0
 k=$.jO?1:0
-r.mt("brainoku_level_start",A.aO(["mode",q.c,"date",q.a,"dark_theme",o,"highlights_sections",n,"coloured_bgs",m,"show_mistakes",l,"show_animations",k,"version","Version 1.0.0"],t.N,t.z))
+r.mt("brainoku_level_start",A.aO(["brain_mode",q.c,"brain_date",q.a,"brain_dark_theme",o,"brain_highlights_sections",n,"brain_coloured_bgs",m,"brain_show_mistakes",l,"brain_show_animations",k,"brain_version","Version 1.0.0"],t.N,t.z))
 i.B(new A.abJ(i))},
 $S:53}
 A.abJ.prototype={
