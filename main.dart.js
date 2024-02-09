@@ -8584,7 +8584,7 @@ i=A.cH(h.h(i,"triviaStreak"))
 l.dx=i==null?0:i
 i=$.eM
 if(i!=null){h=l.a=i.a
-l.dy=i.dy
+l.dy=h.length
 l.c=i.c
 i=h}else i=m
 $.eM=l
@@ -26068,7 +26068,7 @@ var $async$y5=A.S(function(a,b){if(a===1)return A.O(b,r)
 while(true)switch(s){case 0:s=3
 return A.T(A.aX6($.aJA()),$async$y5)
 case 3:p=b
-if(p.b===200){q=A.aWI(J.be(A.aUj(p.e).c.a,"charset")).cN(0,p.w)==="Version 1.7.0"
+if(p.b===200){q=A.aWI(J.be(A.aUj(p.e).c.a,"charset")).cN(0,p.w)==="Version 1.7.1"
 s=1
 break}q=!1
 s=1
@@ -40676,7 +40676,7 @@ e=$.aL?1:0
 d=$.w?1:0
 s=s?1:0
 c=b.r?1:0
-l.jx("level_end",A.ar(["level_name",b.a,"num_guesses",r,"hard_mode",i,"high_contrast",e,"dark_theme",d,"success",s,"version","Version 1.7.0","ad_code",f,"is_archive",c],t.N,t.z))},
+l.jx("level_end",A.ar(["level_name",b.a,"num_guesses",r,"hard_mode",i,"high_contrast",e,"dark_theme",d,"success",s,"version","Version 1.7.1","ad_code",f,"is_archive",c],t.N,t.z))},
 $S:6}
 A.a0z.prototype={
 $0(){var s=this.a
@@ -42740,7 +42740,7 @@ r=j===6&&r?7:j
 j=$.ev?1:0
 i=$.aL?1:0
 h=$.w?1:0
-l.jx("practice_game",A.ar(["level_name",g.a,"num_guesses",r,"hard_mode",j,"high_contrast",i,"dark_theme",h,"success",s,"version","Version 1.7.0"],t.N,t.z))},
+l.jx("practice_game",A.ar(["level_name",g.a,"num_guesses",r,"hard_mode",j,"high_contrast",i,"dark_theme",h,"success",s,"version","Version 1.7.1"],t.N,t.z))},
 $S:6}
 A.ad6.prototype={
 $0(){var s=this.a
@@ -43096,7 +43096,7 @@ f=A.V(a,new A.q(B.m1,A.X("FEEDBACK",a,a,a,A.L(a,a,A.fj(),a,a,a,a,a,a0,a,a,a,a,a,
 e=$.w?B.h:B.e
 d=A.b0("assets/email.svg",$.aL?B.w:B.v,20,24)
 e=A.V(!0,new A.q(B.EO,A.hB(a,A.B(a,new A.q(B.m_,A.ao(A.a([d,new A.q(B.lX,A.X("Email",a,a,a,A.L(a,a,$.w?B.e:B.h,a,a,a,a,a,a0,a,a,a,a,a,a,a,a,!0,a,a,a,a,a,a,a,a),a,a),a)],a6),B.j,B.o,B.i),a),B.f,a,a,new A.a6(e,a,a,B.aN,a,a,B.n),a,a,a,a,a,a,a),B.a0,!1,a,a,a,a,a,a,a,a,a,a,a,a,new A.ah3(new A.ahy(b)),a,a,a),a),!1,a,a,!0,!1,a,a,a,a,"Email Canuckle",!0,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a)
-d="Version 1.7.0"+$.aDt+"\n\xa9 2024 Canuckle Games"
+d="Version 1.7.1"+$.aDt+"\n\xa9 2024 Canuckle Games"
 d=A.V(a,new A.q(B.i3,A.X(d,a,a,a,A.L(a,a,$.w?B.e:B.h,a,a,a,a,a,a0,a,a,a,a,a,a,a,a,!0,a,a,a,a,a,a,a,a),a,a),a),!1,a,a,!0,!1,a,a,!0,a,d,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a)
 c=A.X("POWERED BY",a,a,a,A.L(a,a,$.w?B.e:B.h,a,a,a,a,a,a0,a,a,14,a,a,B.t,a,a,!0,a,a,a,a,a,a,a,a),a,a)
 a4=A.a([A.b5(A.bq(A.aK(A.a([a5,A.B(a,A.aK(A.a([m,A.bq(A.lN(A.aK(A.a([s,k,r,j,p,i,h,g,f,e,d,B.O0,A.V(!0,new A.du(!0,A.bb(A.aK(A.a([new A.q(B.F3,c,a),new A.q(B.ES,A.b0($.w?"assets/cira-darkmode.svg":"assets/cira-logo.svg",a,30,a),a)],a6),B.j,B.o,B.i),a,!1,!1,new A.ah4(),new A.ah5(),new A.ah6(b,a2,a8),!1,a),a),!1,a,a,!1,!1,a,a,a,a,"Sponsor, CIRA",a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a)],a6),B.be,B.o,B.i),a,B.ae),n-52,a)],a6),B.j,B.o,B.i),B.f,a,a,new A.a6(q,a,l,B.aO,a,a,B.n),a,n,a,a,a,a,a7)],a6),B.j,B.o,B.i),n+o,a4),a,a)],a6)
@@ -43836,7 +43836,7 @@ ff(){if(this.c!=null)this.G(new A.alZ())},
 a9O(a){A.bK().ac(0,new A.alt(this,a),t.P)},
 Nn(a){A.bK().ac(0,new A.alu(this,a),t.P)},
 Rq(){var s=this.a.w,r=this.CW,q=r.f,p=r.c,o=this.dy,n=$.aL?1:0,m=$.w?1:0
-s.jx("trivia_level_end",A.ar(["level_index",r.a,"guess_time",q,"chosen_index",p,"correct_index",o,"high_contrast",n,"dark_theme",m,"success",r.b,"version","Version 1.7.0"],t.N,t.z))},
+s.jx("trivia_level_end",A.ar(["level_index",r.a,"guess_time",q,"chosen_index",p,"correct_index",o,"high_contrast",n,"dark_theme",m,"success",r.b,"version","Version 1.7.1"],t.N,t.z))},
 SZ(a){var s,r,q,p="triviaStats",o=A.b9(J.be(a.a,p))
 if(o==null)o=""
 s=new A.BK(0,0,0,0,0,0,0)
