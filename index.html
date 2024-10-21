@@ -68,6 +68,14 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   
   </script>
 
+  <script>
+    // The value below is injected by flutter build, do not touch.
+    var serviceWorkerVersion = '3447353681';
+  </script>
+
+  <!-- This script adds the flutter initialization JS code -->
+  <script src="flutter.js?v=3447353681" defer></script>
+
   <!-- Yolla Media script -->
   <script type="text/javascript" src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
 
@@ -211,38 +219,28 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       overflow: hidden;
       margin-top: 4px; 
     }
-    div.mobileadbox_2 {
-      z-index: 1000000;
-      height: 100px;
-      width: 100vw;
-      display: block;
-      position: absolute;
-      max-width: 728px;
-      overflow: hidden;
-      margin-top: 4px; 
-    }
-    div.adbox_1:nth-child(3) {
+    div.adbox_1:first-child {
       left: 0;
     }
-    div.adbox_1:nth-child(4) {
+    div.adbox_1:nth-child(2) {
       right: 0;
     }
-    div.adbox_2:nth-child(5) {
+    div.adbox_2:nth-child(3) {
       left: 0;
     }
-    div.adbox_2:nth-child(6) {
+    div.adbox_2:nth-child(4) {
       right: 0;
     }
-    div.adbox_3:nth-child(7) {
+    div.adbox_3:nth-child(5) {
       left: 0;
     }
-    div.adbox_3:nth-child(8) {
+    div.adbox_3:nth-child(6) {
       right: 0;
     }
-    div.adbox_4:nth-child(9) {
+    div.adbox_4:nth-child(7) {
       left: 0;
     }
-    div.adbox_4:nth-child(10) {
+    div.adbox_4:nth-child(8) {
       right: 0;
     }
 
@@ -253,19 +251,6 @@ if (/canucklegame.github.io/.test(window.location) === true) {
     }
     @media screen and (min-width: 728px) {
       div.mobileadbox {
-        display: none;
-      }
-      div.mobileadbox_2 {
-        display: none;
-      }
-    }
-    @media screen and (min-height: 736px) {
-      div.mobileadbox {
-        display: none;
-      }
-    }
-    @media screen and (max-height: 735px) {
-      div.mobileadbox_2 {
         display: none;
       }
     }
@@ -317,12 +302,6 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50">
       </div>
       <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50">
-      </div>
-    </div>
-    <div class="mobileadbox_2">
-      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x100">
-      </div>
-      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x100">
       </div>
     </div>
     <div class="adbox_1">
@@ -450,7 +429,20 @@ if (/canucklegame.github.io/.test(window.location) === true) {
           <img src="assets/assets/cira-logo.svg" alt="CIRA Logo" width="100" height="33">
         </div>
       </div>
-      <script src="flutter_bootstrap.js" async></script>
+      <script>
+        window.addEventListener('load', function(ev) {
+          // Download main.dart.js
+          _flutter.loader.loadEntrypoint({
+            serviceWorker: {
+              serviceWorkerVersion: serviceWorkerVersion,
+            }
+          }).then(function(engineInitializer) {
+            return engineInitializer.initializeEngine();
+          }).then(function(appRunner) {
+            return appRunner.runApp();
+          });
+        });
+      </script>
     </div>
   </div>
   <!--<script type="text/javascript"> 
