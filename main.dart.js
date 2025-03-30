@@ -9205,8 +9205,7 @@ case 3:$.eX().f3("currentUser is NULL! Fetching...")
 j=A.qm(a,!1)
 s=5
 return A.D(j,$async$e7)
-case 5:case 4:j=$.ca
-if(j!=null){$.eX().f3("prefsUser.games: "+A.k(m.a))
+case 5:case 4:if($.ca!=null){$.eX().f3("prefsUser.games: "+A.k(m.a))
 j=$.ca
 i=j.a
 m.a=i
@@ -9215,9 +9214,9 @@ i=j.b
 m.b=i
 m.id=i.length
 m.d=j.d
-m.f=j.f
-$.ca=m
-j=m}s=j!=null&&j.a.length!==0?6:7
+m.f=j.f}$.ca=m
+j=m.a.length
+s=j!==0?6:7
 break
 case 6:$.eX().f3("Updating "+h+" to Firestore...")
 j=$.c2
