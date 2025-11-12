@@ -29119,7 +29119,7 @@ A.co(n,$.e4(),!0)
 s=3
 return A.J(A.jk(new A.cM(n)).e2("gameVersions").ef("canuckle").f1(0),$async$BD)
 case 3:p=b.iz(0)
-if(p!=null){q=p.i(0,"version")==="Version 2.3.1"
+if(p!=null){q=p.i(0,"version")==="Version 2.3.2"
 s=1
 break}q=!0
 s=1
@@ -46284,7 +46284,7 @@ d=$.aR?1:0
 c=$.w?1:0
 s=s?1:0
 a=a.d.e?1:0
-p.jj(f,A.ap(["level_name",l.a,"num_guesses",r,"hard_mode",e,"high_contrast",d,"dark_theme",c,"success",s,"version","Version 2.3.1","ad_code",g,"is_archive",a],t.N,t.K))},
+p.jj(f,A.ap(["level_name",l.a,"num_guesses",r,"hard_mode",e,"high_contrast",d,"dark_theme",c,"success",s,"version","Version 2.3.2","ad_code",g,"is_archive",a],t.N,t.K))},
 $S:10}
 A.a6z.prototype={
 $0(){var s=this.a
@@ -48465,27 +48465,27 @@ for(j=m.length,k=0;k<f.length;f.length===l||(0,A.t)(f),++k){i=f[k]
 if(i<j&&i<r){h=m[i]
 if(h===s[i]){d.push(h)
 e.push(i)}}}}return d},
-gfC(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d=t.t,c=A.a([],d),b=A.a([],d),a=t.s,a0=A.a([],a)
-for(s=this.a,r=s.length,q=0;q<r;++q)c.push(q)
+gfC(){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=t.t,b=A.a([],c),a=t.s,a0=A.a([],a)
+for(s=this.a,r=s.length,q=0;q<r;++q)b.push(q)
 for(p=this.c,o=p.length,n=0;n<p.length;p.length===o||(0,A.t)(p),++n){m=p[n]
-for(l=b.length,k=0;k<b.length;b.length===l||(0,A.t)(b),++k)B.b.F(c,b[k])
-b=A.a([],d)
-l=c.length
-if(l===0)break
-for(j=m.length,k=0;k<c.length;c.length===l||(0,A.t)(c),++k){i=c[k]
-if(i<j&&i<r){h=m[i]
-if(h===s[i]){a0.push(h)
-b.push(i)}}}}g=A.a([],a)
-for(d=c.length,n=0;n<c.length;c.length===d||(0,A.t)(c),++n){i=c[n]
-if(i<r)g.push(s[i])}f=A.a([],a)
-for(d=this.c,a=d.length,n=0;n<d.length;d.length===a||(0,A.t)(d),++n){m=d[n]
+l=A.a([],c)
+k=b.length
+if(k===0)break
+for(j=m.length,i=0;i<b.length;b.length===k||(0,A.t)(b),++i){h=b[i]
+if(h<j&&h<r){g=m[h]
+if(g===s[h]){a0.push(g)
+l.push(h)}}}for(k=l.length,i=0;i<l.length;l.length===k||(0,A.t)(l),++i)B.b.F(b,l[i])}f=A.a([],a)
+for(c=b.length,n=0;n<b.length;b.length===c||(0,A.t)(b),++n){h=b[n]
+if(h<r)f.push(s[h])}e=A.a([],a)
+for(c=this.c,a=c.length,n=0;n<c.length;c.length===a||(0,A.t)(c),++n){m=c[n]
 r=(m.length===0?B.a_:new A.cb(m)).a
 p=new A.hu(r,0,0)
-for(;p.il(1,p.c);){e=p.d
-if(e==null)e=p.d=B.c.S(r,p.b,p.c)
-if(!B.b.p(a0,e))o=A.a2k(s,e,0)
+for(;p.il(1,p.c);){d=p.d
+if(d==null)d=p.d=B.c.S(r,p.b,p.c)
+if(!B.b.p(a0,d))o=A.a2k(s,d,0)&&B.b.p(f,d)
 else o=!1
-if(o)f.push(e)}}return f},
+if(o){e.push(d)
+B.b.F(f,d)}}}return e},
 gm2(){var s=this.c
 s=A.aPu(new A.V(s,new A.ac0(this),A.Z(s).h("V<1,m<f>>")),t.N)
 s=A.el(s,s.$ti.h("m.E"))
@@ -48913,7 +48913,7 @@ h=l.gaU().length===6&&r?7:h.d.gaU().length
 r=$.eL?1:0
 k=$.aR?1:0
 j=$.w?1:0
-p.jj("practice_game",A.ap(["level_name",l.a,"num_guesses",h,"hard_mode",r,"high_contrast",k,"dark_theme",j,"success",s,"version","Version 2.3.1"],t.N,t.K))},
+p.jj("practice_game",A.ap(["level_name",l.a,"num_guesses",h,"hard_mode",r,"high_contrast",k,"dark_theme",j,"success",s,"version","Version 2.3.2"],t.N,t.K))},
 $S:10}
 A.alQ.prototype={
 $0(){var s=this.a
@@ -49271,7 +49271,7 @@ return A.oO(new A.fF(a,s),new A.arI(),s.h("m.E"),t.N).aO(0,"&")},
 C9(){var s=null
 return new A.q(B.k5,A.L(s,s,B.f,A.a7(128,B.D.m()>>>16&255,B.D.m()>>>8&255,B.D.m()&255),s,s,s,0.5,s,s,s,s,s),s)},
 UK(a){A.bP().a9(new A.arG(this),t.P)},
-afO(b5){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1=this,a2=null,a3="ClearSans",a4=", (Only used for account recovery purposes)",a5="Linked Email",a6="Only used for account recovery purposes",a7="Want to sync to another User ID?",a8="Version 2.3.1\n\xa9 2025 Canuckle Games",a9=A.dc(a2,"www.cira.ca",a2,a2,A.ap(["utm_source","Website","utm_medium","Banner","utm_campaign","Canuckle"],t.N,t.z),"https"),b0=$.eL,b1=$.w,b2=b1?B.h:B.d,b3=t.p,b4=A.aV(A.a([new A.q(B.oJ,A.a_("Hard Mode",a2,a2,a2,A.W(a2,a2,b1?B.d:B.h,a2,a2,a2,a2,a2,a3,a2,a2,17,a2,a2,a2,a2,a2,!0,a2,a2,a2,a2,a2,a2,a2,a2),a2,a2),a2),new A.q(B.fg,A.a_("Revealed hints must be used in subsequent guesses",a2,a2,a2,A.W(a2,a2,B.X,a2,a2,a2,a2,a2,a3,a2,a2,11,a2,a2,a2,a2,a2,!0,a2,a2,a2,a2,a2,a2,a2,a2),a2,a2),a2)],b3),B.bf,B.r,B.k)
+afO(b5){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c,b,a,a0,a1=this,a2=null,a3="ClearSans",a4=", (Only used for account recovery purposes)",a5="Linked Email",a6="Only used for account recovery purposes",a7="Want to sync to another User ID?",a8="Version 2.3.2\n\xa9 2025 Canuckle Games",a9=A.dc(a2,"www.cira.ca",a2,a2,A.ap(["utm_source","Website","utm_medium","Banner","utm_campaign","Canuckle"],t.N,t.z),"https"),b0=$.eL,b1=$.w,b2=b1?B.h:B.d,b3=t.p,b4=A.aV(A.a([new A.q(B.oJ,A.a_("Hard Mode",a2,a2,a2,A.W(a2,a2,b1?B.d:B.h,a2,a2,a2,a2,a2,a3,a2,a2,17,a2,a2,a2,a2,a2,!0,a2,a2,a2,a2,a2,a2,a2,a2),a2,a2),a2),new A.q(B.fg,A.a_("Revealed hints must be used in subsequent guesses",a2,a2,a2,A.W(a2,a2,B.X,a2,a2,a2,a2,a2,a3,a2,a2,11,a2,a2,a2,a2,a2,!0,a2,a2,a2,a2,a2,a2,a2,a2),a2,a2),a2)],b3),B.bf,B.r,B.k)
 b1=$.aR?B.x:B.y
 b2=A.jn(a2,new A.q(B.K1,A.L(a2,A.aq(A.a([new A.vJ(1,B.pf,b4,a2),new A.q(B.bD,A.aL7(B.d,A.a7(127,b1.m()>>>16&255,b1.m()>>>8&255,b1.m()&255),B.X,new A.aqZ(a1),$.eL),a2)],b3),B.j,B.aH,B.k),B.f,a2,a2,new A.a9(b2,a2,a2,B.n0,a2,a2,B.q),a2,a2,a2,a2,a2,a2,a2),a2),B.ai,!1,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,new A.ar_(a1),a2,a2,a2)
 b0=A.a1(a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,"Hard mode, any revealed hints must be used in subsequent guesses",a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,a2,new A.ar0(a1),a2,a2,a2,a2,a2,a2,a2,a2,a2,b0,a2,B.l,a2)
@@ -50196,7 +50196,7 @@ hd(){if(this.c!=null)this.I(new A.avx())},
 agZ(a){A.bP().a9(new A.av1(this,a),t.P)},
 S0(a){A.bP().a9(new A.av2(this,a),t.P)},
 Wz(){var s=this.a.w,r=this.CW,q=r.f,p=r.c,o=this.dy,n=$.aR?1:0,m=$.w?1:0
-s.jj("trivia_level_end",A.ap(["level_index",r.a,"guess_time",q,"chosen_index",p,"correct_index",o,"high_contrast",n,"dark_theme",m,"success",r.b,"version","Version 2.3.1"],t.N,t.K))},
+s.jj("trivia_level_end",A.ap(["level_index",r.a,"guess_time",q,"chosen_index",p,"correct_index",o,"high_contrast",n,"dark_theme",m,"success",r.b,"version","Version 2.3.2"],t.N,t.K))},
 Yg(a){var s,r,q,p="triviaStats",o=A.b_(J.bx(a.a,p))
 if(o==null)o=""
 s=new A.FO(0,0,0,0,0,0,0)
