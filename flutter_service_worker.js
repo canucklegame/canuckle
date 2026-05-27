@@ -9,21 +9,15 @@ const RESOURCES = {"flutter_bootstrap.js": "00e2aad496901268cbe8e00cc3aaf107",
 "/": "af47124368931df7fb04b7ae70cb1ab3",
 "main.dart.js": "e3a9243f0e3a53c06541b6ed74b5bf0e",
 "flutter.js": "24bc71911b75b5f8135c949e27a2984e",
-"favicon.png": "5dcef449791fa27946b3d35ad8803796",
-"icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
-"icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
-"icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "b9912063e0f5545847847b3bc636c3a6",
-"assets/NOTICES": "5b7167ebe7e778c48303c97e12c48a5f",
-"assets/FontManifest.json": "b30599f8716e82a40a489658de0de7bd",
+"assets/FontManifest.json": "7d802299eadccfb43c796ce55fa20603",
+"assets/fonts/ClearSans-Regular.woff2": "70cdcab17d5c7ba544f4dde9b73335c2",
+"assets/fonts/ClearSans-Medium.woff2": "3a46a63f89c4c1ed61450dc3e5f6ef06",
+"assets/fonts/ClearSans-Bold.woff2": "e64f46d11a61304aa70fd34b1e25b92d",
 "assets/AssetManifest.bin.json": "ddea4653ff4c491a221fe2be3a315af2",
 "assets/shaders/ink_sparkle.frag": "ecc85a2e95f5e9f53123dcaf8cb9b6ce",
 "assets/shaders/stretch_effect.frag": "40d68efbbf360632f614c731219e95f0",
 "assets/AssetManifest.bin": "0313fc686e1ef7d8ca3fea929aab0450",
-"assets/fonts/ClearSans-Bold.ttf": "79e0c29cff90ef22bd513f10253b1b32",
-"assets/fonts/ClearSans-Medium.ttf": "411ebe0f9416ef4d16cfe13d58914f96",
-"assets/fonts/ClearSans-Regular.ttf": "b9bdac589c0d3aac828fd3a15108b61a",
 "assets/assets/ach_4_bg.svg": "8d27b26b3e10c53f7375785bf85716a4",
 "assets/assets/ach_medal.svg": "cf43636367a0e157e5053a94fc6231c1",
 "assets/assets/leaf_five_guesses.svg": "84a661cc742f96f614173c20e1340b47",
@@ -103,25 +97,22 @@ const RESOURCES = {"flutter_bootstrap.js": "00e2aad496901268cbe8e00cc3aaf107",
 "assets/assets/timer.svg": "7fbc77925b25dae0dbddccd464fe3c48",
 "assets/assets/leaf_loss_dark.svg": "549da8e6b8326c9caabdd4388b191eb8",
 "assets/assets/cira-darkmode.svg": "3e6afe9342b42ab3ce6176288b9bf3d6",
-"canvaskit/skwasm.js": "8060d46e9a4901ca9991edd3a26be4f0",
-"canvaskit/skwasm_heavy.js": "740d43a6b8240ef9e23eed8c48840da4",
-"canvaskit/skwasm.js.symbols": "3a4aadf4e8141f284bd524976b1d6bdc",
-"canvaskit/canvaskit.js.symbols": "a3c9f77715b642d0437d9c275caba91e",
-"canvaskit/skwasm_heavy.js.symbols": "0755b4fb399918388d71b59ad390b055",
-"canvaskit/skwasm.wasm": "7e5f3afdd3b0747a1fd4517cea239898",
-"canvaskit/chromium/canvaskit.js.symbols": "e2d09f0e434bc118bf67dae526737d07",
-"canvaskit/chromium/canvaskit.js": "a80c765aaa8af8645c9fb1aae53f9abf",
-"canvaskit/chromium/canvaskit.wasm": "a726e3f75a84fcdf495a15817c63a35d",
-"canvaskit/canvaskit.js": "8331fe38e66b3a898c4f37648aaf7ee2",
-"canvaskit/canvaskit.wasm": "9b6a7830bf26959b200594729d73538e",
-"canvaskit/skwasm_heavy.wasm": "b0be7910760d205ea4e011458df6ee01"};
+};
 // The application shell files that are downloaded before a service worker can
 // start.
-const CORE = ["main.dart.js",
+// NOTE: Update this list whenever font files change (e.g. adding WOFF2 variants).
+// Also update the MD5 hashes for any changed files in RESOURCES above,
+// and bump serviceWorkerVersion in flutter_bootstrap.js after any edit here.
+const CORE = [
+"main.dart.js",
 "index.html",
 "flutter_bootstrap.js",
 "assets/AssetManifest.bin.json",
-"assets/FontManifest.json"];
+"assets/FontManifest.json",
+"assets/fonts/ClearSans-Regular.woff2",
+"assets/fonts/ClearSans-Medium.woff2",
+"assets/fonts/ClearSans-Bold.woff2"
+];
 
 // During install, the TEMP cache is populated with the application shell files.
 self.addEventListener("install", (event) => {

@@ -16,6 +16,15 @@
   -->
   <base href="/">
 
+  <!-- Critical connection hints -->
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://portal.cdn.yollamedia.com" crossorigin>
+  <link rel="dns-prefetch" href="https://portal.cdn.yollamedia.com">
+  <link rel="dns-prefetch" href="https://firestore.googleapis.com">
+  <link rel="dns-prefetch" href="https://firebase.googleapis.com">
+
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!--added from original-->
@@ -41,11 +50,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="Canuckle">
   <meta name="HandheldFriendly" content="true">
-  <link href="https://www.canucklegame.ca/images/canuckle_logo_192x192.png" rel="apple-touch-icon" />
+  <link href="images/canuckle_logo_192x192.png" rel="apple-touch-icon" />
 
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://www.canucklegame.ca/images/canuckle_logo_32x32.png"/>
+  <link rel="icon" type="image/png" href="images/canuckle_logo_32x32.png"/>
 
   <link rel="manifest" href="manifest.json">
 
@@ -67,7 +76,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   </script>
 
   <!-- Yolla Media script -->
-  <script type="text/javascript" src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
+  <script defer src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
 
   <style>
     div.loadingscreen {
@@ -300,7 +309,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 920px), screen and (max-height: 690px), {
+    @media screen and (max-width: 920px), screen and (max-height: 690px) {
       div.adbox_1 {
         display: none;
       }
@@ -310,7 +319,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 1200px), screen and (max-height: 250px), {
+    @media screen and (max-width: 1200px), screen and (max-height: 250px) {
       div.adbox_2 {
         display: none;
       }
@@ -320,7 +329,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 1272px), screen and (max-height: 280px), {
+    @media screen and (max-width: 1272px), screen and (max-height: 280px) {
       div.adbox_3 {
         display: none;
       }
@@ -330,7 +339,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 1272px), screen and (max-height: 690px), {
+    @media screen and (max-width: 1272px), screen and (max-height: 690px) {
       div.adbox_4 {
         display: none;
       }
