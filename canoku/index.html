@@ -16,6 +16,13 @@
   -->
   <base href="/canoku/">
 
+  <!-- Critical connection hints -->
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://portal.cdn.yollamedia.com" crossorigin>
+  <link rel="dns-prefetch" href="https://portal.cdn.yollamedia.com">
+
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta http-equiv="cache-control" content="no-cache">
@@ -76,8 +83,11 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js?v=1560163351" defer></script>
 
+  <!-- Font preload -->
+  <link rel="preload" href="assets/fonts/MaterialIcons-Regular.otf" as="font" type="font/otf" crossorigin>
+
   <!-- Yolla Media script -->
-  <script type="text/javascript" src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
+  <script async src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
 
   <style>
     div.loadingscreen {
