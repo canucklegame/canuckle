@@ -1,95 +1,218 @@
 {
-	"redirects": [
-		{ 	"source": "/archive",
-			"destination": "https://www.canucklegame.ca/?archive=true" ,
-			"permanent": true },
-		{ 	"source": "/archive/archive.html",
-			"destination": "https://www.canucklegame.ca/?archive=true" ,
-			"permanent": true },
-		{ 	"source": "/archive/index.html",
-			"destination": "https://www.canucklegame.ca/?archive=true" ,
-			"permanent": true }
-	],
-	"headers": [
-		{
-			"source": "/main.dart.js",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-		},
-		{
-			"source": "/flutter_service_worker.js",
-			"headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }]
-		},
-		{
-			"source": "/flutter_bootstrap.js",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
-		},
-		{
-			"source": "/assets/:path*",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-		},
-		{
-			"source": "/images/:path*",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
-		},
-		{
-			"source": "/(index.html|manifest.json|version.json)",
-			"headers": [{ "key": "Cache-Control", "value": "no-cache" }]
-		},
-		{
-			"source": "/canoku/main.dart.js",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-		},
-		{
-			"source": "/canoku/flutter_service_worker.js",
-			"headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }]
-		},
-		{
-			"source": "/canoku/flutter_bootstrap.js",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
-		},
-		{
-			"source": "/canoku/assets/:path*",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-		},
-		{
-			"source": "/canoku/images/:path*",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
-		},
-		{
-			"source": "/canoku/(index.html|manifest.json|version.json)",
-			"headers": [{ "key": "Cache-Control", "value": "no-cache" }]
-		},
-		{
-			"source": "/canoku/brainhealth/main.dart.js",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-		},
-		{
-			"source": "/canoku/brainhealth/flutter_service_worker.js",
-			"headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }]
-		},
-		{
-			"source": "/canoku/brainhealth/flutter_bootstrap.js",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
-		},
-		{
-			"source": "/canoku/brainhealth/assets/:path*",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
-		},
-		{
-			"source": "/canoku/brainhealth/images/:path*",
-			"headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
-		},
-		{
-			"source": "/canoku/brainhealth/(index.html|manifest.json|version.json)",
-			"headers": [{ "key": "Cache-Control", "value": "no-cache" }]
-		},
-		{
-			"source": "/:path*",
-			"headers": [
-				{ "key": "X-Content-Type-Options", "value": "nosniff" },
-				{ "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-				{ "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-			]
-		}
-	]
+  "redirects": [
+    {
+      "source": "/archive",
+      "destination": "https://www.canucklegame.ca/?archive=true",
+      "permanent": true
+    },
+    {
+      "source": "/archive/archive.html",
+      "destination": "https://www.canucklegame.ca/?archive=true",
+      "permanent": true
+    },
+    {
+      "source": "/archive/index.html",
+      "destination": "https://www.canucklegame.ca/?archive=true",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/main.dart.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/main.dart.wasm",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/main.dart.mjs",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/flutter_service_worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/flutter_bootstrap.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(index.html|manifest.json|version.json)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/main.dart.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/flutter_service_worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/flutter_bootstrap.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/images/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/(index.html|manifest.json|version.json)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/brainhealth/main.dart.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/brainhealth/flutter_service_worker.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/brainhealth/flutter_bootstrap.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/brainhealth/assets/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/brainhealth/images/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/brainhealth/(index.html|manifest.json|version.json)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
 }
