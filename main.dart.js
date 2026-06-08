@@ -8666,7 +8666,7 @@ h.a=h.a+("\n["+Date.now()+"] - "+f)
 A.Ma().$1("\n["+Date.now()+"] - "+f)
 l=J.aOz(m)
 if(l!=null){k=new A.afz(J.by(l,"version"))
-h=k.a==="Version 2.3.4"
+h=k.a==="Version 3.0.0"
 q=h
 s=1
 break}q=!0
@@ -50509,7 +50509,7 @@ i=$.bg?1:0
 h=$.S?1:0
 g=b?1:0
 f=f.d.e?1:0
-s.jR(l,A.an(["level_name",r.a,"num_guesses",k,"hard_mode",j,"high_contrast",i,"dark_theme",h,"success",g,"version","Version 2.3.4","ad_code",m,"is_archive",f],t.N,t.K))},
+s.jR(l,A.an(["level_name",r.a,"num_guesses",k,"hard_mode",j,"high_contrast",i,"dark_theme",h,"success",g,"version","Version 3.0.0","ad_code",m,"is_archive",f],t.N,t.K))},
 $S:147}
 A.a9T.prototype={
 $0(){return this.a.Pi(!0)},
@@ -53230,7 +53230,7 @@ s=$.fx?1:0
 r=$.bg?1:0
 q=$.S?1:0
 p=b?1:0
-n.jR("practice_game",A.an(["level_name",m.a,"num_guesses",o,"hard_mode",s,"high_contrast",r,"dark_theme",q,"success",p,"version","Version 2.3.4"],t.N,t.K))},
+n.jR("practice_game",A.an(["level_name",m.a,"num_guesses",o,"hard_mode",s,"high_contrast",r,"dark_theme",q,"success",p,"version","Version 3.0.0"],t.N,t.K))},
 $S:147}
 A.ap6.prototype={
 $0(){return this.a.Hd()},
@@ -53561,7 +53561,7 @@ XW(){var s,r=this.c
 r.toString
 s=A.cK(r)
 A.c5().af(new A.av3(this,s),t.P)},
-akA(b1){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null,a="ClearSans",a0=", (Only used for account recovery purposes)",a1="Linked Email",a2="Only used for account recovery purposes",a3="Want to sync to another User ID?",a4="Version 2.3.4\n\xa9 2026 Canuckle Games",a5=A.dp(b,"www.cira.ca",b,b,A.an(["utm_source","Website","utm_medium","Banner","utm_campaign","Canuckle"],t.N,t.z),"https"),a6=$.fx,a7=$.S,a8=a7?B.h:B.e,a9=t.p,b0=A.aY(A.b([new A.F(B.pq,A.a9("Hard Mode",b,b,b,A.a1(b,b,a7?B.e:B.h,b,b,b,b,b,a,b,b,17,b,b,b,b,b,!0,b,b,b,b,b,b,b,b),b,b),b),new A.F(B.fw,A.a9("Revealed hints must be used in subsequent guesses",b,b,b,A.a1(b,b,B.aB,b,b,b,b,b,a,b,b,11,b,b,b,b,b,!0,b,b,b,b,b,b,b,b),b,b),b)],a9),B.aW,B.p,B.k)
+akA(b1){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d,c=this,b=null,a="ClearSans",a0=", (Only used for account recovery purposes)",a1="Linked Email",a2="Only used for account recovery purposes",a3="Want to sync to another User ID?",a4="Version 3.0.0\n\xa9 2026 Canuckle Games",a5=A.dp(b,"www.cira.ca",b,b,A.an(["utm_source","Website","utm_medium","Banner","utm_campaign","Canuckle"],t.N,t.z),"https"),a6=$.fx,a7=$.S,a8=a7?B.h:B.e,a9=t.p,b0=A.aY(A.b([new A.F(B.pq,A.a9("Hard Mode",b,b,b,A.a1(b,b,a7?B.e:B.h,b,b,b,b,b,a,b,b,17,b,b,b,b,b,!0,b,b,b,b,b,b,b,b),b,b),b),new A.F(B.fw,A.a9("Revealed hints must be used in subsequent guesses",b,b,b,A.a1(b,b,B.aB,b,b,b,b,b,a,b,b,11,b,b,b,b,b,!0,b,b,b,b,b,b,b,b),b,b),b)],a9),B.aW,B.p,B.k)
 a7=$.bg?B.G:B.H
 s=A.a0(b,A.jF(b,new A.F(B.KK,A.X(b,A.aK(A.b([new A.wF(1,B.q0,b0,b),new A.F(B.cc,A.aQk(B.e,A.am(127,a7.p()>>>16&255,a7.p()>>>8&255,a7.p()&255),B.aB,new A.auy(c),$.fx),b)],a9),B.j,B.aH,B.k,0),B.f,b,b,new A.aM(a8,b,b,B.nH,b,b,B.r),b,b,b,b,b,b,b),b),B.ah,!1,b,b,b,b,b,b,b,b,b,b,b,new A.auz(c),b,b,b),!1,b,b,!0,b,!1,b,b,b,b,b,b,b,b,"Hard mode, any revealed hints must be used in subsequent guesses",b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,new A.auA(c),b,b,b,b,b,b,b,a6,b,b,b)
 a6=$.S
@@ -54367,7 +54367,7 @@ r.toString
 s=A.cK(r)
 A.c5().af(new A.ayD(this,s),t.P)},
 a_d(){var s=this.a.r,r=this.ch,q=r.f,p=r.c,o=this.dx,n=$.bg?1:0,m=$.S?1:0,l=r.b?1:0
-s.jR("trivia_level_end",A.an(["level_index",r.a,"guess_time",q,"chosen_index",p,"correct_index",o,"high_contrast",n,"dark_theme",m,"success",l,"version","Version 2.3.4"],t.N,t.K))},
+s.jR("trivia_level_end",A.an(["level_index",r.a,"guess_time",q,"chosen_index",p,"correct_index",o,"high_contrast",n,"dark_theme",m,"success",l,"version","Version 3.0.0"],t.N,t.K))},
 a1_(a){var s,r,q,p="triviaStats",o=A.b0(J.by(a.a,p))
 if(o==null)o=""
 s=new A.Hj(0,0,0,0,0,0,0)
