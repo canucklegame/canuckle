@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <!--
@@ -84,6 +84,28 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   <script async src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
 
   <style>
+    @font-face {
+      font-family: 'ClearSans';
+      src: url('assets/fonts/ClearSans-Regular.woff2') format('woff2'),
+           url('assets/fonts/ClearSans-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'ClearSans';
+      src: url('assets/fonts/ClearSans-Medium.woff2') format('woff2'),
+           url('assets/fonts/ClearSans-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'ClearSans';
+      src: url('assets/fonts/ClearSans-Bold.woff2') format('woff2'),
+           url('assets/fonts/ClearSans-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-display: swap;
+    }
+
     div.loadingscreen {
       width: 80%;
       height: 80px;
@@ -291,6 +313,54 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       50%  {transform: translate(0%, 0%)}
       100% {transform: translate(0%, 10%)}
     }
+
+    /* Hidden once the engine dispatches 'flutter-first-frame'. On total
+       bootstrap failure (flutter_bootstrap.js), .canuckle-error-state shows
+       an error + reload button instead. */
+    #canuckle-loading.canuckle-hidden {
+      display: none;
+    }
+
+    #canuckle-loading .canuckle-error {
+      display: none;
+      font-family: 'ClearSans', Arial, sans-serif;
+      color: #121212;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #canuckle-loading .canuckle-error {
+        color: #FFFFFF;
+      }
+    }
+
+    #canuckle-loading.canuckle-error-state .canuckle,
+    #canuckle-loading.canuckle-error-state .loading,
+    #canuckle-loading.canuckle-error-state .canuckle-leaf,
+    #canuckle-loading.canuckle-error-state .canuckle-powered-by {
+      display: none;
+    }
+
+    #canuckle-loading.canuckle-error-state .canuckle-error {
+      display: block;
+    }
+
+    #canuckle-loading .canuckle-reload-btn {
+      margin-top: 16px;
+      padding: 10px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFFFFF;
+      background: #CF2319;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #canuckle-loading .canuckle-reload-btn:hover {
+      background: #F01200;
+    }
     @media screen and (min-width: 728px) {
       div.mobileadbox {
         display: none;
@@ -423,7 +493,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       </div>
     </div>
     <div class="game">
-      <div class="loadingscreen" title="Canuckle Loading Screen">
+      <div id="canuckle-loading" class="loadingscreen" title="Canuckle Loading Screen">
         <div class="canuckle">
           <div class="canuckleletterbg">
             <div class="canuckleletter">
@@ -503,15 +573,46 @@ if (/canucklegame.github.io/.test(window.location) === true) {
             </div>
           </div>
         </div>
-        <div style="margin: 0 auto; margin-top: 20px; height: 100px; width: 100px;">
+        <div class="canuckle-leaf" style="margin: 0 auto; margin-top: 20px; height: 100px; width: 100px;">
           <img src="assets/assets/leaf_loading.svg" alt="Canuckle Loading Screen" width="100" height="100">
         </div>
-        <div align=center style="font-family: Arial; font-weight: Bold; font-size: 10pt; margin: 0 auto; margin-top: 20px; height: 33px; width: 100px;">
+        <div class="canuckle-powered-by" align=center style="font-family: Arial; font-weight: Bold; font-size: 10pt; margin: 0 auto; margin-top: 20px; height: 33px; width: 100px;">
         POWERED BY
           <img src="assets/assets/cira-logo.svg" alt="CIRA Logo" width="100" height="33">
         </div>
+        <div class="canuckle-error">
+          <p>
+            Canuckle is having trouble loading. This can happen if your network
+            is blocking required resources.
+          </p>
+          <button class="canuckle-reload-btn" onclick="window.location.reload()">
+            Reload page
+          </button>
+        </div>
       </div>
-        <script src="flutter_bootstrap.js?version=20250401" async></script>
+      <script>
+        (function () {
+          var overlay = document.getElementById('canuckle-loading');
+
+          window.__canuckleHideLoading = function () {
+            if (overlay) overlay.classList.add('canuckle-hidden');
+          };
+
+          window.__canuckleShowError = function () {
+            if (overlay) {
+              overlay.classList.remove('canuckle-hidden');
+              overlay.classList.add('canuckle-error-state');
+            }
+          };
+
+          // Dispatched by the Flutter web engine on `window` once the first
+          // frame has been rasterized, regardless of renderer.
+          window.addEventListener('flutter-first-frame', function () {
+            window.__canuckleHideLoading();
+          });
+        })();
+      </script>
+        <script src="flutter_bootstrap.js?version=202606152323" async></script>
     </div>
   </div>
   <!--<script type="text/javascript"> 

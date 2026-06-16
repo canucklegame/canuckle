@@ -57,10 +57,37 @@ if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/flutter_service_worker.js');
 }
 
-_flutter.loader.load({
-  onEntrypointLoaded: async function(engineInitializer) {
+// ── Engine bootstrap with gstatic-fallback, timeout, and error UI ──
+
+const FALLBACK_TIMEOUT_MS = 9000; // generous for slow-but-working gstatic; bounds the blank-page window
+
+let entrypointHandled = false; // first attempt to actually run wins
+let fallbackStarted = false;
+
+function showFatalError() {
+  if (typeof window.__canuckleShowError === 'function') {
+    window.__canuckleShowError();
+  }
+}
+
+function hideLoadingScreen() {
+  if (typeof window.__canuckleHideLoading === 'function') {
+    window.__canuckleHideLoading();
+  }
+}
+
+async function runEntrypoint(engineInitializer) {
+  if (entrypointHandled) return; // another attempt already won
+  entrypointHandled = true;
+
+  try {
     const appRunner = await engineInitializer.initializeEngine();
     await appRunner.runApp();
+
+    // Belt-and-braces: also hide here in case 'flutter-first-frame'
+    // (primary hook, see index.html) is ever not dispatched. Safe to call twice.
+    hideLoadingScreen();
+
     // Inject Yolla after the Flutter app is running so it doesn't compete
     // with CanvasKit/Skwasm WASM during the critical startup window.
     const s = document.createElement('script');
@@ -68,5 +95,52 @@ _flutter.loader.load({
     s.type = 'text/javascript';
     s.src = 'https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js';
     document.head.appendChild(s);
+  } catch (err) {
+    console.error('Canuckle: engine init / runApp failed:', err);
+    entrypointHandled = false; // let the OTHER in-flight attempt (if any) try
+    showFatalError();
   }
-});
+}
+
+function startFallbackLoad() {
+  if (fallbackStarted) return;
+  fallbackStarted = true;
+  console.warn('Canuckle: gstatic CanvasKit/Skwasm load timed out — retrying with local /canvaskit/.');
+  try {
+    _flutter.loader.load({
+      config: { canvasKitBaseUrl: '/canvaskit/' },
+      onEntrypointLoaded: runEntrypoint,
+    });
+  } catch (err) {
+    console.error('Canuckle: local-CanvasKit fallback load() threw:', err);
+    if (!entrypointHandled) showFatalError();
+  }
+}
+
+// Primary attempt: default config (gstatic-hosted CanvasKit/Skwasm).
+// Zero extra bandwidth for the ~99%+ of users where gstatic is reachable.
+try {
+  _flutter.loader.load({
+    onEntrypointLoaded: runEntrypoint,
+  });
+} catch (err) {
+  console.error('Canuckle: primary load() threw synchronously:', err);
+  startFallbackLoad();
+}
+
+// gstatic hasn't called back in time — assume it's blocked and retry
+// against the locally-hosted /canvaskit/ folder.
+setTimeout(function () {
+  if (entrypointHandled) return;
+  startFallbackLoad();
+}, FALLBACK_TIMEOUT_MS);
+
+// Both attempts may legitimately be in flight between T=9s and whichever
+// resolves first — that's fine, it's rare. If NEITHER ever calls back, show
+// the error UI.
+setTimeout(function () {
+  if (!entrypointHandled) {
+    console.error('Canuckle: both gstatic and local CanvasKit/Skwasm attempts failed to start the app.');
+    showFatalError();
+  }
+}, FALLBACK_TIMEOUT_MS * 2);
