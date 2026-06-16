@@ -1,4 +1,4 @@
-// Override prefers-reduced-motion: the flip animation reveals game results
+﻿// Override prefers-reduced-motion: the flip animation reveals game results
 // and is meaningful gameplay, not decorative. Always let it play.
 (function () {
   var _origMatchMedia = window.matchMedia.bind(window);
@@ -48,16 +48,16 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2wasm","renderer":"skwasm","mainWasmPath":"main.dart.wasm","jsSupportRuntimePath":"main.dart.mjs"},{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]};
+_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2wasm","renderer":"skwasm","mainWasmPath":"main.dart.wasm?v=2","jsSupportRuntimePath":"main.dart.mjs?v=2"},{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=2"}]};
 
 
-// Register SW directly — not through Flutter's deprecated serviceWorkerSettings.
+// Register SW directly -- not through Flutter's deprecated serviceWorkerSettings.
 // Browsers auto-detect updates by comparing new vs cached SW bytes on each visit.
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/flutter_service_worker.js');
 }
 
-// ── Engine bootstrap with gstatic-fallback, timeout, and error UI ──
+// -- Engine bootstrap with gstatic-fallback, timeout, and error UI --
 
 const FALLBACK_TIMEOUT_MS = 9000; // generous for slow-but-working gstatic; bounds the blank-page window
 
@@ -105,7 +105,7 @@ async function runEntrypoint(engineInitializer) {
 function startFallbackLoad() {
   if (fallbackStarted) return;
   fallbackStarted = true;
-  console.warn('Canuckle: gstatic CanvasKit/Skwasm load timed out — retrying with local /canvaskit/.');
+  console.warn('Canuckle: gstatic CanvasKit/Skwasm load timed out -- retrying with local /canvaskit/.');
   try {
     _flutter.loader.load({
       config: { canvasKitBaseUrl: '/canvaskit/' },
@@ -128,7 +128,7 @@ try {
   startFallbackLoad();
 }
 
-// gstatic hasn't called back in time — assume it's blocked and retry
+// gstatic hasn't called back in time -- assume it's blocked and retry
 // against the locally-hosted /canvaskit/ folder.
 setTimeout(function () {
   if (entrypointHandled) return;
@@ -136,7 +136,7 @@ setTimeout(function () {
 }, FALLBACK_TIMEOUT_MS);
 
 // Both attempts may legitimately be in flight between T=9s and whichever
-// resolves first — that's fine, it's rare. If NEITHER ever calls back, show
+// resolves first -- that's fine, it's rare. If NEITHER ever calls back, show
 // the error UI.
 setTimeout(function () {
   if (!entrypointHandled) {
