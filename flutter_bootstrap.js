@@ -59,7 +59,8 @@ if ('serviceWorker' in navigator) {
 
 // -- Engine bootstrap with gstatic-fallback, timeout, and error UI --
 
-const FALLBACK_TIMEOUT_MS = 9000; // generous for slow-but-working gstatic; bounds the blank-page window
+const FALLBACK_TIMEOUT_MS = 9000;  // when to probe gstatic reachability
+const ERROR_TIMEOUT_MS = 60000;    // when to show the error UI
 
 let entrypointHandled = false; // first attempt to actually run wins
 let fallbackStarted = false;
@@ -108,7 +109,7 @@ function startFallbackLoad() {
   console.warn('Canuckle: gstatic CanvasKit/Skwasm load timed out -- retrying with local /canvaskit/.');
   try {
     _flutter.loader.load({
-      config: { canvasKitBaseUrl: '/canvaskit/' },
+      config: { canvasKitBaseUrl: '/canvaskit/', renderer: 'canvaskit' },
       onEntrypointLoaded: runEntrypoint,
     });
   } catch (err) {
@@ -117,10 +118,15 @@ function startFallbackLoad() {
   }
 }
 
-// Primary attempt: default config (gstatic-hosted CanvasKit/Skwasm).
+// Primary attempt: default config (gstatic-hosted CanvasKit).
+// renderer: 'canvaskit' forces CanvasKit for every browser -- skwasm is
+// still experimental and can silently fail to get a WebGL context on some
+// Chrome/GPU/driver combos, leaving a blank canvas with no JS-visible error.
+// This also means main.dart.wasm/.mjs are never fetched -- only main.dart.js.
 // Zero extra bandwidth for the ~99%+ of users where gstatic is reachable.
 try {
   _flutter.loader.load({
+    config: { renderer: 'canvaskit' },
     onEntrypointLoaded: runEntrypoint,
   });
 } catch (err) {
@@ -128,19 +134,34 @@ try {
   startFallbackLoad();
 }
 
-// gstatic hasn't called back in time -- assume it's blocked and retry
-// against the locally-hosted /canvaskit/ folder.
-setTimeout(function () {
+// At 9s: probe gstatic before deciding to start the local fallback.
+// A HEAD fetch with mode:'no-cors' resolves for any HTTP response (opaque),
+// and rejects only on network failure or abort -- so if gstatic is reachable
+// but slow the probe succeeds and we leave the in-progress download alone.
+setTimeout(async function () {
   if (entrypointHandled) return;
+  const rev = _flutter.buildConfig && _flutter.buildConfig.engineRevision;
+  if (rev) {
+    try {
+      const ac = new AbortController();
+      const tid = setTimeout(() => ac.abort(), 3000);
+      await fetch(
+        'https://www.gstatic.com/flutter-canvaskit/' + rev + '/canvaskit.js',
+        { method: 'HEAD', mode: 'no-cors', signal: ac.signal }
+      );
+      clearTimeout(tid);
+      return; // gstatic is reachable -- just slow, don't start fallback
+    } catch (_) {
+      // probe timed out or failed -- gstatic is blocked, fall through
+    }
+  }
   startFallbackLoad();
 }, FALLBACK_TIMEOUT_MS);
 
-// Both attempts may legitimately be in flight between T=9s and whichever
-// resolves first -- that's fine, it's rare. If NEITHER ever calls back, show
-// the error UI.
+// Show error UI only after 60s -- gives slow connections time to finish.
 setTimeout(function () {
   if (!entrypointHandled) {
     console.error('Canuckle: both gstatic and local CanvasKit/Skwasm attempts failed to start the app.');
     showFatalError();
   }
-}, FALLBACK_TIMEOUT_MS * 2);
+}, ERROR_TIMEOUT_MS);
