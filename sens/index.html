@@ -80,7 +80,9 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   <script src="flutter.js" defer></script>
 
   <!-- Yolla Media script -->
-  <script type="text/javascript" src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
+  <link rel="preconnect" href="https://portal.cdn.yollamedia.com" crossorigin>
+  <link rel="dns-prefetch" href="https://portal.cdn.yollamedia.com">
+  <script async src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
 
   <style>
     div.loadingscreen {
@@ -155,7 +157,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       margin: 0 auto; 
     }
     div.adbox_1 {
-      z-index: 5;
+      z-index: 1000000;
       align-items: center;
       display: flex;
       height: 100vh;
@@ -165,7 +167,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       overflow: hidden; 
     }
     div.adbox_2 {
-      z-index: 5;
+      z-index: 1000000;
       align-items: center;
       display: flex;
       height: 100vh;
@@ -175,7 +177,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       overflow: hidden; 
     }
     div.adbox_3 {
-      z-index: 5;
+      z-index: 1000000;
       align-items: center;
       display: flex;
       height: 100vh;
@@ -185,7 +187,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       overflow: hidden; 
     }
     div.adbox_4 {
-      z-index: 5;
+      z-index: 1000000;
       align-items: center;
       display: flex;
       height: 100vh;
@@ -195,7 +197,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       overflow: hidden; 
     }
     div.mobileadbox {
-      z-index: 99999;
+      z-index: 1000000;
       height: 50px;
       width: 100vw;
       display: block;
@@ -204,30 +206,11 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       overflow: hidden;
       margin-top: 4px; 
     }
-    div.adbox_1:first-child {
-      left: 0;
-    }
-    div.adbox_1:nth-child(2) {
-      right: 0;
-    }
-    div.adbox_2:nth-child(3) {
-      left: 0;
-    }
-    div.adbox_2:nth-child(4) {
-      right: 0;
-    }
-    div.adbox_3:nth-child(5) {
-      left: 0;
-    }
-    div.adbox_3:nth-child(6) {
-      right: 0;
-    }
-    div.adbox_4:nth-child(7) {
-      left: 0;
-    }
-    div.adbox_4:nth-child(8) {
-      right: 0;
-    }
+    /* Child 1 is the mobile box, so the rail pairs start at child 2. */
+    div.adbox_1:nth-child(2), div.adbox_2:nth-child(4),
+    div.adbox_3:nth-child(6), div.adbox_4:nth-child(8) { left: 0; }
+    div.adbox_1:nth-child(3), div.adbox_2:nth-child(5),
+    div.adbox_3:nth-child(7), div.adbox_4:nth-child(9) { right: 0; }
 
     @keyframes jump-animation {
       0%   {transform: translate(0%, 10%)}
@@ -239,7 +222,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 920px), screen and (max-height: 600px), {
+    @media screen and (max-width: 920px), screen and (max-height: 600px) {
       div.adbox_1 {
         display: none;
       }
@@ -249,7 +232,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 1200px), screen and (max-height: 250px), {
+    @media screen and (max-width: 1200px), screen and (max-height: 250px) {
       div.adbox_2 {
         display: none;
       }
@@ -259,7 +242,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 1272px), screen and (max-height: 280px), {
+    @media screen and (max-width: 1272px), screen and (max-height: 280px) {
       div.adbox_3 {
         display: none;
       }
@@ -269,7 +252,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 1272px), screen and (max-height: 600px), {
+    @media screen and (max-width: 1272px), screen and (max-height: 600px) {
       div.adbox_4 {
         display: none;
       }

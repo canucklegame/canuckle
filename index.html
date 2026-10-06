@@ -80,8 +80,8 @@ if (/canucklegame.github.io/.test(window.location) === true) {
   <link rel="preload" href="assets/fonts/ClearSans-Medium.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/ClearSans-Bold.ttf" as="font" type="font/ttf" crossorigin>
 
-  <!-- Yolla Media script -->
-  <script async src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
+  <!-- The Yolla Media tag is injected by flutter_bootstrap.js once the app is
+       running, so it does not compete with startup. Do not add it here too. -->
 
   <style>
     div.loadingscreen {
@@ -402,7 +402,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
-    @media screen and (max-width: 1400px) {
+    @media screen and (max-width: 1400px), screen and (max-height: 690px) {
       div.adbox_6 {
         display: none;
       }
