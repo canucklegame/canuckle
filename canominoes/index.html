@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <script>
+    // Production = canucklegame.ca and its subdomains. Off it (sandbox, localhost)
+    // there are no analytics and no Yolla; ad slots show coloured placeholders.
+    // Analytics is Firebase Analytics (G-RPLYG6MC2K), started from Dart on
+    // production only -- it loads gtag.js itself, so nothing is loaded here.
+    window.CANUCKLE_PROD = /(^|\.)canucklegame\.ca$/.test(location.hostname);
+    if (!window.CANUCKLE_PROD) document.documentElement.classList.add('ad-preview');
+  </script>
+  <!--
+    DEPLOYED SHELL -- THE page for both canuckleSite/canominoes/index.html
+    (production) and jeffrrogers.github.io/canominoes/index.html (sandbox).
+
+    Both deploy scripts copy this file over the target's index.html on EVERY
+    run, then stamp the flutter_bootstrap.js ?version= below. Edit it here, never
+    in a site repo -- a hand edit there is overwritten by the next deploy.
+
+    Everything that differs between the two sites comes from the hostname test
+    in the script above: on canucklegame.ca (window.CANUCKLE_PROD) the Dart
+    side starts Firebase Analytics (which loads gtag.js for G-RPLYG6MC2K
+    itself) and flutter_bootstrap.js injects the Yolla tag; anywhere else
+    neither happens, and the ad slots show coloured placeholders
+    (html.ad-preview) instead. Nothing here loads or configures GA -- doing so
+    would count every page view twice.
+
+    It carries what the build knows nothing about: the ad slots, the Open Graph
+    tags and the base href.
+
+    The base href is hardcoded rather than passed at build time because
+    flutter.js resolves every path with `new URL(path, document.baseURI)` -- so
+    one build artifact serves any subpath, as long as this tag declares it.
+
+    THE SLUG APPEARS HERE AND IN lib/game_settings.dart. Both deploy scripts
+    re-read kGameSlug and abort if the base href below disagrees, because a
+    rename that misses one of them is a blank page.
+  -->
+  <base href="/canominoes/">
+
+  <!-- Connection hints for everything on the critical path. -->
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://portal.cdn.yollamedia.com" crossorigin>
+  <link rel="dns-prefetch" href="https://portal.cdn.yollamedia.com">
+
+  <meta http-equiv="Content-language" content="en">
+  <meta name="googlebot" value="notranslate">
+  <meta name="description" content="A daily Canadian dominoes puzzle. Cover the board so every outlined area gets what it asks for. Three new puzzles a day.">
+  <meta name="keywords" content="dominoes, pips, puzzle, Canada, Canadian, daily puzzle, logic puzzle, free puzzle game, canuckle, canominoes">
+  <meta name="author" content="Canuckle Games">
+  <meta name="copyright" content="Canuckle Games">
+  <meta name="theme-color" content="#CF2319">
+
+  <title>Canominoes - A daily Canadian dominoes puzzle</title>
+
+  <link rel="canonical" href="https://www.canucklegame.ca/canominoes/">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:url" content="https://www.canucklegame.ca/canominoes/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Canominoes - A daily Canadian dominoes puzzle">
+  <meta property="og:description" content="Three new puzzles every day, the same for everyone. Solve one to keep your streak going.">
+  <meta property="og:image" content="https://www.canucklegame.ca/canominoes/images/canominoes_og_1200x630.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.canucklegame.ca/canominoes/images/canominoes_og_1200x630.png">
+
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Canominoes">
+  <meta name="HandheldFriendly" content="true">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <!--
+    Font preload. NOTE the path: pubspec.yaml declares these as "fonts/X.ttf",
+    and the engine serves them at "assets/fonts/X.ttf". This tag is a URL, so it
+    uses the served path; the Dart-side rootBundle.load() in main.dart uses the
+    pubspec key. Getting the two confused produces a silent 404 and a fallback
+    font.
+  -->
+  <link rel="preload" href="assets/fonts/ClearSans-Regular-subset.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/ClearSans-Bold-subset.ttf" as="font" type="font/ttf" crossorigin>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+      overscroll-behavior: none;
+    }
+
+    /* Light by default; the script below flips these for a high-contrast
+       player before anything paints. */
+    :root {
+      --dom-ground: #FFF4F4;
+      --dom-ink: rgba(0, 0, 0, 0.55);
+    }
+    body { background: var(--dom-ground); }
+
+    /* Shown until Flutter's first frame. Pure CSS -- an image here would be an
+       asset request competing with the engine download. */
+    #dom-loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: var(--dom-ground);
+      transition: opacity 0.25s ease-out;
+      z-index: 10;
+    }
+    #dom-loading.dom-hidden { opacity: 0; pointer-events: none; }
+
+    /* Ten tiles: they shrink a little on narrow phones so the word fits. */
+    .dom-word { display: flex; gap: min(7px, 1.4vw); }
+    .dom-tile {
+      width: min(30px, 7.6vw);
+      height: min(40px, 10.1vw);
+      border-radius: 5px;
+      background: #FFFFFF;
+      color: #CF2319;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: min(17px, 4.3vw);
+      font-weight: 700;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: dom-jump 0.5s ease-in-out infinite;
+    }
+    @keyframes dom-jump {
+      0%   { transform: translateY(6%); }
+      50%  { transform: translateY(-8%); }
+      100% { transform: translateY(6%); }
+    }
+
+    .dom-error { display: none; text-align: center; padding: 0 24px; color: var(--dom-ink); }
+    #dom-loading.dom-error-state .dom-word { display: none; }
+    #dom-loading.dom-error-state .dom-error { display: block; }
+    .dom-reload {
+      margin-top: 14px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #CF2319;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* -- Ad rails ---------------------------------------------------------
+       Mirrors canuckleSite/index.html (Canuckle), except the phone banner's
+       650px height step and the 1600px wide tier below.
+       The 300 in calc(50vw - 300px) is half of div.game's max-width, so the
+       rails fill exactly the space either side of the canvas. Change one and
+       you must change the other -- and kMaxBoardWidth in
+       lib/ui/board_metrics.dart as well.                                   */
+    div.bg { z-index: 1; height: 100vh; width: 100vw; }
+    div.game {
+      z-index: 3;
+      height: 100vh;
+      width: 100vw;
+      max-width: 600px;
+      display: block;
+      margin: 0 auto;
+    }
+    div.adbox_1, div.adbox_2, div.adbox_3, div.adbox_4 {
+      z-index: 1000000;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden;
+    }
+    div.adbox_5 {
+      z-index: 1000000;
+      height: 90px;
+      align-items: center;
+      width: 100vw;
+      display: block;
+      max-width: 970px;
+      justify-content: center;
+      overflow: hidden;
+      padding: 4px 0;
+      margin: auto;
+      position: relative;
+    }
+    div.adbox_6, div.adbox_7 {
+      z-index: 99999;
+      align-items: center;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden;
+    }
+    div.mobileadbox {
+      z-index: 1000000; height: 50px; width: 100vw; display: block;
+      position: absolute; max-width: 728px; overflow: hidden; margin-top: 4px;
+    }
+    div.mobileadbox_2 {
+      z-index: 1000000; height: 100px; width: 100vw; display: block;
+      position: absolute; max-width: 728px; overflow: hidden; margin-top: 4px;
+    }
+    div.adbox_1:nth-child(3), div.adbox_2:nth-child(5),
+    div.adbox_3:nth-child(7), div.adbox_4:nth-child(9),
+    div.adbox_6:nth-child(12) { left: 0; }
+    div.adbox_1:nth-child(4), div.adbox_2:nth-child(6),
+    div.adbox_3:nth-child(8), div.adbox_4:nth-child(10),
+    div.adbox_7:nth-child(13) { right: 0; }
+
+    @media screen and (min-width: 728px) {
+      div.mobileadbox, div.mobileadbox_2 { display: none; }
+    }
+    @media screen and (min-height: 650px) { div.mobileadbox { display: none; } }
+    @media screen and (max-height: 649px) { div.mobileadbox_2 { display: none; } }
+    @media screen and (max-width: 728px) { div.adbox_5 { display: none; } }
+    @media screen and (max-width: 920px), screen and (max-height: 690px) {
+      div.adbox_1 { display: none; }
+    }
+    @media screen and (min-width: 1200px) { div.adbox_1 { display: none; } }
+    @media screen and (max-width: 1200px), screen and (max-height: 250px) {
+      div.adbox_2 { display: none; }
+    }
+    @media screen and (min-width: 1272px) and (min-height: 280px) {
+      div.adbox_2 { display: none; }
+    }
+    @media screen and (max-width: 1272px), screen and (max-height: 280px) {
+      div.adbox_3 { display: none; }
+    }
+    @media screen and (min-width: 1272px) and (min-height: 690px) {
+      div.adbox_3 { display: none; }
+    }
+    @media screen and (max-width: 1272px), screen and (max-height: 690px) {
+      div.adbox_4 { display: none; }
+    }
+    @media screen and (min-width: 1400px) { div.adbox_4 { display: none; } }
+    /* Short windows keep adbox_3 at any width, so the tall rails give way
+       there rather than stack on top of it. */
+    @media screen and (max-width: 1400px), screen and (max-height: 690px) {
+      div.adbox_6, div.adbox_7 { display: none; }
+    }
+
+    /* The wide tier. Above 1600px there is rail room to spare, so the board can
+       grow without costing any existing ad inventory. Going wider at the base
+       size would instead push the 160x600 rail's minimum viewport from 920px
+       past 1000px and lose fills across that whole band.
+       Mirrored by kWideBoardWidth / kWideBoardBreakpoint in Dart. */
+    @media screen and (min-width: 1600px) {
+      div.game { max-width: 760px; }
+      div.adbox_1, div.adbox_2, div.adbox_3, div.adbox_4,
+      div.adbox_6, div.adbox_7 { width: calc(50vw - 380px); }
+    }
+
+    /* Off production (sandbox/localhost): show where ads go. */
+    html.ad-preview div.adbox_1 { background-color: green; }
+    html.ad-preview div.adbox_2 { background-color: blue; }
+    html.ad-preview div.adbox_3 { background-color: yellow; }
+    html.ad-preview div.adbox_4,
+    html.ad-preview div.adbox_7 { background-color: orange; }
+    html.ad-preview div.adbox_5 { background-color: purple; }
+    html.ad-preview div.adbox_6 { background-color: red; }
+    html.ad-preview div.mobileadbox { background-color: red; }
+    html.ad-preview div.mobileadbox_2 { background-color: green; }
+  </style>
+
+  <script>
+    // Paint the loading screen in the palette the player actually chose.
+    //
+    // Otherwise a high-contrast player gets a flash of near-white before
+    // Flutter's first frame, which is the exact thing they turned the setting
+    // on to avoid.
+    //
+    // The 'flutter.' prefix is shared_preferences_web's, not ours -- an
+    // implementation detail, which is why the whole thing is wrapped: a
+    // browser with storage blocked, or a change to that prefix, degrades to
+    // the light ground rather than throwing before the page renders.
+    (function () {
+      try {
+        if (localStorage.getItem('flutter.domHighContrast') === 'true') {
+          var r = document.documentElement.style;
+          r.setProperty('--dom-ground', '#000000');
+          r.setProperty('--dom-ink', 'rgba(255, 255, 255, 0.65)');
+        }
+      } catch (e) { /* light it is */ }
+    })();
+  </script>
+
+</head>
+<body>
+  <div class="bg">
+    <div class="mobileadbox">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50"></div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50"></div>
+    </div>
+    <div class="mobileadbox_2">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x100"></div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x100"></div>
+    </div>
+    <div class="adbox_1"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600"></div></div>
+    <div class="adbox_1"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600"></div></div>
+    <div class="adbox_2"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250"></div></div>
+    <div class="adbox_2"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250"></div></div>
+    <div class="adbox_3"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280"></div></div>
+    <div class="adbox_3"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280"></div></div>
+    <div class="adbox_4"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+    <div class="adbox_4"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+    <div class="adbox_5"><div class="ympb_target" data-type="desktop-leaderboard-template" data-subtype="728x90, 970x90"></div></div>
+    <div class="adbox_6"><div class="ympb_target_companion" data-type="desktop-medrec-template" data-subtype="400x600"></div></div>
+    <div class="adbox_7"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+
+    <div class="game">
+  <!-- The game's name, one tile per letter. -->
+  <div id="dom-loading" title="Loading">
+    <div class="dom-word">
+      <div class="dom-tile" style="animation-delay:0s">C</div>
+      <div class="dom-tile" style="animation-delay:.06s">A</div>
+      <div class="dom-tile" style="animation-delay:.12s">N</div>
+      <div class="dom-tile" style="animation-delay:.18s">O</div>
+      <div class="dom-tile" style="animation-delay:.24s">M</div>
+      <div class="dom-tile" style="animation-delay:.30s">I</div>
+      <div class="dom-tile" style="animation-delay:.36s">N</div>
+      <div class="dom-tile" style="animation-delay:.42s">O</div>
+      <div class="dom-tile" style="animation-delay:.48s">E</div>
+      <div class="dom-tile" style="animation-delay:.54s">S</div>
+    </div>
+    <div class="dom-error">
+      <div>Couldn't load the game.</div>
+      <button class="dom-reload" onclick="window.location.reload()">Reload</button>
+    </div>
+  </div>
+
+  <script>
+    window.__domHideLoading = function () {
+      var el = document.getElementById('dom-loading');
+      if (el) el.classList.add('dom-hidden');
+    };
+    window.__domShowError = function () {
+      var el = document.getElementById('dom-loading');
+      if (el) {
+        el.classList.remove('dom-hidden');
+        el.classList.add('dom-error-state');
+      }
+    };
+    window.addEventListener('flutter-first-frame', window.__domHideLoading);
+
+    // WebGL context loss.
+    //
+    // Ported from Canuckle, where it encodes a real Chrome-for-iOS failure: ad
+    // iframes exhaust the browser's WebGL context budget and CanvasKit loses
+    // its own, leaving a permanently blank canvas with no error. The grace
+    // period exists because the browser often restores the context on its own
+    // within a second or two, and reloading immediately would be a worse
+    // experience than a brief stall.
+    (function () {
+      var timer = null;
+      window.addEventListener('webglcontextlost', function (e) {
+        console.warn('Canominoes: WebGL context lost', e);
+        if (timer) return;
+        timer = setTimeout(function () { window.__domShowError(); }, 4000);
+      }, true);
+      window.addEventListener('webglcontextrestored', function () {
+        if (timer) { clearTimeout(timer); timer = null; }
+      }, true);
+    })();
+  </script>
+
+    </div><!-- .game -->
+  </div><!-- .bg -->
+
+  <!-- The ?version= stamp is rewritten by both deploy scripts on every deploy;
+       flutter_bootstrap.js is cached for an hour otherwise. Do not remove the
+       query string -- the scripts warn loudly if they cannot find it, because a
+       deploy that never reaches returning visitors is the failure mode.
+
+       The ad tag is NOT loaded here. flutter_bootstrap.js injects it two
+       seconds after the first frame, and only when window.CANUCKLE_PROD is
+       true, so its WebGL contexts cannot starve CanvasKit's during startup. -->
+  <script src="flutter_bootstrap.js?version=202610131207" async></script>
+</body>
+</html>

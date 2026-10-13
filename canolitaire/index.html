@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <script>
+    // Production = canucklegame.ca and its subdomains. Off it (sandbox, localhost)
+    // there are no analytics and no Yolla; ad slots show coloured placeholders.
+    // Analytics is Firebase Analytics (G-RPLYG6MC2K), started from Dart on
+    // production only -- it loads gtag.js itself, so nothing is loaded here.
+    window.CANUCKLE_PROD = /(^|\.)canucklegame\.ca$/.test(location.hostname);
+    if (!window.CANUCKLE_PROD) document.documentElement.classList.add('ad-preview');
+  </script>
+  <!--
+    DEPLOYED SHELL -- the ONE template for both canuckleSite/canolitaire/ and
+    the sandbox's canolitaire/. deploy_to_site.ps1 and deploy_to_io.ps1 copy
+    this file over the target's index.html on every run (never the build
+    output's index.html), so edit it here, not in either site.
+
+    It carries what the build knows nothing about: the ad slots and the base
+    href. Production vs sandbox is decided at runtime by the CANUCKLE_PROD
+    hostname test above: off canucklegame.ca there are no analytics (the Dart
+    side makes the same test), no Yolla, and the ad slots show coloured
+    placeholders.
+
+    The base href is hardcoded rather than passed at build time because
+    flutter.js resolves every path with `new URL(path, document.baseURI)` --
+    so one build artifact serves any subpath, as long as this tag declares it.
+  -->
+  <base href="/canolitaire/">
+
+  <!-- Connection hints for everything on the critical path. -->
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://portal.cdn.yollamedia.com" crossorigin>
+  <link rel="dns-prefetch" href="https://portal.cdn.yollamedia.com">
+
+  <meta http-equiv="Content-language" content="en">
+  <meta name="googlebot" value="notranslate">
+  <meta name="description" content="A daily Canadian solitaire game. Everyone gets the same Klondike deal each day, plus unlimited free play.">
+  <meta name="keywords" content="canolitaire, solitaire, klondike, Canada, Canadian, daily solitaire, free solitaire, patience, card game, online solitaire, canuckle">
+  <meta name="author" content="Canuckle Games">
+  <meta name="copyright" content="Canuckle Games">
+  <meta name="theme-color" content="#CF2319">
+
+  <title>Canolitaire - A daily Canadian card game</title>
+
+  <!-- Open Graph / Twitter -->
+  <link rel="canonical" href="https://www.canucklegame.ca/canolitaire/">
+  <meta property="og:url" content="https://www.canucklegame.ca/canolitaire/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Canolitaire - A daily Canadian card game">
+  <meta property="og:description" content="Everyone gets the same Klondike deal each day. Keep your streak going.">
+  <meta property="og:image" content="https://www.canucklegame.ca/canolitaire/images/canolitaire_og_1200x630.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.canucklegame.ca/canolitaire/images/canolitaire_og_1200x630.png">
+
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Canolitaire">
+  <meta name="HandheldFriendly" content="true">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <!--
+    Font preload. NOTE the path: pubspec.yaml declares these as
+    "fonts/X.ttf", and the engine serves them at "assets/fonts/X.ttf".
+    This tag is a URL, so it uses the served path; the Dart-side
+    rootBundle.load() in main.dart uses the pubspec key. Getting the two
+    confused produces a silent 404 and a fallback font.
+  -->
+  <link rel="preload" href="assets/fonts/ClearSans-Regular-subset.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/ClearSans-Bold-subset.ttf" as="font" type="font/ttf" crossorigin>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #FFF4F4;
+      font-family: sans-serif;
+      overscroll-behavior: none;
+    }
+
+    /* Shown until Flutter's first frame. Pure CSS -- an image here would be
+       an asset request competing with the engine download. */
+    #sol-loading {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: #1F5138;
+      transition: opacity 0.25s ease-out;
+      z-index: 10;
+    }
+    #sol-loading.sol-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .sol-word { display: flex; gap: min(6px, 1.2vw); }
+    .sol-tile {
+      /* Eleven tiles: shrink on a narrow phone rather than overflow it. */
+      width: min(34px, 7vw);
+      height: min(34px, 7vw);
+      border-radius: 10%;
+      background: #CF2319;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: min(20px, 4.1vw);
+      font-weight: 700;
+      animation: sol-jump 0.5s ease-in-out infinite;
+    }
+    @keyframes sol-jump {
+      0%   { transform: translateY(6%); }
+      50%  { transform: translateY(-8%); }
+      100% { transform: translateY(6%); }
+    }
+
+
+    /* -- Ad rails ---------------------------------------------------------
+       Mirrors canuckleSite/index.html (Canuckle), except
+       the phone banner's 650px height step and the 1600px wide tier below. The 300 in calc(50vw - 300px)
+       is half of div.game's max-width, so the rails fill exactly the space
+       either side of the canvas. Change one and you must change the other --
+       and BoardMetrics.kMaxBoardWidth in Dart as well.                     */
+    div.bg { z-index: 1; height: 100vh; width: 100vw; }
+    div.game {
+      z-index: 3;
+      height: 100vh;
+      width: 100vw;
+      max-width: 600px;
+      display: block;
+      margin: 0 auto;
+    }
+    div.adbox_1, div.adbox_2, div.adbox_3, div.adbox_4 {
+      z-index: 1000000;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden;
+    }
+    div.adbox_5 {
+      z-index: 1000000;
+      height: 90px;
+      align-items: center;
+      width: 100vw;
+      display: block;
+      max-width: 970px;
+      justify-content: center;
+      overflow: hidden;
+      padding: 4px 0;
+      margin: auto;
+      position: relative;
+    }
+    div.adbox_6, div.adbox_7 {
+      z-index: 99999;
+      align-items: center;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden;
+    }
+    div.mobileadbox {
+      z-index: 1000000; height: 50px; width: 100vw; display: block;
+      position: absolute; max-width: 728px; overflow: hidden; margin-top: 4px;
+    }
+    div.mobileadbox_2 {
+      z-index: 1000000; height: 100px; width: 100vw; display: block;
+      position: absolute; max-width: 728px; overflow: hidden; margin-top: 4px;
+    }
+    div.adbox_1:nth-child(3), div.adbox_2:nth-child(5),
+    div.adbox_3:nth-child(7), div.adbox_4:nth-child(9),
+    div.adbox_6:nth-child(12) { left: 0; }
+    div.adbox_1:nth-child(4), div.adbox_2:nth-child(6),
+    div.adbox_3:nth-child(8), div.adbox_4:nth-child(10),
+    div.adbox_7:nth-child(13) { right: 0; }
+
+    @media screen and (min-width: 728px) {
+      div.mobileadbox, div.mobileadbox_2 { display: none; }
+    }
+    @media screen and (min-height: 650px) { div.mobileadbox { display: none; } }
+    @media screen and (max-height: 649px) { div.mobileadbox_2 { display: none; } }
+    @media screen and (max-width: 728px) { div.adbox_5 { display: none; } }
+    @media screen and (max-width: 920px), screen and (max-height: 690px) {
+      div.adbox_1 { display: none; }
+    }
+    @media screen and (min-width: 1200px) { div.adbox_1 { display: none; } }
+    @media screen and (max-width: 1200px), screen and (max-height: 250px) {
+      div.adbox_2 { display: none; }
+    }
+    @media screen and (min-width: 1272px) and (min-height: 280px) {
+      div.adbox_2 { display: none; }
+    }
+    @media screen and (max-width: 1272px), screen and (max-height: 280px) {
+      div.adbox_3 { display: none; }
+    }
+    @media screen and (min-width: 1272px) and (min-height: 690px) {
+      div.adbox_3 { display: none; }
+    }
+    @media screen and (max-width: 1272px), screen and (max-height: 690px) {
+      div.adbox_4 { display: none; }
+    }
+    @media screen and (min-width: 1400px) { div.adbox_4 { display: none; } }
+    /* Short windows keep adbox_3 at any width, so the tall rails give way
+       there rather than stack on top of it. */
+    @media screen and (max-width: 1400px), screen and (max-height: 690px) {
+      div.adbox_6, div.adbox_7 { display: none; }
+    }
+
+    /* The wide tier. Above 1600px there is rail room to spare, so the board
+       can grow without costing any existing ad inventory. Going wider at the
+       base size would instead push the 160x600 rail's minimum viewport from
+       920px past 1000px and lose fills across that whole band.
+       Mirrored by kWideBoardWidth / kWideBoardBreakpoint in Dart. */
+    @media screen and (min-width: 1600px) {
+      div.game { max-width: 760px; }
+      div.adbox_1, div.adbox_2, div.adbox_3, div.adbox_4,
+      div.adbox_6, div.adbox_7 { width: calc(50vw - 380px); }
+    }
+
+    /* Off production (sandbox/localhost): show where ads go. */
+    html.ad-preview div.adbox_1 { background-color: green; }
+    html.ad-preview div.adbox_2 { background-color: blue; }
+    html.ad-preview div.adbox_3 { background-color: yellow; }
+    html.ad-preview div.adbox_4,
+    html.ad-preview div.adbox_7 { background-color: orange; }
+    html.ad-preview div.adbox_5 { background-color: purple; }
+    html.ad-preview div.adbox_6 { background-color: red; }
+    html.ad-preview div.mobileadbox { background-color: red; }
+    html.ad-preview div.mobileadbox_2 { background-color: green; }
+
+    .sol-error { display: none; color: #fff; text-align: center; padding: 0 24px; }
+    #sol-loading.sol-error-state .sol-word { display: none; }
+    #sol-loading.sol-error-state .sol-error { display: block; }
+    .sol-reload {
+      margin-top: 14px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #CF2319;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="mobileadbox">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50"></div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50"></div>
+    </div>
+    <div class="mobileadbox_2">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x100"></div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x100"></div>
+    </div>
+    <div class="adbox_1"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600"></div></div>
+    <div class="adbox_1"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600"></div></div>
+    <div class="adbox_2"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250"></div></div>
+    <div class="adbox_2"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250"></div></div>
+    <div class="adbox_3"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280"></div></div>
+    <div class="adbox_3"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280"></div></div>
+    <div class="adbox_4"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+    <div class="adbox_4"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+    <div class="adbox_5"><div class="ympb_target" data-type="desktop-leaderboard-template" data-subtype="728x90, 970x90"></div></div>
+    <div class="adbox_6"><div class="ympb_target_companion" data-type="desktop-medrec-template" data-subtype="400x600"></div></div>
+    <div class="adbox_7"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+
+    <div class="game">
+  <div id="sol-loading" title="Canolitaire loading">
+    <div class="sol-word">
+      <div class="sol-tile" style="animation-delay:0s">C</div>
+      <div class="sol-tile" style="animation-delay:.06s">A</div>
+      <div class="sol-tile" style="animation-delay:.12s">N</div>
+      <div class="sol-tile" style="animation-delay:.18s">O</div>
+      <div class="sol-tile" style="animation-delay:.24s">L</div>
+      <div class="sol-tile" style="animation-delay:.30s">I</div>
+      <div class="sol-tile" style="animation-delay:.36s">T</div>
+      <div class="sol-tile" style="animation-delay:.42s">A</div>
+      <div class="sol-tile" style="animation-delay:.48s">I</div>
+      <div class="sol-tile" style="animation-delay:.54s">R</div>
+      <div class="sol-tile" style="animation-delay:.60s">E</div>
+    </div>
+    <div class="sol-error">
+      <div>Couldn't load the game.</div>
+      <button class="sol-reload" onclick="window.location.reload()">Reload</button>
+    </div>
+  </div>
+
+  <script>
+    window.__solHideLoading = function () {
+      var el = document.getElementById('sol-loading');
+      if (el) el.classList.add('sol-hidden');
+    };
+    window.__solShowError = function () {
+      var el = document.getElementById('sol-loading');
+      if (el) {
+        el.classList.remove('sol-hidden');
+        el.classList.add('sol-error-state');
+      }
+    };
+    window.addEventListener('flutter-first-frame', window.__solHideLoading);
+
+    // WebGL context loss.
+    //
+    // Ported from Canuckle, where it encodes a real Chrome-for-iOS failure:
+    // ad iframes exhaust the browser's WebGL context budget and CanvasKit
+    // loses its own, leaving a permanently blank canvas with no error. The
+    // grace period exists because the browser often restores the context on
+    // its own within a second or two, and reloading immediately would be a
+    // worse experience than a brief stall.
+    (function () {
+      var timer = null;
+      window.addEventListener('webglcontextlost', function (e) {
+        console.warn('Canolitaire: WebGL context lost', e);
+        if (timer) return;
+        timer = setTimeout(function () { window.__solShowError(); }, 4000);
+      }, true);
+      window.addEventListener('webglcontextrestored', function () {
+        if (timer) { clearTimeout(timer); timer = null; }
+      }, true);
+    })();
+  </script>
+
+    </div><!-- .game -->
+  </div><!-- .bg -->
+
+  <!-- The ?version= stamp is rewritten by both deploy scripts on every deploy;
+       flutter_bootstrap.js is cached for an hour otherwise. Do not remove the
+       query string -- the script warns loudly if it cannot find it, because a
+       deploy that never reaches returning visitors is the failure mode.
+
+       The Yolla ad tag is NOT loaded here. flutter_bootstrap.js injects it two
+       seconds after runApp(), and only when CANUCKLE_PROD is true, so its
+       WebGL contexts cannot starve CanvasKit's during startup and the sandbox
+       never serves live ads. -->
+  <script src="flutter_bootstrap.js?version=202610131206" async></script>
+</body>
+</html>

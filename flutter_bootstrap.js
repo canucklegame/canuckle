@@ -48,7 +48,7 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2wasm","renderer":"skwasm","mainWasmPath":"main.dart.wasm?v=2","jsSupportRuntimePath":"main.dart.mjs?v=2"},{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=2"}]};
+_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2wasm","renderer":"skwasm","mainWasmPath":"main.dart.wasm?v=202610131205","jsSupportRuntimePath":"main.dart.mjs?v=202610131205"},{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202610131205"}]};
 
 
 // Register SW directly -- not through Flutter's deprecated serviceWorkerSettings.
@@ -61,6 +61,7 @@ if ('serviceWorker' in navigator) {
 
 const FALLBACK_TIMEOUT_MS = 9000;  // when to probe gstatic reachability
 const ERROR_TIMEOUT_MS = 60000;    // when to show the error UI
+const AD_INJECT_DELAY_MS = 2000;   // grace period after first frame before Yolla loads
 
 let entrypointHandled = false; // first attempt to actually run wins
 let fallbackStarted = false;
@@ -89,13 +90,21 @@ async function runEntrypoint(engineInitializer) {
     // (primary hook, see index.html) is ever not dispatched. Safe to call twice.
     hideLoadingScreen();
 
-    // Inject Yolla after the Flutter app is running so it doesn't compete
-    // with CanvasKit/Skwasm WASM during the critical startup window.
-    const s = document.createElement('script');
-    s.async = true;
-    s.type = 'text/javascript';
-    s.src = 'https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js';
-    document.head.appendChild(s);
+    // Inject Yolla after the Flutter app is running, plus a short extra
+    // grace period -- so it doesn't compete with CanvasKit/Skwasm WASM
+    // during the critical startup window. The ad's own canvas/WebGL
+    // contexts can otherwise starve CanvasKit's context right as
+    // first-launch overlays (e.g. the how-to-play popup) are painting.
+    // Production only: window.CANUCKLE_PROD is set by the index.html host
+    // test, and off production (sandbox, localhost) the ad slots show
+    // coloured placeholders instead. Missing flag = not production.
+    if (window.CANUCKLE_PROD === true) setTimeout(function () {
+      const s = document.createElement('script');
+      s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js';
+      document.head.appendChild(s);
+    }, AD_INJECT_DELAY_MS);
   } catch (err) {
     console.error('Canuckle: engine init / runApp failed:', err);
     entrypointHandled = false; // let the OTHER in-flight attempt (if any) try

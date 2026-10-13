@@ -1,0 +1,1281 @@
+@font-face {
+  font-family: 'Clear Sans';
+  src: url('../fonts/ClearSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clear Sans';
+  src: url('../fonts/ClearSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clear Sans';
+  src: url('../fonts/ClearSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ---- Tokens ------------------------------------------------------------ */
+
+:root {
+  --bg: #FBF7F2;
+  --surface: #FFFFFF;
+  --surface-2: #F4F0EA;
+  --text: #17171A;
+  --muted: #5E5B57;
+  --border: #E6E1DA;
+  --accent: #D52B1E;
+  --accent-text: #B3241A;
+  --on-accent: #FFFFFF;
+  --solved: #D52B1E;
+  --failed: #6B6862;
+  --played: #B98B12;
+  --progress: #B98B12;
+  --locked: #CFCAC4;
+  --locked-ring: #E6E1DA;
+  --tile-opacity: 0.2;
+  --shadow: 0 1px 2px rgba(23, 23, 26, .06), 0 4px 16px rgba(23, 23, 26, .06);
+  --radius: 18px;
+  --display: 'Sora', 'Clear Sans', system-ui, sans-serif;
+  --body: 'Clear Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #121212;
+  --surface: #1C1C1F;
+  --surface-2: #26262A;
+  --text: #F4F2EF;
+  --muted: #A8A49E;
+  --border: #34343A;
+  --accent: #E0463C;
+  --accent-text: #FF7A6E;
+  --solved: #E0463C;
+  --failed: #8D8A85;
+  --played: #D9AE3A;
+  --progress: #D9AE3A;
+  --locked: #45454C;
+  --locked-ring: #34343A;
+  --tile-opacity: 0.3;
+  --shadow: 0 1px 2px rgba(0, 0, 0, .4);
+  color-scheme: dark;
+}
+
+/* High contrast: Canuckle's orange and blue for results, everywhere (the
+   Games-tab tiles too, instead of each game's colour), with darker secondary
+   text and firmer borders. */
+:root[data-contrast="high"] {
+  --muted: #3F3D3A;
+  --border: #B9B3AB;
+  --solved: #F5793A;
+  --played: #3A84C9;
+  --progress: #3A84C9;
+  --tile-solved: var(--solved);
+  --tile-progress: var(--progress);
+}
+:root[data-theme="dark"][data-contrast="high"] {
+  --muted: #CFCBC5;
+  --border: #5A5A62;
+  --played: #85C0F9;
+  --progress: #85C0F9;
+}
+
+/* ---- Base -------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.45;
+  min-height: 100vh;
+}
+
+a { color: var(--accent-text); }
+a:hover { color: var(--accent); }
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.muted { color: var(--muted); }
+
+.icon { width: 22px; height: 22px; display: block; }
+.status-wrap, .status-wrap > span:first-child { display: inline-flex; }
+.btn .icon { width: 18px; height: 18px; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---- Ads ---------------------------------------------------------------
+   The games' slot logic (canuckleSite/index.html) with the centre column at
+   the arena's 980px instead of a game's 600px: every width breakpoint is the
+   game's plus 380px, heights are unchanged, and the phone banner steps up at
+   650px tall like Canoku and the newer games. Unlike a game page the arena
+   scrolls, so the rails are fixed to the window and the page is padded in to
+   sit between them. Rails stay under sheets (50) and toasts (60). */
+
+.ads-top { display: flex; flex-direction: column; align-items: center; }
+
+div.mobileadbox, div.mobileadbox_2 {
+  width: 100%;
+  max-width: 728px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+div.mobileadbox { height: 50px; }
+div.mobileadbox_2 { height: 100px; }
+
+div.adbox_5 {
+  width: 100%;
+  max-width: 970px;
+  height: 90px;
+  padding: 4px 0;
+  box-sizing: content-box;
+  overflow: hidden;
+}
+
+div.adbox_1, div.adbox_2, div.adbox_3, div.adbox_4, div.adbox_6, div.adbox_7 {
+  position: fixed;
+  top: 0;
+  z-index: 40;
+  width: calc(50vw - 490px);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+div.left { left: 0; }
+div.right { right: 0; }
+
+@media screen and (min-width: 1300px) {
+  body { padding-inline: calc(50vw - 490px); }
+}
+
+@media screen and (min-width: 728px) {
+  div.mobileadbox, div.mobileadbox_2 { display: none; }
+}
+@media screen and (min-height: 650px) { div.mobileadbox { display: none; } }
+@media screen and (max-height: 649px) { div.mobileadbox_2 { display: none; } }
+@media screen and (max-width: 728px) { div.adbox_5 { display: none; } }
+@media screen and (max-width: 1300px), screen and (max-height: 690px) {
+  div.adbox_1 { display: none; }
+}
+@media screen and (min-width: 1580px) { div.adbox_1 { display: none; } }
+@media screen and (max-width: 1580px), screen and (max-height: 250px) {
+  div.adbox_2 { display: none; }
+}
+@media screen and (min-width: 1652px) and (min-height: 280px) {
+  div.adbox_2 { display: none; }
+}
+@media screen and (max-width: 1652px), screen and (max-height: 280px) {
+  div.adbox_3 { display: none; }
+}
+@media screen and (min-width: 1652px) and (min-height: 690px) {
+  div.adbox_3 { display: none; }
+}
+@media screen and (max-width: 1652px), screen and (max-height: 690px) {
+  div.adbox_4 { display: none; }
+}
+@media screen and (min-width: 1780px) { div.adbox_4 { display: none; } }
+/* Short windows keep adbox_3 at any width, so the tall rails give way there
+   rather than stack on top of it. */
+@media screen and (max-width: 1780px), screen and (max-height: 690px) {
+  div.adbox_6, div.adbox_7 { display: none; }
+}
+
+/* Off production (sandbox/localhost) no ad tag loads: show where ads go, in
+   the same colours as the games' pages. ads.js sets html.ad-preview. */
+html.ad-preview div.adbox_1 { background-color: green; }
+html.ad-preview div.adbox_2 { background-color: blue; }
+html.ad-preview div.adbox_3 { background-color: yellow; }
+html.ad-preview div.adbox_4,
+html.ad-preview div.adbox_7 { background-color: orange; }
+html.ad-preview div.adbox_5 { background-color: purple; }
+html.ad-preview div.adbox_6 { background-color: red; }
+html.ad-preview div.mobileadbox { background-color: red; }
+html.ad-preview div.mobileadbox_2 { background-color: green; }
+
+/* ---- Header ------------------------------------------------------------ */
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  height: 180px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.banner .tile {
+  position: absolute;
+  width: calc(var(--s) * 1px);
+  height: calc(var(--s) * 1px);
+  transform: rotate(calc(var(--r) * 1deg));
+  opacity: var(--tile-opacity);
+  pointer-events: none;
+  user-select: none;
+}
+
+.lockup {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-decoration: none;
+  color: var(--text);
+}
+.lockup:hover { color: var(--text); }
+
+.lockup img { width: 92px; height: 92px; }
+
+/* Two-line lockup: the name over "games arena". The space between the spans
+   keeps the accessible text reading as one phrase. */
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Sora', var(--display);
+  font-size: 44px;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+.wm-name { font-weight: 800; }
+.wm-sub {
+  font-weight: 400;
+  color: var(--accent-text);
+}
+
+.header-btn {
+  color: var(--text);
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.sandbox-bar {
+  font: 600 12px/1.3 var(--body);
+  text-align: center;
+  padding: 4px 12px;
+  background: #1F5E96;
+  color: #fff;
+}
+
+.sandbox-ribbon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  font: 700 11px/1 var(--body);
+  letter-spacing: .08em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #1F5E96;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .banner { height: 156px; }
+  .banner .tile { width: calc(var(--s) * .72px); height: calc(var(--s) * .72px); }
+  .banner .tile.wide-only { display: none; }
+  .lockup { gap: 12px; }
+  .lockup img { width: 64px; height: 64px; }
+  .wordmark { font-size: 30px; }
+}
+
+/* ---- Tabs -------------------------------------------------------------- */
+
+.tabs {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.tabs .wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 56px;
+}
+
+.tab {
+  font: 700 15px/1 var(--display);
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--muted);
+}
+.tab:hover { color: var(--text); }
+.tab[aria-current="page"] {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.sync-note {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: right;
+}
+
+@media (max-width: 420px) {
+  .tabs .wrap { gap: 2px; }
+  .tab { padding: 10px 13px; }
+  .sync-note { font-size: 12px; }
+}
+
+main { padding: 20px 0 64px; }
+
+/* ---- Games tab --------------------------------------------------------- */
+
+.today-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin-bottom: 16px;
+}
+.today-line h1 { font-size: 24px; }
+
+.notice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+/* Row header: the Stats cards and detail pages still use it. */
+.row-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 16px 12px;
+}
+.row-head img { width: 40px; height: 40px; flex: none; }
+.row-head h2 { font-size: 18px; }
+.row-head p { margin: 0; font-size: 13px; }
+.row-head .grow { flex: 1; min-width: 0; }
+
+.streak-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font: 700 14px/1 var(--display);
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  white-space: nowrap;
+}
+.streak-chip svg { width: 16px; height: 16px; color: var(--accent); }
+.streak-chip.zero { color: var(--muted); }
+.streak-chip.zero svg { color: var(--muted); }
+
+/* ---- Game strips: a row of tinted cards per game -------------------------- */
+
+.strip-row { position: relative; margin-bottom: 22px; --fade: 64px; }
+@media (max-width: 600px) {
+  /* Phones show only a sliver of the next card; a long fade would hide it. */
+  .strip-row { --fade: 24px; }
+}
+
+/* Fade whichever edge has more cards beyond it, so the row reads as
+   continuing off-screen. The ramp is about a third of a card, shorter on phones. */
+.strip-row.can-right .strip {
+  -webkit-mask-image: linear-gradient(to right, #000 calc(100% - var(--fade)), transparent);
+  mask-image: linear-gradient(to right, #000 calc(100% - var(--fade)), transparent);
+}
+.strip-row.can-left .strip {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade));
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade));
+}
+.strip-row.can-left.can-right .strip {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 var(--fade), #000 calc(100% - var(--fade)), transparent);
+}
+
+.strip-nav {
+  position: absolute;
+  top: calc(50% - 22px);
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(23, 23, 26, .16);
+  display: none;
+  place-items: center;
+  padding: 0;
+}
+.strip-nav:hover { color: var(--game); }
+.strip-nav .icon { width: 22px; height: 22px; }
+.strip-nav.prev { left: -6px; }
+.strip-nav.next { right: -6px; }
+.strip-nav.next .icon { transform: scaleX(-1); }
+/* Mouse and trackpad users get arrows; touch screens swipe. */
+@media (hover: hover) and (pointer: fine) {
+  .strip-row.can-left .strip-nav.prev,
+  .strip-row.can-right .strip-nav.next { display: grid; }
+}
+
+.strip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  /* Bleed to the window edge so cards scroll out of view rather than being
+     clipped at the content column, with the first card still aligned to it. */
+  margin: 0 -16px;
+  padding: 4px 16px 8px;
+  scroll-padding: 0 16px;
+  scrollbar-width: none;
+}
+.strip::-webkit-scrollbar { display: none; }
+.strip > * { scroll-snap-align: start; flex: none; }
+
+.gcard {
+  box-sizing: border-box;
+  height: 200px;
+  border-radius: 24px;
+  background: var(--tint);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+:root[data-theme="dark"] .gcard { background: var(--tint-dark); }
+.gcard:hover {
+  color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(23, 23, 26, .10);
+}
+
+.today-card {
+  width: min(310px, calc(100vw - 76px));
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tc-top { display: flex; gap: 12px; align-items: flex-start; }
+.tc-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.tc-name { font: 800 25px/1.05 var(--display); letter-spacing: -0.03em; }
+.tc-blurb { font-size: 14px; line-height: 1.35; margin-top: 6px; color: var(--muted); }
+.tc-logo { width: 66px; height: 66px; flex: none; }
+.tc-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.tc-kicker {
+  display: block;
+  font: 700 12px/1.2 var(--display);
+  letter-spacing: .08em;
+  color: var(--muted);
+}
+.tc-when { display: block; font: 800 17px/1.2 var(--display); margin-top: 3px; }
+
+.cta {
+  flex: none;
+  font: 800 15px/1 var(--display);
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: var(--game);
+  color: #fff;
+}
+.cta.done { background: var(--frame); color: var(--text); }
+:root[data-theme="dark"] .cta.done { background: var(--frame-dark); }
+
+.past-card {
+  width: 150px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.result-tile, .result-tile svg { display: block; width: 60px; height: 60px; }
+.rt-frame { fill: var(--frame); }
+:root[data-theme="dark"] .rt-frame { fill: var(--frame-dark); }
+.rt-logo { width: 60px; height: 60px; opacity: .4; filter: grayscale(.6); }
+:root[data-contrast="high"] .rt-logo { opacity: .7; }
+.pc-label {
+  font: 700 11px/1.3 var(--display);
+  letter-spacing: .08em;
+  margin-top: 12px;
+}
+.pc-day { font: 800 19px/1.2 var(--display); letter-spacing: -0.02em; margin-top: 2px; }
+.pc-date { font-size: 12px; color: var(--muted); }
+
+.coming-soon { cursor: default; }
+.coming-soon:hover { transform: none; box-shadow: none; }
+.coming-soon .tc-logo { opacity: .55; filter: grayscale(.4); }
+
+.see-all-icon { color: var(--game); }
+.see-all-icon .icon { width: 44px; height: 44px; }
+:root[data-theme="dark"] .see-all-icon { color: var(--text); }
+
+/* ---- Status marks (archive calendar, tier picker) ------------------------- */
+
+.status-icon { width: 28px; height: 28px; }
+
+.pips { display: flex; gap: 3px; }
+.pip {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  border: 1.5px solid var(--muted);
+  opacity: .7;
+}
+.pip.solved { background: var(--solved); border-color: var(--solved); opacity: 1; }
+.pip.failed { background: var(--failed); border-color: var(--failed); opacity: 1; }
+.pip.played { background: var(--played); border-color: var(--played); opacity: 1; }
+.pip.progress { border-color: var(--progress); opacity: 1; }
+
+/* ---- Sheets ------------------------------------------------------------ */
+
+.sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, .45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: fade .15s ease;
+}
+@media (min-width: 640px) {
+  .sheet-backdrop { align-items: center; }
+}
+
+.sheet-frame {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  animation: rise .2s ease;
+}
+.sheet-frame.tall { max-width: 640px; }
+
+.sheet {
+  max-height: 88vh;
+  overflow: auto;
+  background: var(--surface);
+  border-radius: 24px 24px 0 0;
+  padding: 20px 20px 28px;
+}
+@media (min-width: 640px) {
+  .sheet, .scroll-hint { border-radius: 0 0 24px 24px; }
+  .sheet { border-radius: 24px; }
+}
+.sheet.no-scrollbar { scrollbar-width: none; }
+.sheet.no-scrollbar::-webkit-scrollbar { display: none; }
+
+/* "More below": a fade to the sheet's colour and a chevron, shown while there
+   is more to scroll. Rounded like the sheet's bottom corners, so it never
+   pokes out past them. */
+.scroll-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 44px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 6px;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--surface) 0%, transparent), var(--surface));
+  color: var(--accent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.scroll-hint.visible { opacity: 1; }
+.scroll-hint svg { width: 20px; height: 11px; display: block; }
+
+.sheet-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sheet-head img { width: 36px; height: 36px; }
+.sheet-head h2 { font-size: 19px; flex: 1; }
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--surface-2);
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+/* A sheet's close button: Canuckle's round one, the same in every game. */
+.close-btn {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: none;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+.close-btn:hover { background: var(--border); }
+.close-btn:active { transform: translateY(2px); }
+.close-btn .icon { width: 18px; height: 18px; }
+.close-btn .icon path { stroke-width: 2.2; }
+
+.tier-group { margin-top: 12px; }
+.tier-group h3 { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.tier-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(124px, 1fr)); gap: 8px; }
+
+.tier-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 8px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+}
+.tier-btn:hover { border-color: var(--muted); color: var(--text); }
+.tier-btn .status-icon { width: 22px; height: 22px; flex: none; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: var(--on-accent);
+  font: 700 15px/1 var(--display);
+  text-decoration: none;
+}
+.btn:hover { color: var(--on-accent); filter: brightness(1.05); }
+.btn.secondary { background: var(--surface-2); color: var(--text); }
+.btn.secondary:hover { color: var(--text); }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 60;
+  background: var(--text);
+  color: var(--bg);
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  animation: rise .2s ease;
+}
+
+/* ---- Settings ---------------------------------------------------------- */
+
+.settings { display: flex; flex-direction: column; gap: 20px; }
+
+.set-caption {
+  font: 700 12px/1 var(--body);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 4px 8px;
+}
+
+.set-card {
+  background: var(--surface-2);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.set-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 10px 14px;
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
+  color: var(--text);
+  text-decoration: none;
+}
+.set-row + .set-row { border-top: 1px solid var(--border); }
+.set-row.column { flex-direction: column; align-items: stretch; gap: 6px; }
+.set-row.toggle { cursor: pointer; }
+a.set-row:hover, button.set-row:hover { color: var(--text); background: rgba(127, 127, 127, .08); }
+
+.set-text { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+.set-label { font-weight: 700; }
+.set-detail { font-size: 13px; color: var(--muted); }
+.selectable, .user-id, .linked { user-select: text; overflow-wrap: anywhere; }
+.user-id { font: 700 17px/1.3 ui-monospace, 'Cascadia Mono', Consolas, monospace; letter-spacing: .04em; }
+
+.row-icon { width: 28px; height: 28px; flex: none; display: grid; place-items: center; }
+.row-icon.tinted { color: var(--accent); }
+.link-row > .set-label { flex: 1; }
+.link-row > span:last-child .icon { color: var(--muted); width: 18px; height: 18px; }
+
+/* Settings › Game order */
+.order-note { margin: 0 4px; font-size: 14px; }
+.order-list { list-style: none; margin: 0; padding: 0; }
+.order-row { gap: 10px; }
+.order-row .grow { flex: 1; min-width: 0; }
+.order-logo { width: 32px; height: 32px; flex: none; }
+.order-btn, .order-gap { width: 44px; height: 44px; flex: none; }
+.order-btn {
+  border: none;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+.order-btn:hover { background: var(--border); }
+.order-btn:active { transform: translateY(2px); }
+.order-btn .icon { width: 20px; height: 20px; }
+
+.switch {
+  position: relative;
+  flex: none;
+  width: 50px;
+  height: 30px;
+  border-radius: 999px;
+  border: none;
+  background: var(--locked);
+  transition: background-color .15s;
+}
+.switch .knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+  transition: transform .15s;
+}
+.switch[aria-checked="true"] { background: var(--accent); }
+.switch[aria-checked="true"] .knob { transform: translateX(20px); }
+
+.inline-form { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.inline-form input, .sync-form input {
+  flex: 1 1 180px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+.inline-form input { height: 40px; min-height: 0; padding: 0 12px; font-size: 15px; }
+.inline-form input:focus { outline: none; border-color: var(--accent); }
+.inline-form .linked { flex: 1 1 180px; font-size: 15px; }
+/* Link / Unlink, the same in every game: a 38px pill. */
+.btn.small { min-height: 0; height: 38px; padding: 0 16px; font-size: 14px; }
+
+/* Copy User ID: an icon button, the same in every game. The icon turns into
+   an accent tick for two seconds once copied. */
+.copy-btn {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+.copy-btn:hover { background: rgba(127, 127, 127, .12); }
+.copy-btn .icon { width: 22px; height: 22px; }
+.copy-btn.copied { color: var(--accent); }
+.btn:disabled { opacity: .6; cursor: default; }
+
+.set-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  padding-top: 4px;
+}
+.set-footer p { margin: 0; font-size: 13px; }
+.socials { display: flex; gap: 14px; }
+.social { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; }
+.social:hover { opacity: .75; }
+.cira { display: flex; flex-direction: column; align-items: center; gap: 4px; color: var(--muted); text-decoration: none; }
+.cira .powered { font: 700 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; }
+
+.sync { display: flex; flex-direction: column; gap: 12px; }
+.sync p { margin: 0; }
+.sync-form { display: flex; flex-direction: column; gap: 12px; }
+.sync-error { color: var(--accent-text); font-weight: 700; }
+.sync-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .switch, .switch .knob, .scroll-hint { transition: none; }
+}
+
+@keyframes fade { from { opacity: 0; } }
+@keyframes rise { from { transform: translateY(16px); opacity: 0; } }
+
+/* ---- Archive ----------------------------------------------------------- */
+
+.page-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.page-head img { width: 44px; height: 44px; }
+.page-head h1 { font-size: 24px; }
+.page-head .grow { flex: 1; min-width: 0; }
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend .status-icon { width: 18px; height: 18px; }
+
+/* One month at a time, centred, with buttons to step between months. */
+.month {
+  max-width: 520px;
+  margin: 0 auto 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+
+.month-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.month-title { flex: 1; display: flex; justify-content: center; min-width: 0; }
+
+/* The month heading, with the year under it. The browser's own month list
+   opens from a select laid invisibly over it. */
+.month-pick { position: relative; max-width: 100%; }
+.month-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 44px;
+  justify-content: center;
+  padding: 5px 26px 5px 10px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5' fill='none' stroke='%235E5B57' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 5px center / 18px;
+}
+.month-name {
+  color: var(--text);
+  font: 800 clamp(15px, 4.4vw, 18px)/1.15 var(--display);
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+.month-year { color: var(--muted); font: 400 12px/1.2 var(--body); }
+.month-select {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+.month-select:hover + .month-label { border-color: var(--border); background-color: var(--surface-2); }
+.month-select:focus-visible + .month-label { outline: 2px solid var(--game, var(--text)); outline-offset: 2px; }
+.month-select option, .month-select optgroup {
+  font: 400 15px/1.4 var(--body);
+  color: var(--text);
+  background: var(--surface);
+}
+.month-nav .icon-btn:disabled { opacity: .35; cursor: default; }
+.month-next .icon { transform: scaleX(-1); }
+.month-today {
+  order: 2;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font: 700 13px/1 var(--display);
+}
+.month-today[hidden] { display: none; }
+.month-nav .month-next { order: 3; }
+/* The smallest phones: a tighter row so "September" still fits beside
+   the buttons. */
+@media (max-width: 359px) {
+  .month-nav { gap: 4px; }
+  .month-nav .icon-btn { width: 38px; height: 38px; }
+  .month-today { padding: 7px 9px; }
+}
+
+.cal {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+.cal .dow {
+  font-size: 12px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.day {
+  aspect-ratio: 1;
+  min-height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font: 700 14px/1 var(--display);
+  color: var(--text);
+  text-decoration: none;
+  padding: 0;
+}
+.day:hover { border-color: var(--muted); color: var(--text); }
+.day.blank { visibility: hidden; }
+.day.none { background: transparent; border-style: dashed; color: var(--muted); cursor: default; }
+.day.future { background: transparent; border-color: transparent; color: var(--muted); opacity: .45; cursor: default; }
+.day.solved { background: var(--solved); border-color: var(--solved); color: #fff; }
+.day.failed { background: var(--failed); border-color: var(--failed); color: #fff; }
+.day.played { background: var(--played); border-color: var(--played); color: #fff; }
+.day.progress { border: 2px solid var(--progress); }
+.day.is-today { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }
+.day .pips { justify-content: center; }
+.day .pip { width: 6px; height: 6px; border-radius: 2px; }
+/* On a coloured day the status colours would vanish into the cell, so a
+   finished puzzle's dot fills white and an unfinished one stays a faint
+   outline. */
+.day.solved .pip, .day.failed .pip, .day.played .pip {
+  background: transparent;
+  border-color: rgba(255, 255, 255, .6);
+  opacity: 1;
+}
+.day.solved .pip.solved, .day.solved .pip.failed, .day.solved .pip.played,
+.day.failed .pip.solved, .day.failed .pip.failed, .day.failed .pip.played,
+.day.played .pip.solved, .day.played .pip.failed, .day.played .pip.played {
+  background: #fff;
+  border-color: #fff;
+}
+.day.solved .pip.progress, .day.failed .pip.progress, .day.played .pip.progress {
+  border-color: #fff;
+  background: linear-gradient(to top, #fff 50%, transparent 50%);
+}
+
+/* Canuckle+: Monday-first rows, each week one band, since a week is one puzzle. */
+.cal-weeks { display: grid; gap: 6px; }
+.week-head, .week-band {
+  display: grid;
+  grid-template-columns: 44px repeat(7, minmax(0, 1fr));
+  align-items: center;
+  gap: 4px;
+}
+.week-head .dow { font-size: 12px; text-align: center; color: var(--muted); }
+.week-band {
+  min-height: 46px;
+  padding: 0 4px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+a.week-band:hover { border-color: var(--muted); color: var(--text); }
+.week-band.none { background: transparent; border-style: dashed; color: var(--muted); }
+.week-band.future { background: transparent; border-color: transparent; color: var(--muted); opacity: .45; }
+.week-band.solved { background: var(--solved); border-color: var(--solved); color: #fff; }
+.week-band.failed { background: var(--failed); border-color: var(--failed); color: #fff; }
+.week-band.progress { border: 2px solid var(--progress); }
+.week-band.is-current { box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--text); }
+.wk-num { font: 800 12px/1 var(--display); text-align: center; opacity: .85; }
+.wk-day { font: 700 14px/1 var(--display); text-align: center; }
+.wk-day.outside { opacity: .4; }
+.wk-day.is-today { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---- Stats ------------------------------------------------------------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.section-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 24px 0 10px;
+}
+.section-title h2 { font-size: 18px; }
+
+.badge-btn {
+  flex: none;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  padding: 6px 2px;
+  border-radius: 14px;
+  text-align: center;
+  font: 700 12px/1.2 var(--display);
+}
+.badge-btn:hover { background: var(--surface-2); }
+.badge-btn .sub { font: 400 11px/1.2 var(--body); color: var(--muted); }
+
+/* "x4" on a medal earned more than once, at its top-right edge. */
+.medal-wrap { position: relative; display: inline-block; line-height: 0; }
+.badge-count {
+  position: absolute;
+  top: 0;
+  right: -6px;
+  min-width: 24px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  border: 2px solid var(--surface);
+  background: var(--badge, var(--accent));
+  color: #fff;
+  font: 800 11px/1 var(--display);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+.medal-wrap.big .badge-count { top: 8px; right: 0; padding: 5px 9px; font-size: 15px; }
+
+.badge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 8px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.stat-card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+}
+.stat-card:hover { color: var(--text); border-color: var(--muted); }
+.stat-card .row-head { padding: 0 0 12px; }
+
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  text-align: center;
+}
+.numbers b {
+  display: block;
+  font: 800 22px/1.1 var(--display);
+}
+.numbers small { font-size: 12px; color: var(--muted); }
+
+.headline {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.detail-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.detail-sections h3 { font-size: 16px; margin-bottom: 8px; }
+
+.rows { width: 100%; border-collapse: collapse; font-size: 15px; }
+.rows td { padding: 7px 0; border-bottom: 1px solid var(--border); }
+.rows tr:last-child td { border-bottom: none; }
+.rows td:last-child { text-align: right; font-weight: 700; }
+
+.bars { display: grid; gap: 6px; }
+.bar { display: grid; grid-template-columns: 18px 1fr; align-items: center; gap: 8px; font-size: 14px; }
+.bar .fill {
+  min-width: 28px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--failed);
+  color: #fff;
+  text-align: right;
+  font-weight: 700;
+}
+.bar .fill.top { background: var(--solved); }
+
+.progress-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.progress-bar div { height: 100%; background: var(--accent); }
+
+/* ---- Badge sheet / unlock ---------------------------------------------- */
+
+.badge-sheet { text-align: center; }
+.badge-sheet .medal { margin: 4px auto 10px; display: block; }
+.badge-sheet h2 { font-size: 24px; }
+.badge-sheet p { margin: 8px 0 16px; }
+.badge-sheet .actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+/* The checklist behind a multi-part badge: what's done, and what's still to do. */
+.badge-parts {
+  margin: 0 auto 16px;
+  max-width: 360px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+.badge-sheet .badge-parts p.note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+.badge-parts h3 {
+  margin: 0 0 4px;
+  font: 700 11px/1.2 var(--display);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+.progress-bar + .badge-parts { margin-top: 14px; }
+.badge-parts h4 { margin: 0 0 8px; font: 700 14px/1.3 var(--display); }
+.badge-parts ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.badge-parts li { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 14px; }
+.badge-parts .tick {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--locked);
+  display: grid;
+  place-items: center;
+}
+.badge-parts .tick .icon { width: 13px; height: 13px; }
+.badge-parts li.done .tick { border-color: var(--solved); background: var(--solved); color: var(--on-accent); }
+.badge-parts img { flex: none; width: 22px; height: 22px; }
+.badge-parts .label { min-width: 0; overflow-wrap: anywhere; }
+.badge-parts li:not(.done) .label { color: var(--muted); }
+.badge-parts .detail { margin-left: auto; flex: none; font-size: 12px; color: var(--muted); }
+
+.unlock h3 {
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+}
+
+.leaf-burst { position: relative; height: 0; }
+.leaf-burst svg {
+  position: absolute;
+  left: 50%;
+  top: 90px;
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+  animation: burst 1.1s ease-out forwards;
+  opacity: 0;
+}
+@keyframes burst {
+  0% { transform: translate(-50%, 0) rotate(0) scale(.4); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), var(--dy)) rotate(var(--rot)) scale(1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* ---- Privacy policy ------------------------------------------------------ */
+
+.policy { font-size: 15px; line-height: 1.55; }
+.policy p { margin: 0 0 12px; }
+.policy .policy-date { font-size: 13px; }
+.policy h3 { font-size: 16px; margin: 22px 0 8px; }
+.policy ul { margin: 0 0 12px; padding-left: 22px; }
+.policy li { margin-bottom: 4px; }
+.policy a { overflow-wrap: anywhere; }
+/* Privacy Policy: a fixed 38px pill, the same in every game. */
+.privacy-btn { min-height: 0; height: 38px; padding: 0 20px; font-size: 15px; margin-bottom: 6px; }

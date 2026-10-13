@@ -1,3 +1,20 @@
+﻿// Engine bootstrap for Canoku.
+//
+// Modelled on squaredleSourceCode/web/flutter_bootstrap.js (which came from
+// Canuckle's). Kept from there: relative paths, CanvasKit forced, the loading
+// screen hidden on the first frame, a 60 s error UI, and the Yolla tag
+// injected only after the game is running.
+//
+// Not carried over: the local-CanvasKit fallback. Canoku's deploy scripts do
+// not ship a canvaskit/ folder, so a fallback load would have nothing to load.
+// CanvasKit comes from gstatic, as it always has for Canoku.
+//
+// The two template tokens below are filled in by `flutter build web` (with
+// flutter.js and the build config). Never write them anywhere else in this
+// file, comments included: the build substitutes every occurrence. The deploy
+// scripts then add ?v=<stamp> to mainJsPath in the copied file, because
+// production serves /canoku/main.dart.js as immutable.
+
 (()=>{var _={blink:!0,gecko:!1,webkit:!1,unknown:!1},K=()=>navigator.vendor==="Google Inc."||navigator.userAgent.includes("Edg/")?"blink":navigator.vendor==="Apple Computer, Inc."?"webkit":navigator.vendor===""&&navigator.userAgent.includes("Firefox")?"gecko":"unknown",C=K(),R=()=>typeof ImageDecoder>"u"?!1:C==="blink",B=()=>typeof Intl.v8BreakIterator<"u"&&typeof Intl.Segmenter<"u",z=()=>{let i=[0,97,115,109,1,0,0,0,1,5,1,95,1,120,0];return WebAssembly.validate(new Uint8Array(i))},M=()=>{let i=document.createElement("canvas");return i.width=1,i.height=1,i.getContext("webgl2")!=null?2:i.getContext("webgl")!=null?1:-1},D=()=>window.chrome&&chrome.runtime&&chrome.runtime.id,w={browserEngine:C,hasImageCodecs:R(),hasChromiumBreakIterators:B(),supportsWasmGC:z(),crossOriginIsolated:window.crossOriginIsolated,webGLVersion:M(),isChromeExtension:D()};function c(...i){return new URL(I(...i),document.baseURI).toString()}function I(...i){return i.filter(e=>!!e).map((e,n)=>n===0?S(e):F(S(e))).filter(e=>e.length).join("/")}function F(i){let e=0;for(;e<i.length&&i.charAt(e)==="/";)e++;return i.substring(e)}function S(i){let e=i.length;for(;e>0&&i.charAt(e-1)==="/";)e--;return i.substring(0,e)}function E(i,e){return i.canvasKitBaseUrl?i.canvasKitBaseUrl:e.engineRevision&&!e.useLocalCanvasKit?I("https://www.gstatic.com/flutter-canvaskit",e.engineRevision):"canvaskit"}var v=class{constructor(){this._scriptLoaded=!1}setTrustedTypesPolicy(e){this._ttPolicy=e}async loadEntrypoint(e){let{entrypointUrl:n=c("main.dart.js"),onEntrypointLoaded:t,nonce:r}=e||{};return this._loadJSEntrypoint(n,t,r)}async load(e,n,t,r,a){a??=l=>{l.initializeEngine(t).then(u=>u.runApp())};let{entrypointBaseUrl:s}=t,{entryPointBaseUrl:o}=t;if(!s&&o&&(console.warn("[deprecated] `entryPointBaseUrl` is deprecated and will be removed in a future release. Use `entrypointBaseUrl` instead."),s=o),e.compileTarget==="dart2wasm")return this._loadWasmEntrypoint(e,n,s,a);{let l=e.mainJsPath??"main.dart.js",u=c(s,l);return this._loadJSEntrypoint(u,a,r)}}didCreateEngineInitializer(e){typeof this._didCreateEngineInitializerResolve=="function"&&(this._didCreateEngineInitializerResolve(e),this._didCreateEngineInitializerResolve=null,delete _flutter.loader.didCreateEngineInitializer),typeof this._onEntrypointLoaded=="function"&&this._onEntrypointLoaded(e)}_loadJSEntrypoint(e,n,t){let r=typeof n=="function";if(!this._scriptLoaded){this._scriptLoaded=!0;let a=this._createScriptTag(e,t);if(r)console.debug("Injecting <script> tag. Using callback."),this._onEntrypointLoaded=n,document.head.append(a);else return new Promise((s,o)=>{console.debug("Injecting <script> tag. Using Promises. Use the callback approach instead!"),this._didCreateEngineInitializerResolve=s,a.addEventListener("error",o),document.head.append(a)})}}async _loadWasmEntrypoint(e,n,t,r){if(!this._scriptLoaded){this._scriptLoaded=!0,this._onEntrypointLoaded=r;let{mainWasmPath:a,jsSupportRuntimePath:s}=e,o=c(t,a),l=c(t,s);this._ttPolicy!=null&&(l=this._ttPolicy.createScriptURL(l));let d=(await import(l)).compileStreaming(fetch(o)),p;e.renderer==="skwasm"?p=(async()=>{let h=await n.skwasm;return window._flutter_skwasmInstance=h,{skwasm:h.wasmExports,skwasmWrapper:h,ffi:{memory:h.wasmMemory}}})():p=Promise.resolve({}),await(await(await d).instantiate(await p,{loadDynamicModule:async(h,j)=>{let A=fetch(c(t,h)),L=c(t,j);this._ttPolicy!=null&&(L=this._ttPolicy.createScriptURL(L));let x=import(L);return[await A,await x]}})).invokeMain()}}_createScriptTag(e,n){let t=document.createElement("script");t.type="application/javascript",n&&(t.nonce=n);let r=e;return this._ttPolicy!=null&&(r=this._ttPolicy.createScriptURL(e)),t.src=r,t}};async function T(i,e,n){if(e<0)return i;let t,r=new Promise((a,s)=>{t=setTimeout(()=>{s(new Error(`${n} took more than ${e}ms to resolve. Moving on.`,{cause:T}))},e)});return Promise.race([i,r]).finally(()=>{clearTimeout(t)})}var g=class{setTrustedTypesPolicy(e){this._ttPolicy=e}loadServiceWorker(e){if(!e||!("serviceWorker"in navigator))return Promise.resolve();let n=()=>{console.warn(`Loading the service worker using Flutter bootstrap is deprecated and will stop working in a future release.
 For more details, see: https://github.com/flutter/flutter/issues/156910`)},t=()=>{let{serviceWorkerVersion:r,serviceWorkerUrl:a=c(`flutter_service_worker.js?v=${r}`),timeoutMillis:s=4e3}=e,o=a;this._ttPolicy!=null&&(o=this._ttPolicy.createScriptURL(o));let l=navigator.serviceWorker.register(o).then(u=>this._getNewServiceWorker(u,r)).then(this._waitForServiceWorkerActivation);return T(l,s,"prepareServiceWorker")};return e.serviceWorkerUrl!=null?(n(),t()):navigator.serviceWorker.getRegistration().then(r=>r?t():Promise.resolve())}async _getNewServiceWorker(e,n){if(!e.active&&(e.installing||e.waiting))return console.debug("Installing/Activating first service worker."),e.installing||e.waiting;if(e.active.scriptURL.endsWith(n))return console.debug("Loading from existing service worker."),e.active;{let t=await e.update();return console.debug("Updating service worker."),t.installing||t.waiting||t.active}}async _waitForServiceWorkerActivation(e){if(!e||e.state==="activated")if(e){console.debug("Service worker already active.");return}else throw new Error("Cannot activate a null service worker!");return new Promise((n,t)=>{e.addEventListener("statechange",()=>{e.state==="activated"&&(console.debug("Activated new service worker."),n())})})}};var y=class{constructor(e,n="flutter-js"){let t=e||[/\.js$/,/\.mjs$/];window.trustedTypes&&(this.policy=trustedTypes.createPolicy(n,{createScriptURL:function(r){if(r.startsWith("blob:"))return r;let a=new URL(r,window.location),s=a.pathname.split("/").pop();if(t.some(l=>l.test(s)))return a.toString();console.error("URL rejected by TrustedTypes policy",n,":",r,"(download prevented)")}}))}};var k=i=>{let e=WebAssembly.compileStreaming(fetch(i));return(n,t)=>((async()=>{let r=await e,a=await WebAssembly.instantiate(r,n);t(a,r)})(),{})};var U=(i,e,n,t)=>(window.flutterCanvasKitLoaded=(async()=>{if(window.flutterCanvasKit)return window.flutterCanvasKit;let r=n.hasChromiumBreakIterators&&n.hasImageCodecs;if(!r&&e.canvasKitVariant=="chromium")throw"Chromium CanvasKit variant specifically requested, but unsupported in this browser";let a=r&&e.canvasKitVariant!=="full",s=t;e.canvasKitVariant=="experimentalWebParagraph"?s=c(s,"experimental_webparagraph"):a&&(s=c(s,"chromium"));let o=c(s,"canvaskit.js");i.flutterTT.policy&&(o=i.flutterTT.policy.createScriptURL(o));let l=k(c(s,"canvaskit.wasm")),u=await import(o);return window.flutterCanvasKit=await u.default({instantiateWasm:l}),window.flutterCanvasKit})(),window.flutterCanvasKitLoaded);var W=async(i,e,n,t)=>{let a=!n.hasImageCodecs||!n.hasChromiumBreakIterators?"skwasm_heavy":e.enableWimp?"wimp":"skwasm",s=c(t,`${a}.js`),o=s;i.flutterTT.policy&&(o=i.flutterTT.policy.createScriptURL(o));let l=k(c(t,`${a}.wasm`));return await(await import(o)).default({skwasmSingleThreaded:e.enableWimp||!n.crossOriginIsolated||n.isChromeExtension||e.forceSingleThreadedSkwasm,instantiateWasm:l,locateFile:(d,p)=>d.endsWith(".ww.js")?URL.createObjectURL(new Blob([`
 "use strict";
@@ -33,10 +50,112 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"},{}]};
+_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202610131205"},{}]};
 
-_flutter.loader.load({
-  serviceWorkerSettings: {
-    serviceWorkerVersion: "1812315791" /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */
+
+// Local development: no service worker, no fatal-error timeout (a debug build
+// can take a long time to paint on a cold start), and never an ad tag.
+const IS_LOCAL_DEV =
+  location.hostname === 'localhost' ||
+  location.hostname === '127.0.0.1' ||
+  location.hostname === '::1' ||
+  location.hostname === '[::1]';
+
+// The family's one Yolla tag. Production only: index.html sets
+// window.CANUCKLE_PROD from the hostname before this file loads. On the
+// sandbox and localhost the ad slots show coloured placeholders instead.
+const AD_TAG_URL =
+  'https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js';
+
+const ERROR_TIMEOUT_MS = 60000;   // when to give up and show the error UI
+const AD_INJECT_DELAY_MS = 2000;  // grace period after runApp()
+const SW_REGISTER_DELAY_MS = 5000; // see registerServiceWorker()
+
+let entrypointHandled = false;
+
+function showFatalError() {
+  if (typeof window.__domShowError === 'function') window.__domShowError();
+}
+
+function hideLoadingScreen() {
+  if (typeof window.__domHideLoading === 'function') window.__domHideLoading();
+}
+
+// -- Service worker -----------------------------------------------------------
+//
+// The deployed flutter_service_worker.js is Flutter's own self-unregistering
+// cleanup worker (the deploy scripts copy it from the build, as Canuckle's do).
+// It replaced a hand-kept caching worker that never served from its cache
+// under /canoku/ and only re-downloaded the bundle on every deploy. Registering
+// it is what lets returning visitors' browsers pick it up and drop the old
+// worker. Registered directly, not through the deprecated
+// serviceWorkerSettings (which made the loader wait for it), and only after
+// the game is running.
+//
+// The path is RELATIVE on purpose: it resolves against <base href="/canoku/">
+// to /canoku/flutter_service_worker.js with scope /canoku/, the same worker
+// and scope as before. A leading slash would register the site ROOT's worker
+// (Canuckle's) from this page.
+function registerServiceWorker() {
+  if (IS_LOCAL_DEV || !('serviceWorker' in navigator)) return;
+  setTimeout(function () {
+    navigator.serviceWorker.register('flutter_service_worker.js?v=2538027448') /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */.catch(function (err) {
+      console.warn('Canoku: service worker registration failed:', err);
+    });
+  }, SW_REGISTER_DELAY_MS);
+}
+
+async function runEntrypoint(engineInitializer) {
+  if (entrypointHandled) return;
+  entrypointHandled = true;
+
+  try {
+    const appRunner = await engineInitializer.initializeEngine();
+    await appRunner.runApp();
+
+    // 'flutter-first-frame' in index.html is the primary hook. Safe to call
+    // twice.
+    hideLoadingScreen();
+
+    // The ad tag goes in only after the app is running, plus a grace period:
+    // its own canvas/WebGL contexts can otherwise starve CanvasKit's during
+    // startup. Production only (S3).
+    if (!IS_LOCAL_DEV && window.CANUCKLE_PROD === true && AD_TAG_URL) {
+      setTimeout(function () {
+        const s = document.createElement('script');
+        s.async = true;
+        s.type = 'text/javascript';
+        s.src = AD_TAG_URL;
+        document.head.appendChild(s);
+      }, AD_INJECT_DELAY_MS);
+    }
+
+    registerServiceWorker();
+  } catch (err) {
+    console.error('Canoku: engine init / runApp failed:', err);
+    showFatalError();
   }
-});
+}
+
+// renderer: 'canvaskit' forces CanvasKit for every browser. The build is
+// dart2js-only (no --wasm), so this matches the only build in buildConfig.
+try {
+  _flutter.loader.load({
+    config: { renderer: 'canvaskit' },
+    onEntrypointLoaded: runEntrypoint,
+  });
+} catch (err) {
+  console.error('Canoku: load() threw synchronously:', err);
+  showFatalError();
+}
+
+// Only after 60 s: give slow connections a real chance before showing the
+// reload screen. Skipped in local development.
+if (!IS_LOCAL_DEV) {
+  setTimeout(function () {
+    if (!entrypointHandled) {
+      console.error('Canoku: CanvasKit never started.');
+      showFatalError();
+    }
+  }, ERROR_TIMEOUT_MS);
+}

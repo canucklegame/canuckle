@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Canuckle Admin</title>
+  <link rel="icon" type="image/svg+xml" href="images/canuckle.svg">
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/admin.css?v=202610131208">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('admin.theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <div id="app"><p class="boot">Loading…</p></div>
+  <script type="module" src="js/app.js?v=202610131208"></script>
+</body>
+</html>

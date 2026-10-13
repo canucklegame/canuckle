@@ -1,18 +1,35 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <script>
+    // Production = canucklegame.ca and its subdomains. Off it (sandbox, localhost)
+    // there are no analytics and no Yolla; ad slots show coloured placeholders.
+    // Analytics is Firebase Analytics (G-RPLYG6MC2K), started from Dart on
+    // production only -- it loads gtag.js itself, so nothing is loaded here.
+    window.CANUCKLE_PROD = /(^|\.)canucklegame\.ca$/.test(location.hostname);
+    if (!window.CANUCKLE_PROD) document.documentElement.classList.add('ad-preview');
+    // Carried over from the previous production page: the old GitHub Pages
+    // host sends visitors to the main site.
+    if (/canucklegame\.github\.io/.test(window.location)) {
+      window.location = 'https://www.canucklegame.ca';
+    }
+  </script>
   <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+    DEPLOYED SHELL: the template for BOTH canuckleSite/canoku/index.html
+    (production) and the sandbox's canoku/index.html. Both deploy scripts copy
+    it over the target on every run and then stamp flutter_bootstrap.js?version=.
+    Edit it here, never in the site folders. Every production/sandbox
+    difference comes from window.CANUCKLE_PROD above.
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+    The base href is hardcoded (the build is not given --base-href): flutter.js
+    resolves every path against document.baseURI, so this tag is what makes the
+    build work under /canoku/ on both sites.
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
+    The Yolla ad tag is NOT loaded in this page. flutter_bootstrap.js injects it
+    on production only, two seconds after runApp(), so its WebGL contexts
+    cannot starve CanvasKit's during startup.
   -->
   <base href="/canoku/">
 
@@ -23,12 +40,9 @@
   <link rel="preconnect" href="https://portal.cdn.yollamedia.com" crossorigin>
   <link rel="dns-prefetch" href="https://portal.cdn.yollamedia.com">
 
-  <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="pragma" content="no-cache">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <!--added from original-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">  <!--added from original-->
   <meta http-equiv="Content-language" content="en">
   <meta name="googlebot" value="notranslate">
 
@@ -37,9 +51,10 @@
   <meta name="keywords" content="sudoku, Canada, Canadian, online sudoku, Canadian sudoku, emoji sudoku, sudoku free, sudoku puzzles, sudoku game, web sudoku, picture sudoku, sudoku puzzles">
   <meta name="author" content="Canuckle Games"/>
   <meta name="copyright" content="Canuckle Games"/>
+  <link rel="canonical" href="https://www.canucklegame.ca/canoku/">
 
   <!-- FB Meta Tags -->
-  <meta property="og:url" content="http://canoku.canucklegame.ca">
+  <meta property="og:url" content="https://www.canucklegame.ca/canoku/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Canoku - A daily Canadian Sudoku game">
   <meta property="og:description" content="Solve sudoku puzzles with Canadian emojis. 15 new puzzles are available each day.">
@@ -49,7 +64,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://www.canucklegame.ca/canoku/images/canoku_og_1200x630.png" />
   <meta name="theme-color" content="#ff0000" />
-  
+
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -57,37 +72,22 @@
   <meta name="HandheldFriendly" content="true">
   <link href="https://www.canucklegame.ca/canoku/images/canoku_logo_192x192.png" rel="apple-touch-icon" />
 
-
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://www.canucklegame.ca/canoku/images/canoku_logo_32x32.png"/>
 
   <link rel="manifest" href="https://www.canucklegame.ca/canoku/images/manifest.json">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-51PE0HTHXT"></script>
-
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-51PE0HTHXT');
-
-
-if (/canucklegame.github.io/.test(window.location) === true) {
-   window.location = 'https://www.canucklegame.ca'
-}
-  
-  </script>
-
-  <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter.js?v=1560163351" defer></script>
-
-  <!-- Font preload -->
+  <!--
+    Font preloads. pubspec.yaml declares these as "fonts/X.ttf"; the engine
+    serves them at "assets/fonts/X.ttf", which is what a URL here must use.
+    The ClearSans files are the subsets made by tools/subset_fonts.ps1; rename
+    them here too if they are ever renamed in pubspec.yaml.
+    No flutter.js <script> tag: the custom web/flutter_bootstrap.js inlines it.
+  -->
+  <link rel="preload" href="assets/fonts/ClearSans-Regular-subset.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/ClearSans-Medium-subset.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/ClearSans-Bold-subset.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/MaterialIcons-Regular.otf" as="font" type="font/otf" crossorigin>
-
-  <!-- Yolla Media script -->
-  <script async src="https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js"></script>
 
   <style>
     div.loadingscreen {
@@ -368,6 +368,48 @@ if (/canucklegame.github.io/.test(window.location) === true) {
         display: none;
       }
     }
+
+    /* Off production (sandbox/localhost): show where ads go. */
+    html.ad-preview div.adbox_1 { background-color: green; }
+    html.ad-preview div.adbox_2 { background-color: blue; }
+    html.ad-preview div.adbox_3 { background-color: yellow; }
+    html.ad-preview div.adbox_4,
+    html.ad-preview div.adbox_7 { background-color: orange; }
+    html.ad-preview div.adbox_5 { background-color: purple; }
+    html.ad-preview div.adbox_6 { background-color: red; }
+    html.ad-preview div.mobileadbox { background-color: red; }
+    html.ad-preview div.mobileadbox_2 { background-color: green; }
+
+    /* Loading screen: hidden on Flutter's first frame (it sits under the
+       canvas, so this mostly stops the animation). */
+    div.loadingscreen.dom-hidden { display: none; }
+
+    /* Shown only if the engine never starts, or WebGL is lost for good.
+       Fixed and above everything (ad slots are z-index 1000000), because by
+       then the Flutter canvas may already cover the loading screen. */
+    #dom-error {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000000;
+      background: #ddd;
+      font-family: sans-serif;
+      color: #000;
+      text-align: center;
+      padding-top: 33vh;
+    }
+    #dom-error.dom-shown { display: block; }
+    #dom-error button {
+      margin-top: 14px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #f00;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -429,7 +471,7 @@ if (/canucklegame.github.io/.test(window.location) === true) {
       </div>
     </div>
     <div class="game">
-      <div class="loadingscreen" title="Canoku Loading Screen">
+      <div class="loadingscreen" id="dom-loading" title="Canoku Loading Screen">
         <div class="canuckle">
           <div class="canuckleletterbg">
             <div class="canuckleletter">
@@ -503,20 +545,44 @@ if (/canucklegame.github.io/.test(window.location) === true) {
           <img src="assets/assets/leaf.svg" alt="Canoku Loading Screen" width="100" height="100">
         </div>
       </div>
-      <script src="flutter_bootstrap.js" async></script>
+      <div id="dom-error" role="alert">
+        <div>Couldn't load Canoku.</div>
+        <button type="button" onclick="window.location.reload()">Reload</button>
+      </div>
+      <script>
+        window.__domHideLoading = function () {
+          var el = document.getElementById('dom-loading');
+          if (el) el.classList.add('dom-hidden');
+        };
+        window.__domShowError = function () {
+          var el = document.getElementById('dom-error');
+          if (el) el.classList.add('dom-shown');
+        };
+        window.addEventListener('flutter-first-frame', window.__domHideLoading);
+
+        // WebGL context loss, as in Canuckle and Canoggle: ad iframes can
+        // exhaust the browser's WebGL context budget (seen on Chrome for iOS)
+        // and CanvasKit loses its own, leaving a blank canvas with no error.
+        // The browser often restores the context within a second or two, so
+        // wait before offering a reload.
+        (function () {
+          var timer = null;
+          window.addEventListener('webglcontextlost', function (e) {
+            console.warn('Canoku: WebGL context lost', e);
+            if (timer) return;
+            timer = setTimeout(function () { window.__domShowError(); }, 4000);
+          }, true);
+          window.addEventListener('webglcontextrestored', function () {
+            if (timer) { clearTimeout(timer); timer = null; }
+          }, true);
+        })();
+      </script>
+      <!-- The ?version= stamp is rewritten by both deploy scripts on every
+           deploy. Do not remove the query string: the scripts warn if they
+           cannot find it, and without it returning visitors can keep a stale
+           bootstrap (and so a stale main.dart.js?v=). -->
+      <script src="flutter_bootstrap.js?version=202610131205" async></script>
     </div>
   </div>
-  <!--<script type="text/javascript"> 
-    var adboxes = document.getElementsByClassName("adbox");
-    console.log(adboxes);
-    if (document.location.href.indexOf("code=123") > 0) {
-      console.log('found code');
-      for(var i = 0; i < adboxes.length; i++) {
-        var element = adboxes[i];
-        console.log(element);
-        element.style.display = "none";
-      }
-    }
-  </script>-->
 </body>
 </html>

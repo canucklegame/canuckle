@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <base href="/arena/">
+  <title>Canuckle Games Arena</title>
+  <meta name="description" content="All of the Canuckle games in one place: today's puzzles, the archive, your stats and badges.">
+  <meta name="theme-color" content="#D52B1E">
+
+  <meta property="og:title" content="Canuckle Games Arena">
+  <meta property="og:description" content="Canuckle, Canuckle+, Canuckle Duo, Canoku, Canolitaire, Canominoes, Canoggle and Canagrams: today's puzzles, the archive, your stats and badges.">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.canucklegame.ca/arena/">
+  <meta property="og:url" content="https://www.canucklegame.ca/arena/">
+  <meta property="og:image" content="https://www.canucklegame.ca/images/canuckle_og_1200x630.png">
+
+  <link rel="icon" type="image/svg+xml" href="images/arena.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://portal.cdn.yollamedia.com" crossorigin>
+  <link rel="dns-prefetch" href="https://portal.cdn.yollamedia.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/ClearSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/arena.css?v=202610131208">
+
+  <script>
+    // Apply the theme and contrast before first paint to avoid a flash. The
+    // same rules as js/theme.js: the arena's choice, else Canuckle's, else the
+    // device's.
+    (function () {
+      var get = function (k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } };
+      var t = get('arena.theme');
+      if (t !== 'light' && t !== 'dark') {
+        var d = get('flutter.isDarkMode');
+        if (typeof d === 'boolean') t = d ? 'dark' : 'light';
+      }
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+      var c = get('arena.highContrast');
+      if (typeof c !== 'boolean') c = get('flutter.isHighContrast') === true;
+      if (c) document.documentElement.dataset.contrast = 'high';
+    })();
+  </script>
+  <script type="module" src="js/app.js?v=202610131208"></script>
+</head>
+<body>
+  <!-- Ad slots: the same classes, sizes and order as the games' pages (see
+       canuckleSite/index.html); js/ads.js loads the tag that fills them. The
+       top boxes sit in the page flow; the rails are fixed either side of the
+       980px content column. css/arena.css decides which one shows. -->
+  <div class="ads-top">
+    <div class="mobileadbox">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50"></div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50"></div>
+    </div>
+    <div class="mobileadbox_2">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x100"></div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x100"></div>
+    </div>
+    <div class="adbox_5"><div class="ympb_target" data-type="desktop-leaderboard-template" data-subtype="728x90, 970x90"></div></div>
+  </div>
+  <div class="adbox_1 left"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600"></div></div>
+  <div class="adbox_1 right"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600"></div></div>
+  <div class="adbox_2 left"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250"></div></div>
+  <div class="adbox_2 right"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250"></div></div>
+  <div class="adbox_3 left"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280"></div></div>
+  <div class="adbox_3 right"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280"></div></div>
+  <div class="adbox_4 left"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+  <div class="adbox_4 right"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+  <div class="adbox_6 left"><div class="ympb_target_companion" data-type="desktop-medrec-template" data-subtype="400x600"></div></div>
+  <div class="adbox_7 right"><div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600"></div></div>
+
+  <div id="header"></div>
+  <div id="tabs"></div>
+  <main id="view">
+    <noscript><div class="wrap"><p>The Canuckle Games Arena needs JavaScript. You can still play <a href="/">Canuckle</a> or <a href="/canoku/">Canoku</a>.</p></div></noscript>
+  </main>
+</body>
+</html>
