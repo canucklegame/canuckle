@@ -1,16 +1,17 @@
 // Log tab: recent admin changes with what they changed, and Restore.
 
-import { h, clear, modal, toast, fmtTime, availabilityGate } from '../ui.js?v=202610131208';
-import { loadLog, restoreLogEntry } from '../store.js?v=202610131208';
-import { decodeAnswer } from '../codec.js?v=202610131208';
-import { loadAll, availabilityMessages } from '../context.js?v=202610131208';
-import { GAMES } from '../dates.js?v=202610131208';
+import { h, clear, modal, toast, fmtTime, availabilityGate } from '../ui.js?v=202610141429';
+import { loadLog, restoreLogEntry } from '../store.js?v=202610141429';
+import { decodeAnswer } from '../codec.js?v=202610141429';
+import { loadAll, availabilityMessages } from '../context.js?v=202610141429';
+import { GAMES } from '../dates.js?v=202610141429';
 
-const RESTORABLE = new Set(['add', 'edit', 'swap', 'import', 'restore']);
+const RESTORABLE = new Set(['add', 'edit', 'swap', 'import', 'restore', 'versions']);
 
-// A readable one-liner for a puzzle doc in a log entry.
+// A readable one-liner for a puzzle (or gameVersions) doc in a log entry.
 function describe(doc) {
   if (!doc) return '(none)';
+  if (typeof doc.version === 'string' && !('answer' in doc)) return doc.version;
   if (Array.isArray(doc.puzzles)) {
     const badge = doc.badge ? `, ${doc.badge.type} "${doc.badge.label}"` : '';
     return `#${doc.puzzles.join(' + #')}${badge}`;

@@ -48,7 +48,7 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2wasm","renderer":"skwasm","mainWasmPath":"main.dart.wasm?v=202610131239","jsSupportRuntimePath":"main.dart.mjs?v=202610131239"},{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202610131239"}]};
+_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2wasm","renderer":"skwasm","mainWasmPath":"main.dart.wasm?v=202610141422","jsSupportRuntimePath":"main.dart.mjs?v=202610141422"},{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202610141422"}]};
 
 
 // Register SW directly -- not through Flutter's deprecated serviceWorkerSettings.

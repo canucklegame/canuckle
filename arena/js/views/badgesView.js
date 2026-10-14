@@ -1,12 +1,12 @@
 // Badge medals, the badge detail sheet, the full badge page, and the unlock
 // announcement.
 
-import { h, ICONS, openSheet, sheetHead, toast } from '../ui.js?v=202610131208';
-import { longDate, todayEpochDay } from '../dates.js?v=202610131208';
-import { medalSvg, LEAF_PATH } from '../badges/icons.js?v=202610131208';
-import { shareBadge, shareShelf } from '../badges/share.js?v=202610131208';
-import { gameById } from '../games/registry.js?v=202610131208';
-import { track } from '../analytics.js?v=202610131208';
+import { h, ICONS, openSheet, sheetHead, toast } from '../ui.js?v=202610141420';
+import { longDate, todayEpochDay } from '../dates.js?v=202610141420';
+import { medalSvg, LEAF_PATH } from '../badges/icons.js?v=202610141420';
+import { shareBadge, shareShelf } from '../badges/share.js?v=202610141420';
+import { gameById } from '../games/registry.js?v=202610141420';
+import { track } from '../analytics.js?v=202610141420';
 
 const FAMILY_COLOR = '#D52B1E';
 

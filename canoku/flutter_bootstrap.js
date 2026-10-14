@@ -50,7 +50,7 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202610131205"},{}]};
+_flutter.buildConfig = {"engineRevision":"4c525dac5ebe5971c5708ef73558ed8edcf4a362","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202610141422"},{}]};
 
 
 // Local development: no service worker, no fatal-error timeout (a debug build
@@ -99,7 +99,7 @@ function hideLoadingScreen() {
 function registerServiceWorker() {
   if (IS_LOCAL_DEV || !('serviceWorker' in navigator)) return;
   setTimeout(function () {
-    navigator.serviceWorker.register('flutter_service_worker.js?v=2538027448') /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */.catch(function (err) {
+    navigator.serviceWorker.register('flutter_service_worker.js?v=977775635') /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */.catch(function (err) {
       console.warn('Canoku: service worker registration failed:', err);
     });
   }, SW_REGISTER_DELAY_MS);

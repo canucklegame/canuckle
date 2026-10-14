@@ -4,8 +4,8 @@
 // production (canucklegame.ca). All game links are root-relative, so the only
 // thing that differs is which games are visible and whether analytics runs.
 
-import { readPref, writePref } from './local.js?v=202610131208';
-import { epochDay, todayEpochDay } from './dates.js?v=202610131208';
+import { readPref, writePref } from './local.js?v=202610141420';
+import { epochDay, todayEpochDay } from './dates.js?v=202610141420';
 
 const host = typeof location === 'undefined' ? '' : location.hostname;
 
@@ -48,11 +48,11 @@ export const LAUNCH_DATE = {
   canuckle: null,
   plus: null,
   canoku: null,
-  duo: '2026-10-28',
-  canolitaire: '2026-10-30',
-  canagrams: '2026-11-03', // must be a Tuesday (difficulty ladder)
-  canoggle: '2026-11-05', // must be a Thursday (difficulty ladder)
-  canominoes: '2026-11-09',
+  duo: '2026-11-04',
+  canolitaire: '2026-11-06',
+  canagrams: '2026-11-10', // must be a Tuesday (difficulty ladder)
+  canoggle: '2026-11-12', // must be a Thursday (difficulty ladder)
+  canominoes: '2026-11-16',
 };
 
 // ---- Sandbox offset -----------------------------------------------------------
@@ -64,7 +64,7 @@ export const LAUNCH_DATE = {
 // Production always uses offset 0 and ignores the parameter.
 
 export const OFFSET_PREF = 'sandboxOffsetWeeks';
-export const DEFAULT_OFFSET_WEEKS = 4;
+export const DEFAULT_OFFSET_WEEKS = 5;
 
 /** A whole number of weeks from a stored or typed value, or null if it isn't one. */
 export function parseOffsetWeeks(v) {

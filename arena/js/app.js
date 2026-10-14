@@ -1,26 +1,26 @@
 // Boot, routing and the shared app state.
 
-import { IS_SANDBOX, IS_DEMO, isLive, sandboxOffsetWeeks, offsetBannerText } from './config.js?v=202610131208';
-import { demoRaw } from './demo.js?v=202610131208';
-import { initAnalytics, track } from './analytics.js?v=202610131208';
-import { loadAds } from './ads.js?v=202610131208';
-import { todayEpochDay } from './dates.js?v=202610131208';
-import { playerId } from './local.js?v=202610131208';
-import { initialTheme, initialContrast, applyTheme, applyContrast } from './theme.js?v=202610131208';
-import { ALL_GAMES, liveGames, gameById } from './games/registry.js?v=202610131208';
-import { initialOrder, computeOrder } from './gameOrder.js?v=202610131208';
-import { loadProgress, loadFullHistory } from './progress.js?v=202610131208';
-import { evaluateBadges } from './badges/rules.js?v=202610131208';
+import { IS_SANDBOX, IS_DEMO, isLive, sandboxOffsetWeeks, offsetBannerText } from './config.js?v=202610141420';
+import { demoRaw } from './demo.js?v=202610141420';
+import { initAnalytics, track } from './analytics.js?v=202610141420';
+import { loadAds } from './ads.js?v=202610141420';
+import { todayEpochDay } from './dates.js?v=202610141420';
+import { playerId } from './local.js?v=202610141420';
+import { initialTheme, initialContrast, applyTheme, applyContrast } from './theme.js?v=202610141420';
+import { ALL_GAMES, liveGames, gameById } from './games/registry.js?v=202610141420';
+import { initialOrder, computeOrder } from './gameOrder.js?v=202610141420';
+import { loadProgress, loadFullHistory } from './progress.js?v=202610141420';
+import { evaluateBadges } from './badges/rules.js?v=202610141420';
 import {
   loadStoredBadges, needsDating, planSync, applySync, markAnnounced, markShared,
-} from './badges/store.js?v=202610131208';
-import { h, ICONS, closeSheet } from './ui.js?v=202610131208';
-import { renderGames } from './views/gamesTab.js?v=202610131208';
-import { renderArchive } from './views/archive.js?v=202610131208';
-import { renderStats, renderStatsDetail } from './views/statsTab.js?v=202610131208';
-import { renderBadgesPage, announce } from './views/badgesView.js?v=202610131208';
-import { openSettings, openSync, safeReturnPath } from './views/settings.js?v=202610131208';
-import { takeLeftForGame } from './views/play.js?v=202610131208';
+} from './badges/store.js?v=202610141420';
+import { h, ICONS, closeSheet } from './ui.js?v=202610141420';
+import { renderGames } from './views/gamesTab.js?v=202610141420';
+import { renderArchive } from './views/archive.js?v=202610141420';
+import { renderStats, renderStatsDetail } from './views/statsTab.js?v=202610141420';
+import { renderBadgesPage, announce } from './views/badgesView.js?v=202610141420';
+import { openSettings, openSync, safeReturnPath } from './views/settings.js?v=202610141420';
+import { takeLeftForGame } from './views/play.js?v=202610141420';
 
 const app = {
   uid: IS_DEMO ? 'DEMO' : playerId(),
@@ -55,16 +55,16 @@ applyContrast(initialContrast());
 
 // Scattered background tiles: [logo, left %, top px, size px, rotation, wide-only].
 const SCATTER = [
-  ['canuckle', -2.3, -30, 96, -18, false],
-  ['canuckle-plus', -3.2, 112, 70, 10, true],
-  ['canoku', 10.1, 116, 72, 14, false],
-  ['canolitaire', 19.6, -22, 66, 22, true],
-  ['canominoes', 31.6, 128, 84, -10, false],
-  ['canagrams', 46.4, -44, 64, -14, false],
-  ['canoku', 57, 146, 58, -6, true],
-  ['canoggle', 68.6, -36, 92, 16, false],
-  ['canuckle-duo', 80.2, 108, 72, -22, false],
-  ['canuckle', 91.4, 14, 82, 12, false],
+  ['canominoes', -4, -12, 87, -13, true],
+  ['canoggle', 9.8, 119, 82, 3, true],
+  ['canolitaire', 19.9, -42, 81, -4, false],
+  ['canuckle-duo', 24.9, 147, 63, 3, false],
+  ['canuckle', 40.8, -44, 61, 8, true],
+  ['canolitaire', 50.5, 149, 69, -5, false],
+  ['canuckle', 61.5, -44, 61, 10, true],
+  ['canagrams', 72, 137, 96, -1, false],
+  ['canuckle-plus', 81.8, -8, 76, 13, true],
+  ['canoku', 92.5, 100, 87, 10, false],
 ];
 
 function renderHeader() {

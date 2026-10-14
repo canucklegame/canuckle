@@ -8,7 +8,7 @@
 // production (sandbox, localhost) the slots get coloured placeholder
 // backgrounds instead (html.ad-preview in arena.css), like the games' pages.
 
-import { IS_PROD_HOST } from './config.js?v=202610131208';
+import { IS_PROD_HOST } from './config.js?v=202610141420';
 
 const AD_TAG_URL =
   'https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js';

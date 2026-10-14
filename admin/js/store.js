@@ -2,14 +2,14 @@
 // transaction that also writes an adminLog entry with the docs before and
 // after, so any edit, swap or import can be restored from the Log tab.
 
-import { sdk, currentEmail } from './firebase.js?v=202610131208';
-import { GAMES } from './dates.js?v=202610131208';
-import { decodeAnswer } from './codec.js?v=202610131208';
+import { sdk, currentEmail } from './firebase.js?v=202610141429';
+import { GAMES } from './dates.js?v=202610141429';
+import { decodeAnswer } from './codec.js?v=202610141429';
 import {
   PLAYER_COLLECTIONS, GAMES_SUBCOLLECTION_PARENTS, MAX_GAMES, queryCutoff, accountVerdict, quickVerdict,
-} from './cleanup.js?v=202610131208';
-import { pool } from './pool.js?v=202610131208';
-import { repairAccount } from './repair.js?v=202610131208';
+} from './cleanup.js?v=202610141429';
+import { pool } from './pool.js?v=202610141429';
+import { repairAccount } from './repair.js?v=202610141429';
 
 // ---- Puzzles --------------------------------------------------------------
 
@@ -167,6 +167,39 @@ export async function importDuo(docs, onProgress) {
     done += chunk.length;
     onProgress?.(done, ids.length);
   }
+}
+
+// ---- Game versions ----------------------------------------------------------
+
+/** {doc: version string, or null when the doc or its field is missing}. */
+export async function loadGameVersions(docs) {
+  const { fs, db } = await sdk();
+  const out = {};
+  await Promise.all(docs.map(async (id) => {
+    const s = await fs.getDoc(fs.doc(db, 'gameVersions', id));
+    const v = s.exists() ? s.data().version : null;
+    out[id] = typeof v === 'string' && v ? v : null;
+  }));
+  return out;
+}
+
+/**
+ * Sets gameVersions/<doc>.version for every change ({doc, from, to}) in one
+ * logged transaction, so they all land together and Restore undoes them all.
+ * Fails without writing if any doc no longer holds [from] (someone else
+ * changed it since the page read it). Other fields on a doc are kept.
+ */
+export function publishGameVersions(changes) {
+  const ids = changes.map((c) => c.doc);
+  return writeWithLog('gameVersions', ids, (before) => {
+    const out = {};
+    for (const c of changes) {
+      const now = typeof before[c.doc]?.version === 'string' && before[c.doc].version ? before[c.doc].version : null;
+      if (now !== c.from) throw new Error(`gameVersions/${c.doc} changed to ${now ?? '(none)'} since this page read it. Reload and check again.`);
+      out[c.doc] = { ...(before[c.doc] || {}), version: c.to };
+    }
+    return out;
+  }, { action: 'versions', note: changes.map((c) => `${c.doc} ${c.from ?? '(none)'} → ${c.to}`).join(', ') });
 }
 
 // ---- Log ------------------------------------------------------------------
