@@ -4,14 +4,14 @@
 // (privacy_policy.dart in each), so a change to the policy goes to the site
 // page, here and every game together, with LAST_UPDATED moved on.
 
-import { h, openSheet, sheetHead } from './ui.js?v=202611012056';
+import { h, openSheet, sheetHead } from './ui.js?v=202611012251';
 
-export const LAST_UPDATED = 'October 2, 2026';
+export const LAST_UPDATED = 'November 1, 2026';
 
 // [kind, text, label?]: 'h' a numbered heading, 'p' a paragraph, 'li' a
 // bullet. A label is the bold lead-in of a paragraph.
 export const POLICY = [
-  ['p', 'At Canuckle, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information may be collected when you visit canucklegame.ca or use Canuckle, Canuckle+, Canoku, and other games or features available through our website (collectively, the “Services”), how we use that information, and the choices available to you.'],
+  ['p', 'Canuckle is operated by Canuckle Games, based in Ottawa, Ontario, Canada. At Canuckle, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information may be collected when you visit canucklegame.ca or use Canuckle, Canuckle+, Canoku, and other games or features available through our website (collectively, the “Services”), how we use that information, and the choices available to you.'],
   ['p', 'You can play our games without creating an account or providing your name, email address, or other identifying information.'],
 
   ['h', '1. Information we collect'],
@@ -33,11 +33,11 @@ export const POLICY = [
   ['h', '3. Will your information be shared with anyone?'],
   ['p', 'We may share limited information with trusted third-party service providers that help us host, operate, secure, analyze, or improve our Services. Our use of third-party advertising services is described in Section 4 below.'],
   ['p', 'We may also disclose information when required by law or when reasonably necessary to protect the rights, security, or safety of Canuckle, our players, or others.'],
-  ['p', 'We do not sell or rent your personal information.'],
+  ['p', 'We do not sell or rent your personal information. Some of the information described in this Privacy Policy is stored and processed outside Canada, including in the United States, by service providers that help us operate and analyze our Services (such as Google, which provides our analytics and database services) and by our advertising partners described in Section 4. While held outside Canada, this information is subject to the laws of the country where it is located and may be accessible to the courts, law enforcement, and national security authorities of that country.'],
 
   ['h', '4. Do we use cookies and other technologies?'],
   ['p', 'We use cookies, local storage, and similar browser technologies to operate our Services, remember your preferences, maintain game functionality, provide advertising, and understand how our games are used.'],
-  ['p', 'We use Yolla Media, LLC (“Yolla”) to provide and manage advertising on our website. Yolla and its advertising partners may use cookies and similar technologies to collect certain information about your use of our Services for advertising, analytics, and related purposes. To learn more about Yolla and its data practices, please visit yollamedia.com.', 'Advertising:'],
+  ['p', 'We use Yolla Media, LLC (“Yolla”) to provide and manage advertising on our website. Yolla and its advertising partners may use cookies and similar technologies to collect certain information about your use of our Services for advertising, analytics, and related purposes. To learn more about Yolla and its data practices, please visit yollamedia.com/advertising-privacy.', 'Advertising:'],
   ['p', 'Information related to your gameplay, such as puzzle progress, results, streaks, statistics, settings, and game history, may be stored locally in your browser or device and/or associated with your unique Canuckle User ID in our database. This allows Canuckle to maintain game functionality, progress, and statistics between visits and, where applicable, assist with game data recovery.'],
   ['p', 'You can control or delete cookies and locally stored information through your browser settings. Doing so may reset your Canuckle statistics, streaks, preferences, or game progress.'],
 
@@ -70,16 +70,17 @@ export const POLICY = [
   ['p', 'When we make changes, we will update the “Last updated” date at the top of this page. We encourage you to review this Privacy Policy periodically.'],
 
   ['h', '11. How can you contact us about this policy?'],
-  ['p', 'If you have questions, concerns, or requests regarding this Privacy Policy or Canuckle’s privacy practices, please contact us at info@canucklegame.ca.'],
+  ['p', 'Canuckle is responsible for protecting the personal information we hold and for responding to questions, concerns, and requests about this Privacy Policy, including requests to access, correct, or delete your information. If you have questions, concerns, or requests regarding this Privacy Policy or Canuckle’s privacy practices, please contact us at info@canucklegame.ca.'],
+  ['p', 'Website: canucklegame.ca · Email: info@canucklegame.ca', 'Canuckle Games'],
 ];
 
 // Addresses in the text that become links.
 const LINKS = [
   [/info@canucklegame\.ca/, 'mailto:info@canucklegame.ca'],
-  [/yollamedia\.com/, 'https://yollamedia.com/'],
+  [/yollamedia\.com\/advertising-privacy/, 'https://yollamedia.com/advertising-privacy'],
   [/canucklegame\.ca/, 'https://www.canucklegame.ca'],
 ];
-const LINK_RE = /info@canucklegame\.ca|yollamedia\.com|canucklegame\.ca/g;
+const LINK_RE = /info@canucklegame\.ca|yollamedia\.com\/advertising-privacy|canucklegame\.ca/g;
 
 /** [text] as nodes, with the site, Yolla and email addresses linked. */
 export function linkify(text) {

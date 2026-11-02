@@ -4,11 +4,11 @@
 // is weekly and its weeks start on Monday, so its grid is Monday-first and
 // each week is a single band across the row: the whole week is one puzzle.
 
-import { h, ICONS, statusIcon, tierMarks, gameColours } from '../ui.js?v=202611012056';
-import { ymd, epochDay, monthName, monthTitle, daysInMonth, shortDate } from '../dates.js?v=202611012056';
-import { SOLVED, FAILED, PLAYED, PROGRESS, STATUS_LABEL, isDone } from '../status.js?v=202611012056';
-import { playProps } from './play.js?v=202611012056';
-import { streakChip } from './gamesTab.js?v=202611012056';
+import { h, ICONS, statusIcon, tierMarks, gameColours } from '../ui.js?v=202611012251';
+import { ymd, epochDay, monthName, monthTitle, daysInMonth, shortDate } from '../dates.js?v=202611012251';
+import { SOLVED, FAILED, PLAYED, PROGRESS, STATUS_LABEL, isDone } from '../status.js?v=202611012251';
+import { playProps } from './play.js?v=202611012251';
+import { streakChip } from './gamesTab.js?v=202611012251';
 
 const DOW_SUNDAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const DOW_MONDAY = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
