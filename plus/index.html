@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- Canuckle+'s share page. plus.canucklegame.ca should redirect here, so link
+     previews get Canuckle+'s title and image (crawlers read these tags and
+     don't run scripts); players are sent straight on to the game. Copied to
+     the site's plus/ folder by deploy_to_site.ps1 and deploy_to_io.ps1. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canuckle+ - A weekly Canadian word challenge</title>
+  <meta name="description" content="Guess the hidden six- or seven-letter word. A new puzzle every Monday.">
+  <link rel="canonical" href="https://www.canucklegame.ca/?plus=true">
+
+  <meta property="og:url" content="https://www.canucklegame.ca/plus/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Canuckle+ - A weekly Canadian word challenge">
+  <meta property="og:description" content="Guess the hidden six- or seven-letter word. A new puzzle every Monday.">
+  <meta property="og:image" content="https://www.canucklegame.ca/images/canuckleplus_og_1200x630.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.canucklegame.ca/images/canuckleplus_og_1200x630.png">
+
+  <link rel="icon" type="image/png" href="/plus/images/canuckleplus_logo_32x32.png">
+  <link rel="apple-touch-icon" href="/plus/images/canuckleplus_logo_192x192.png">
+  <link rel="manifest" href="/plus/images/manifest.json">
+  <script>
+    // Keep any other query parameters (e.g. the sandbox's week offset).
+    var q = new URLSearchParams(location.search);
+    q.set('plus', 'true');
+    location.replace('/?' + q.toString());
+  </script>
+</head>
+<body>
+  <p><a href="/?plus=true">Play Canuckle+</a></p>
+</body>
+</html>
