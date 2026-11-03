@@ -390,7 +390,7 @@ break
 default:s=null}s=A.R(s,t.N)
 return s},
 b41(){var s=A.dg().b,r=s==null?null:s.canvasKitVariant
-s=A.b79(A.aYo(B.P4,r==null?"auto":r))
+s=A.b79(A.aYo(B.P5,r==null?"auto":r))
 return new A.Z(s,new A.aEc(),A.V(s).i("Z<1,e>"))},
 b68(a,b){return b+a},
 a2u(){var s=0,r=A.x(t.m),q,p,o,n
@@ -8141,7 +8141,7 @@ _.x=g
 _.y=h
 _.a=i},
 au4:function au4(a){this.a=a},
-aWb(a,b){var s,r,q,p=b?B.PN:B.Pd,o=B.b.gS(p)
+aWb(a,b){var s,r,q,p=b?B.PN:B.Pe,o=B.b.gS(p)
 for(s=p.length,r=0;r<s;++r){q=p[r]
 if(q.a<=a)o=q}return o},
 aWc(a,a0){var s,r,q,p,o,n,m,l,k,j,i,h,g,f,e,d=A.aWb(a+3,a0),c=a-(d.a-3),b=a0?B.Q4:B.Qj
@@ -9011,7 +9011,7 @@ aZC(a,b,c,d,e,f,g){if(!e||f||b||g)return!1
 if(d==null)return!0
 return B.b.da(d,new A.aeX(a,c))},
 aZA(a,b,c){var s,r,q,p,o,n=A.o(t.Is,t.UW)
-for(s=t.pa,r=0;r<3;++r)n.l(0,B.OW[r],A.a([],s))
+for(s=t.pa,r=0;r<3;++r)n.l(0,B.OX[r],A.a([],s))
 for(s=a.length,r=0;r<a.length;a.length===s||(0,A.p)(a),++r){q=a[r]
 p=A.cg(new A.bu(A.vO(q.c,0,!1),0,!1))
 o=c.$2(q.a,q.b)||q.d.AA()
@@ -15276,7 +15276,7 @@ case 4:s=l.a
 s===$&&A.b()
 s=A.bR(s,200)
 r=A.bR(A.a7q(l,B.qN,B.Ou),24)
-q=A.bR(A.a7q(l,B.qN,B.Pc),32)
+q=A.bR(A.a7q(l,B.qN,B.Pd),32)
 p=A.bR(l.a,10)
 o=A.bR(l.a,12)
 l.d===$&&A.b()
@@ -22479,7 +22479,7 @@ r.toString
 A.ff(r)
 q=a.h(0,"swipeEdge")
 q.toString
-return new A.p5(s,r,B.OV[A.d9(q)])},
+return new A.p5(s,r,B.OW[A.d9(q)])},
 FY:function FY(a,b){this.a=a
 this.b=b},
 p5:function p5(a,b,c){this.a=a
@@ -24579,7 +24579,7 @@ if(a.as!==q)return q?-1:1
 return 0},
 aYe(a,b){var s=A.V(b).i("Z<1,eg>")
 s=A.R(new A.Z(b,new A.a8k(),s),s.i("a7.E"))
-return A.aXC(!0,s,a,B.Pn,!0,B.Ku,null)},
+return A.aXC(!0,s,a,B.Po,!0,B.Ku,null)},
 aHg(a){var s
 try{a.eF()}catch(s){a.OT()}a.w=B.a5j
 try{a.br(A.b75())}catch(s){}},
@@ -25108,7 +25108,7 @@ _.as=!0
 _.at=!1
 _.$ti=d},
 aHH(a,b){var s
-if(a.j(0,b))return new A.Mt(B.Pp)
+if(a.j(0,b))return new A.Mt(B.Pq)
 s=A.a([],t.fJ)
 A.cx()
 a.pi(new A.adS(b,A.ay(t.u),s))
@@ -29238,7 +29238,7 @@ Qw(a,b){var s=A.a([],t.Di)
 B.b.B(s,a)
 return new A.fM(s,b)},
 aSj(a,b){var s,r,q,p
-if(a==="")return A.Qw(B.PA,b==null?B.c5:b)
+if(a==="")return A.Qw(B.PB,b==null?B.c5:b)
 s=new A.aoD(a,B.ed,a.length)
 s.u2()
 r=A.a([],t.Di)
@@ -32461,7 +32461,7 @@ w2(){var s=this.as
 s===$&&A.b()
 return s},
 w3(a,b,c,d){var s,r,q,p
-if(a<0||b<0)return B.Py
+if(a<0||b<0)return B.Pz
 s=this.a
 s===$&&A.b()
 s=s.a
@@ -32480,7 +32480,7 @@ l.push(new A.eO(n[0],n[1],n[2],n[3],B.m0[m]))}return l},
 cR(a){var s,r,q=this.a
 q===$&&A.b()
 s=q.a.getGlyphPositionAtCoordinate(a.a,a.b)
-r=B.OY[J.av(s.affinity.value)]
+r=B.OZ[J.av(s.affinity.value)]
 return new A.aj(J.av(s.pos),r)},
 L8(a){var s=this.a
 s===$&&A.b()
@@ -37949,7 +37949,7 @@ if(m.f!==B.qa){m.f=B.qa
 m.QT()}}return m.d.a.a1x(a)},
 QT(){var s,r
 for(s=this.w,r=0;r<s.length;++r)s[r].$1(this.f)},
-a1w(a){if(B.b.q(B.Pj,a))return this.f===B.iM
+a1w(a){if(B.b.q(B.Pk,a))return this.f===B.iM
 return!1}}
 A.a8U.prototype={
 $0(){return new A.bu(Date.now(),0,!1)},
@@ -50839,7 +50839,7 @@ case 2:return new A.aE(B.L6,A.ba(A.a([A.cD(A.ao("\u2022",q,q,q,q,n,q,q),q,20),A.
 L(a){var s,r,q,p,o,n=null
 this.OK()
 s=A.a([new A.aE(B.pt,A.ao("Last updated: November 1, 2026",n,n,n,n,A.b4(n,n,$.A?B.y:B.z,n,n,n,n,n,"ClearSans",n,n,13,n,n,n,n,n,!0,n,n,n,n,n,n,n,n),n,n),n)],t.p)
-for(r=n,q=0;q<50;++q){p=B.PC[q]
+for(r=n,q=0;q<50;++q){p=B.OH[q]
 if(r===B.dj&&p.a!==B.dj)s.push(B.dr)
 s.push(this.a6G(p))
 r=p.a}o=new A.azp(a)
@@ -51931,7 +51931,7 @@ ae(){return new A.V1(A.a([],t.BI))}}
 A.V1.prototype={
 a95(a){switch(a.a){case 0:return B.Qk
 case 1:return B.PT
-case 2:return B.Pf}},
+case 2:return B.Pg}},
 az(){var s,r,q,p,o,n=this
 n.aQ()
 s=n.a95(n.a.c)
@@ -53608,9 +53608,9 @@ s.b_(a,[b.a,b.b])}else if(b instanceof A.zV){a.aZ(152)
 s.b_(a,[b.a,b.b,b.c])}else s.a2v(a,b)},
 hn(a,b){var s,r,q,p,o,n,m,l,k,j,i,h=this,g=null
 switch(a){case 129:s=A.c_(h.bK(b))
-return s==null?g:B.Ph[s]
+return s==null?g:B.Pi[s]
 case 130:s=A.c_(h.bK(b))
-return s==null?g:B.OI[s]
+return s==null?g:B.OJ[s]
 case 131:s=A.c_(h.bK(b))
 return s==null?g:B.OG[s]
 case 132:s=A.c_(h.bK(b))
@@ -53622,7 +53622,7 @@ return s==null?g:B.Q9[s]
 case 135:s=A.c_(h.bK(b))
 return s==null?g:B.PW[s]
 case 136:s=A.c_(h.bK(b))
-return s==null?g:B.OP[s]
+return s==null?g:B.OQ[s]
 case 137:s=A.c_(h.bK(b))
 return s==null?g:B.PV[s]
 case 138:r=h.bK(b)
@@ -56267,7 +56267,7 @@ r=A.DN(B.Tc,B.k,r==null?1:r)
 r.toString
 q=p.ai(q.gt())
 if(q==null)q=1
-return A.GL(A.aOc(null,B.i,new A.wC(q,B.OT,new A.em(B.Et,this.e)),s,1,B.Z4),r)}}
+return A.GL(A.aOc(null,B.i,new A.wC(q,B.OU,new A.em(B.Et,this.e)),s,1,B.Z4),r)}}
 A.KI.prototype={
 m(){var s=this,r=s.bH$
 if(r!=null)r.O(s.gir())
@@ -59391,7 +59391,7 @@ q=m.x
 m=m.cx
 p=o.gaei()
 o.a.toString
-return new A.H0(n,r,q,new A.axN(),n,n,n,n,n,n,B.S7,n,n,l,B.Po,o.gaer(),m,n,B.a1m,s,n,p,n,n,B.qM,!1,!1,n,n,n,new A.rq(o,t.bT))},
+return new A.H0(n,r,q,new A.axN(),n,n,n,n,n,n,B.S7,n,n,l,B.Pp,o.gaer(),m,n,B.a1m,s,n,p,n,n,B.qM,!1,!1,n,n,n,new A.rq(o,t.bT))},
 L(a){var s,r=this.a6X(a)
 this.a.toString
 s=this.d
@@ -59493,7 +59493,7 @@ A.ys.prototype={
 H(){return"_CornerId."+this.b}}
 A.nD.prototype={}
 A.wE.prototype={
-le(){var s,r,q,p=this,o=A.b58(B.Pa,new A.ahl(p,p.b.gb8().X(0,p.a.gb8()))),n=p.a
+le(){var s,r,q,p=this,o=A.b58(B.Pb,new A.ahl(p,p.b.gb8().X(0,p.a.gb8()))),n=p.a
 n.toString
 s=o.a
 r=p.pK(n,s)
@@ -63210,7 +63210,7 @@ $R:3,
 $S:182}
 A.Qp.prototype={
 a6m(a){var s=t.Tr
-s=A.R(new A.Z(B.P9,new A.aiO(a),s),s.i("a7.E"))
+s=A.R(new A.Z(B.Pa,new A.aiO(a),s),s.i("a7.E"))
 return s},
 j(a,b){if(b==null)return!1
 if(this===b)return!0
@@ -67213,7 +67213,7 @@ return new A.ox(r.a.cS(s.giE()),r.b,r.c)},
 cR(a){var s=this.b
 return s.a.c.cR(a.X(0,s.giE()))},
 qu(){var s,r,q=this.b,p=q.giE()
-if(!isFinite(p.a)||!isFinite(p.b))return B.Pz
+if(!isFinite(p.a)||!isFinite(p.b))return B.PA
 s=q.f
 if(s==null){s=q.a.c.qu()
 q.f=s}if(p.j(0,B.k))r=s
@@ -75357,7 +75357,7 @@ break
 case 1:return A.v(q,r)}})
 return A.w($async$EE,r)},
 a9M(a,b){var s,r,q,p
-if(a===b)return B.Pw
+if(a===b)return B.Px
 s=A.a([],t.QP)
 if(a==null)s.push(b)
 else{r=B.b.ej(B.h1,a)
@@ -77431,7 +77431,7 @@ A.n0.prototype={}
 A.QT.prototype={
 lL(a,b){var s,r,q,p,o,n=$.ad.ah$.d.c
 if(n==null||n.e==null)return!1
-for(s=t.r,r=0;r<2;++r){q=B.Pk[r]
+for(s=t.r,r=0;r<2;++r){q=B.Pl[r]
 p=n.e
 p.toString
 o=A.aGD(p,q,s)
@@ -79734,7 +79734,7 @@ h.Gs()
 r=h.gaay()
 q=q.uT
 h.e!==$&&A.bc()
-h.e=new A.Si(f,new A.ce(B.RO,l),new A.rO(),p,B.cQ,0,k,h.gacw(),h.gacy(),r,B.cQ,0,j,h.gacq(),h.gacs(),r,i,B.Pq,s,g.CW,g.cx,g.cy,o,g,n,m,g.x,q,new A.Nb(),new A.Nb())
+h.e=new A.Si(f,new A.ce(B.RO,l),new A.rO(),p,B.cQ,0,k,h.gacw(),h.gacy(),r,B.cQ,0,j,h.gacq(),h.gacs(),r,i,B.Pr,s,g.CW,g.cx,g.cy,o,g,n,m,g.x,q,new A.Nb(),new A.Nb())
 return h},
 xc(a,b){var s,r,q,p=this,o=p.a.c,n=o.a.a.length
 if(n<a.b||n<a.a)return
@@ -82880,7 +82880,7 @@ j(a,b){var s=this
 if(b==null)return!1
 if(J.U(b)!==A.n(s))return!1
 return b instanceof A.jh&&b.a===s.a&&b.b==s.b&&b.d===s.d&&A.cy(null,null)},
-gn(a){return A.I(this.a,this.b,null,this.d,A.aR(B.Pv),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
+gn(a){return A.I(this.a,this.b,null,this.d,A.aR(B.Pw),B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a,B.a)},
 k(a){return"IconData(U+"+B.c.d8(B.h.k0(this.a,16).toUpperCase(),5,"0")+")"}}
 A.Cy.prototype={
 d1(a){return!this.w.j(0,a.w)},
@@ -83796,7 +83796,7 @@ b=r?a1:a3.fr
 if(b==null)b=a2.b.c.z
 a3=r?a1:a3.fx
 if(a3==null)a3=a2.b.c.Q
-a=new A.Dn(a4,s,q,p,m,o,n,a5,g===!0,a6,a7,i,h,l,k,j,f,new A.vR(a1),B.Pt,e===!0,d,c,b,a3,A.aZR(a2))
+a=new A.Dn(a4,s,q,p,m,o,n,a5,g===!0,a6,a7,i,h,l,k,j,f,new A.vR(a1),B.Pu,e===!0,d,c,b,a3,A.aZR(a2))
 if(!a.j(0,a0.e))a0.I(new A.ay4(a0,a))},
 Wo(){if(this.d==null)this.qa()},
 HY(){this.qa()},
@@ -84121,7 +84121,7 @@ r.B(0,s.a__(null,l))
 l.a.toString
 q=r.a
 p=0
-for(;!1;++p){o=B.Pr[p]
+for(;!1;++p){o=B.Ps[p]
 n=l.c
 n.toString
 m=new A.iR(o.HH(n),null,!0,B.nL,B.cw,new A.uQ(new ($.a2U())(B.cw)),B.cw)
@@ -84476,7 +84476,7 @@ L(a){var s,r,q=this,p=null,o=q.gac6(),n=A.ou(a),m=q.cc$,l=q.d
 l===$&&A.b()
 s=q.a.ay
 if(l.gN()==null){r=q.gNq()
-r=J.lf(r.slice(0),A.V(r).c)}else r=B.Ps
+r=J.lf(r.slice(0),A.V(r).c)}else r=B.Pt
 return new A.rs(p,new A.eN(new A.ain(q,a),A.D6(B.cC,new A.LB(!1,A.aHr(A.l6(!0,p,A.TE(m,new A.wS(r,s,l)),p,p,p,q.y,!1,p,p,p,p,p,!0),p,n),p),o,q.gaeS(),p,p,o),p,t.en),p)}}
 A.aim.prototype={
 $1(a){var s,r=this.a
@@ -89481,7 +89481,7 @@ r.ys()
 return s.aU()},
 m(){var s,r,q,p,o=this
 for(s=o.b,r=s.length,q=o.gEG(),p=0;p<s.length;s.length===r||(0,A.p)(s),++p)s[p].O(q)
-o.b=B.Pu
+o.b=B.Pv
 o.y=!1
 o.dl()},
 ed(a,b){return a.mT(b)},
@@ -93848,7 +93848,7 @@ $if_:1}
 A.ar.prototype={
 b6(a,b){var s=this.b0(new A.qS(a,b))
 return s instanceof A.bz?-1:s.b},
-gfK(){return B.PB},
+gfK(){return B.PC},
 jm(a,b){},
 k(a){return A.n(this).k(0)}}
 A.RM.prototype={}
@@ -95177,7 +95177,7 @@ c8=A.a([],n)
 if((c4&1)!==0)c8.push(B.ee)
 if((c4&2)!==0)c8.push(B.Cs)
 if((c4&4)!==0)c8.push(B.Ct)
-o.push(new A.a_T(c7,c6,a0,a,B.qY[c3],A.b1o(c8),B.P_[c5],A.a5(a1)))
+o.push(new A.a_T(c7,c6,a0,a,B.qY[c3],A.b1o(c8),B.P0[c5],A.a5(a1)))
 continue A
 case 44:a=r.getUint16(s.b,!0)
 a0=r.getUint16(s.b+=2,!0)
@@ -95274,7 +95274,7 @@ r=a.iK(s)
 q=a.Ch(0)
 p=c?this.a8j(a.Lv(q)):a.w8(q)
 o=new A.bL($.a0().r,B.E,null,null,A.a([],t.v))
-o.suV(B.OQ[e])
+o.suV(B.OR[e])
 b.y.push(o)
 b.ch=o
 A:for(n=0,m=0;n<s;++n)switch(r[n]){case 0:l=p[m]
@@ -100747,7 +100747,7 @@ B.ad=new A.aqg()
 B.d6=new A.aqh()
 B.et=new A.aqj()
 B.fk=new A.TR(0,0,0,0)
-B.Pt=s([],A.ab("q<b9A>"))
+B.Pu=s([],A.ab("q<b9A>"))
 B.a6O=new A.aqs()
 B.bR={}
 B.j4=new A.bK(B.bR,[],t.li)
@@ -100964,8 +100964,8 @@ B.l=new A.oV(0,"start")
 B.n=new A.PJ(1,"max")
 B.p=new A.qV(2,"center")
 B.fj=new A.aqq(1,"down")
-B.Px=s([],t.p)
-B.p8=new A.B6(B.bg,B.l,B.n,B.p,null,B.fj,null,0,B.Px,null)
+B.Py=s([],t.p)
+B.p8=new A.B6(B.bg,B.l,B.n,B.p,null,B.fj,null,0,B.Py,null)
 B.ie=new A.vI(0,"playing")
 B.ig=new A.vI(1,"stopped")
 B.K0=new A.vI(2,"stoppedAndCleared")
@@ -101232,8 +101232,8 @@ B.LV=new A.BS(null)
 B.LW=new A.BU(0,"noOpinion")
 B.LX=new A.BU(1,"enabled")
 B.fY=new A.BU(2,"disabled")
-B.OZ=s([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2126,0.7152,0.0722,0,0],t.n)
-B.LY=new A.fI(null,null,B.OZ,B.ow)
+B.P_=s([0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.2126,0.7152,0.0722,0,0],t.n)
+B.LY=new A.fI(null,null,B.P_,B.ow)
 B.pC=new A.cb(0,"incrementable")
 B.lg=new A.cb(1,"scrollable")
 B.lh=new A.cb(10,"link")
@@ -101483,10 +101483,10 @@ B.Nj=new A.oT(B.eq,t.wO)
 B.Nk=new A.D5(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null)
 B.Nm=s([0,6,12,18],t.t)
 B.Nq=s([192,193,194],t.t)
-B.Pb=s([1373.2198709594231,-1100.4251190754821,-7.278681089101213],t.n)
-B.OS=s([-271.815969077903,559.6580465940733,-32.46047482791194],t.n)
+B.Pc=s([1373.2198709594231,-1100.4251190754821,-7.278681089101213],t.n)
+B.OT=s([-271.815969077903,559.6580465940733,-32.46047482791194],t.n)
 B.Qi=s([1.9622899599665666,-57.173814538844006,308.7233197812385],t.n)
-B.Nr=s([B.Pb,B.OS,B.Qi],t.zg)
+B.Nr=s([B.Pc,B.OT,B.Qi],t.zg)
 B.qD=s(["text","multiline","number","phone","datetime","emailAddress","url","visiblePassword","name","address","none","webSearch","twitter"],t.s)
 B.qE=s(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],t.s)
 B.NQ=s([4,9,14,19],t.t)
@@ -101496,8 +101496,8 @@ B.MR=new A.lb(B.MI,!1,0,"png")
 B.MG=new A.mw(B.PX,B.MR,0,"png")
 B.PZ=s([71,73,70,56,55,97],t.Z)
 B.MF=new A.mw(B.PZ,B.iO,1,"gif87a")
-B.P8=s([71,73,70,56,57,97],t.Z)
-B.ME=new A.mw(B.P8,B.iO,2,"gif89a")
+B.P9=s([71,73,70,56,57,97],t.Z)
+B.ME=new A.mw(B.P9,B.iO,2,"gif89a")
 B.Ns=s([255,216,255],t.Z)
 B.MJ=new A.oA(2,"jpeg")
 B.MV=new A.lb(B.MJ,!1,3,"jpeg")
@@ -101513,10 +101513,10 @@ B.nM=new A.Jk(0,"named")
 B.Dk=new A.Jk(1,"anonymous")
 B.O0=s([B.nM,B.Dk],A.ab("q<Jk>"))
 B.qF=s(["January","February","March","April","May","June","July","August","September","October","November","December"],t.s)
-B.OU=s([0.41233895,0.35762064,0.18051042],t.n)
+B.OV=s([0.41233895,0.35762064,0.18051042],t.n)
 B.Ow=s([0.2126,0.7152,0.0722],t.n)
 B.Qc=s([0.01932141,0.11916382,0.95034478],t.n)
-B.O2=s([B.OU,B.Ow,B.Qc],t.zg)
+B.O2=s([B.OV,B.Ow,B.Qc],t.zg)
 B.qG=s([0,4,12,1,5,13,3,7,15],t.t)
 B.a5J=new A.ib(0,1)
 B.a5O=new A.ib(0.5,1)
@@ -101544,12 +101544,12 @@ B.PG=s([2.33888662,1.28698796],t.n)
 B.PJ=s([2.48660575,1.36351941],t.n)
 B.Oq=s([2.62226596,1.44717976],t.n)
 B.Ox=s([2.7514899,1.53385819],t.n)
-B.P6=s([3.36298265,1.98288283],t.n)
-B.OH=s([4.08649929,2.23811846],t.n)
-B.OX=s([4.85481134,2.47563463],t.n)
+B.P7=s([3.36298265,1.98288283],t.n)
+B.OI=s([4.08649929,2.23811846],t.n)
+B.OY=s([4.85481134,2.47563463],t.n)
 B.Ov=s([5.62945551,2.72948597],t.n)
 B.OD=s([6.43023796,2.98020421],t.n)
-B.qH=s([B.OC,B.Nv,B.PG,B.PJ,B.Oq,B.Ox,B.P6,B.OH,B.OX,B.Ov,B.OD],t.zg)
+B.qH=s([B.OC,B.Nv,B.PG,B.PJ,B.Oq,B.Ox,B.P7,B.OI,B.OY,B.Ov,B.OD],t.zg)
 B.DL=new A.cY(0,"clear")
 B.DM=new A.cY(1,"src")
 B.E0=new A.cY(2,"dst")
@@ -101620,10 +101620,64 @@ B.a5o=new A.nE(6,0.11)
 B.a5m=new A.nE(8,0.12)
 B.a5l=new A.nE(12,0.14)
 B.qO=s([B.a5k,B.a5p,B.a5n,B.a5o,B.a5m,B.a5l],A.ab("q<nE>"))
+B.X=new A.E7(1,"paragraph")
+B.Vm=new A.bI(B.X,"Canuckle is operated by Canuckle Games, based in Ottawa, Ontario, Canada. At Canuckle, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information may be collected when you visit canucklegame.ca or use Canuckle, Canuckle+, Canoku, and other games or features available through our website (collectively, the \u201cServices\u201d), how we use that information, and the choices available to you.",null)
+B.Vu=new A.bI(B.X,"You can play our games without creating an account or providing your name, email address, or other identifying information.",null)
+B.c6=new A.E7(0,"heading")
+B.V7=new A.bI(B.c6,"1. Information we collect",null)
+B.Vz=new A.bI(B.X,"Canuckle automatically assigns each player a unique User ID. You may choose to provide your email address for recovery purposes, in which case it is linked to your Canuckle User ID so that we can locate your game information in our database if you need assistance recovering it. Providing an email address is optional and is not required to play Canuckle. We use your email address for recovery purposes only.","Optional Email Address:")
+B.V5=new A.bI(B.X,"When you use our Services, certain technical and usage information may be collected automatically. This may include your IP address, browser and device type, operating system, general location, referring website, and information about how and when you use our Services.","Technical and Usage Information:")
+B.VH=new A.bI(B.X,"This information may be collected through server logs, cookies, analytics tools, and similar technologies and is primarily used to operate, secure, analyze, and improve our Services.",null)
+B.V0=new A.bI(B.X,"If you contact Canuckle directly, we may also receive information you choose to provide, such as your name, email address, and the contents of your message.","Information You Provide:")
+B.Vb=new A.bI(B.c6,"2. How do we use your information?",null)
+B.VG=new A.bI(B.X,"We use the information we collect to:",null)
+B.dj=new A.E7(2,"bullet")
+B.VC=new A.bI(B.dj,"provide game data recovery assistance when requested;",null)
+B.UW=new A.bI(B.dj,"operate and maintain our games and website;",null)
+B.V6=new A.bI(B.dj,"understand how players use our Services;",null)
+B.Vh=new A.bI(B.dj,"improve website performance, games, features, and the player experience;",null)
+B.Vq=new A.bI(B.dj,"troubleshoot technical problems and maintain security; and",null)
+B.V3=new A.bI(B.dj,"respond to questions, feedback, or other communications.",null)
+B.Vn=new A.bI(B.X,"Where possible, we use aggregated or anonymized information for analytics and reporting.",null)
+B.VD=new A.bI(B.c6,"3. Will your information be shared with anyone?",null)
+B.Va=new A.bI(B.X,"We may share limited information with trusted third-party service providers that help us host, operate, secure, analyze, or improve our Services. Our use of third-party advertising services is described in Section 4 below.",null)
+B.V1=new A.bI(B.X,"We may also disclose information when required by law or when reasonably necessary to protect the rights, security, or safety of Canuckle, our players, or others.",null)
+B.Vg=new A.bI(B.X,"We do not sell or rent your personal information. Some of the information described in this Privacy Policy is stored and processed outside Canada, including in the United States, by service providers that help us operate and analyze our Services (such as Google, which provides our analytics and database services) and by our advertising partners described in Section 4. While held outside Canada, this information is subject to the laws of the country where it is located and may be accessible to the courts, law enforcement, and national security authorities of that country.",null)
+B.Vc=new A.bI(B.c6,"4. Do we use cookies and other technologies?",null)
+B.Vv=new A.bI(B.X,"We use cookies, local storage, and similar browser technologies to operate our Services, remember your preferences, maintain game functionality, provide advertising, and understand how our games are used.",null)
+B.Vk=new A.bI(B.X,"We use Yolla Media, LLC (\u201cYolla\u201d) to provide and manage advertising on our website. Yolla and its advertising partners may use cookies and similar technologies to collect certain information about your use of our Services for advertising, analytics, and related purposes. To learn more about Yolla and its data practices, please visit yollamedia.com/advertising-privacy.","Advertising:")
+B.VB=new A.bI(B.X,"Information related to your gameplay, such as puzzle progress, results, streaks, statistics, settings, and game history, may be stored locally in your browser or device and/or associated with your unique Canuckle User ID in our database. This allows Canuckle to maintain game functionality, progress, and statistics between visits and, where applicable, assist with game data recovery.",null)
+B.UY=new A.bI(B.X,"You can control or delete cookies and locally stored information through your browser settings. Doing so may reset your Canuckle statistics, streaks, preferences, or game progress.",null)
+B.Vs=new A.bI(B.c6,"5. How long do we keep your information?",null)
+B.Vd=new A.bI(B.X,"We keep personal information only for as long as reasonably necessary for the purposes described in this Privacy Policy or as required by law.",null)
+B.Vi=new A.bI(B.X,"Information stored locally in your browser generally remains there until it expires, is overwritten, or is deleted by you or your browser.",null)
+B.UX=new A.bI(B.X,"Information associated with your Canuckle User ID may be retained as necessary to provide game functionality and recovery assistance.",null)
+B.V2=new A.bI(B.X,"Aggregated or anonymized information that does not identify individual players may be retained for analytics and statistical purposes.",null)
+B.Vl=new A.bI(B.c6,"6. How do we keep your information safe?",null)
+B.VE=new A.bI(B.X,"We use reasonable technical and organizational measures designed to protect information handled through our Services.",null)
+B.Vt=new A.bI(B.X,"However, no website, internet transmission, or electronic storage system can be guaranteed to be completely secure.",null)
+B.V4=new A.bI(B.c6,"7. Do we collect information from children?",null)
+B.Vf=new A.bI(B.X,"Canuckle is a general-audience word game enjoyed by players of different ages. We do not require players to create an account or provide personal information in order to play.",null)
+B.Vy=new A.bI(B.X,"We do not knowingly solicit personal information from children. If you believe a child has provided personal information to us that should be removed, please contact us.",null)
+B.UZ=new A.bI(B.c6,"8. What are your privacy rights?",null)
+B.V_=new A.bI(B.X,"Depending on where you live, you may have certain rights regarding personal information we hold about you, including the right to request access to, correction of, or deletion of that information.",null)
+B.VA=new A.bI(B.X,"Because Canuckle does not require players to provide identifying information, we may not be able to identify or retrieve information associated with an individual player unless they have linked an email address or can provide their Canuckle User ID.",null)
+B.Ve=new A.bI(B.X,"You can manage or delete locally stored Canuckle information through your browser settings.",null)
+B.Vr=new A.bI(B.X,"If you have provided an email address for recovery purposes and have questions or requests regarding that information, please contact us.",null)
+B.V9=new A.bI(B.c6,"9. Controls for Do-Not-Track features",null)
+B.Vp=new A.bI(B.X,"Some web browsers provide a \u201cDo Not Track\u201d (DNT) setting that allows you to signal a preference regarding online tracking.",null)
+B.Vj=new A.bI(B.X,"There is currently no universally accepted standard for responding to DNT signals, so our Services may not respond to all such signals. You can use your browser\u2019s privacy settings to manage cookies, local storage, and similar technologies.",null)
+B.Vw=new A.bI(B.c6,"10. Do we make updates to this policy?",null)
+B.Vx=new A.bI(B.X,"Yes. We may update this Privacy Policy from time to time to reflect changes to our Services, technology, practices, or legal requirements.",null)
+B.V8=new A.bI(B.X,"When we make changes, we will update the \u201cLast updated\u201d date at the top of this page. We encourage you to review this Privacy Policy periodically.",null)
+B.VF=new A.bI(B.c6,"11. How can you contact us about this policy?",null)
+B.VI=new A.bI(B.X,"Canuckle is responsible for protecting the personal information we hold and for responding to questions, concerns, and requests about this Privacy Policy, including requests to access, correct, or delete your information. If you have questions, concerns, or requests regarding this Privacy Policy or Canuckle\u2019s privacy practices, please contact us at info@canucklegame.ca.",null)
+B.Vo=new A.bI(B.X,"\nWebsite: canucklegame.ca\nEmail: info@canucklegame.ca","Canuckle Games")
+B.OH=s([B.Vm,B.Vu,B.V7,B.Vz,B.V5,B.VH,B.V0,B.Vb,B.VG,B.VC,B.UW,B.V6,B.Vh,B.Vq,B.V3,B.Vn,B.VD,B.Va,B.V1,B.Vg,B.Vc,B.Vv,B.Vk,B.VB,B.UY,B.Vs,B.Vd,B.Vi,B.UX,B.V2,B.Vl,B.VE,B.Vt,B.V4,B.Vf,B.Vy,B.UZ,B.V_,B.VA,B.Ve,B.Vr,B.V9,B.Vp,B.Vj,B.Vw,B.Vx,B.V8,B.VF,B.VI,B.Vo],A.ab("q<bI>"))
 B.Zf=new A.ni(2,"cache")
-B.OI=s([B.C8,B.C9,B.Zf],A.ab("q<ni>"))
+B.OJ=s([B.C8,B.C9,B.Zf],A.ab("q<ni>"))
 B.N_=new A.mC(0,"get")
-B.OP=s([B.N_,B.qp,B.qq,B.qr],A.ab("q<mC>"))
+B.OQ=s([B.N_,B.qp,B.qq,B.qr],A.ab("q<mC>"))
 B.qP=s([0,21,51,121,151,191,271,321,360],t.n)
 B.J0=new A.z(0.25098039215686274,0,0,0,B.f)
 B.ms=new A.j(0,8)
@@ -101631,23 +101685,23 @@ B.ET=new A.cF(0,B.aE,B.J0,B.ms,24)
 B.qQ=s([B.ET],t.V)
 B.E=new A.E1(0,"nonZero")
 B.xo=new A.E1(1,"evenOdd")
-B.OQ=s([B.E,B.xo],A.ab("q<E1>"))
-B.OR=s(["Q1","Q2","Q3","Q4"],t.s)
+B.OR=s([B.E,B.xo],A.ab("q<E1>"))
+B.OS=s(["Q1","Q2","Q3","Q4"],t.s)
 B.Eo=new A.M5(2,"outer")
 B.oT=new A.z(0.09803921568627451,0,0,0,B.f)
 B.k=new A.j(0,0)
 B.EU=new A.cF(0.2,B.Eo,B.oT,B.k,11)
-B.OT=s([B.EU],t.V)
+B.OU=s([B.EU],t.V)
 B.bL=s([B.dd,B.cB,B.dN,B.dO,B.dP,B.dQ,B.dR,B.dS,B.dT,B.dU,B.dJ,B.dK,B.dL,B.dM,B.eL],A.ab("q<cG>"))
 B.Cf=new A.FY(0,"left")
 B.Cg=new A.FY(1,"right")
-B.OV=s([B.Cf,B.Cg],A.ab("q<FY>"))
+B.OW=s([B.Cf,B.Cg],A.ab("q<FY>"))
 B.B3=new A.tK(0,"keep")
 B.mD=new A.tK(1,"upload")
 B.jp=new A.tK(2,"delete")
-B.OW=s([B.B3,B.mD,B.jp],A.ab("q<tK>"))
+B.OX=s([B.B3,B.mD,B.jp],A.ab("q<tK>"))
 B.a9=new A.Gc(0,"upstream")
-B.OY=s([B.a9,B.m],A.ab("q<Gc>"))
+B.OZ=s([B.a9,B.m],A.ab("q<Gc>"))
 B.aJ=new A.Gh(0,"rtl")
 B.a6=new A.Gh(1,"ltr")
 B.m0=s([B.aJ,B.a6],A.ab("q<Gh>"))
@@ -101656,13 +101710,13 @@ B.Cp=new A.pu(1,"double")
 B.Cq=new A.pu(2,"dotted")
 B.a_4=new A.pu(3,"dashed")
 B.a_6=new A.pu(4,"wavy")
-B.P_=s([B.a_0,B.Cp,B.Cq,B.a_4,B.a_6],A.ab("q<pu>"))
+B.P0=s([B.a_0,B.Cp,B.Cq,B.a_4,B.a_6],A.ab("q<pu>"))
 B.Gd=new A.vq(0,"auto")
 B.Ge=new A.vq(1,"full")
 B.Gf=new A.vq(2,"chromium")
-B.P4=s([B.Gd,B.Ge,B.Gf],A.ab("q<vq>"))
+B.P5=s([B.Gd,B.Ge,B.Gf],A.ab("q<vq>"))
 B.c8=new A.h6(1,"fuchsia")
-B.P9=s([B.aB,B.c8,B.T,B.bU,B.bc,B.bV],A.ab("q<h6>"))
+B.Pa=s([B.aB,B.c8,B.T,B.bU,B.bc,B.bV],A.ab("q<h6>"))
 B.CV=new A.ys(0,"topLeft")
 B.CY=new A.ys(3,"bottomRight")
 B.a5f=new A.nD(B.CV,B.CY)
@@ -101671,8 +101725,8 @@ B.CW=new A.ys(1,"topRight")
 B.CX=new A.ys(2,"bottomLeft")
 B.a5g=new A.nD(B.CW,B.CX)
 B.a5h=new A.nD(B.CX,B.CW)
-B.Pa=s([B.a5f,B.a5i,B.a5g,B.a5h],A.ab("q<nD>"))
-B.Pc=s([35,30,20,25,30,35,30,25,25],t.n)
+B.Pb=s([B.a5f,B.a5i,B.a5g,B.a5h],A.ab("q<nD>"))
+B.Pd=s([35,30,20,25,30,35,30,25,25],t.n)
 B.WZ=new A.c6("assets/arena/canuckle.svg",194.5,25.2,25.4,16.8)
 B.WH=new A.c6("assets/arena/canoku.svg",236.4,-4.6,21.7,9.7)
 B.X5=new A.c6("assets/arena/canuckle-plus.svg",231.5,67.6,29.9,12.5)
@@ -101700,7 +101754,7 @@ B.WI=new A.c6("assets/arena/canuckle-duo.svg",183.9,-6,22.7,-1.5)
 B.Wy=new A.c6("assets/arena/canagrams.svg",335.9,35.2,29.6,15.2)
 B.Oz=s([B.X7,B.X6,B.WP,B.X_,B.WB,B.X4,B.WI,B.Wy],t.dx)
 B.a36=new A.py(420,B.Oz)
-B.Pd=s([B.a37,B.a39,B.a36],t.Eh)
+B.Pe=s([B.a37,B.a39,B.a36],t.Eh)
 B.kh=new A.dO(0,-0.45)
 B.l7=new A.b3(4e6)
 B.a5z=new A.kJ(B.kh,null,30,0.03,B.l7,B.C,5,20)
@@ -101710,89 +101764,35 @@ B.Dw=new A.dO(1,0.35)
 B.a5v=new A.kJ(B.Dw,-2.0943951023931953,18,0.04,B.l7,B.C,35,70)
 B.Dx=new A.dO(0,-1.05)
 B.a5w=new A.kJ(B.Dx,1.5707963267948966,6,0.12,B.pm,B.fV,2,8)
-B.Pf=s([B.a5z,B.a5u,B.a5v,B.a5w],t.fW)
-B.Ph=s([B.ph,B.pi,B.pj],A.ab("q<oh>"))
-B.Pj=s(["click","scroll"],t.s)
+B.Pg=s([B.a5z,B.a5u,B.a5v,B.a5w],t.fW)
+B.Pi=s([B.ph,B.pi,B.pj],A.ab("q<oh>"))
+B.Pk=s(["click","scroll"],t.s)
 B.kq=new A.nV()
 B.js=new A.Sb(1,"page")
 B.jt=new A.fm(B.bW,B.js)
-B.Pk=s([B.kq,B.jt],A.ab("q<bj>"))
-B.Pw=s([],t.QP)
+B.Pl=s([B.kq,B.jt],A.ab("q<bj>"))
+B.Px=s([],t.QP)
 B.qT=s([],A.ab("q<b9g>"))
-B.Pn=s([],t.E)
-B.Pp=s([],t.fJ)
-B.Pz=s([],t.ER)
+B.Po=s([],t.E)
+B.Pq=s([],t.fJ)
+B.PA=s([],t.ER)
 B.a6X=s([],t.ss)
-B.Po=s([],t.tc)
+B.Pp=s([],t.tc)
 B.qS=s([],t.MR)
 B.iV=s([],t.jl)
-B.Ps=s([],t.l)
-B.Pr=s([],A.ab("q<aNM<@>>"))
-B.PB=s([],t.zU)
-B.PA=s([],t.Di)
+B.Pt=s([],t.l)
+B.Ps=s([],A.ab("q<aNM<@>>"))
+B.PC=s([],t.zU)
+B.PB=s([],t.Di)
 B.m1=s([],t.AO)
-B.Pu=s([],t.D1)
+B.Pv=s([],t.D1)
 B.iW=s([],t.QF)
-B.Py=s([],t.Lx)
-B.Pq=s([],t.AS)
+B.Pz=s([],t.Lx)
+B.Pr=s([],t.AS)
 B.qU=s([],t.n)
 B.iU=s([],t.t)
 B.v=s([],t.ee)
-B.Pv=s([],t.XS)
-B.X=new A.E7(1,"paragraph")
-B.Vn=new A.bI(B.X,"Canuckle is operated by Canuckle Games, based in Ottawa, Ontario, Canada. At Canuckle, we respect your privacy and are committed to protecting your personal information. This Privacy Policy explains what information may be collected when you visit canucklegame.ca or use Canuckle, Canuckle+, Canoku, and other games or features available through our website (collectively, the \u201cServices\u201d), how we use that information, and the choices available to you.",null)
-B.Vu=new A.bI(B.X,"You can play our games without creating an account or providing your name, email address, or other identifying information.",null)
-B.c6=new A.E7(0,"heading")
-B.V8=new A.bI(B.c6,"1. Information we collect",null)
-B.Vz=new A.bI(B.X,"Canuckle automatically assigns each player a unique User ID. You may choose to provide your email address for recovery purposes, in which case it is linked to your Canuckle User ID so that we can locate your game information in our database if you need assistance recovering it. Providing an email address is optional and is not required to play Canuckle. We use your email address for recovery purposes only.","Optional Email Address:")
-B.V6=new A.bI(B.X,"When you use our Services, certain technical and usage information may be collected automatically. This may include your IP address, browser and device type, operating system, general location, referring website, and information about how and when you use our Services.","Technical and Usage Information:")
-B.VH=new A.bI(B.X,"This information may be collected through server logs, cookies, analytics tools, and similar technologies and is primarily used to operate, secure, analyze, and improve our Services.",null)
-B.V1=new A.bI(B.X,"If you contact Canuckle directly, we may also receive information you choose to provide, such as your name, email address, and the contents of your message.","Information You Provide:")
-B.Vc=new A.bI(B.c6,"2. How do we use your information?",null)
-B.VG=new A.bI(B.X,"We use the information we collect to:",null)
-B.dj=new A.E7(2,"bullet")
-B.VC=new A.bI(B.dj,"provide game data recovery assistance when requested;",null)
-B.UW=new A.bI(B.dj,"operate and maintain our games and website;",null)
-B.V7=new A.bI(B.dj,"understand how players use our Services;",null)
-B.Vi=new A.bI(B.dj,"improve website performance, games, features, and the player experience;",null)
-B.Vq=new A.bI(B.dj,"troubleshoot technical problems and maintain security; and",null)
-B.V4=new A.bI(B.dj,"respond to questions, feedback, or other communications.",null)
-B.Vo=new A.bI(B.X,"Where possible, we use aggregated or anonymized information for analytics and reporting.",null)
-B.VD=new A.bI(B.c6,"3. Will your information be shared with anyone?",null)
-B.Vb=new A.bI(B.X,"We may share limited information with trusted third-party service providers that help us host, operate, secure, analyze, or improve our Services. Our use of third-party advertising services is described in Section 4 below.",null)
-B.V2=new A.bI(B.X,"We may also disclose information when required by law or when reasonably necessary to protect the rights, security, or safety of Canuckle, our players, or others.",null)
-B.Vh=new A.bI(B.X,"We do not sell or rent your personal information. Some of the information described in this Privacy Policy is stored and processed outside Canada, including in the United States, by service providers that help us operate and analyze our Services (such as Google, which provides our analytics and database services) and by our advertising partners described in Section 4. While held outside Canada, this information is subject to the laws of the country where it is located and may be accessible to the courts, law enforcement, and national security authorities of that country.",null)
-B.Vd=new A.bI(B.c6,"4. Do we use cookies and other technologies?",null)
-B.Vv=new A.bI(B.X,"We use cookies, local storage, and similar browser technologies to operate our Services, remember your preferences, maintain game functionality, provide advertising, and understand how our games are used.",null)
-B.Vl=new A.bI(B.X,"We use Yolla Media, LLC (\u201cYolla\u201d) to provide and manage advertising on our website. Yolla and its advertising partners may use cookies and similar technologies to collect certain information about your use of our Services for advertising, analytics, and related purposes. To learn more about Yolla and its data practices, please visit yollamedia.com/advertising-privacy.","Advertising:")
-B.VB=new A.bI(B.X,"Information related to your gameplay, such as puzzle progress, results, streaks, statistics, settings, and game history, may be stored locally in your browser or device and/or associated with your unique Canuckle User ID in our database. This allows Canuckle to maintain game functionality, progress, and statistics between visits and, where applicable, assist with game data recovery.",null)
-B.UZ=new A.bI(B.X,"You can control or delete cookies and locally stored information through your browser settings. Doing so may reset your Canuckle statistics, streaks, preferences, or game progress.",null)
-B.Vs=new A.bI(B.c6,"5. How long do we keep your information?",null)
-B.Ve=new A.bI(B.X,"We keep personal information only for as long as reasonably necessary for the purposes described in this Privacy Policy or as required by law.",null)
-B.Vj=new A.bI(B.X,"Information stored locally in your browser generally remains there until it expires, is overwritten, or is deleted by you or your browser.",null)
-B.UX=new A.bI(B.X,"Information associated with your Canuckle User ID may be retained as necessary to provide game functionality and recovery assistance.",null)
-B.V3=new A.bI(B.X,"Aggregated or anonymized information that does not identify individual players may be retained for analytics and statistical purposes.",null)
-B.Vm=new A.bI(B.c6,"6. How do we keep your information safe?",null)
-B.VE=new A.bI(B.X,"We use reasonable technical and organizational measures designed to protect information handled through our Services.",null)
-B.Vt=new A.bI(B.X,"However, no website, internet transmission, or electronic storage system can be guaranteed to be completely secure.",null)
-B.V5=new A.bI(B.c6,"7. Do we collect information from children?",null)
-B.Vg=new A.bI(B.X,"Canuckle is a general-audience word game enjoyed by players of different ages. We do not require players to create an account or provide personal information in order to play.",null)
-B.Vy=new A.bI(B.X,"We do not knowingly solicit personal information from children. If you believe a child has provided personal information to us that should be removed, please contact us.",null)
-B.V_=new A.bI(B.c6,"8. What are your privacy rights?",null)
-B.V0=new A.bI(B.X,"Depending on where you live, you may have certain rights regarding personal information we hold about you, including the right to request access to, correction of, or deletion of that information.",null)
-B.VA=new A.bI(B.X,"Because Canuckle does not require players to provide identifying information, we may not be able to identify or retrieve information associated with an individual player unless they have linked an email address or can provide their Canuckle User ID.",null)
-B.Vf=new A.bI(B.X,"You can manage or delete locally stored Canuckle information through your browser settings.",null)
-B.Vr=new A.bI(B.X,"If you have provided an email address for recovery purposes and have questions or requests regarding that information, please contact us.",null)
-B.Va=new A.bI(B.c6,"9. Controls for Do-Not-Track features",null)
-B.Vp=new A.bI(B.X,"Some web browsers provide a \u201cDo Not Track\u201d (DNT) setting that allows you to signal a preference regarding online tracking.",null)
-B.Vk=new A.bI(B.X,"There is currently no universally accepted standard for responding to DNT signals, so our Services may not respond to all such signals. You can use your browser\u2019s privacy settings to manage cookies, local storage, and similar technologies.",null)
-B.Vw=new A.bI(B.c6,"10. Do we make updates to this policy?",null)
-B.Vx=new A.bI(B.X,"Yes. We may update this Privacy Policy from time to time to reflect changes to our Services, technology, practices, or legal requirements.",null)
-B.V9=new A.bI(B.X,"When we make changes, we will update the \u201cLast updated\u201d date at the top of this page. We encourage you to review this Privacy Policy periodically.",null)
-B.VF=new A.bI(B.c6,"11. How can you contact us about this policy?",null)
-B.VI=new A.bI(B.X,"Canuckle is responsible for protecting the personal information we hold and for responding to questions, concerns, and requests about this Privacy Policy, including requests to access, correct, or delete your information. If you have questions, concerns, or requests regarding this Privacy Policy or Canuckle\u2019s privacy practices, please contact us at info@canucklegame.ca.",null)
-B.UY=new A.bI(B.X,"Website: canucklegame.ca \xb7 Email: info@canucklegame.ca","Canuckle Games")
-B.PC=s([B.Vn,B.Vu,B.V8,B.Vz,B.V6,B.VH,B.V1,B.Vc,B.VG,B.VC,B.UW,B.V7,B.Vi,B.Vq,B.V4,B.Vo,B.VD,B.Vb,B.V2,B.Vh,B.Vd,B.Vv,B.Vl,B.VB,B.UZ,B.Vs,B.Ve,B.Vj,B.UX,B.V3,B.Vm,B.VE,B.Vt,B.V5,B.Vg,B.Vy,B.V_,B.V0,B.VA,B.Vf,B.Vr,B.Va,B.Vp,B.Vk,B.Vw,B.Vx,B.V9,B.VF,B.VI,B.UY],A.ab("q<bI>"))
+B.Pw=s([],t.XS)
 B.qV=s(["S","M","T","W","T","F","S"],t.s)
 B.qW=s(["J","F","M","A","M","J","J","A","S","O","N","D"],t.s)
 B.W5=new A.af("info@canucklegame.ca","mailto:info@canucklegame.ca")
@@ -101824,8 +101824,8 @@ B.WC=new A.c6("assets/arena/canominoes.svg",283.9,41.1,18,-15.6)
 B.WE=new A.c6("assets/arena/canoggle.svg",282.8,1.9,22.7,-4.8)
 B.WD=new A.c6("assets/arena/canuckle-duo.svg",226.2,7.8,17.8,10.8)
 B.WJ=new A.c6("assets/arena/canagrams.svg",323,-6.8,20,-9.4)
-B.Pe=s([B.WQ,B.WR,B.X3,B.X0,B.WC,B.WE,B.WD,B.WJ],t.dx)
-B.a38=new A.py(350,B.Pe)
+B.Pf=s([B.WQ,B.WR,B.X3,B.X0,B.WC,B.WE,B.WD,B.WJ],t.dx)
+B.a38=new A.py(350,B.Pf)
 B.WS=new A.c6("assets/arena/canuckle.svg",201.1,18.3,24.8,-9.2)
 B.WK=new A.c6("assets/arena/canoku.svg",330.8,26.3,17.4,8.3)
 B.WU=new A.c6("assets/arena/canuckle-plus.svg",265.9,18.6,24.3,16.7)
@@ -101856,9 +101856,9 @@ B.PV=s([B.Dq,B.Dr,B.Ds],A.ab("q<nX>"))
 B.PW=s([B.qn,B.qo],A.ab("q<wn>"))
 B.PY=s([B.x6,B.e],t.t_)
 B.Oc=s([0.001200833568784504,0.002389694492170889,0.0002795742885861124],t.n)
-B.Pl=s([0.0005891086651375999,0.0029785502573438758,0.0003270666104008398],t.n)
+B.Pm=s([0.0005891086651375999,0.0029785502573438758,0.0003270666104008398],t.n)
 B.Ot=s([0.00010146692491640572,0.0005364214359186694,0.0032979401770712076],t.n)
-B.Q1=s([B.Oc,B.Pl,B.Ot],t.zg)
+B.Q1=s([B.Oc,B.Pm,B.Ot],t.zg)
 B.Q2=s([45,95,45,20,45,90,45,45,45],t.n)
 B.Q3=s([120,120,20,45,20,15,20,120,120],t.n)
 B.Np=s([12,8,44,45],t.n)
@@ -102629,28 +102629,28 @@ B.NW=s([54,null,null,8589935158],t.Z)
 B.NX=s([55,null,null,8589935159],t.Z)
 B.NY=s([56,null,null,8589935160],t.Z)
 B.O_=s([57,null,null,8589935161],t.Z)
-B.P0=s([8589934852,8589934852,8589934853,null],t.Z)
+B.P1=s([8589934852,8589934852,8589934853,null],t.Z)
 B.Ny=s([4294967555,null,4294967555,null],t.Z)
 B.Nz=s([4294968065,null,null,8589935154],t.Z)
 B.NA=s([4294968066,null,null,8589935156],t.Z)
 B.NB=s([4294968067,null,null,8589935158],t.Z)
 B.NC=s([4294968068,null,null,8589935160],t.Z)
 B.NH=s([4294968321,null,null,8589935157],t.Z)
-B.P1=s([8589934848,8589934848,8589934849,null],t.Z)
+B.P2=s([8589934848,8589934848,8589934849,null],t.Z)
 B.Nx=s([4294967423,null,null,8589935150],t.Z)
 B.ND=s([4294968069,null,null,8589935153],t.Z)
 B.Nw=s([4294967309,null,null,8589935117],t.Z)
 B.NE=s([4294968070,null,null,8589935159],t.Z)
 B.NI=s([4294968327,null,null,8589935152],t.Z)
-B.P2=s([8589934854,8589934854,8589934855,null],t.Z)
+B.P3=s([8589934854,8589934854,8589934855,null],t.Z)
 B.NF=s([4294968071,null,null,8589935155],t.Z)
 B.NG=s([4294968072,null,null,8589935161],t.Z)
-B.P3=s([8589934850,8589934850,8589934851,null],t.Z)
-B.x0=new A.cA(["*",B.NJ,"+",B.NK,"-",B.NL,".",B.NM,"/",B.NN,"0",B.NO,"1",B.NP,"2",B.NR,"3",B.NT,"4",B.NU,"5",B.NV,"6",B.NW,"7",B.NX,"8",B.NY,"9",B.O_,"Alt",B.P0,"AltGraph",B.Ny,"ArrowDown",B.Nz,"ArrowLeft",B.NA,"ArrowRight",B.NB,"ArrowUp",B.NC,"Clear",B.NH,"Control",B.P1,"Delete",B.Nx,"End",B.ND,"Enter",B.Nw,"Home",B.NE,"Insert",B.NI,"Meta",B.P2,"PageDown",B.NF,"PageUp",B.NG,"Shift",B.P3],A.ab("cA<e,J<l?>>"))
+B.P4=s([8589934850,8589934850,8589934851,null],t.Z)
+B.x0=new A.cA(["*",B.NJ,"+",B.NK,"-",B.NL,".",B.NM,"/",B.NN,"0",B.NO,"1",B.NP,"2",B.NR,"3",B.NT,"4",B.NU,"5",B.NV,"6",B.NW,"7",B.NX,"8",B.NY,"9",B.O_,"Alt",B.P1,"AltGraph",B.Ny,"ArrowDown",B.Nz,"ArrowLeft",B.NA,"ArrowRight",B.NB,"ArrowUp",B.NC,"Clear",B.NH,"Control",B.P2,"Delete",B.Nx,"End",B.ND,"Enter",B.Nw,"Home",B.NE,"Insert",B.NI,"Meta",B.P3,"PageDown",B.NF,"PageUp",B.NG,"Shift",B.P4],A.ab("cA<e,J<l?>>"))
 B.NZ=s([B.r4,null,null,B.wL],t.L)
 B.PE=s([B.wx,null,null,B.wM],t.L)
 B.OB=s([B.m8,null,null,B.wN],t.L)
-B.P5=s([B.wy,null,null,B.dZ],t.L)
+B.P6=s([B.wy,null,null,B.dZ],t.L)
 B.Nl=s([B.wz,null,null,B.wO],t.L)
 B.Q_=s([B.wA,null,null,B.me],t.L)
 B.PR=s([B.wB,null,null,B.ha],t.L)
@@ -102664,22 +102664,22 @@ B.PF=s([B.wI,null,null,B.e2],t.L)
 B.PI=s([B.wJ,null,null,B.hd],t.L)
 B.Od=s([B.h8,B.h8,B.j1,null],t.L)
 B.Q0=s([B.iZ,null,B.iZ,null],t.L)
-B.OJ=s([B.c1,null,null,B.e_],t.L)
-B.OK=s([B.bM,null,null,B.e0],t.L)
-B.OL=s([B.bN,null,null,B.e1],t.L)
+B.OK=s([B.c1,null,null,B.e_],t.L)
+B.OL=s([B.bM,null,null,B.e0],t.L)
+B.OM=s([B.bN,null,null,B.e1],t.L)
 B.Q8=s([B.c2,null,null,B.e2],t.L)
 B.PO=s([B.m7,null,null,B.mf],t.L)
 B.Oe=s([B.eP,B.eP,B.h7,null],t.L)
-B.Pg=s([B.ba,null,null,B.dZ],t.L)
-B.OM=s([B.dX,null,null,B.ha],t.L)
+B.Ph=s([B.ba,null,null,B.dZ],t.L)
+B.ON=s([B.dX,null,null,B.ha],t.L)
 B.O3=s([B.iY,null,null,B.md],t.L)
-B.ON=s([B.dY,null,null,B.hc],t.L)
+B.OO=s([B.dY,null,null,B.hc],t.L)
 B.PP=s([B.h6,null,null,B.me],t.L)
 B.Of=s([B.h9,B.h9,B.j2,null],t.L)
-B.OO=s([B.h4,null,null,B.hb],t.L)
-B.Pm=s([B.h5,null,null,B.hd],t.L)
+B.OP=s([B.h4,null,null,B.hb],t.L)
+B.Pn=s([B.h5,null,null,B.hd],t.L)
 B.Og=s([B.cE,B.cE,B.dg,null],t.L)
-B.S8=new A.cA(["*",B.NZ,"+",B.PE,"-",B.OB,".",B.P5,"/",B.Nl,"0",B.Q_,"1",B.PR,"2",B.O8,"3",B.Qb,"4",B.PQ,"5",B.O4,"6",B.Nt,"7",B.Om,"8",B.PF,"9",B.PI,"Alt",B.Od,"AltGraph",B.Q0,"ArrowDown",B.OJ,"ArrowLeft",B.OK,"ArrowRight",B.OL,"ArrowUp",B.Q8,"Clear",B.PO,"Control",B.Oe,"Delete",B.Pg,"End",B.OM,"Enter",B.O3,"Home",B.ON,"Insert",B.PP,"Meta",B.Of,"PageDown",B.OO,"PageUp",B.Pm,"Shift",B.Og],A.ab("cA<e,J<f?>>"))
+B.S8=new A.cA(["*",B.NZ,"+",B.PE,"-",B.OB,".",B.P6,"/",B.Nl,"0",B.Q_,"1",B.PR,"2",B.O8,"3",B.Qb,"4",B.PQ,"5",B.O4,"6",B.Nt,"7",B.Om,"8",B.PF,"9",B.PI,"Alt",B.Od,"AltGraph",B.Q0,"ArrowDown",B.OK,"ArrowLeft",B.OL,"ArrowRight",B.OM,"ArrowUp",B.Q8,"Clear",B.PO,"Control",B.Oe,"Delete",B.Ph,"End",B.ON,"Enter",B.O3,"Home",B.OO,"Insert",B.PP,"Meta",B.Of,"PageDown",B.OP,"PageUp",B.Pn,"Shift",B.Og],A.ab("cA<e,J<f?>>"))
 B.SV={multiply:0,screen:1,overlay:2,darken:3,lighten:4,"color-dodge":5,"color-burn":6,"hard-light":7,"soft-light":8,difference:9,exclusion:10,hue:11,saturation:12,color:13,luminosity:14}
 B.Ea=new A.eG(24,"multiply")
 B.DQ=new A.eG(14,"screen")
@@ -102711,12 +102711,12 @@ B.MP=new A.oB(4,"bmp")
 B.Sb=new A.bK(B.T5,[B.MM,B.ql,B.ql,B.MN,B.MO,B.MP],A.ab("bK<e,oB>"))
 B.SZ={"zh-Hant":0,"zh-TW":1,"zh-MO":2,"zh-HK":3,ja:4,ko:5,zh:6,"zh-Hans":7,"zh-CN":8}
 B.m_=s(["Noto Sans TC"],t.s)
-B.P7=s(["Noto Sans HK","Noto Sans TC"],t.s)
+B.P8=s(["Noto Sans HK","Noto Sans TC"],t.s)
 B.O1=s(["Noto Sans JP"],t.s)
 B.Nu=s(["Noto Sans KR"],t.s)
 B.qR=s(["Noto Sans SC"],t.s)
 B.Qe=s(["Noto Sans SC","Noto Sans TC"],t.s)
-B.j6=new A.bK(B.SZ,[B.m_,B.m_,B.m_,B.P7,B.O1,B.Nu,B.qR,B.qR,B.Qe],t.AH)
+B.j6=new A.bK(B.SZ,[B.m_,B.m_,B.m_,B.P8,B.O1,B.Nu,B.qR,B.qR,B.Qe],t.AH)
 B.SW={matrix:0,translate:1,scale:2,rotate:3,skewX:4,skewY:5}
 B.Sh=new A.bK(B.SW,[A.b8c(),A.b8h(),A.b8e(),A.b8d(),A.b8f(),A.b8g()],A.ab("bK<e,jR(J<S>,jR)>"))
 B.ST={Abort:0,Again:1,AltLeft:2,AltRight:3,ArrowDown:4,ArrowLeft:5,ArrowRight:6,ArrowUp:7,AudioVolumeDown:8,AudioVolumeMute:9,AudioVolumeUp:10,Backquote:11,Backslash:12,Backspace:13,BracketLeft:14,BracketRight:15,BrightnessDown:16,BrightnessUp:17,BrowserBack:18,BrowserFavorites:19,BrowserForward:20,BrowserHome:21,BrowserRefresh:22,BrowserSearch:23,BrowserStop:24,CapsLock:25,Comma:26,ContextMenu:27,ControlLeft:28,ControlRight:29,Convert:30,Copy:31,Cut:32,Delete:33,Digit0:34,Digit1:35,Digit2:36,Digit3:37,Digit4:38,Digit5:39,Digit6:40,Digit7:41,Digit8:42,Digit9:43,DisplayToggleIntExt:44,Eject:45,End:46,Enter:47,Equal:48,Escape:49,Esc:50,F1:51,F10:52,F11:53,F12:54,F13:55,F14:56,F15:57,F16:58,F17:59,F18:60,F19:61,F2:62,F20:63,F21:64,F22:65,F23:66,F24:67,F3:68,F4:69,F5:70,F6:71,F7:72,F8:73,F9:74,Find:75,Fn:76,FnLock:77,GameButton1:78,GameButton10:79,GameButton11:80,GameButton12:81,GameButton13:82,GameButton14:83,GameButton15:84,GameButton16:85,GameButton2:86,GameButton3:87,GameButton4:88,GameButton5:89,GameButton6:90,GameButton7:91,GameButton8:92,GameButton9:93,GameButtonA:94,GameButtonB:95,GameButtonC:96,GameButtonLeft1:97,GameButtonLeft2:98,GameButtonMode:99,GameButtonRight1:100,GameButtonRight2:101,GameButtonSelect:102,GameButtonStart:103,GameButtonThumbLeft:104,GameButtonThumbRight:105,GameButtonX:106,GameButtonY:107,GameButtonZ:108,Help:109,Home:110,Hyper:111,Insert:112,IntlBackslash:113,IntlRo:114,IntlYen:115,KanaMode:116,KeyA:117,KeyB:118,KeyC:119,KeyD:120,KeyE:121,KeyF:122,KeyG:123,KeyH:124,KeyI:125,KeyJ:126,KeyK:127,KeyL:128,KeyM:129,KeyN:130,KeyO:131,KeyP:132,KeyQ:133,KeyR:134,KeyS:135,KeyT:136,KeyU:137,KeyV:138,KeyW:139,KeyX:140,KeyY:141,KeyZ:142,KeyboardLayoutSelect:143,Lang1:144,Lang2:145,Lang3:146,Lang4:147,Lang5:148,LaunchApp1:149,LaunchApp2:150,LaunchAssistant:151,LaunchControlPanel:152,LaunchMail:153,LaunchScreenSaver:154,MailForward:155,MailReply:156,MailSend:157,MediaFastForward:158,MediaPause:159,MediaPlay:160,MediaPlayPause:161,MediaRecord:162,MediaRewind:163,MediaSelect:164,MediaStop:165,MediaTrackNext:166,MediaTrackPrevious:167,MetaLeft:168,MetaRight:169,MicrophoneMuteToggle:170,Minus:171,NonConvert:172,NumLock:173,Numpad0:174,Numpad1:175,Numpad2:176,Numpad3:177,Numpad4:178,Numpad5:179,Numpad6:180,Numpad7:181,Numpad8:182,Numpad9:183,NumpadAdd:184,NumpadBackspace:185,NumpadClear:186,NumpadClearEntry:187,NumpadComma:188,NumpadDecimal:189,NumpadDivide:190,NumpadEnter:191,NumpadEqual:192,NumpadMemoryAdd:193,NumpadMemoryClear:194,NumpadMemoryRecall:195,NumpadMemoryStore:196,NumpadMemorySubtract:197,NumpadMultiply:198,NumpadParenLeft:199,NumpadParenRight:200,NumpadSubtract:201,Open:202,PageDown:203,PageUp:204,Paste:205,Pause:206,Period:207,Power:208,PrintScreen:209,PrivacyScreenToggle:210,Props:211,Quote:212,Resume:213,ScrollLock:214,Select:215,SelectTask:216,Semicolon:217,ShiftLeft:218,ShiftRight:219,ShowAllWindows:220,Slash:221,Sleep:222,Space:223,Super:224,Suspend:225,Tab:226,Turbo:227,Undo:228,WakeUp:229,ZoomToggle:230}
@@ -103366,9 +103366,9 @@ B.Y0=new A.fJ([B.XI,B.XH],A.ab("fJ<ne>"))
 B.By=new A.fJ([B.as,B.bb,B.ck,B.bi,B.bD],t.Lu)
 B.Jx=new A.z(0.23529411764705882,0,0,0,B.f)
 B.EX=new A.cF(0.5,B.aE,B.Jx,B.xe,10)
-B.Pi=s([B.EX],t.V)
+B.Pj=s([B.EX],t.V)
 B.Wx=new A.lz(B.d3,B.A)
-B.Y1=new A.kr(null,null,null,B.Pi,B.Wx)
+B.Y1=new A.kr(null,null,null,B.Pj,B.Wx)
 B.Y2=new A.al(B.h6,!1,!0,!1,!1,B.r)
 B.Bz=new A.al(B.m4,!1,!1,!1,!0,B.r)
 B.Y3=new A.al(B.r0,!0,!1,!1,!1,B.r)
@@ -104786,7 +104786,7 @@ s($,"bdx","aKy",()=>A.aeZ(A.cv([B.mc],t.C)))
 s($,"beH","aVI",()=>{var q=t.K
 return new A.aox(new A.a4f(A.o(q,A.ab("a6<ch>")),A.o(q,t.V4)))})
 s($,"beJ","aVJ",()=>new A.ajn(A.o(t.N,A.ab("a6<ch?>?(ch?)"))))
-s($,"beq","aVE",()=>new A.a6p("en_US",B.Or,B.Qf,B.qW,B.qW,B.qF,B.qF,B.qE,B.qE,B.qI,B.qI,B.qK,B.qK,B.qV,B.qV,B.OR,B.Qa,B.Ol))
+s($,"beq","aVE",()=>new A.a6p("en_US",B.Or,B.Qf,B.qW,B.qW,B.qF,B.qF,B.qE,B.qE,B.qI,B.qI,B.qK,B.qK,B.qV,B.qV,B.OS,B.Qa,B.Ol))
 r($,"bcT","aGm",()=>A.aPc("initializeDateFormatting(<locale>)",$.aVE()))
 r($,"bem","aKI",()=>A.aPc("initializeDateFormatting(<locale>)",B.S3))
 s($,"bec","aVC",()=>48)

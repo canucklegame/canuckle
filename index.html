@@ -71,11 +71,15 @@
   <script>
     // Canuckle+ and Duo share this page. Opened as /?plus=true or /?duo=true,
     // they get their own icons (kept with their share pages in plus/ and duo/),
-    // so a bookmark or home-screen icon shows the right game.
+    // so a bookmark or home-screen icon shows the right game, and their own tab
+    // title until the app takes over (main.dart, _tabTitle: keep the same).
     (function () {
       var q = new URLSearchParams(location.search);
       var g = q.get('plus') === 'true' ? 'plus' : q.get('duo') === 'true' ? 'duo' : null;
       if (!g) return;
+      document.title = g === 'plus'
+        ? 'Canuckle+ - A weekly Canadian word challenge'
+        : 'Canuckle Duo - Two Canadian words, one daily puzzle';
       var logo = g + '/images/canuckle' + g + '_logo_';
       document.querySelector('link[rel="apple-touch-icon"]').href = logo + '192x192.png';
       document.querySelector('link[rel="icon"]').href = logo + '32x32.png';
@@ -643,7 +647,7 @@
              this page handles ?sandboxOffsetWeeks itself. -->
         <script>window.arenaEmbedded = true;</script>
         <script type="module" src="/arena/js/nextUp.js"></script>
-        <script src="flutter_bootstrap.js?version=202611012247" async></script>
+        <script src="flutter_bootstrap.js?version=202611022235" async></script>
     </div>
   </div>
 </body>

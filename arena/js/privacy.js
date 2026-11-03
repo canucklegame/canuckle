@@ -4,7 +4,7 @@
 // (privacy_policy.dart in each), so a change to the policy goes to the site
 // page, here and every game together, with LAST_UPDATED moved on.
 
-import { h, openSheet, sheetHead } from './ui.js?v=202611012251';
+import { h, openSheet, sheetHead } from './ui.js?v=202611022239';
 
 export const LAST_UPDATED = 'November 1, 2026';
 
@@ -71,7 +71,7 @@ export const POLICY = [
 
   ['h', '11. How can you contact us about this policy?'],
   ['p', 'Canuckle is responsible for protecting the personal information we hold and for responding to questions, concerns, and requests about this Privacy Policy, including requests to access, correct, or delete your information. If you have questions, concerns, or requests regarding this Privacy Policy or Canuckle’s privacy practices, please contact us at info@canucklegame.ca.'],
-  ['p', 'Website: canucklegame.ca · Email: info@canucklegame.ca', 'Canuckle Games'],
+  ['p', '\nWebsite: canucklegame.ca\nEmail: info@canucklegame.ca', 'Canuckle Games'],
 ];
 
 // Addresses in the text that become links.
@@ -96,6 +96,11 @@ export function linkify(text) {
   return out;
 }
 
+/** [text] linked as [linkify] does, with each \n a line break. */
+function lines(text) {
+  return text.split('\n').flatMap((line, i) => (i ? [h('br'), ...linkify(line)] : linkify(line)));
+}
+
 function policyBody() {
   const nodes = [];
   let list = null;
@@ -107,7 +112,7 @@ function policyBody() {
     }
     list = null;
     if (kind === 'h') nodes.push(h('h3', { text }));
-    else nodes.push(h('p', {}, label ? h('strong', { text: label }) : null, label ? ' ' : null, ...linkify(text)));
+    else nodes.push(h('p', {}, label ? h('strong', { text: label }) : null, label ? ' ' : null, ...lines(text)));
   }
   return nodes;
 }

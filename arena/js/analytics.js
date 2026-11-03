@@ -5,7 +5,7 @@
 // level_start / level_end events. Every event carries game: 'arena'; an event
 // about one of the games names it in target_game.
 
-import { GA_ID, IS_PROD_HOST } from './config.js?v=202611012251';
+import { GA_ID, IS_PROD_HOST } from './config.js?v=202611022239';
 
 export function initAnalytics() {
   if (!IS_PROD_HOST) return;

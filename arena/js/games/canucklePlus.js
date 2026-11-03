@@ -4,12 +4,12 @@
 // 2025-03-31, index = weeks + 60001, shown to players as index - 60000.
 // Progress is `plusGames` in the same newUserData/{id} document as Canuckle.
 
-import { epochDay } from '../dates.js?v=202611012251';
-import { pct } from './common.js?v=202611012251';
-import { readGame, distribution, guessLabel, gamesWithPending } from './canuckle.js?v=202611012251';
+import { epochDay } from '../dates.js?v=202611022239';
+import { pct } from './common.js?v=202611022239';
+import { readGame, distribution, guessLabel, gamesWithPending } from './canuckle.js?v=202611022239';
 import {
   SOLVED, PROGRESS, emptyProgress, mark, currentStreak, longestStreak, num, noteFinish,
-} from '../status.js?v=202611012251';
+} from '../status.js?v=202611022239';
 
 const START = epochDay(2025, 3, 31);
 const BASE = 60001;
