@@ -2,14 +2,15 @@
 // announcements: one badge at a time, or a summary of several. A tier family
 // (families.js) shows as one tile and opens to every level.
 
-import { h, ICONS, openSheet, sheetHead, toast } from '../ui.js?v=202611022239';
-import { longDate, shortDate, todayEpochDay } from '../dates.js?v=202611022239';
-import { medalSvg, LEAF_PATH } from '../badges/icons.js?v=202611022239';
-import { shareBadge, shareShelf } from '../badges/share.js?v=202611022239';
-import { groupFamilies, isFamily, countOf } from '../badges/families.js?v=202611022239';
-import { gameById } from '../games/registry.js?v=202611022239';
-import { track } from '../analytics.js?v=202611022239';
-import { playTodayProps } from './play.js?v=202611022239';
+import { h, ICONS, openSheet, sheetHead, toast } from '../ui.js?v=202611060005';
+import { longDate, shortDate, todayEpochDay } from '../dates.js?v=202611060005';
+import { medalSvg, LEAF_PATH } from '../badges/icons.js?v=202611060005';
+import { shareBadge, shareShelf } from '../badges/share.js?v=202611060005';
+import { groupFamilies, isFamily, countOf } from '../badges/families.js?v=202611060005';
+import { gameById } from '../games/registry.js?v=202611060005';
+import { track } from '../analytics.js?v=202611060005';
+import { playTodayProps } from './play.js?v=202611060005';
+import { listedGames } from '../gameOrder.js?v=202611060005';
 
 const FAMILY_COLOR = '#D52B1E';
 const TIER_WORD = { bronze: 'Bronze', silver: 'Silver', gold: 'Gold', platinum: 'Platinum' };
@@ -336,7 +337,7 @@ export function announceMany(app, badges, onDone, { firstVisit = false } = {}) {
 
   const sections = [
     { title: 'Games Arena', logo: 'images/arena.svg', list: badges.filter((b) => !b.game) },
-    ...app.games.map((g) => ({ title: g.name, logo: g.logo, list: badges.filter((b) => b.game === g.id) })),
+    ...listedGames(app).map((g) => ({ title: g.name, logo: g.logo, list: badges.filter((b) => b.game === g.id) })),
   ].filter((s) => s.list.length);
 
   // Several new levels of one family share a tile: the highest, and how many more.
@@ -424,7 +425,7 @@ export function renderBadgesPage(app) {
   const earned = all.filter((b) => b.earned).length;
   const sections = [
     { title: 'Games Arena', logo: 'images/arena.svg', list: all.filter((b) => !b.game) },
-    ...app.games.map((g) => ({ title: g.name, logo: g.logo, game: g, list: all.filter((b) => b.game === g.id) })),
+    ...listedGames(app).map((g) => ({ title: g.name, logo: g.logo, game: g, list: all.filter((b) => b.game === g.id) })),
   ];
   return h('div', { class: 'wrap' },
     h('div', { class: 'page-head' },

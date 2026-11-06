@@ -540,7 +540,9 @@ main { padding: 20px 0 64px; }
 }
 
 .today-card {
-  width: min(310px, calc(100vw - 76px));
+  /* 340, not 310: room for "Canuckle Duo" on one line beside the star and
+     the logo. Phones still cap it so the next card peeks in. */
+  width: min(340px, calc(100vw - 76px));
   padding: 18px;
   display: flex;
   flex-direction: column;
@@ -549,6 +551,18 @@ main { padding: 20px 0 64px; }
 .tc-top { display: flex; gap: 12px; align-items: flex-start; }
 .tc-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
 .tc-name { font: 800 25px/1.05 var(--display); letter-spacing: -0.03em; }
+/* Below 416px wide the card narrows with the screen (100vw - 76px), so the name
+   shrinks with it to stay on one line. Its room is the card less the padding,
+   the logo, the gap and the star: 100vw - 228px. The longest name, "Canuckle
+   Duo", is about 6.9em wide in Sora 800. Every card shrinks alike. */
+@media (max-width: 415px) {
+  .tc-name {
+    font-size: clamp(16px, calc((100vw - 228px) / 6.9), 25px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
 .tc-blurb { font-size: 14px; line-height: 1.35; margin-top: 6px; color: var(--muted); }
 .tc-logo { width: 66px; height: 66px; flex: none; }
 .tc-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 8px; }
@@ -916,6 +930,10 @@ a.set-row:hover, button.set-row:hover { color: var(--text); background: rgba(127
 .sync { display: flex; flex-direction: column; gap: 12px; }
 .sync p { margin: 0; }
 .sync-form { display: flex; flex-direction: column; gap: 12px; }
+/* One line, 40px like the email box. The shared rule's flex-basis is a width
+   in a row, but this form is a column, where it made the box 180px tall. */
+.sync-form input { flex: none; height: 40px; min-height: 0; padding: 0 12px; font-size: 15px; }
+.sync-form input:focus { outline: none; border-color: var(--accent); }
 .sync-error { color: var(--accent-text); font-weight: 700; }
 .sync-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; }
 

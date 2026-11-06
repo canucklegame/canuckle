@@ -12,12 +12,12 @@
 // migrated (savesVersion < 2) still have per-day subcollections
 // canokuUserData/{id}/{dayIndex}, one document per mode, {gameData: <JSON>}.
 
-import { daily, historyStart } from './common.js?v=202611022239';
-import { readPref, prefKeys } from '../local.js?v=202611022239';
-import { duration } from '../dates.js?v=202611022239';
+import { daily, historyStart } from './common.js?v=202611060005';
+import { readPref, prefKeys } from '../local.js?v=202611060005';
+import { duration } from '../dates.js?v=202611060005';
 import {
   SOLVED, PROGRESS, emptyProgress, mark, currentStreak, longestStreak, intList, num, minEd, noteFinish,
-} from '../status.js?v=202611022239';
+} from '../status.js?v=202611060005';
 
 const SIZES = [
   { suffix: '', label: '9×9', stat: '' },

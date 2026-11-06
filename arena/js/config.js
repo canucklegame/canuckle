@@ -4,8 +4,8 @@
 // production (canucklegame.ca). All game links are root-relative, so the only
 // thing that differs is which games are visible and whether analytics runs.
 
-import { readPref, writePref } from './local.js?v=202611022239';
-import { epochDay, todayEpochDay } from './dates.js?v=202611022239';
+import { readPref, writePref } from './local.js?v=202611060005';
+import { epochDay, todayEpochDay } from './dates.js?v=202611060005';
 
 const host = typeof location === 'undefined' ? '' : location.hostname;
 

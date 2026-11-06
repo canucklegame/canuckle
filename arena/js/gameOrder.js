@@ -1,7 +1,9 @@
-// The order the Games and Stats tabs list the games in: release order (see
-// registry.js), or an order the player arranged themselves in Settings.
+// The order the Games, Stats and Badges tabs list the games in: release order
+// (see registry.js), or an order the player arranged themselves in Settings,
+// with their favourites first.
 
-import { arenaGet, arenaSet } from './local.js?v=202611022239';
+import { arenaGet, arenaSet } from './local.js?v=202611060005';
+import { favouritesFirst } from './favourites.js?v=202611060005';
 
 /**
  * [games] in the order of [ids]. Games the list doesn't name (a game that
@@ -45,4 +47,9 @@ export function computeOrder(games) {
 
 export function orderedGames(app) {
   return applyCustomOrder(app.games, app.order);
+}
+
+/** What every tab lists: favourites first, then the rest, each in their order. */
+export function listedGames(app) {
+  return favouritesFirst(orderedGames(app), app.favourites);
 }

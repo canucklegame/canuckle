@@ -4,15 +4,14 @@
 // card makes the game a favourite, and favourites are listed first. Streaks
 // and stats live on the Stats tab, not here.
 
-import { h, ICONS, gameColours } from '../ui.js?v=202611022239';
-import { longDate, weekdayName, shortDate, ymd } from '../dates.js?v=202611022239';
-import { recentIndices } from '../games/common.js?v=202611022239';
-import { SOLVED, FAILED, PLAYED, PROGRESS, isDone } from '../status.js?v=202611022239';
-import { LEAF_PATH } from '../badges/icons.js?v=202611022239';
-import { playProps } from './play.js?v=202611022239';
-import { orderedGames } from '../gameOrder.js?v=202611022239';
-import { favouritesFirst } from '../favourites.js?v=202611022239';
-import { launchEd } from '../config.js?v=202611022239';
+import { h, ICONS, gameColours } from '../ui.js?v=202611060005';
+import { longDate, weekdayName, shortDate, ymd } from '../dates.js?v=202611060005';
+import { recentIndices } from '../games/common.js?v=202611060005';
+import { SOLVED, FAILED, PLAYED, PROGRESS, isDone } from '../status.js?v=202611060005';
+import { LEAF_PATH } from '../badges/icons.js?v=202611060005';
+import { playProps } from './play.js?v=202611060005';
+import { listedGames } from '../gameOrder.js?v=202611060005';
+import { launchEd } from '../config.js?v=202611060005';
 
 const DEFAULT_CAPTION = {
   [SOLVED]: 'SOLVED',
@@ -287,7 +286,7 @@ const groupLabel = (text) => h('p', { class: 'group-label', text });
 
 export function renderGames(app) {
   const { todayEd, progress, uid } = app;
-  const listed = favouritesFirst(orderedGames(app), app.favourites);
+  const listed = listedGames(app);
   const favs = listed.filter((g) => app.favourites.includes(g.id));
   const rest = listed.slice(favs.length);
   const strip = (g) => gameStrip(g, progress[g.id]?.progress, app);
