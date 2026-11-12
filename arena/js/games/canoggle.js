@@ -2,21 +2,23 @@
 //
 // Source: squaredleSourceCode/lib/model/daily.dart (day 1 = LAUNCH_DATE in config.js,
 // fixed at launch) and data/{stats,user,prefs_keys}.dart. chainUserData/{id}
-// is {ms, mn, mr, wf, bf, cw, bc, st, mx, ld, sd}; sd lists days whose MAIN
-// board was solved on merit. games/{day}.{d|m} holds {day, kind, req, bonus,
-// solved, updatedAt} (solved false = answers revealed), written when a board
-// finishes. A board left unfinished when its day ended is uploaded on the next
+// is {ms, mn, mr, wf, bf, cw, bc, st, mx, ld, sd, kd}; sd lists days whose MAIN
+// board was solved on merit, kd days it was finished unsolved with enough
+// words to keep the streak (GIVE_UP_MIN_WORDS). games/{day}.{d|m} holds {day,
+// kind, req, bonus, solved, lim?, updatedAt} (solved false = answers revealed,
+// or, with lim -- a time limit in seconds -- time ran out), written when a
+// board finishes. A board left unfinished when its day ended is uploaded on the next
 // launch with done: false (absent on a finished record) and reads as in
 // progress; today's in-progress boards are local.
 
-import { launchDaily, pct, historyStart, readJsonPref, readPendingList } from './common.js?v=202611060005';
-import { edOfMillis } from '../dates.js?v=202611060005';
-import { toMillis } from '../firebase.js?v=202611060005';
-import { launchEd } from '../config.js?v=202611060005';
-import { readPref } from '../local.js?v=202611060005';
+import { launchDaily, pct, historyStart, readJsonPref, readPendingList } from './common.js?v=202611112328';
+import { edOfMillis } from '../dates.js?v=202611112328';
+import { toMillis } from '../firebase.js?v=202611112328';
+import { launchEd } from '../config.js?v=202611112328';
+import { readPref } from '../local.js?v=202611112328';
 import {
   SOLVED, FAILED, PROGRESS, emptyProgress, mark, currentStreak, longestStreak, intList, num, minEd, maxEd, noteFinish,
-} from '../status.js?v=202611060005';
+} from '../status.js?v=202611112328';
 
 const KINDS = [
   { key: 'd', label: 'Daily' },
@@ -26,20 +28,39 @@ const KINDS = [
 const COUNTS = ['ms', 'mn', 'mr', 'wf', 'bf', 'cw', 'bc', 'mx'];
 
 /**
- * A board given up (answers revealed) after finding at least this many words
- * still counts as a finished day for the family badges (First Finish, Hat
- * Trick and the like), as a Canuckle loss does. Revealing doesn't add the
- * answers to the words found, so `req + bonus` is what the player found.
+ * A board given up (answers revealed) -- or, since timed play, run out of
+ * time -- after finding at least this many words still counts as a finished
+ * day for the family badges (First Finish, Hat Trick and the like), as a
+ * Canuckle loss does, and since 2026-11-10 keeps a Daily streak going too
+ * (Canoggle's kStreakMinWords in lib/data/stats.dart: change both or
+ * neither). Revealing doesn't add the answers to the words found, so
+ * `req + bonus` is what the player found.
  */
 export const GIVE_UP_MIN_WORDS = 10;
 
 /** Words found on a result: its required and bonus counts. */
 const wordsFound = (g) => num(g.req) + num(g.bonus);
 
-/** Words in a saved board, `v|checksum|revealed|elapsedMs|letterHints|HINTED|WORDS`. */
+/**
+ * Words in a saved board,
+ * `v|checksum|revealed|elapsedMs|letterHints|HINTED|WORDS|limit` (the limit,
+ * seconds, arrived in save version 5 and is absent before).
+ */
 const savedWords = (board) => {
   const words = board.split('|')[6];
   return words ? words.split(',').filter(Boolean).length : 0;
+};
+
+/** A saved board's time limit in seconds, 0 for unlimited or an older save. */
+const savedLimit = (board) => num(Number(board.split('|')[7]));
+
+/**
+ * Whether a revealed save ran out of time rather than being given up: timed,
+ * with its clock at the limit -- exactly how the game itself tells them apart.
+ */
+const savedTimedOut = (board) => {
+  const lim = savedLimit(board);
+  return lim > 0 && num(Number(board.split('|')[3])) >= lim * 1000;
 };
 
 /**
@@ -50,10 +71,11 @@ const savedWords = (board) => {
  * revealed ("v|checksum|1|...") is finished too.
  */
 function withLocal(raw, recent) {
-  const r = { sd: [], games: [], ...(raw || {}) };
+  const r = { sd: [], kd: [], games: [], ...(raw || {}) };
   const local = readJsonPref('chnStats');
   if (local) {
     r.sd = [...new Set([...r.sd, ...intList(local.sd)])];
+    r.kd = [...new Set([...r.kd, ...intList(local.kd)])];
     for (const k of COUNTS) r[k] = Math.max(num(r[k]), num(local[k]));
     if (num(local.ld) >= num(r.ld)) {
       r.st = local.st;
@@ -66,6 +88,7 @@ function withLocal(raw, recent) {
       extra.push({
         day: pending.day, kind: pending.kind, solved: pending.solved === true,
         req: num(pending.req), bonus: num(pending.bonus), at: null,
+        timeUp: num(pending.lim) > 0 && pending.solved !== true,
       });
     }
   }
@@ -73,7 +96,10 @@ function withLocal(raw, recent) {
     for (const k of KINDS) {
       const board = readPref(`chnGame_${i}_${k.key}`);
       if (typeof board === 'string' && board.split('|')[2] === '1') {
-        extra.push({ day: i, kind: k.key, solved: false, req: savedWords(board), bonus: 0, at: null });
+        extra.push({
+          day: i, kind: k.key, solved: false, req: savedWords(board), bonus: 0, at: null,
+          timeUp: savedTimedOut(board),
+        });
       }
     }
   }
@@ -101,7 +127,7 @@ export const canoggle = {
     if (daily && mini) return 'DAILY + MINI';
     if (daily) return 'DAILY SOLVED';
     if (mini) return 'MINI SOLVED';
-    if (entry?.status === FAILED) return 'ANSWERS REVEALED';
+    if (entry?.status === FAILED) return entry.timeUp ? "TIME'S UP" : 'ANSWERS REVEALED';
     if (entry?.status === SOLVED) return 'SOLVED';
     if (entry?.status === PROGRESS) return 'IN PROGRESS';
     return null;
@@ -134,13 +160,15 @@ export const canoggle = {
         games = docs.map(({ data }) => ({
           day: num(data.day), kind: data.kind, solved: data.solved === true, done: data.done !== false,
           req: num(data.req), bonus: num(data.bonus), at: toMillis(data.updatedAt),
+          // A timed board (lim, seconds) that did not solve ran out of time.
+          timeUp: num(data.lim) > 0 && data.solved !== true && data.done !== false,
         }));
       } catch {
         // Fall back to day-level status.
       }
     }
     const { ms, mn, mr, wf, bf, cw, bc, st, mx, ld } = doc;
-    return { ms, mn, mr, wf, bf, cw, bc, st, mx, ld, sd: intList(doc.sd), games };
+    return { ms, mn, mr, wf, bf, cw, bc, st, mx, ld, sd: intList(doc.sd), kd: intList(doc.kd), games };
   },
 
   derive(raw, { todayIdx, recent = [] }) {
@@ -170,6 +198,8 @@ export const canoggle = {
       }
       const status = g.solved ? SOLVED : FAILED;
       mark(p, g.day, status, g.kind);
+      // Said as "time's up" rather than "answers revealed" on the card.
+      if (g.timeUp) p.days.get(g.day).timeUp = true;
       // Either board finishes the day: a player who only wants the Mini has
       // still played Canoggle today. mark keeps the better status, so a
       // revealed Daily with a solved Mini reads as solved.
@@ -191,11 +221,13 @@ export const canoggle = {
         p.flagOn.sweep = minEd(p.flagOn.sweep, maxEd(kinds.get('d'), kinds.get('m')));
       }
     }
-    // Streaks still run over main-board solves only, as Canoggle's own does;
-    // doneIdx now includes Mini-only days.
-    p.streakIdx = new Set(raw.sd);
+    // Streaks run over Daily boards solved, or finished (given up, or out of
+    // time) with GIVE_UP_MIN_WORDS words, as Canoggle's own does: `sd` is
+    // the solved days and `kd` the kept ones. doneIdx also has Mini-only days.
+    p.streakIdx = new Set([...raw.sd, ...intList(raw.kd)]);
     for (const g of raw.games || []) {
-      if (g.day && g.kind === 'd' && g.solved) p.streakIdx.add(g.day);
+      if (g.day && g.kind === 'd' && g.done !== false
+        && (g.solved || wordsFound(g) >= GIVE_UP_MIN_WORDS)) p.streakIdx.add(g.day);
     }
     p.played = num(raw.ms) + num(raw.mr);
     p.solved = num(raw.ms);

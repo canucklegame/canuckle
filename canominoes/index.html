@@ -281,7 +281,7 @@
   <script>
     // Paint the loading screen in the palette the player actually chose.
     //
-    // Otherwise a high-contrast player gets a flash of near-white before
+    // Otherwise a dark-mode player gets a flash of near-white before
     // Flutter's first frame, which is the exact thing they turned the setting
     // on to avoid.
     //
@@ -291,9 +291,13 @@
     // the light ground rather than throwing before the page renders.
     (function () {
       try {
-        if (localStorage.getItem('flutter.domHighContrast') === 'true') {
+        // Mirrors LocalStore.isDarkMode: dark only if the player turned it
+        // on. High contrast alone is a light theme.
+        var contrast = localStorage.getItem('flutter.domHighContrast') === 'true';
+        var dark = localStorage.getItem('flutter.domDarkTheme') === 'true';
+        if (dark) {
           var r = document.documentElement.style;
-          r.setProperty('--dom-ground', '#000000');
+          r.setProperty('--dom-ground', contrast ? '#000000' : '#121212');
           r.setProperty('--dom-ink', 'rgba(255, 255, 255, 0.65)');
         }
       } catch (e) { /* light it is */ }
@@ -395,6 +399,6 @@
        this page handles ?sandboxOffsetWeeks itself. -->
   <script>window.arenaEmbedded = true;</script>
   <script type="module" src="/arena/js/nextUp.js"></script>
-  <script src="flutter_bootstrap.js?version=202611060811" async></script>
+  <script src="flutter_bootstrap.js?version=202611112326" async></script>
 </body>
 </html>
