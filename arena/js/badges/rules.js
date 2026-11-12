@@ -12,9 +12,9 @@
 // the count survives history scrolling out of the recent window. parts() is
 // the checklist behind a badge that needs several things at once.
 
-import { SOLVED, minEd, finishOn, num } from '../status.js?v=202611112328';
-import { todayEpochDay, weekdayName, shortDate } from '../dates.js?v=202611112328';
-import { LAUNCH_DATE } from '../config.js?v=202611112328';
+import { SOLVED, minEd, finishOn, num } from '../status.js?v=202611121748';
+import { todayEpochDay, weekdayName, shortDate } from '../dates.js?v=202611121748';
+import { LAUNCH_DATE, shownHere } from '../config.js?v=202611121748';
 
 function finishDays(game, p) {
   return [...p.doneIdx].map((i) => finishOn(game, p, i));
@@ -130,6 +130,9 @@ const SWEEP_DESC = {
   canolitaire: 'Win all three Draw 1 deals, or all three Draw 3 deals, on the same day.',
   canominoes: 'Solve the Easy, Medium and Hard puzzles on the same day.',
   canoggle: 'Solve both the Daily board and the Mini on the same day.',
+  canatiles: 'Solve the Easy, Medium and Hard puzzles on the same day.',
+  canamaze: 'Solve the Easy, Medium and Hard mazes on the same day.',
+  canadrift: 'Plow the Easy, Medium and Hard towns on the same day.',
 };
 
 /**
@@ -200,6 +203,59 @@ const SPECIALS = {
       check: (p) => [p.flags.hardSolved ? 1 : 0, 1],
       since: (p) => p.flagOn?.hardSolved,
       times: (p) => num(p.tierStats?.h?.w) },
+  ],
+  canatiles: [
+    { key: 'hard', name: 'Top of the Stack', glyph: 'star', tier: 'silver',
+      desc: 'Solve a Hard Canatiles puzzle.',
+      check: (p) => [p.flags.hardSolved ? 1 : 0, 1],
+      since: (p) => p.flagOn?.hardSolved,
+      times: (p) => num(p.tierStats?.h?.w) },
+    { key: 'nohint', name: 'No Peeking', glyph: 'star', tier: 'gold',
+      desc: 'Solve a Hard Canatiles puzzle without a hint.',
+      check: (p) => [p.flags.noHintHard ? 1 : 0, 1],
+      since: (p) => p.flagOn?.noHintHard,
+      occurrences: (p) => p.noHintHardIdx || [] },
+    { key: 'perfectday', name: 'Perfect Day', glyph: 'star', tier: 'gold',
+      desc: 'Solve the Easy, Medium and Hard Canatiles puzzles of one day with no undos and no hints.',
+      check: (p) => [p.flags.perfectDay ? 1 : 0, 1],
+      since: (p) => p.flagOn?.perfectDay,
+      occurrences: (p) => p.perfectDayIdx || [] },
+  ],
+  canundrum: [
+    { key: 'sharp', name: 'Sharp Eye', glyph: 'star', tier: 'gold',
+      desc: 'Guess a Canundrum with two pairs or fewer cleared.',
+      check: (p) => [p.flags.sharp ? 1 : 0, 1],
+      since: (p) => p.flagOn?.sharp,
+      occurrences: (p) => p.sharpIdx || [] },
+    { key: 'topprize', name: 'Grand Prize', glyph: 'star', tier: 'gold',
+      desc: 'Finish a Canundrum Bonus Round on the top prize.',
+      check: (p) => [p.flags.topPrize ? 1 : 0, 1],
+      since: (p) => p.flagOn?.topPrize,
+      occurrences: (p) => p.topPrizeIdx || [] },
+  ],
+  canamaze: [
+    { key: 'perfecthard', name: 'Trailblazer', glyph: 'star', tier: 'gold',
+      desc: 'Finish a Hard Canamaze Perfect: in the fewest moves possible.',
+      check: (p) => [p.flags.perfectHard ? 1 : 0, 1],
+      since: (p) => p.flagOn?.perfectHard,
+      occurrences: (p) => p.perfectHardIdx || [] },
+    { key: 'cleanday', name: 'Clean Day', glyph: 'star', tier: 'gold',
+      desc: 'Finish the Easy, Medium and Hard Canamaze puzzles of one day, each at or under par.',
+      check: (p) => [p.flags.cleanDay ? 1 : 0, 1],
+      since: (p) => p.flagOn?.cleanDay,
+      occurrences: (p) => p.cleanDayIdx || [] },
+  ],
+  canadrift: [
+    { key: 'perfecthard', name: 'Shortest Route', glyph: 'star', tier: 'gold',
+      desc: 'Plow a Hard Canadrift town Perfect: in the fewest moves possible.',
+      check: (p) => [p.flags.perfectHard ? 1 : 0, 1],
+      since: (p) => p.flagOn?.perfectHard,
+      occurrences: (p) => p.perfectHardIdx || [] },
+    { key: 'cleanhard', name: 'Good Neighbour', glyph: 'star', tier: 'silver',
+      desc: 'Plow a Hard Canadrift town without burying a single driveway.',
+      check: (p) => [p.flags.cleanHard ? 1 : 0, 1],
+      since: (p) => p.flagOn?.cleanHard,
+      occurrences: (p) => p.cleanHardIdx || [] },
   ],
   canoggle: [
     { key: 'canuckle', name: 'Canuckle Connection', glyph: 'leaf', tier: 'silver',
@@ -366,7 +422,8 @@ const gameItem = (g, done, detail) => ({ label: g.name, logo: g.logo, done, deta
  */
 export function coversEveryGame(games) {
   const ids = new Set(games.map((g) => g.id));
-  return Object.keys(LAUNCH_DATE).every((id) => ids.has(id));
+  // Production's sandbox-only games aren't part of "every game" until shown
+  return Object.keys(LAUNCH_DATE).filter((id) => shownHere(id)).every((id) => ids.has(id));
 }
 
 /**

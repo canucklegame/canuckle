@@ -4,11 +4,11 @@
 // is weekly and its weeks start on Monday, so its grid is Monday-first and
 // each week is a single band across the row: the whole week is one puzzle.
 
-import { h, ICONS, statusIcon, tierMarks, gameColours } from '../ui.js?v=202611112328';
-import { ymd, epochDay, monthName, monthTitle, daysInMonth, shortDate } from '../dates.js?v=202611112328';
-import { SOLVED, FAILED, PLAYED, PROGRESS, STATUS_LABEL, isDone } from '../status.js?v=202611112328';
-import { playProps } from './play.js?v=202611112328';
-import { streakChip } from './gamesTab.js?v=202611112328';
+import { h, ICONS, statusIcon, tierMarks, gameColours } from '../ui.js?v=202611121748';
+import { ymd, epochDay, monthName, monthTitle, daysInMonth, shortDate } from '../dates.js?v=202611121748';
+import { SOLVED, FAILED, PLAYED, PROGRESS, STATUS_LABEL, isDone } from '../status.js?v=202611121748';
+import { playProps } from './play.js?v=202611121748';
+import { streakChip } from './gamesTab.js?v=202611121748';
 
 const DOW_SUNDAY = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 const DOW_MONDAY = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
@@ -19,7 +19,7 @@ const shownMonth = new Map();
 
 function legend(game) {
   const items = [[SOLVED], [PROGRESS], [null]];
-  if (game.id === 'canuckle' || game.id === 'plus' || game.id === 'canoggle') items.splice(1, 0, [FAILED]);
+  if (game.id === 'canuckle' || game.id === 'plus' || game.id === 'canoggle' || game.id === 'canundrum') items.splice(1, 0, [FAILED]);
   if (game.id === 'canolitaire') items.splice(1, 0, [PLAYED]);
   return h('div', { class: 'legend' },
     items.map(([s]) => h('span', {}, statusIcon(s), s ? STATUS_LABEL[s] : 'Not played')));

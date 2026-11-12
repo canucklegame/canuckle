@@ -4,8 +4,8 @@
 // production (canucklegame.ca). All game links are root-relative, so the only
 // thing that differs is which games are visible and whether analytics runs.
 
-import { readPref, writePref } from './local.js?v=202611112328';
-import { epochDay, todayEpochDay } from './dates.js?v=202611112328';
+import { readPref, writePref } from './local.js?v=202611121748';
+import { epochDay, todayEpochDay } from './dates.js?v=202611121748';
 
 const host = typeof location === 'undefined' ? '' : location.hostname;
 
@@ -54,7 +54,100 @@ export const LAUNCH_DATE = {
   canominoes: '2026-11-04',
   canoggle: '2026-11-05', // must be a Thursday (difficulty ladder)
   canolitaire: '2026-11-06',
+  canatiles: '2026-11-18', // a Wednesday
+  canundrum: '2026-11-23', // a Monday (easiest early in the week)
+  canamaze: '2026-11-24',
 };
+
+// ---- Sandbox-only games ---------------------------------------------------
+//
+// Games still being tried out. The sandbox shows every game; production hides
+// these everywhere (Today, Games, Archive, Stats, badges, Next up and the
+// "every game has launched" test) until the admin's switch puts one on
+// production: Firestore arenaConfig/games = {onProduction: {<id>: true}},
+// which anyone can read and only the admin can write. The switch never moves
+// a launch date: the games number their puzzles from LAUNCH_DATE, and each
+// game keeps its own copy of it, so dates only change in code.
+//
+// Launching one: deploy the game to canucklegame.ca, then flip its switch in
+// the admin (Days left tab), which checks the game is there first. Once it's
+// launched for good, take it out of this list.
+export const SANDBOX_ONLY = ['canatiles', 'canundrum', 'canamaze'];
+
+const SWITCHES_PREF = 'arenaGameSwitches';
+const SWITCHES_URL =
+  'https://firestore.googleapis.com/v1/projects/canuckle-c2157/databases/(default)/documents/arenaConfig/games';
+
+function cachedSwitches() {
+  try {
+    const v = readPref(SWITCHES_PREF);
+    return v && typeof v === 'object' ? v : {};
+  } catch {
+    return {};
+  }
+}
+
+// IS_SANDBOX, except in tests, which also check production's behaviour.
+let sandboxMode = IS_SANDBOX;
+
+/** Tests only: behave as the sandbox (true) or as production (false). */
+export function setSandboxModeForTests(sandbox) {
+  sandboxMode = sandbox;
+}
+
+// {gameId: true} for the sandbox-only games the admin has put on production,
+// as last read (kept in localStorage, so a launched game shows at once).
+let productionSwitches = cachedSwitches();
+
+/**
+ * Whether [gameId] is shown here: every game on the sandbox; on production,
+ * every game except a sandbox-only one whose switch is off.
+ */
+export function shownHere(gameId, { sandbox = sandboxMode, switches = productionSwitches } = {}) {
+  if (sandbox || !SANDBOX_ONLY.includes(gameId)) return true;
+  return switches[gameId] === true;
+}
+
+/** Replaces the switches (the loader, and tests). */
+export function setProductionSwitches(switches) {
+  productionSwitches = { ...switches };
+}
+
+/** The `onProduction` map of an arenaConfig/games REST document. */
+export function switchesFromDoc(doc) {
+  const fields = doc?.fields?.onProduction?.mapValue?.fields ?? {};
+  const out = {};
+  for (const [id, v] of Object.entries(fields)) if (v?.booleanValue === true) out[id] = true;
+  return out;
+}
+
+/**
+ * Reads the production switches (production only: the sandbox shows every
+ * game). Waits at most [timeoutMs]; on any failure the cached or built-in
+ * state stays, which keeps sandbox-only games hidden.
+ */
+export async function loadProductionSwitches({ timeoutMs = 1500 } = {}) {
+  if (IS_SANDBOX || typeof fetch === 'undefined') return;
+  const ctrl = typeof AbortController === 'undefined' ? null : new AbortController();
+  const timer = ctrl ? setTimeout(() => ctrl.abort(), timeoutMs) : null;
+  try {
+    const res = await fetch(SWITCHES_URL, { signal: ctrl?.signal, cache: 'no-store' });
+    // No doc yet (or not readable): nothing is switched on
+    const next = res.ok ? switchesFromDoc(await res.json()) : (res.status === 404 ? {} : null);
+    if (next) {
+      productionSwitches = next;
+      try {
+        writePref(SWITCHES_PREF, next);
+      } catch {
+        // No storage: in effect for this page only.
+      }
+    }
+  } catch {
+    // Offline or slow: keep what we had.
+  } finally {
+    if (timer) clearTimeout(timer);
+  }
+}
 
 // ---- Sandbox offset -----------------------------------------------------------
 //
@@ -160,7 +253,7 @@ export function launchEd(gameId, offset = offsetWeeks) {
 
 /** Whether a game is live on [todayEd] with the given sandbox offset. */
 export function isLiveOn(gameId, todayEd, offset = offsetWeeks) {
-  if (!(gameId in LAUNCH_DATE)) return false;
+  if (!(gameId in LAUNCH_DATE) || !shownHere(gameId)) return false;
   const ed = launchEd(gameId, offset);
   return ed == null || todayEd >= ed;
 }
@@ -169,9 +262,12 @@ export function isLive(gameId) {
   return isLiveOn(gameId, todayEpochDay());
 }
 
-/** True once every game has launched (the family badges then have fixed targets). */
+/**
+ * True once every game shown here has launched (the family badges then have
+ * fixed targets). Production's sandbox-only games don't count until shown.
+ */
 export function allLaunched(todayEd = todayEpochDay(), offset = offsetWeeks) {
-  return Object.keys(LAUNCH_DATE).every((id) => isLiveOn(id, todayEd, offset));
+  return Object.keys(LAUNCH_DATE).filter((id) => shownHere(id)).every((id) => isLiveOn(id, todayEd, offset));
 }
 
 export const ARENA_URL = 'https://www.canucklegame.ca/arena/';
