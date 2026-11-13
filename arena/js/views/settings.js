@@ -5,17 +5,17 @@
 // something inside Canuckle, plus the Ko-fi and social links Canuckle keeps in
 // its menu.
 
-import { h, ICONS, openSheet, sheetHead, toast } from '../ui.js?v=202611121748';
+import { h, ICONS, openSheet, sheetHead, toast } from '../ui.js?v=202611130802';
 import {
-  ARENA_VERSION, IS_SANDBOX, sandboxOffsetWeeks, setSandboxOffsetWeeks, parseOffsetWeeks, offsetBannerText,
-} from '../config.js?v=202611121748';
-import { readPref, prefKeys, arenaSet } from '../local.js?v=202611121748';
-import { getDocData, setMerge } from '../firebase.js?v=202611121748';
-import { currentTheme, currentContrast, setTheme, setContrast } from '../theme.js?v=202611121748';
-import { ID_DOCS, isValidUserId, planIdSwitch, applyIdSwitch } from '../idSwitch.js?v=202611121748';
-import { track } from '../analytics.js?v=202611121748';
-import { openPrivacy } from '../privacy.js?v=202611121748';
-import { openGameOrder } from './gameOrderSheet.js?v=202611121748';
+  ARENA_VERSION, IS_SANDBOX, isLive, sandboxOffsetWeeks, setSandboxOffsetWeeks, parseOffsetWeeks, offsetBannerText,
+} from '../config.js?v=202611130802';
+import { readPref, prefKeys, arenaSet } from '../local.js?v=202611130802';
+import { getDocData, setMerge } from '../firebase.js?v=202611130802';
+import { currentTheme, currentContrast, setTheme, setContrast } from '../theme.js?v=202611130802';
+import { idDocsHere, isValidUserId, planIdSwitch, applyIdSwitch } from '../idSwitch.js?v=202611130802';
+import { track } from '../analytics.js?v=202611130802';
+import { openPrivacy } from '../privacy.js?v=202611130802';
+import { openGameOrder } from './gameOrderSheet.js?v=202611130802';
 
 const SUPPORT_EMAIL = 'info@canucklegame.ca';
 const KOFI_URL = 'https://ko-fi.com/canuckle';
@@ -280,8 +280,11 @@ export function openSync(app, { returnTo = null } = {}) {
     step(h('p', { class: 'muted', text: 'Looking up ' + newId + '…' }));
     let docs;
     try {
-      const games = Object.keys(ID_DOCS);
-      const found = await Promise.all(games.map((g) => getDocData([ID_DOCS[g], newId])));
+      // Only games live here: production never reads a player's data for a
+      // game that hasn't launched or is still sandbox-only
+      const idDocs = idDocsHere(isLive);
+      const games = Object.keys(idDocs);
+      const found = await Promise.all(games.map((g) => getDocData([idDocs[g], newId])));
       docs = Object.fromEntries(games.map((g, i) => [g, found[i]]));
     } catch {
       // An error is never "not found": guessing wrong here would switch to an

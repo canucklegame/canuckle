@@ -25,9 +25,20 @@
 // planIdSwitch is pure (data in, operations out) so the order and the encoding
 // are unit-tested; applyIdSwitch performs the operations.
 
-import { writePref, removePref } from './local.js?v=202611121748';
+import { writePref, removePref } from './local.js?v=202611130802';
 
-/** Collections read for the new id, by game. */
+/**
+ * Player-doc collections, by Arena game (keys are config.js LAUNCH_DATE
+ * ids). A switch reads only those of games live here ([idDocsHere]): on
+ * production a game that hasn't launched, or is sandbox-only with its
+ * switch off, has its player data left alone.
+ *
+ * Every one must also be readable under the Firestore rules: the lookup
+ * reads them together, and one denied read fails the whole switch
+ * ("Couldn't connect"). Canadrift, which the rules leave out (not being
+ * published), is not here; neither is Emoku, which isn't an Arena game and
+ * notices a new id itself (canuckle_shared SharedIdentity).
+ */
 export const ID_DOCS = {
   canuckle: 'newUserData',
   canoku: 'canokuUserData',
@@ -38,8 +49,16 @@ export const ID_DOCS = {
   canatiles: 'tilesUserData',
   canundrum: 'rebusUserData',
   canamaze: 'mazeUserData',
-  canadrift: 'plowUserData',
 };
+
+/**
+ * The [ID_DOCS] a switch reads here: those of games for which [isLive]
+ * (config.js) is true. Passed in, so this module stays free of the page's
+ * environment and testable.
+ */
+export function idDocsHere(isLive) {
+  return Object.fromEntries(Object.entries(ID_DOCS).filter(([game]) => isLive(game)));
+}
 
 /** What an id must look like before it is used in a document path. */
 export function isValidUserId(id) {

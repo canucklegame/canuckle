@@ -4,14 +4,14 @@
 // card makes the game a favourite, and favourites are listed first. Streaks
 // and stats live on the Stats tab, not here.
 
-import { h, ICONS, gameColours } from '../ui.js?v=202611121748';
-import { longDate, weekdayName, shortDate, ymd } from '../dates.js?v=202611121748';
-import { recentIndices } from '../games/common.js?v=202611121748';
-import { SOLVED, FAILED, PLAYED, PROGRESS, isDone } from '../status.js?v=202611121748';
-import { LEAF_PATH } from '../badges/icons.js?v=202611121748';
-import { playProps } from './play.js?v=202611121748';
-import { listedGames } from '../gameOrder.js?v=202611121748';
-import { launchEd } from '../config.js?v=202611121748';
+import { h, ICONS, gameColours } from '../ui.js?v=202611130802';
+import { longDate, weekdayName, shortDate, ymd } from '../dates.js?v=202611130802';
+import { recentIndices } from '../games/common.js?v=202611130802';
+import { SOLVED, FAILED, PLAYED, PROGRESS, isDone } from '../status.js?v=202611130802';
+import { LEAF_PATH } from '../badges/icons.js?v=202611130802';
+import { playProps } from './play.js?v=202611130802';
+import { listedGames } from '../gameOrder.js?v=202611130802';
+import { launchEd } from '../config.js?v=202611130802';
 
 const DEFAULT_CAPTION = {
   [SOLVED]: 'SOLVED',
