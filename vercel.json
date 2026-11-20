@@ -394,6 +394,15 @@
       ]
     },
     {
+      "source": "/arena/js/nextUp.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
       "source": "/arena/(images|fonts)/(.*)",
       "headers": [
         {
