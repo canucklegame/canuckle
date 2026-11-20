@@ -1,18 +1,32 @@
 // Firestore access, loaded lazily so the page paints before the SDK arrives.
 
-import { FIREBASE_CONFIG, FIREBASE_SDK } from './config.js?v=202611130802';
+import { FIREBASE_CONFIG, FIREBASE_SDK } from './config.js?v=202611200021';
 
 const TIMEOUT_MS = 10000;
 
 let sdkPromise = null;
+let appPromise = null;
+
+/** The Arena's Firebase app alone, without Firestore (server calls need no more). */
+function firebaseApp() {
+  if (!appPromise) {
+    appPromise = import(`${FIREBASE_SDK}/firebase-app.js`).then((app) => {
+      const existing = app.getApps().find((a) => a.name === 'arena');
+      return existing ?? app.initializeApp(FIREBASE_CONFIG, 'arena');
+    });
+    appPromise.catch(() => {
+      appPromise = null;
+    });
+  }
+  return appPromise;
+}
 
 function sdk() {
   if (!sdkPromise) {
     sdkPromise = (async () => {
-      const app = await import(`${FIREBASE_SDK}/firebase-app.js`);
+      const instance = await firebaseApp();
       const fs = await import(`${FIREBASE_SDK}/firebase-firestore.js`);
-      const instance = app.initializeApp(FIREBASE_CONFIG, 'arena');
-      return { fs, db: fs.getFirestore(instance) };
+      return { fs, db: fs.getFirestore(instance), instance };
     })();
     // A failed load (offline, blocked CDN) should be retryable on next call.
     sdkPromise.catch(() => {
@@ -20,6 +34,28 @@ function sdk() {
     });
   }
   return sdkPromise;
+}
+
+// The Cloud Functions behind friends and challenges run in Montreal, next to
+// Firestore (firebase/functions/src/index.js).
+const FUNCTIONS_REGION = 'northamerica-northeast1';
+let arenaCallable = null;
+
+/**
+ * Calls the `arena` Cloud Function with [data] and returns its result. Loads
+ * the Functions SDK on first use only, so pages that never call it never
+ * download it. Throws the SDK's FirebaseError (code 'functions/...',
+ * details.reason) on a refusal.
+ */
+export async function callArenaFunction(data) {
+  if (!arenaCallable) {
+    // The app alone: a game's page calling the server never loads Firestore.
+    const instance = await firebaseApp();
+    const fn = await import(`${FIREBASE_SDK}/firebase-functions.js`);
+    arenaCallable = fn.httpsCallable(fn.getFunctions(instance, FUNCTIONS_REGION), 'arena', { timeout: 20000 });
+  }
+  const res = await arenaCallable(data);
+  return res.data;
 }
 
 function withTimeout(promise, what) {

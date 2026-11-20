@@ -2,20 +2,24 @@
 //
 // Source: solitaireSourceCode/lib/model/daily.dart (day 1 = launch date, LAUNCH_DATE in config.js) and
 // data/{stats,user}.dart. solitaireUserData/{id} holds {d1, d3, st, ms, ld,
-// cd}; cd lists days ATTEMPTED (the streak counts playing, not winning).
+// cd, gk}; cd lists days ATTEMPTED (the streak counts playing, not winning);
+// gk is the goalie shootout record ({n, bp, bw, so}) behind the goalie badges.
 // Game documents in games/ carry {day, dm (draw index), df (tier index),
 // st (0 playing, 1 won, 2 abandoned), sec, updatedAt}; updatedAt is the last
 // write, which for a finished deal is when it finished. A deal left unfinished
 // is uploaded at the next day's launch with st: 0 and a board snapshot.
 
-import { launchDaily, pct, historyStart, readJsonPref, readPendingList } from './common.js?v=202611130802';
-import { duration, edOfMillis } from '../dates.js?v=202611130802';
-import { toMillis } from '../firebase.js?v=202611130802';
-import { launchEd } from '../config.js?v=202611130802';
-import { readPref, prefKeys } from '../local.js?v=202611130802';
+import { launchDaily, pct, historyStart, readJsonPref, readPendingList } from './common.js?v=202611200021';
+import { duration, edOfMillis } from '../dates.js?v=202611200021';
+import { toMillis } from '../firebase.js?v=202611200021';
+import { launchEd } from '../config.js?v=202611200021';
+import { readPref, prefKeys } from '../local.js?v=202611200021';
 import {
   SOLVED, PLAYED, PROGRESS, emptyProgress, mark, currentStreak, longestStreak, intList, num, minEd, maxEd, noteFinish,
-} from '../status.js?v=202611130802';
+} from '../status.js?v=202611200021';
+
+/** The save rate, in percent, a goalie shootout needs for the Brick Wall badge. */
+export const SAVE_BADGE_PERCENT = 85;
 
 const DRAWS = ['1', '3'];
 const LEVELS = ['e', 'm', 'h'];
@@ -106,7 +110,7 @@ export const canolitaire = {
         // Fall back to day-level status.
       }
     }
-    return { d1: doc.d1 || {}, d3: doc.d3 || {}, st: doc.st, ms: doc.ms, ld: doc.ld, cd: intList(doc.cd), games };
+    return { d1: doc.d1 || {}, d3: doc.d3 || {}, st: doc.st, ms: doc.ms, ld: doc.ld, cd: intList(doc.cd), gk: doc.gk || {}, games };
   },
 
   derive(raw, { todayIdx }) {
@@ -169,6 +173,14 @@ export const canolitaire = {
       dailyPlayed: num(daily1.p) + num(daily3.p),
     };
     p.draws = { d1: raw.d1, d3: raw.d3 };
+    // The win celebration's goalie shootout (GoalieStats in data/stats.dart):
+    // n shootouts the player tended goal in, bp the best save rate (percent,
+    // rounded down), so how many were shutouts. Only shootouts where the
+    // player moved the mask are counted, so watching earns nothing.
+    const gk = raw.gk || {};
+    p.goalie = { played: num(gk.n), best: num(gk.bp), shutouts: num(gk.so) };
+    p.flags.save85 = p.goalie.best >= SAVE_BADGE_PERCENT;
+    p.flags.shutout = p.goalie.shutouts > 0 || p.goalie.best >= 100;
     return p;
   },
 

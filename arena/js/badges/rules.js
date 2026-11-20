@@ -12,9 +12,10 @@
 // the count survives history scrolling out of the recent window. parts() is
 // the checklist behind a badge that needs several things at once.
 
-import { SOLVED, minEd, finishOn, num } from '../status.js?v=202611130802';
-import { todayEpochDay, weekdayName, shortDate } from '../dates.js?v=202611130802';
-import { LAUNCH_DATE, shownHere } from '../config.js?v=202611130802';
+import { SOLVED, minEd, finishOn, num } from '../status.js?v=202611200021';
+import { todayEpochDay, weekdayName, shortDate } from '../dates.js?v=202611200021';
+import { LAUNCH_DATE, shownHere } from '../config.js?v=202611200021';
+import { SAVE_BADGE_PERCENT } from '../games/canolitaire.js?v=202611200021';
 
 function finishDays(game, p) {
   return [...p.doneIdx].map((i) => finishOn(game, p, i));
@@ -196,6 +197,16 @@ const SPECIALS = {
       check: (p) => [p.flags.draw3Win ? 1 : 0, 1],
       since: (p) => p.flagOn?.draw3Win,
       times: (p) => num(p.draws?.d3?.dl?.w) + num(p.draws?.d3?.rd?.w) },
+    // The goalie shootout after a win. Canolitaire syncs the best save rate
+    // and the shutout count, but not how many shootouts reached 85%, so
+    // Brick Wall has no count; nor does either have a date.
+    { key: 'save85', name: 'Brick Wall', glyph: 'star', tier: 'silver',
+      desc: `Save ${SAVE_BADGE_PERCENT}% of the shots in a Canolitaire goalie shootout.`,
+      check: (p) => [p.flags.save85 ? 1 : 0, 1] },
+    { key: 'shutout', name: 'Shutout', glyph: 'star', tier: 'gold',
+      desc: 'Save every shot in a Canolitaire goalie shootout.',
+      check: (p) => [p.flags.shutout ? 1 : 0, 1],
+      times: (p) => num(p.goalie?.shutouts) },
   ],
   canominoes: [
     { key: 'hard', name: 'Hard Case', glyph: 'star', tier: 'silver',

@@ -55,7 +55,7 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"deb287481e3ce9468f3434937ced4240a70539ca","wasmHashes":{"canvaskit.wasm":"fbed517a43e82452404446683f00f2e876d835aed84410695759e67b6bb01cd3","chromium/canvaskit.wasm":"ae8ff1d858140f7b1300ced3fa89fb8c9dce0a400a0f4f1e11f6dcfb3315fdcf","skwasm.wasm":"e540fd5e8303b7b68ec2718cb49e9c421f8ade3075b15e02a7059a62654df9a1","skwasm_heavy.wasm":"565f5cc1cca6ab120f11934b105f01fec4b58b480c82e0889dca93af8e6f8635","webparagraph/canvaskit.wasm":"0ce1b05082efdc8529550e8a01f6ff0593972d55525035010e26f5600aa9f254","wimp.wasm":"e924eaafd801d41e017d178f3fd5cf8a417f641fe35c9ed34a4e1d7582283e0c"},"builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202611121747"},{}]};
+_flutter.buildConfig = {"engineRevision":"deb287481e3ce9468f3434937ced4240a70539ca","wasmHashes":{"canvaskit.wasm":"fbed517a43e82452404446683f00f2e876d835aed84410695759e67b6bb01cd3","chromium/canvaskit.wasm":"ae8ff1d858140f7b1300ced3fa89fb8c9dce0a400a0f4f1e11f6dcfb3315fdcf","skwasm.wasm":"e540fd5e8303b7b68ec2718cb49e9c421f8ade3075b15e02a7059a62654df9a1","skwasm_heavy.wasm":"565f5cc1cca6ab120f11934b105f01fec4b58b480c82e0889dca93af8e6f8635","webparagraph/canvaskit.wasm":"0ce1b05082efdc8529550e8a01f6ff0593972d55525035010e26f5600aa9f254","wimp.wasm":"e924eaafd801d41e017d178f3fd5cf8a417f641fe35c9ed34a4e1d7582283e0c"},"builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202611200024"},{}]};
 
 
 // Local development: no service worker, no fatal-error timeout (a debug build
@@ -72,11 +72,13 @@ const IS_LOCAL_DEV =
 const AD_TAG_URL =
   'https://portal.cdn.yollamedia.com/storage/tag/ps6d46b18362b4075b4074ad02399f36e91e9d429e.js';
 
+const FALLBACK_TIMEOUT_MS = 9000;  // when to probe gstatic reachability
 const ERROR_TIMEOUT_MS = 60000;   // when to give up and show the error UI
 const AD_INJECT_DELAY_MS = 2000;  // grace period after runApp()
 const SW_REGISTER_DELAY_MS = 5000; // see registerServiceWorker()
 
 let entrypointHandled = false;
+let fallbackStarted = false;
 
 function showFatalError() {
   if (typeof window.__domShowError === 'function') window.__domShowError();
@@ -104,7 +106,7 @@ function hideLoadingScreen() {
 function registerServiceWorker() {
   if (IS_LOCAL_DEV || !('serviceWorker' in navigator)) return;
   setTimeout(function () {
-    navigator.serviceWorker.register('flutter_service_worker.js?v=1250837387') /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */.catch(function (err) {
+    navigator.serviceWorker.register('flutter_service_worker.js?v=3820143') /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */.catch(function (err) {
       console.warn('Canoku: service worker registration failed:', err);
     });
   }, SW_REGISTER_DELAY_MS);
@@ -142,17 +144,60 @@ async function runEntrypoint(engineInitializer) {
   }
 }
 
-// renderer: 'canvaskit' forces CanvasKit for every browser. The build is
-// dart2js-only (no --wasm), so this matches the only build in buildConfig.
+// The local CanvasKit, for when gstatic can't be reached (a network that
+// blocks it, say), as in every game of the family. RELATIVE: the deploy
+// scripts point this line at the site's shared, trimmed copy,
+// /flutter-canvaskit/<engine revision>/, which every game falls back to.
+function startFallbackLoad() {
+  if (fallbackStarted) return;
+  fallbackStarted = true;
+  console.warn('Canoku: gstatic CanvasKit timed out -- retrying locally.');
+  try {
+    _flutter.loader.load({
+      config: { canvasKitBaseUrl: '/flutter-canvaskit/deb287481e3ce9468f3434937ced4240a70539ca/', renderer: 'canvaskit' },
+      onEntrypointLoaded: runEntrypoint,
+    });
+  } catch (err) {
+    console.error('Canoku: local-CanvasKit fallback load() threw:', err);
+    if (!entrypointHandled) showFatalError();
+  }
+}
+
+// Primary attempt: gstatic-hosted CanvasKit. renderer: 'canvaskit' forces
+// CanvasKit for every browser. The build is dart2js-only (no --wasm), so this
+// matches the only build in buildConfig.
 try {
   _flutter.loader.load({
     config: { renderer: 'canvaskit' },
     onEntrypointLoaded: runEntrypoint,
   });
 } catch (err) {
-  console.error('Canoku: load() threw synchronously:', err);
-  showFatalError();
+  console.error('Canoku: primary load() threw synchronously:', err);
+  startFallbackLoad();
 }
+
+// At 9 s, probe gstatic before deciding to fall back. A HEAD fetch with
+// mode:'no-cors' resolves for any HTTP response and rejects only on a network
+// failure or abort, so a merely slow gstatic is left to finish.
+setTimeout(async function () {
+  if (entrypointHandled) return;
+  const rev = _flutter.buildConfig && _flutter.buildConfig.engineRevision;
+  if (rev) {
+    try {
+      const ac = new AbortController();
+      const tid = setTimeout(() => ac.abort(), 3000);
+      await fetch(
+        'https://www.gstatic.com/flutter-canvaskit/' + rev + '/canvaskit.js',
+        { method: 'HEAD', mode: 'no-cors', signal: ac.signal }
+      );
+      clearTimeout(tid);
+      return; // reachable, just slow
+    } catch (_) {
+      // blocked or unreachable -- fall through
+    }
+  }
+  startFallbackLoad();
+}, FALLBACK_TIMEOUT_MS);
 
 // Only after 60 s: give slow connections a real chance before showing the
 // reload screen. Skipped in local development.

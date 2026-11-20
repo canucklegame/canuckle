@@ -5,17 +5,17 @@
 // something inside Canuckle, plus the Ko-fi and social links Canuckle keeps in
 // its menu.
 
-import { h, ICONS, openSheet, sheetHead, toast } from '../ui.js?v=202611130802';
+import { h, ICONS, openSheet, sheetHead, toast } from '../ui.js?v=202611200021';
 import {
   ARENA_VERSION, IS_SANDBOX, isLive, sandboxOffsetWeeks, setSandboxOffsetWeeks, parseOffsetWeeks, offsetBannerText,
-} from '../config.js?v=202611130802';
-import { readPref, prefKeys, arenaSet } from '../local.js?v=202611130802';
-import { getDocData, setMerge } from '../firebase.js?v=202611130802';
-import { currentTheme, currentContrast, setTheme, setContrast } from '../theme.js?v=202611130802';
-import { idDocsHere, isValidUserId, planIdSwitch, applyIdSwitch } from '../idSwitch.js?v=202611130802';
-import { track } from '../analytics.js?v=202611130802';
-import { openPrivacy } from '../privacy.js?v=202611130802';
-import { openGameOrder } from './gameOrderSheet.js?v=202611130802';
+} from '../config.js?v=202611200021';
+import { readPref, prefKeys, arenaSet } from '../local.js?v=202611200021';
+import { getDocData, setMerge } from '../firebase.js?v=202611200021';
+import { currentTheme, currentContrast, setTheme, setContrast } from '../theme.js?v=202611200021';
+import { idDocsHere, isValidUserId, planIdSwitch, applyIdSwitch } from '../idSwitch.js?v=202611200021';
+import { track } from '../analytics.js?v=202611200021';
+import { openPrivacy } from '../privacy.js?v=202611200021';
+import { openGameOrder } from './gameOrderSheet.js?v=202611200021';
 
 const SUPPORT_EMAIL = 'info@canucklegame.ca';
 const KOFI_URL = 'https://ko-fi.com/canuckle';
@@ -434,6 +434,27 @@ function build(app, onTheme) {
           h('span', { class: 'set-detail', text: 'Use your progress from another device' })),
         h('span', { html: ICONS.chevron }))));
 
+  // Friends & challenges (only where the feature is on; app.challenges is
+  // false otherwise). Its code loads on tap, never at Settings time.
+  const social = app.challenges ? section('Gamer ID & friends',
+    h('div', { class: 'set-card' },
+      h('a', { class: 'set-row link-row', href: '#challenges/friends', onClick: () => closeSettings() },
+        h('span', { class: 'set-text' },
+          h('span', { class: 'set-label', text: 'Gamer ID' }),
+          h('span', { class: 'set-detail', text: app.social?.gamerId || 'Not set up yet' })),
+        h('span', { html: ICONS.chevron })),
+      app.social ? h('button', {
+        class: 'set-row link-row', type: 'button',
+        onClick: async () => {
+          closeSettings();
+          (await import('./challengesTab.js?v=202611200021')).deleteMySocialData();
+        },
+      },
+      h('span', { class: 'set-text' },
+        h('span', { class: 'set-label', text: 'Delete my social data' }),
+        h('span', { class: 'set-detail', text: 'Your gamer ID, friends and challenge history' })),
+      h('span', { html: ICONS.chevron })) : null)) : null;
+
   const support = section('Support',
     h('div', { class: 'set-card' },
       external(KOFI_URL, [
@@ -454,8 +475,10 @@ function build(app, onTheme) {
           h('span', { class: 'set-detail selectable', text: SUPPORT_EMAIL })),
         h('span', { html: ICONS.chevron }))));
 
-  return [display, account, support, feedback, IS_SANDBOX ? sandboxSection() : null];
+  return [display, account, social, support, feedback, IS_SANDBOX ? sandboxSection() : null];
 }
+
+let closeSettings = () => {};
 
 export function openSettings(app) {
   let close;
@@ -467,5 +490,6 @@ export function openSettings(app) {
   };
   const body = h('div', { class: 'settings' }, ...build(app, onTheme), foot);
   close = openSheet(h('div', {}, sheetHead('Settings', () => close()), body), { label: 'Settings', scrollHint: true });
+  closeSettings = () => close();
   track('settings_open');
 }

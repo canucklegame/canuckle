@@ -2,7 +2,7 @@
 // an illustration of what the badge is for. Built from constants only, so the
 // markup is safe to inject. The artwork for a badge is picked from its id.
 
-import { LOGOS } from './logos.js?v=202611130802';
+import { LOGOS } from './logos.js?v=202611200021';
 
 export const LEAF_PATH = 'M50 5L57 19L64 15L61 38L72 27L75 34L86 32L82 45L90 49L70 64L73 73L53 70L53 92L47 92L47 70L27 73L30 64L10 49L18 45L14 32L25 34L28 27L39 38L36 15L43 19Z';
 
@@ -191,6 +191,13 @@ const ART = {
     + '<rect x="46" y="34" width="28" height="40" rx="4" fill="#fff" stroke="#123824" stroke-width="1"/>'
     + `<text x="50" y="44" font-family="Sora, 'Clear Sans', sans-serif" font-weight="800" font-size="8" fill="#D52B1E">3</text>`
     + leaf(53, 46, 0.14, '#D52B1E'),
+
+  // Canolitaire's goalie shootout: a white mask with a cage over the chin and
+  // a maple leaf on the brow.
+  goalieMask: () => '<path d="M60 30c-15 0-23 11-23 26 0 17 10 29 23 31 13-2 23-14 23-31 0-15-8-26-23-26z" fill="#fff" stroke="#123824" stroke-width="1.5"/>'
+    + '<ellipse cx="51" cy="52" rx="5.5" ry="3.8" fill="#123824"/><ellipse cx="69" cy="52" rx="5.5" ry="3.8" fill="#123824"/>'
+    + '<path d="M47 64H73M48 71H72M51 78H69M53 62V84M60 62V86M67 62V84" fill="none" stroke="#123824" stroke-width="2" stroke-linecap="round"/>'
+    + leaf(55, 33, 0.1, '#D52B1E'),
 
   domino: () => '<rect x="44" y="34" width="26" height="52" rx="6" fill="#fff"/><path d="M48 60h18" stroke="#2A2A33" stroke-width="2"/>'
     + leaf(50, 39, 0.14, '#D52B1E') + leaf(50, 65, 0.14, '#D52B1E')
@@ -603,6 +610,13 @@ function design(badge) {
     switch (key) {
       case 'perfecthard': return { palette: game, art: ART.plowPar(), ribbon: ['PERFECT', RING.gold, '#7A2A12', 87] };
       case 'cleanhard': return { palette: game, art: ART.plowClean(), ribbon: ['HARD', '#FFFFFF', PALETTE.canadrift[1], 87] };
+      default: break;
+    }
+  }
+  if (scope === 'canolitaire') {
+    switch (key) {
+      case 'save85': return { palette: game, art: ART.goalieMask(), ribbon: ['85% SAVES', '#FFFFFF', PALETTE.canolitaire[1], 87] };
+      case 'shutout': return { palette: game, art: ART.goalieMask(), ribbon: ['SHUTOUT', RING.gold, '#7A2A12', 87] };
       default: break;
     }
   }

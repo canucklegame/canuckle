@@ -4,14 +4,15 @@
 // card makes the game a favourite, and favourites are listed first. Streaks
 // and stats live on the Stats tab, not here.
 
-import { h, ICONS, gameColours } from '../ui.js?v=202611130802';
-import { longDate, weekdayName, shortDate, ymd } from '../dates.js?v=202611130802';
-import { recentIndices } from '../games/common.js?v=202611130802';
-import { SOLVED, FAILED, PLAYED, PROGRESS, isDone } from '../status.js?v=202611130802';
-import { LEAF_PATH } from '../badges/icons.js?v=202611130802';
-import { playProps } from './play.js?v=202611130802';
-import { listedGames } from '../gameOrder.js?v=202611130802';
-import { launchEd } from '../config.js?v=202611130802';
+import { h, ICONS, gameColours } from '../ui.js?v=202611200021';
+import { longDate, weekdayName, shortDate, ymd } from '../dates.js?v=202611200021';
+import { recentIndices } from '../games/common.js?v=202611200021';
+import { SOLVED, FAILED, PLAYED, PROGRESS, isDone } from '../status.js?v=202611200021';
+import { LEAF_PATH } from '../badges/icons.js?v=202611200021';
+import { playProps } from './play.js?v=202611200021';
+import { listedGames } from '../gameOrder.js?v=202611200021';
+import { launchEd } from '../config.js?v=202611200021';
+import { arenaGet, arenaSet } from '../local.js?v=202611200021';
 
 const DEFAULT_CAPTION = {
   [SOLVED]: 'SOLVED',
@@ -235,10 +236,20 @@ function gameStrip(game, progress, app) {
   // Never "#null": a game whose first puzzle is still to come.
   if (todayIdx == null) return comingSoonStrip(game, todayEd);
   const [today, ...past] = recentIndices(game, todayEd);
+  // Friends & challenges, where it's on: challenge a friend to today's puzzle
+  const challenge = app.challengeFromGame && app.canChallengeGame(game.id)
+    ? h('button', {
+      class: 'challenge-btn', type: 'button', html: ICONS.people,
+      'aria-label': `Challenge a friend to ${game.cadence === 'weekly' ? 'this week’s' : 'today’s'} ${game.name}`,
+      title: 'Challenge a friend',
+      onClick: () => app.challengeFromGame(game.id),
+    })
+    : null;
   const strip = h('div', { class: 'strip' },
-    h('div', { class: 'today-wrap' },
+    h('div', { class: `today-wrap${challenge ? ' has-challenge' : ''}` },
       todayCard(game, progress?.days.get(today), todayIdx),
-      starButton(game, app)),
+      starButton(game, app),
+      challenge),
     past.map((i) => pastCard(game, i, progress?.days.get(i), todayIdx)),
     seeAllCard(game));
   const row = h('section', { class: 'strip-row', ...cardVars(game), 'aria-label': game.name },
@@ -292,6 +303,34 @@ function todayCount(app, favs) {
 
 const groupLabel = (text) => h('p', { class: 'group-label', text });
 
+/**
+ * Friends & challenges, where it's on: a one-time "New" card at the top of the
+ * Games tab, until the player opens the Challenges tab or closes the card.
+ */
+function challengesPromo(app) {
+  if (!app.challenges) return null;
+  if (arenaGet('challengesSeen', false) || arenaGet('challengesPromoClosed', false)) return null;
+  const card = h('div', { class: 'card promo-card', role: 'region', 'aria-label': 'New: challenges' },
+    h('span', { class: 'promo-icon', html: ICONS.trophy }),
+    h('div', { class: 'promo-text' },
+      h('span', { class: 'promo-kicker', text: 'New' }),
+      h('strong', { text: 'Challenge your friends' }),
+      h('span', { class: 'muted', text: 'Send friends and family the same puzzle, play whenever you like, and see who did best.' })),
+    h('a', { class: 'btn small', href: '#challenges', text: 'Try it' }),
+    h('button', {
+      class: 'close-btn promo-close', type: 'button', 'aria-label': 'Close', html: ICONS.close,
+      onClick: () => {
+        try {
+          arenaSet('challengesPromoClosed', true);
+        } catch {
+          // No storage: just hidden for now.
+        }
+        card.remove();
+      },
+    }));
+  return card;
+}
+
 export function renderGames(app) {
   const { todayEd, progress, uid } = app;
   const listed = listedGames(app);
@@ -305,6 +344,7 @@ export function renderGames(app) {
       h('span', { class: 'muted', text: uid || favs.length ? todayCount(app, favs) : '' })),
     uid ? null : h('div', { class: 'notice' },
       'Welcome! Pick any game to start. Your streaks, archive and badges show up here once you have played.'),
+    challengesPromo(app),
     favs.length ? null : h('p', { class: 'fav-hint' },
       'Tap a ', h('span', { class: 'fav-hint-star', html: ICONS.star }), ' to keep the games you play at the top.'),
     favs.length ? [groupLabel('Your favourites'), ...favs.map(strip)] : null,

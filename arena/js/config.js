@@ -4,8 +4,8 @@
 // production (canucklegame.ca). All game links are root-relative, so the only
 // thing that differs is which games are visible and whether analytics runs.
 
-import { readPref, writePref } from './local.js?v=202611130802';
-import { epochDay, todayEpochDay } from './dates.js?v=202611130802';
+import { readPref, writePref } from './local.js?v=202611200021';
+import { epochDay, todayEpochDay } from './dates.js?v=202611200021';
 
 const host = typeof location === 'undefined' ? '' : location.hostname;
 
@@ -106,6 +106,30 @@ let productionSwitches = cachedSwitches();
 export function shownHere(gameId, { sandbox = sandboxMode, switches = productionSwitches } = {}) {
   if (sandbox || !SANDBOX_ONLY.includes(gameId)) return true;
   return switches[gameId] === true;
+}
+
+// ---- Sandbox-only features ----------------------------------------------------
+//
+// Features still being built, the same way as SANDBOX_ONLY games: the
+// sandbox has them; production hides every trace of them (no tab, no
+// buttons, no links handled, no code loaded) until the admin's switch puts
+// one on production, using the same arenaConfig/games onProduction map,
+// keyed by feature id. The admin's Days left tab only allows that once the
+// feature's own server gate is open to everyone.
+//
+//   challenges   friends, gamer IDs and challenges (Cloud Functions in
+//                firebase/functions, gated by serverConfig/challenges)
+//
+// Keep in step with admin/js/launch.js FEATURES_SANDBOX_ONLY (its tests check).
+export const FEATURES_SANDBOX_ONLY = ['challenges'];
+
+/**
+ * Whether feature [id] is on here: every feature on the sandbox; on
+ * production, every feature except a sandbox-only one whose switch is off.
+ */
+export function featureOn(id, { sandbox = sandboxMode, switches = productionSwitches } = {}) {
+  if (sandbox || !FEATURES_SANDBOX_ONLY.includes(id)) return true;
+  return switches[id] === true;
 }
 
 /** Replaces the switches (the loader, and tests). */

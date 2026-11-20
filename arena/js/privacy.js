@@ -4,7 +4,8 @@
 // (privacy_policy.dart in each), so a change to the policy goes to the site
 // page, here and every game together, with LAST_UPDATED moved on.
 
-import { h, openSheet, sheetHead } from './ui.js?v=202611130802';
+import { h, openSheet, sheetHead } from './ui.js?v=202611200021';
+import { featureOn } from './config.js?v=202611200021';
 
 export const LAST_UPDATED = 'November 1, 2026';
 
@@ -74,6 +75,56 @@ export const POLICY = [
   ['p', '\nWebsite: canucklegame.ca\nEmail: info@canucklegame.ca', 'Canuckle Games'],
 ];
 
+// ---- Friends & challenges ---------------------------------------------------
+//
+// The policy as it will read once friends and challenges launch. Shown only
+// where that feature is on (featureOn('challenges'): the sandbox until the
+// admin's switch), so production keeps POLICY above until launch, when this
+// text replaces it here, on canucklegame.ca/privacy/ and in every game's
+// privacy_policy.dart together. It also corrects where data is held: the
+// game database (Firestore) and the challenge servers are in Montréal, and
+// what's outside Canada is analytics and advertising.
+
+export const LAST_UPDATED_CHALLENGES = 'November 15, 2026';
+
+// [after: the start of the entry to insert after, entries to insert]
+const CHALLENGES_ADDITIONS = [
+  ['Canuckle automatically assigns each player a unique User ID.', [
+    ['p', 'If you choose to use friends and challenges in the Canuckle Games Arena, we first ask for your year of birth (and, if needed, your month) to confirm you are 14 or older. We do not store your date of birth: we keep only whether you are eligible. If you are under 14, that answer stays associated with your Canuckle User ID and friends and challenges remain unavailable for that User ID.', 'Friends and Challenges (optional):'],
+    ['p', 'You then choose a gamer ID. Your gamer ID is public: anyone can find out that a gamer ID is in use, and anyone who knows it can send you a friend request. Please do not use your real name or other identifying information as your gamer ID. We also keep your friends list, the friend requests you send and receive, players you block, reports you make about gamer IDs, any invite link you create (each one works for 3 days), and the challenges you take part in, including your result in each one (read from your saved game data) and your win, loss and tie records.'],
+  ]],
+  ['We may also disclose information when required by law', [
+    ['p', 'When you use friends and challenges, players you accept as friends can see your gamer ID, the challenges you play together, and your record against them. Everyone in a challenge, including players who are not your friends, can see your gamer ID and whether you have played; they see your result once they have finished that puzzle themselves, declined the challenge, or the challenge has ended. A player you send a friend request to sees your gamer ID. Your private Canuckle User ID is never shown to other players.', 'Friends and Challenges:'],
+  ]],
+  ['Information associated with your Canuckle User ID may be retained', [
+    ['p', 'Friends and challenges information is kept while you use the feature. You can delete your gamer ID, friends, friend requests and challenge history at any time with “Delete my social data” in the Arena’s Settings, which also takes you out of any challenges still in progress. Results you have already shared in finished challenges remain in the challenge history of the other players who took part; to have those removed too, please contact us. If you are under 14, the record that friends and challenges are unavailable to your User ID is kept so the age check cannot simply be retaken.'],
+  ]],
+  ['Canuckle is a general-audience word game', [
+    ['p', 'Friends and challenges, the only part of our Services where players choose a public name and can see other players’ results, are available only to players who confirm they are 14 or older.'],
+  ]],
+  ['You can manage or delete locally stored Canuckle information', [
+    ['p', 'If you use friends and challenges, you can delete that information yourself at any time with “Delete my social data” in the Arena’s Settings.'],
+  ]],
+];
+
+// [the start of the entry to replace, its replacement]
+const CHALLENGES_REPLACEMENTS = [
+  ['We do not sell or rent your personal information.', ['p', 'We do not sell or rent your personal information. Our game database, and the servers that run friends and challenges, are located in Montréal, Canada (provided by Google Cloud). Some of the information described in this Privacy Policy is stored and processed outside Canada, including in the United States, by service providers that help us operate and analyze our Services (such as Google, which provides our analytics) and by our advertising partners described in Section 4. While held outside Canada, this information is subject to the laws of the country where it is located and may be accessible to the courts, law enforcement, and national security authorities of that country.']],
+];
+
+/** The policy entries: today's, or (with [challenges]) as they'll read once friends and challenges launch. */
+export function policyEntries({ challenges = false } = {}) {
+  if (!challenges) return POLICY;
+  const out = [];
+  for (const entry of POLICY) {
+    const replaced = CHALLENGES_REPLACEMENTS.find(([start]) => entry[1].startsWith(start));
+    out.push(replaced ? replaced[1] : entry);
+    const added = CHALLENGES_ADDITIONS.find(([start]) => entry[1].startsWith(start));
+    if (added) out.push(...added[1]);
+  }
+  return out;
+}
+
 // Addresses in the text that become links.
 const LINKS = [
   [/info@canucklegame\.ca/, 'mailto:info@canucklegame.ca'],
@@ -101,10 +152,10 @@ function lines(text) {
   return text.split('\n').flatMap((line, i) => (i ? [h('br'), ...linkify(line)] : linkify(line)));
 }
 
-function policyBody() {
+function policyBody(entries) {
   const nodes = [];
   let list = null;
-  for (const [kind, text, label] of POLICY) {
+  for (const [kind, text, label] of entries) {
     if (kind === 'li') {
       if (!list) nodes.push((list = h('ul')));
       list.append(h('li', {}, ...linkify(text)));
@@ -124,9 +175,10 @@ export function openPrivacy(onBack) {
     close();
     if (onBack) onBack();
   };
+  const challenges = featureOn('challenges');
   close = openSheet(h('div', {},
     sheetHead('Privacy Policy', back),
     h('article', { class: 'policy' },
-      h('p', { class: 'muted policy-date', text: `Last updated: ${LAST_UPDATED}` }),
-      ...policyBody())), { label: 'Privacy Policy', className: 'tall', scrollHint: true });
+      h('p', { class: 'muted policy-date', text: `Last updated: ${challenges ? LAST_UPDATED_CHALLENGES : LAST_UPDATED}` }),
+      ...policyBody(policyEntries({ challenges })))), { label: 'Privacy Policy', className: 'tall', scrollHint: true });
 }

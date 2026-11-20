@@ -1,0 +1,577 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <script>
+    // Production = canucklegame.ca and its subdomains. Off it (sandbox, localhost)
+    // there are no analytics and no Yolla; ad slots show coloured placeholders.
+    // Analytics is Firebase Analytics (G-RPLYG6MC2K), started from Dart on
+    // production only -- it loads gtag.js itself, so nothing is loaded here.
+    window.CANUCKLE_PROD = /(^|\.)canucklegame\.ca$/.test(location.hostname);
+    if (!window.CANUCKLE_PROD) document.documentElement.classList.add('ad-preview');
+  </script>
+  <!--
+    DEPLOYED SHELL: the template for BOTH canuckleSite/emoku/index.html
+    (production) and the sandbox's emoku/index.html. Both deploy scripts copy
+    it over the target on every run and then stamp flutter_bootstrap.js?version=.
+    Edit it here, never in the site folders. Every production/sandbox
+    difference comes from window.CANUCKLE_PROD above.
+
+    The base href is hardcoded (the build is not given --base-href): flutter.js
+    resolves every path against document.baseURI, so this tag is what makes the
+    build work under /emoku/ on both sites.
+
+    The Yolla ad tag is NOT loaded in this page. flutter_bootstrap.js injects it
+    on production only, two seconds after runApp(), so its WebGL contexts
+    cannot starve CanvasKit's during startup.
+  -->
+  <base href="/emoku/">
+
+  <!-- Critical connection hints -->
+  <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.gstatic.com">
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="preconnect" href="https://portal.cdn.yollamedia.com" crossorigin>
+  <link rel="dns-prefetch" href="https://portal.cdn.yollamedia.com">
+
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="Content-language" content="en">
+  <meta name="googlebot" value="notranslate">
+
+  <title>Emoku - A daily emoji sudoku</title>
+  <meta name="description" content="Solve sudoku puzzles with emojis. Pick your own emoji set. 15 new puzzles are available each day.">
+  <meta name="keywords" content="sudoku, emoji, emoji sudoku, online sudoku, daily sudoku, sudoku free, sudoku puzzles, sudoku game, web sudoku, picture sudoku, 4x4 sudoku, 6x6 sudoku">
+  <meta name="author" content="Canuckle Games"/>
+  <meta name="copyright" content="Canuckle Games"/>
+  <link rel="canonical" href="https://www.canucklegame.ca/emoku/">
+
+  <!-- FB Meta Tags -->
+  <meta property="og:url" content="https://www.canucklegame.ca/emoku/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Emoku - A daily emoji sudoku">
+  <meta property="og:description" content="Solve sudoku puzzles with emojis. Pick your own emoji set. 15 new puzzles are available each day.">
+  <meta property="og:image" content="https://www.canucklegame.ca/emoku/images/emoku_og_1200x630.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://www.canucklegame.ca/emoku/images/emoku_og_1200x630.png" />
+  <meta name="theme-color" content="#6a5ae0" />
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Emoku">
+  <meta name="HandheldFriendly" content="true">
+  <link href="images/emoku_logo_192x192.png" rel="apple-touch-icon" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/emoku_logo_32x32.png"/>
+
+  <link rel="manifest" href="images/manifest.json">
+
+  <!--
+    Font preloads. pubspec.yaml declares these as "fonts/X.ttf"; the engine
+    serves them at "assets/fonts/X.ttf", which is what a URL here must use.
+    The ClearSans files are the subsets made by tools/subset_fonts.ps1; rename
+    them here too if they are ever renamed in pubspec.yaml.
+    No flutter.js <script> tag: the custom web/flutter_bootstrap.js inlines it.
+  -->
+  <link rel="preload" href="assets/fonts/ClearSans-Regular-subset.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/ClearSans-Medium-subset.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/ClearSans-Bold-subset.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="assets/fonts/MaterialIcons-Regular.otf" as="font" type="font/otf" crossorigin>
+
+  <style>
+    div.loadingscreen {
+      width: 80%;
+      height: 80px;
+      padding-top: 33vh;
+      margin: 0 auto;
+    }
+    div.canuckle {
+      width: 100%;
+      height: 50%;
+      margin: 0 auto;
+      transform: translate(23%, 0%);
+    }
+    div.canuckleletterbg {
+      width: 10%;
+      aspect-ratio: 1/1;
+      background: #6a5ae0;
+      border-radius: 10%;
+      display: inline-block;
+      text-align: center;
+      color: #fff;
+    }
+    div.canuckleletter {
+      width: 80%;
+      aspect-ratio: 1/1;
+      margin-top: 10%;
+      display: inline-block;
+      font-size: min(6.25vmin, 32.0px);
+      font-family: sans-serif;
+      color: #fff;
+    }
+    div.loading {
+      width: 100%;
+      height: 50%;
+      margin: 0 auto;
+      transform: translate(19.5%, 30%);
+    }
+    div.loadingletterbg {
+      width: 8%;
+      aspect-ratio: 1/1;
+      background: #000;
+      border-radius: 10%;
+      transform: translate(0%, 10%);
+      display: inline-block;
+      text-align: center;
+      animation-name: jump-animation;
+      animation-duration: 0.5s;
+      animation-iteration-count: 30;
+    }
+    div.loadingletter {
+      width: 80%;
+      aspect-ratio: 1/1;
+      margin-top: 20%;
+      display: inline-block;
+      font-size: min(4vmin, 22.0px);
+      font-family: sans-serif;
+      color: #fff;
+    }
+    div.bg {
+      z-index: 1;
+      height: 100vh;
+      width: 100vw;
+      background: #ddd;
+    }
+    div.game {
+      z-index: 3;
+      height: 100vh;
+      width: 100vw;
+      max-width: 600px;
+      display: block;
+      margin: 0 auto; 
+    }
+    div.adbox_1 {
+      z-index: 1000000;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_2 {
+      z-index: 1000000;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_3 {
+      z-index: 1000000;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_4 {
+      z-index: 1000000;
+      align-items: center;
+      margin-top: 98px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_5 {
+      z-index: 1000000;
+      height: 90px;
+      align-items: center;
+      width: 100vw;
+      display: block;
+      max-width: 970px;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 4px;
+      padding-bottom: 4px;
+      margin: auto;
+      position: relative;
+    }
+    div.adbox_6 {
+      z-index: 99999;
+      align-items: center;
+      margin-top: 0px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.adbox_7 {
+      z-index: 99999;
+      align-items: center;
+      margin-top: 0px;
+      display: flex;
+      height: calc(100vh - 98px);
+      justify-content: center;
+      position: absolute;
+      width: calc(50vw - 300px);
+      overflow: hidden; 
+    }
+    div.mobileadbox {
+      z-index: 1000000;
+      height: 50px;
+      width: 100vw;
+      display: block;
+      position: absolute;
+      max-width: 728px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    div.mobileadbox_2 {
+      z-index: 1000000;
+      height: 100px;
+      width: 100vw;
+      display: block;
+      position: absolute;
+      max-width: 728px;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+    div.adbox_1:nth-child(3) {
+      left: 0;
+    }
+    div.adbox_1:nth-child(4) {
+      right: 0;
+    }
+    div.adbox_2:nth-child(5) {
+      left: 0;
+    }
+    div.adbox_2:nth-child(6) {
+      right: 0;
+    }
+    div.adbox_3:nth-child(7) {
+      left: 0;
+    }
+    div.adbox_3:nth-child(8) {
+      right: 0;
+    }
+    div.adbox_4:nth-child(9) {
+      left: 0;
+    }
+    div.adbox_4:nth-child(10) {
+      right: 0;
+    }
+    div.adbox_6:nth-child(12) {
+      left: 0;
+    }
+    div.adbox_7:nth-child(13) {
+      right: 0;
+    }
+
+    @keyframes jump-animation {
+      0%   {transform: translate(0%, 10%)}
+      50%  {transform: translate(0%, 0%)}
+      100% {transform: translate(0%, 10%)}
+    }
+    @media screen and (min-width: 728px) {
+      div.mobileadbox {
+        display: none;
+      }
+      div.mobileadbox_2 {
+        display: none;
+      }
+    }
+    @media screen and (min-height: 650px) {
+      div.mobileadbox {
+        display: none;
+      }
+    }
+    @media screen and (max-height: 649px) {
+      div.mobileadbox_2 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 728px) {
+      div.adbox_5 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 920px), screen and (max-height: 690px) {
+      div.adbox_1 {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1200px) {
+      div.adbox_1 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 1200px), screen and (max-height: 250px) {
+      div.adbox_2 {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1272px) and (min-height: 280px) {
+      div.adbox_2 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 1272px), screen and (max-height: 280px) {
+      div.adbox_3 {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1272px) and (min-height: 690px) {
+      div.adbox_3 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 1272px), screen and (max-height: 690px) {
+      div.adbox_4 {
+        display: none;
+      }
+    }
+    @media screen and (min-width: 1400px) {
+      div.adbox_4 {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 1400px), screen and (max-height: 690px) {
+      div.adbox_6 {
+        display: none;
+      }
+      div.adbox_7 {
+        display: none;
+      }
+    }
+
+    /* Off production (sandbox/localhost): show where ads go. */
+    html.ad-preview div.adbox_1 { background-color: green; }
+    html.ad-preview div.adbox_2 { background-color: blue; }
+    html.ad-preview div.adbox_3 { background-color: yellow; }
+    html.ad-preview div.adbox_4,
+    html.ad-preview div.adbox_7 { background-color: orange; }
+    html.ad-preview div.adbox_5 { background-color: purple; }
+    html.ad-preview div.adbox_6 { background-color: red; }
+    html.ad-preview div.mobileadbox { background-color: red; }
+    html.ad-preview div.mobileadbox_2 { background-color: green; }
+
+    /* Loading screen: hidden on Flutter's first frame (it sits under the
+       canvas, so this mostly stops the animation). */
+    div.loadingscreen.dom-hidden { display: none; }
+
+    /* Shown only if the engine never starts, or WebGL is lost for good.
+       Fixed and above everything (ad slots are z-index 1000000), because by
+       then the Flutter canvas may already cover the loading screen. */
+    #dom-error {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000000;
+      background: #ddd;
+      font-family: sans-serif;
+      color: #000;
+      text-align: center;
+      padding-top: 33vh;
+    }
+    #dom-error.dom-shown { display: block; }
+    #dom-error button {
+      margin-top: 14px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #6a5ae0;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div class="mobileadbox">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x50">
+      </div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x50">
+      </div>
+    </div>
+    <div class="mobileadbox_2">
+      <div class="ympb_target" data-type="mobile-medrec-template" data-subtype="320x100">
+      </div>
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="320x100">
+      </div>
+    </div>
+    <div class="adbox_1">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600">
+      </div>
+    </div>
+    <div class="adbox_1">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600">
+      </div>
+    </div>
+    <div class="adbox_2">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250">
+      </div>
+    </div>
+    <div class="adbox_2">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250">
+      </div>
+    </div>
+    <div class="adbox_3">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280">
+      </div>
+    </div>
+    <div class="adbox_3">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="300x250, 336x280">
+      </div>
+    </div>
+    <div class="adbox_4">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600">
+      </div>
+    </div>
+    <div class="adbox_4">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600">
+      </div>
+    </div>
+    <div class="adbox_5">
+      <div class="ympb_target" data-type="desktop-leaderboard-template" data-subtype="728x90, 970x90">
+      </div>
+    </div>
+    <div class="adbox_6">
+      <div class="ympb_target_companion" data-type="desktop-medrec-template" data-subtype="400x600">
+      </div>
+    </div>
+    <div class="adbox_7">
+      <div class="ympb_target" data-type="desktop-medrec-template" data-subtype="160x600, 300x250, 336x280, 300x600">
+      </div>
+    </div>
+    <div class="game">
+      <div class="loadingscreen" id="dom-loading" title="Emoku Loading Screen">
+        <div class="canuckle">
+          <div class="canuckleletterbg" style="background: #e8453c">
+            <div class="canuckleletter">
+              E
+            </div>
+          </div>
+          <div class="canuckleletterbg" style="background: #f2b705">
+            <div class="canuckleletter">
+              M
+            </div>
+          </div>
+          <div class="canuckleletterbg" style="background: #2fa84f">
+            <div class="canuckleletter">
+              O
+            </div>
+          </div>
+          <div class="canuckleletterbg" style="background: #2f80ed">
+            <div class="canuckleletter">
+              K
+            </div>
+          </div>
+          <div class="canuckleletterbg" style="background: #8e44ad">
+            <div class="canuckleletter">
+              U
+            </div>
+          </div>
+        </div>
+        <div class="loading">
+          <div class="loadingletterbg" style="animation-delay: 0s">
+            <div class="loadingletter">
+              L
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.1s">
+            <div class="loadingletter">
+              O
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.2s">
+            <div class="loadingletter">
+              A
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.3s">
+            <div class="loadingletter">
+              D
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.4s">
+            <div class="loadingletter">
+              I
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.5s">
+            <div class="loadingletter">
+              N
+            </div>
+          </div>
+          <div class="loadingletterbg" style="animation-delay: 0.6s">
+            <div class="loadingletter">
+              G
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="dom-error" role="alert">
+        <div>Couldn't load Emoku.</div>
+        <button type="button" onclick="window.location.reload()">Reload</button>
+      </div>
+      <script>
+        window.__domHideLoading = function () {
+          var el = document.getElementById('dom-loading');
+          if (el) el.classList.add('dom-hidden');
+        };
+        window.__domShowError = function () {
+          var el = document.getElementById('dom-error');
+          if (el) el.classList.add('dom-shown');
+        };
+        window.addEventListener('flutter-first-frame', window.__domHideLoading);
+
+        // WebGL context loss, as in Canuckle and Canoggle: ad iframes can
+        // exhaust the browser's WebGL context budget (seen on Chrome for iOS)
+        // and CanvasKit loses its own, leaving a blank canvas with no error.
+        // The browser often restores the context within a second or two, so
+        // wait before offering a reload.
+        (function () {
+          var timer = null;
+          window.addEventListener('webglcontextlost', function (e) {
+            console.warn('Emoku: WebGL context lost', e);
+            if (timer) return;
+            timer = setTimeout(function () { window.__domShowError(); }, 4000);
+          }, true);
+          window.addEventListener('webglcontextrestored', function () {
+            if (timer) { clearTimeout(timer); timer = null; }
+          }, true);
+        })();
+      </script>
+      <!-- Emoku is not in the Games Arena, so no arena "next up" script: its
+           stats sheet links to /arena/ as "Other games by Canuckle". -->
+      <!-- The ?version= stamp is rewritten by both deploy scripts on every
+           deploy. Do not remove the query string: the scripts warn if they
+           cannot find it, and without it returning visitors can keep a stale
+           bootstrap (and so a stale main.dart.js?v=). -->
+      <script src="flutter_bootstrap.js?version=202611200025" async></script>
+    </div>
+  </div>
+</body>
+</html>
