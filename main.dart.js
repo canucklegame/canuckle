@@ -9258,7 +9258,7 @@ h.a=h.a+("\n["+Date.now()+"] - "+f)
 A.mJ().$1("\n["+Date.now()+"] - "+f)
 l=m.jb()
 if(l!=null){k=new A.ahE(l.h(0,"version"))
-h=k.a==="Version 4.1.0"
+h=k.a==="Version 4.1.1"
 q=h
 s=1
 break}q=!0
@@ -51384,7 +51384,7 @@ ez(a,b){var s,r,q,p,o,n,m,l,k
 try{o=A.n(t.N,t.K)
 o.l(0,"game","canuckle")
 o.A(0,b)
-o.l(0,"version","Version 4.1.0")
+o.l(0,"version","Version 4.1.1")
 s=o
 r=null
 if(r!=null){r.$2(a,s)
@@ -57095,7 +57095,7 @@ n.push(B.b7)
 n.push(new A.e0(!0,r,h))
 return A.b6(h,i.Ic(A.aR(n,B.aj,B.k,B.m)),!1,h,h,!1,!1,h,h,h,h,h,h,h,h,"Linked Email "+e+", (Only used for account recovery purposes.)",h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h,h)},
 aaB(a){var s=this,r=null,q="Sync to another User ID",p="Privacy Policy",o=A.d5(A.S($.D?4289242270:4284373847),1.3,13),n=s.gZP(),m=t.p
-return new A.uq("Settings",r,new A.j8(B.eC,n,"Close settings",40,r),A.aR(A.a([s.vs("Display",A.a([s.aoO("Dark Theme",new A.auX(s),"Dark theme",$.D),s.Ao("For improved colour vision","High Contrast Mode",new A.auY(s),"High contrast mode, for improved colour vision",$.c1),s.Ao("The burst of maple leaves when you solve the puzzle","Celebrate a solve",new A.auZ(s),"Celebrate a solve, the burst of maple leaves when you solve the puzzle",$.pm),s.adC()],m)),B.hP,s.vs("Gameplay",A.a([s.Ao("Revealed hints must be used in subsequent guesses","Hard Mode",new A.av_(s),"Hard mode, any revealed hints must be used in subsequent guesses",$.kD)],m)),B.hP,s.vs("Account",A.a([s.apS(),s.aiD(),s.aiC("Use your progress from another device",q,new A.av0(),q)],m)),B.hP,s.vs("Support",A.a([s.Ho("Tips on Ko-fi keep the games free",A.dB("assets/kofi.svg",r,r,r,r,28),"Buy Canuckle a coffee",new A.av1(),"Buy Canuckle a coffee on Ko-fi")],m)),B.hP,s.vs("Feedback",A.a([s.Ho("info@canucklegame.ca",new A.eo(B.GN,22,A.eO(),2.2,r),"Email",s.ga4H(),"Email Canuckle")],m)),B.hQ,A.aR(A.a([A.j5(15,38,r,p,B.a6x,new A.av2(s,a),B.ql,p,B.ce,r),B.cD,B.CT,B.d0,new A.Cx(n,r),B.bB,A.b6(r,A.aR(A.a([A.a1("Canuckle "+"Version 4.1.0".toLowerCase(),r,r,r,r,o,r,r),B.b7,A.a1("\xa9 2026 Canuckle Games",r,r,r,r,o,r,r)],m),B.o,B.k,B.m),!1,r,r,!0,!1,r,r,r,r,r,r,r,r,"Canuckle "+"Version 4.1.0".toLowerCase()+"\n\xa9 2026 Canuckle Games",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r)],m),B.o,B.k,B.m)],m),B.aj,B.k,B.m),n,r)}}
+return new A.uq("Settings",r,new A.j8(B.eC,n,"Close settings",40,r),A.aR(A.a([s.vs("Display",A.a([s.aoO("Dark Theme",new A.auX(s),"Dark theme",$.D),s.Ao("For improved colour vision","High Contrast Mode",new A.auY(s),"High contrast mode, for improved colour vision",$.c1),s.Ao("The burst of maple leaves when you solve the puzzle","Celebrate a solve",new A.auZ(s),"Celebrate a solve, the burst of maple leaves when you solve the puzzle",$.pm),s.adC()],m)),B.hP,s.vs("Gameplay",A.a([s.Ao("Revealed hints must be used in subsequent guesses","Hard Mode",new A.av_(s),"Hard mode, any revealed hints must be used in subsequent guesses",$.kD)],m)),B.hP,s.vs("Account",A.a([s.apS(),s.aiD(),s.aiC("Use your progress from another device",q,new A.av0(),q)],m)),B.hP,s.vs("Support",A.a([s.Ho("Tips on Ko-fi keep the games free",A.dB("assets/kofi.svg",r,r,r,r,28),"Buy Canuckle a coffee",new A.av1(),"Buy Canuckle a coffee on Ko-fi")],m)),B.hP,s.vs("Feedback",A.a([s.Ho("info@canucklegame.ca",new A.eo(B.GN,22,A.eO(),2.2,r),"Email",s.ga4H(),"Email Canuckle")],m)),B.hQ,A.aR(A.a([A.j5(15,38,r,p,B.a6x,new A.av2(s,a),B.ql,p,B.ce,r),B.cD,B.CT,B.d0,new A.Cx(n,r),B.bB,A.b6(r,A.aR(A.a([A.a1("Canuckle "+"Version 4.1.1".toLowerCase(),r,r,r,r,o,r,r),B.b7,A.a1("\xa9 2026 Canuckle Games",r,r,r,r,o,r,r)],m),B.o,B.k,B.m),!1,r,r,!0,!1,r,r,r,r,r,r,r,r,"Canuckle "+"Version 4.1.1".toLowerCase()+"\n\xa9 2026 Canuckle Games",r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r,r)],m),B.o,B.k,B.m)],m),B.aj,B.k,B.m),n,r)}}
 A.avm.prototype={
 $1(a){var s=this.a.r
 s===$&&A.b()
