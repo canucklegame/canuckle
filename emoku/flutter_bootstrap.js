@@ -55,7 +55,7 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"deb287481e3ce9468f3434937ced4240a70539ca","wasmHashes":{"canvaskit.wasm":"fbed517a43e82452404446683f00f2e876d835aed84410695759e67b6bb01cd3","chromium/canvaskit.wasm":"ae8ff1d858140f7b1300ced3fa89fb8c9dce0a400a0f4f1e11f6dcfb3315fdcf","skwasm.wasm":"e540fd5e8303b7b68ec2718cb49e9c421f8ade3075b15e02a7059a62654df9a1","skwasm_heavy.wasm":"565f5cc1cca6ab120f11934b105f01fec4b58b480c82e0889dca93af8e6f8635","webparagraph/canvaskit.wasm":"0ce1b05082efdc8529550e8a01f6ff0593972d55525035010e26f5600aa9f254","wimp.wasm":"e924eaafd801d41e017d178f3fd5cf8a417f641fe35c9ed34a4e1d7582283e0c"},"builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202611201857"},{}]};
+_flutter.buildConfig = {"engineRevision":"deb287481e3ce9468f3434937ced4240a70539ca","wasmHashes":{"canvaskit.wasm":"fbed517a43e82452404446683f00f2e876d835aed84410695759e67b6bb01cd3","chromium/canvaskit.wasm":"ae8ff1d858140f7b1300ced3fa89fb8c9dce0a400a0f4f1e11f6dcfb3315fdcf","skwasm.wasm":"e540fd5e8303b7b68ec2718cb49e9c421f8ade3075b15e02a7059a62654df9a1","skwasm_heavy.wasm":"565f5cc1cca6ab120f11934b105f01fec4b58b480c82e0889dca93af8e6f8635","webparagraph/canvaskit.wasm":"0ce1b05082efdc8529550e8a01f6ff0593972d55525035010e26f5600aa9f254","wimp.wasm":"e924eaafd801d41e017d178f3fd5cf8a417f641fe35c9ed34a4e1d7582283e0c"},"builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202611251311"},{}]};
 
 
 // Local development: no service worker, no fatal-error timeout (a debug build
@@ -75,7 +75,6 @@ const AD_TAG_URL =
 const FALLBACK_TIMEOUT_MS = 9000;  // when to probe gstatic reachability
 const ERROR_TIMEOUT_MS = 60000;   // when to give up and show the error UI
 const AD_INJECT_DELAY_MS = 2000;  // grace period after runApp()
-const SW_REGISTER_DELAY_MS = 5000; // see registerServiceWorker()
 
 let entrypointHandled = false;
 let fallbackStarted = false;
@@ -90,24 +89,11 @@ function hideLoadingScreen() {
 
 // -- Service worker -----------------------------------------------------------
 //
-// The deployed flutter_service_worker.js is Flutter's own self-unregistering
-// cleanup worker (the deploy scripts copy it from the build, as Canuckle's do),
-// as Canoku's is: Emoku never had a caching worker, so there is nothing to
-// drop, but it keeps the two games' setups the same. Registered directly, not through the deprecated
-// serviceWorkerSettings (which made the loader wait for it), and only after
-// the game is running.
-//
-// The path is RELATIVE on purpose: it resolves against <base href="/emoku/">
-// to /emoku/flutter_service_worker.js with scope /emoku/. A leading slash would register the site ROOT's worker
-// (Canuckle's) from this page.
-function registerServiceWorker() {
-  if (IS_LOCAL_DEV || !('serviceWorker' in navigator)) return;
-  setTimeout(function () {
-    navigator.serviceWorker.register('flutter_service_worker.js?v=2977309033') /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */.catch(function (err) {
-      console.warn('Emoku: service worker registration failed:', err);
-    });
-  }, SW_REGISTER_DELAY_MS);
-}
+// None is registered, as in Canoku and Canuckle. The deployed
+// flutter_service_worker.js is Flutter's self-unregistering cleanup worker
+// (the deploy scripts copy it from the build); Emoku never had a caching
+// worker, so there is nothing to drop. Registering it on every load only made
+// each visit fetch the script again for it to remove itself.
 
 async function runEntrypoint(engineInitializer) {
   if (entrypointHandled) return;
@@ -133,8 +119,6 @@ async function runEntrypoint(engineInitializer) {
         document.head.appendChild(s);
       }, AD_INJECT_DELAY_MS);
     }
-
-    registerServiceWorker();
   } catch (err) {
     console.error('Emoku: engine init / runApp failed:', err);
     showFatalError();

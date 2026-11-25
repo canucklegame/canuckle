@@ -134,10 +134,21 @@
     },
     {
       "source": "/flutter_bootstrap.js",
+      "missing": [{ "type": "query", "key": "version" }],
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/flutter_bootstrap.js",
+      "has": [{ "type": "query", "key": "version" }],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -161,6 +172,7 @@
     },
     {
       "source": "/data/:path*",
+      "missing": [{ "type": "query", "key": "v" }],
       "headers": [
         {
           "key": "Cache-Control",
@@ -169,20 +181,48 @@
       ]
     },
     {
-      "source": "/images/:path*",
+      "source": "/data/:path*",
+      "has": [{ "type": "query", "key": "v" }],
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
     {
-      "source": "/(index.html|manifest.json|version.json)",
+      "source": "/(favicon.ico|apple-touch-icon.png|apple-touch-icon-precomposed.png)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/images/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    },
+    {
+      "source": "/(index.html|version.json)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
         }
       ]
     },
@@ -206,10 +246,21 @@
     },
     {
       "source": "/canoku/flutter_bootstrap.js",
+      "missing": [{ "type": "query", "key": "version" }],
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/flutter_bootstrap.js",
+      "has": [{ "type": "query", "key": "version" }],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -227,16 +278,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=604800"
         }
       ]
     },
     {
-      "source": "/canoku/(index.html|manifest.json|version.json)",
+      "source": "/canoku/(index.html|version.json)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
         }
       ]
     },
@@ -269,10 +329,21 @@
     },
     {
       "source": "/canoku/brainhealth/flutter_bootstrap.js",
+      "missing": [{ "type": "query", "key": "version" }],
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/brainhealth/flutter_bootstrap.js",
+      "has": [{ "type": "query", "key": "version" }],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -290,16 +361,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=604800"
         }
       ]
     },
     {
-      "source": "/canoku/brainhealth/(index.html|manifest.json|version.json)",
+      "source": "/canoku/brainhealth/(index.html|version.json)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/canoku/brainhealth/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
         }
       ]
     },
@@ -323,10 +403,21 @@
     },
     {
       "source": "/emoku/flutter_bootstrap.js",
+      "missing": [{ "type": "query", "key": "version" }],
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/emoku/flutter_bootstrap.js",
+      "has": [{ "type": "query", "key": "version" }],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -344,16 +435,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=604800"
         }
       ]
     },
     {
-      "source": "/emoku/(index.html|manifest.json|version.json)",
+      "source": "/emoku/(index.html|version.json)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/emoku/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
         }
       ]
     },
@@ -457,10 +557,21 @@
     },
     {
       "source": "/canolitaire/flutter_bootstrap.js",
+      "missing": [{ "type": "query", "key": "version" }],
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/canolitaire/flutter_bootstrap.js",
+      "has": [{ "type": "query", "key": "version" }],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -487,16 +598,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=604800"
         }
       ]
     },
     {
-      "source": "/canolitaire/(index.html|manifest.json|version.json)",
+      "source": "/canolitaire/(index.html|version.json)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/canolitaire/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
         }
       ]
     },
@@ -529,10 +649,21 @@
     },
     {
       "source": "/canominoes/flutter_bootstrap.js",
+      "missing": [{ "type": "query", "key": "version" }],
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/canominoes/flutter_bootstrap.js",
+      "has": [{ "type": "query", "key": "version" }],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -559,16 +690,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=604800"
         }
       ]
     },
     {
-      "source": "/canominoes/(index.html|manifest.json|version.json)",
+      "source": "/canominoes/(index.html|version.json)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/canominoes/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
         }
       ]
     },
@@ -601,10 +741,21 @@
     },
     {
       "source": "/canoggle/flutter_bootstrap.js",
+      "missing": [{ "type": "query", "key": "version" }],
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/canoggle/flutter_bootstrap.js",
+      "has": [{ "type": "query", "key": "version" }],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -631,16 +782,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=604800"
         }
       ]
     },
     {
-      "source": "/canoggle/(index.html|manifest.json|version.json)",
+      "source": "/canoggle/(index.html|version.json)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/canoggle/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
         }
       ]
     },
@@ -673,10 +833,21 @@
     },
     {
       "source": "/canagrams/flutter_bootstrap.js",
+      "missing": [{ "type": "query", "key": "version" }],
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=3600"
+        }
+      ]
+    },
+    {
+      "source": "/canagrams/flutter_bootstrap.js",
+      "has": [{ "type": "query", "key": "version" }],
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
         }
       ]
     },
@@ -703,16 +874,25 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=86400"
+          "value": "public, max-age=604800"
         }
       ]
     },
     {
-      "source": "/canagrams/(index.html|manifest.json|version.json)",
+      "source": "/canagrams/(index.html|version.json)",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/canagrams/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
         }
       ]
     },

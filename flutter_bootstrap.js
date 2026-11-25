@@ -53,14 +53,15 @@ addEventListener("message", eventListener);
 if (!window._flutter) {
   window._flutter = {};
 }
-_flutter.buildConfig = {"engineRevision":"deb287481e3ce9468f3434937ced4240a70539ca","wasmHashes":{"canvaskit.wasm":"fbed517a43e82452404446683f00f2e876d835aed84410695759e67b6bb01cd3","chromium/canvaskit.wasm":"ae8ff1d858140f7b1300ced3fa89fb8c9dce0a400a0f4f1e11f6dcfb3315fdcf","skwasm.wasm":"e540fd5e8303b7b68ec2718cb49e9c421f8ade3075b15e02a7059a62654df9a1","skwasm_heavy.wasm":"565f5cc1cca6ab120f11934b105f01fec4b58b480c82e0889dca93af8e6f8635","webparagraph/canvaskit.wasm":"0ce1b05082efdc8529550e8a01f6ff0593972d55525035010e26f5600aa9f254","wimp.wasm":"e924eaafd801d41e017d178f3fd5cf8a417f641fe35c9ed34a4e1d7582283e0c"},"builds":[{"compileTarget":"dart2wasm","renderer":"skwasm","mainWasmPath":"main.dart.wasm?v=202611200144","jsSupportRuntimePath":"main.dart.mjs?v=202611200144"},{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202611200144"}]};
+_flutter.buildConfig = {"engineRevision":"deb287481e3ce9468f3434937ced4240a70539ca","wasmHashes":{"canvaskit.wasm":"fbed517a43e82452404446683f00f2e876d835aed84410695759e67b6bb01cd3","chromium/canvaskit.wasm":"ae8ff1d858140f7b1300ced3fa89fb8c9dce0a400a0f4f1e11f6dcfb3315fdcf","skwasm.wasm":"e540fd5e8303b7b68ec2718cb49e9c421f8ade3075b15e02a7059a62654df9a1","skwasm_heavy.wasm":"565f5cc1cca6ab120f11934b105f01fec4b58b480c82e0889dca93af8e6f8635","webparagraph/canvaskit.wasm":"0ce1b05082efdc8529550e8a01f6ff0593972d55525035010e26f5600aa9f254","wimp.wasm":"e924eaafd801d41e017d178f3fd5cf8a417f641fe35c9ed34a4e1d7582283e0c"},"builds":[{"compileTarget":"dart2wasm","renderer":"skwasm","mainWasmPath":"main.dart.wasm?v=202611251309","jsSupportRuntimePath":"main.dart.mjs?v=202611251309"},{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js?v=202611251309"}]};
 
 
-// Register SW directly -- not through Flutter's deprecated serviceWorkerSettings.
-// Browsers auto-detect updates by comparing new vs cached SW bytes on each visit.
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/flutter_service_worker.js');
-}
+// No service worker is registered. The deployed flutter_service_worker.js is
+// Flutter's self-unregistering clean-up worker: registering it on every load
+// only made each visit fetch it (browsers never take a service worker script
+// from the HTTP cache) -- ~85K Vercel requests a day -- for it to install and
+// remove itself again. It stays deployed so a browser still holding an old
+// worker gets it on that worker's own update check and drops it.
 
 // -- Engine bootstrap with gstatic-fallback, timeout, and error UI --
 

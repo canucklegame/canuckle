@@ -42,6 +42,10 @@
 
   <title>Canuckle - A daily Canadian word game</title>
   <meta name="description" content="Guess the hidden word in 6 tries. A new puzzle is available each day.">
+  <!-- The dictionaries' version stamps, filled in by deploy_dictionary.ps1:
+       words.dart fetches data/words.json?v=<stamp>, which Vercel serves as
+       immutable. Leave content empty here. -->
+  <meta name="canuckle-data" content="words.json=a6598852405f;words_plus.json=3e874f2ba36a">
   <link rel="canonical" href="https://www.canucklegame.ca/">
 
   <!-- FB Meta Tags -->
@@ -646,8 +650,8 @@
              Root-relative: /arena/ is a sibling on both sites. arenaEmbedded tells it
              this page handles ?sandboxOffsetWeeks itself. -->
         <script>window.arenaEmbedded = true;</script>
-        <script type="module" src="/arena/js/nextUp.js?v=2"></script>
-        <script src="flutter_bootstrap.js?version=202611200144" async></script>
+        <script type="module" src="/arena/js/nextUp-1d7897488e.js"></script>
+        <script src="flutter_bootstrap.js?version=202611251309" async></script>
     </div>
   </div>
 </body>
