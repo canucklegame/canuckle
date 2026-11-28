@@ -443,8 +443,9 @@ main { padding: 20px 0 64px; }
 .today-wrap:hover .fav-star { transform: translateY(-2px); }
 .fav-star {
   position: absolute;
-  top: 15px;
-  left: 15px;
+  /* Under the name: card padding 18 + the name's 26px line + 6. */
+  top: 50px;
+  left: 18px; /* in line with the name */
   width: 32px;
   height: 32px;
   padding: 0;
@@ -460,7 +461,20 @@ main { padding: 20px 0 64px; }
 }
 .fav-star .icon { width: 18px; height: 18px; }
 .fav-star[aria-pressed="true"] { color: var(--accent-text); }
-.today-wrap .tc-name { padding-left: 38px; }
+/* The name goes on its own line above the star (and the challenge button),
+   beside the logo, so it never shares a line with them and is never cut off.
+   The buttons sit in the room left under it (their top is set to clear it),
+   and the blurb runs the card's full width under the logo. A grid, with
+   tc-text unwrapped, so the name and blurb can sit in different rows. */
+.today-wrap .tc-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 12px;
+}
+.today-wrap .tc-text { display: contents; }
+.today-wrap .tc-name { grid-column: 1; grid-row: 1; margin-bottom: 40px; }
+.today-wrap .tc-logo { grid-column: 2; grid-row: 1; }
+.today-wrap .tc-blurb { grid-column: 1 / -1; grid-row: 2; }
 @media (prefers-reduced-motion: reduce) {
   .fav-star { transition: none; }
 }
@@ -542,8 +556,9 @@ main { padding: 20px 0 64px; }
 }
 
 .today-card {
-  /* 340, not 310: room for "Canuckle Duo" on one line beside the star and
-     the logo. Phones still cap it so the next card peeks in. */
+  /* 340, not 310: room for the blurb beside nothing but the card's edges
+     (the name sits under the star, beside the logo). Phones still cap it so
+     the next card peeks in. */
   width: min(340px, calc(100vw - 76px));
   padding: 18px;
   display: flex;
@@ -555,15 +570,11 @@ main { padding: 20px 0 64px; }
 .tc-name { font: 800 25px/1.05 var(--display); letter-spacing: -0.03em; }
 /* Below 416px wide the card narrows with the screen (100vw - 76px), so the name
    shrinks with it to stay on one line. Its room is the card less the padding,
-   the logo, the gap and the star: 100vw - 228px. The longest name, "Canuckle
-   Duo", is about 6.9em wide in Sora 800. Every card shrinks alike. */
+   the logo and the gap: 100vw - 190px (the star no longer shares its line).
+   The longest name, "Canuckle Duo", is about 6.9em wide in Sora 800. Every
+   card shrinks alike. No ellipsis: a name too long for that wraps instead. */
 @media (max-width: 415px) {
-  .tc-name {
-    font-size: clamp(16px, calc((100vw - 228px) / 6.9), 25px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+  .tc-name { font-size: clamp(16px, calc((100vw - 190px) / 6.9), 25px); }
 }
 .tc-blurb { font-size: 14px; line-height: 1.35; margin-top: 6px; color: var(--muted); }
 .tc-logo { width: 66px; height: 66px; flex: none; }
@@ -1630,8 +1641,8 @@ a.week-band:hover { border-color: var(--muted); color: var(--text); }
    one-time promotion card */
 .challenge-btn {
   position: absolute;
-  top: 15px;
-  left: 53px;
+  top: 50px; /* level with the star, under the name */
+  left: 56px;
   width: 32px;
   height: 32px;
   padding: 0;
@@ -1647,7 +1658,6 @@ a.week-band:hover { border-color: var(--muted); color: var(--text); }
 .challenge-btn .icon { width: 18px; height: 18px; }
 .challenge-btn:hover { color: var(--text); }
 .today-wrap:hover .challenge-btn { transform: translateY(-2px); }
-.today-wrap.has-challenge .tc-name { padding-left: 76px; }
 @media (prefers-reduced-motion: reduce) { .challenge-btn { transition: none; } }
 
 .tab-new {
